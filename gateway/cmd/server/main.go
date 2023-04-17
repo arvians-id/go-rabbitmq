@@ -2,8 +2,9 @@ package main
 
 import (
 	"fmt"
-	"github.com/arvians-id/go-rabbitmq/gateway/api/user/handler"
 	"log"
+
+	"github.com/arvians-id/go-rabbitmq/gateway/api/user/handler"
 
 	"github.com/arvians-id/go-rabbitmq/gateway/cmd/config"
 	"github.com/gofiber/fiber/v2"
@@ -23,7 +24,7 @@ func main() {
 		return c.SendString("Welcome to my API Todo List")
 	})
 
-	handler.NewUserController(app, configuration)
+	handler.NewUserHandler(app, configuration)
 
 	port := fmt.Sprintf(":%s", configuration.Get("APP_PORT"))
 	err := app.Listen(port)

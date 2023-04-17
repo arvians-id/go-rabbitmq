@@ -1,1 +1,17 @@
 package user
+
+import (
+	"github.com/arvians-id/go-rabbitmq/gateway/api/user/handler"
+	"github.com/arvians-id/go-rabbitmq/gateway/cmd/config"
+	"github.com/gofiber/fiber/v2"
+)
+
+func NewUserRoute(c fiber.Router, configuration config.Config) {
+	userHandler := handler.NewUserHandler(configuration)
+
+	c.Get("/users", userHandler.FindAll)
+	c.Get("/users/:id", userHandler.FindByID)
+	c.Post("/users", userHandler.Create)
+	c.Patch("/users/:id", userHandler.Update)
+	c.Delete("/users/:id", userHandler.Delete)
+}

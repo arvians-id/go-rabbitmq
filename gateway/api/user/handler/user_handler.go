@@ -4,9 +4,9 @@ import (
 	"github.com/arvians-id/go-rabbitmq/gateway/api/user/request"
 	"log"
 
+	"github.com/arvians-id/go-rabbitmq/gateway/api/user/pb"
 	"github.com/arvians-id/go-rabbitmq/gateway/cmd/config"
 	"github.com/arvians-id/go-rabbitmq/gateway/helper"
-	"github.com/arvians-id/go-rabbitmq/gateway/pb"
 	"github.com/arvians-id/go-rabbitmq/gateway/response"
 	"github.com/gofiber/fiber/v2"
 	"google.golang.org/grpc"

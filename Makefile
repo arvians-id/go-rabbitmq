@@ -8,6 +8,5 @@ make-migrate-table:
 	migrate create -ext sql -dir database/postgres/migrations -seq ${table}
 
 make-pb:
-	protoc --go_out=./ --go_opt=paths=source_relative --go-grpc_out=./ --go-grpc_opt=paths=source_relative ./user/pb/*.proto
-	protoc --go_out=./ --go_opt=paths=source_relative --go-grpc_out=./ --go-grpc_opt=paths=source_relative ./todo/pb/*.proto
-	protoc --go_out=./ --go_opt=paths=source_relative --go-grpc_out=./ --go-grpc_opt=paths=source_relative ./gateway/pb/*.proto
+	protoc --go_out=./ --go_out=./gateway/api/ --go_opt=paths=source_relative --go-grpc_out=./ --go-grpc_out=./gateway/api/ --go-grpc_opt=paths=source_relative ./user/pb/*.proto
+	protoc --go_out=./ --go_out=./gateway/api/ --go_opt=paths=source_relative --go-grpc_out=./ --go-grpc_out=./gateway/api/ --go-grpc_opt=paths=source_relative ./todo/pb/*.proto

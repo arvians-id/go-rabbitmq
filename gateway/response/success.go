@@ -7,8 +7,7 @@ import (
 )
 
 func ReturnSuccessOK(c *fiber.Ctx, status string, data interface{}) error {
-	c.Status(http.StatusOK)
-	return c.JSON(WebResponse{
+	return c.Status(http.StatusOK).JSON(WebResponse{
 		Code:   http.StatusOK,
 		Status: status,
 		Data:   data,
@@ -16,8 +15,7 @@ func ReturnSuccessOK(c *fiber.Ctx, status string, data interface{}) error {
 }
 
 func ReturnSuccessCreated(c *fiber.Ctx, status string, data interface{}) error {
-	c.Status(http.StatusCreated)
-	return c.JSON(WebResponse{
+	return c.Status(http.StatusCreated).JSON(WebResponse{
 		Code:   http.StatusCreated,
 		Status: status,
 		Data:   data,

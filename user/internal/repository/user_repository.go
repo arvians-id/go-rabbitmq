@@ -26,8 +26,8 @@ func NewUserRepository(db *sql.DB) UserRepository {
 }
 
 func (repository *UserRepository) FindAll(ctx context.Context) ([]*model.User, error) {
-	sql := `SELECT * FROM users order_by created_at DESC`
-	rows, err := repository.DB.QueryContext(ctx, sql)
+	query := `SELECT * FROM users ORDER BY created_at DESC`
+	rows, err := repository.DB.QueryContext(ctx, query)
 	if err != nil {
 		return nil, err
 	}
@@ -36,7 +36,7 @@ func (repository *UserRepository) FindAll(ctx context.Context) ([]*model.User, e
 	var users []*model.User
 	for rows.Next() {
 		var user model.User
-		err := rows.Scan(&user)
+		err := rows.Scan(&user.Id, &user.Name, &user.Email, &user.CreatedAt, &user.UpdatedAt)
 		if err != nil {
 			return nil, err
 		}
@@ -48,8 +48,8 @@ func (repository *UserRepository) FindAll(ctx context.Context) ([]*model.User, e
 }
 
 func (repository *UserRepository) FindByID(ctx context.Context, id int64) (*model.User, error) {
-	sql := `SELECT * FROM users WHERE id = $1`
-	row := repository.DB.QueryRowContext(ctx, sql, id)
+	query := `SELECT * FROM users WHERE id = $1`
+	row := repository.DB.QueryRowContext(ctx, query, id)
 
 	var user model.User
 	err := row.Scan(&user.Id, &user.Name, &user.Email, &user.CreatedAt, &user.UpdatedAt)
@@ -61,8 +61,8 @@ func (repository *UserRepository) FindByID(ctx context.Context, id int64) (*mode
 }
 
 func (repository *UserRepository) Create(ctx context.Context, user *model.User) (*model.User, error) {
-	sql := `INSERT INTO users(name, email, created_at, updated_at) VALUES($1,$2,$3,$4) RETURNING id`
-	row := repository.DB.QueryRowContext(ctx, sql, user.Name, user.Email, user.CreatedAt, user.UpdatedAt)
+	query := `INSERT INTO users(name, email, created_at, updated_at) VALUES($1,$2,$3,$4) RETURNING id`
+	row := repository.DB.QueryRowContext(ctx, query, user.Name, user.Email, user.CreatedAt, user.UpdatedAt)
 
 	var id int64
 	err := row.Scan(&id)
@@ -76,8 +76,8 @@ func (repository *UserRepository) Create(ctx context.Context, user *model.User) 
 }
 
 func (repository *UserRepository) Update(ctx context.Context, user *model.User) (*model.User, error) {
-	sql := `UPDATE users SET name = $1, updated_at = $2 WHERE id = $3`
-	_, err := repository.DB.ExecContext(ctx, sql, user.Name, user.UpdatedAt, user.Id)
+	query := `UPDATE users SET name = $1, updated_at = $2 WHERE id = $3`
+	_, err := repository.DB.ExecContext(ctx, query, user.Name, user.UpdatedAt, user.Id)
 	if err != nil {
 		return nil, err
 	}
@@ -86,8 +86,8 @@ func (repository *UserRepository) Update(ctx context.Context, user *model.User) 
 }
 
 func (repository *UserRepository) Delete(ctx context.Context, id int64) error {
-	sql := `DELETE FROM users WHERE id = $1`
-	_, err := repository.DB.ExecContext(ctx, sql, id)
+	query := `DELETE FROM users WHERE id = $1`
+	_, err := repository.DB.ExecContext(ctx, query, id)
 	if err != nil {
 		return err
 	}

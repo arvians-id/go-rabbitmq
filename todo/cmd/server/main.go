@@ -6,33 +6,40 @@ import (
 	"net"
 	"strings"
 
-	"github.com/arvians-id/go-rabbitmq/user/cmd/config"
-	"github.com/arvians-id/go-rabbitmq/user/internal/repository"
-	"github.com/arvians-id/go-rabbitmq/user/internal/usecase"
-	"github.com/arvians-id/go-rabbitmq/user/pb"
+	"github.com/arvians-id/go-rabbitmq/todo/cmd/config"
+	"github.com/arvians-id/go-rabbitmq/todo/internal/repository"
+	"github.com/arvians-id/go-rabbitmq/todo/internal/usecase"
+	"github.com/arvians-id/go-rabbitmq/todo/pb"
 	"google.golang.org/grpc"
 )
 
 func main() {
-	configuration := config.New()
+	configuration := config.New(".env.dev")
 	db, err := config.NewPostgresSQL(configuration)
 	if err != nil {
 		log.Fatalln("Cannot connect to database", err)
 	}
 
-	userRepository := repository.NewUserRepository(db)
-	userService := usecase.NewUserUsecase(userRepository)
+	// Category Todo
+	categoryTodoRepository := repository.NewCategoryTodoRepository(db)
+	categoryTodoUsecase := usecase.NewCategoryTodoUsecase(categoryTodoRepository)
 
-	lis, err := net.Listen("tcp", configuration.Get("USER_SERVICE_URL"))
+	// Todo
+	todoRepository := repository.NewTodoRepository(db)
+	todoService := usecase.NewTodoUsecase(todoRepository)
+
+	lis, err := net.Listen("tcp", configuration.Get("TODO_SERVICE_URL"))
 	if err != nil {
 		log.Fatalln("Failed to listen", err)
 	}
 
-	port := strings.Split(configuration.Get("USER_SERVICE_URL"), ":")[1]
-	fmt.Println("Category service is running on port", port)
+	port := strings.Split(configuration.Get("TODO_SERVICE_URL"), ":")[1]
+	fmt.Println("Todo service is running on port", port)
 
 	grpcServer := grpc.NewServer()
-	pb.RegisterUserServiceServer(grpcServer, userService)
+	pb.RegisterTodoServiceServer(grpcServer, todoService)
+	pb.RegisterCategoryTodoServiceServer(grpcServer, categoryTodoUsecase)
+	
 	err = grpcServer.Serve(lis)
 	if err != nil {
 		log.Fatalln("Failed to serving", err)

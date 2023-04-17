@@ -13,8 +13,7 @@ type ErrorResponse struct {
 }
 
 func ReturnErrorNotFound(c *fiber.Ctx, err error) error {
-	c.Status(http.StatusNotFound)
-	return c.JSON(WebResponse{
+	return c.Status(http.StatusNotFound).JSON(WebResponse{
 		Code:   http.StatusNotFound,
 		Status: "data not found",
 		Data:   nil,
@@ -22,8 +21,7 @@ func ReturnErrorNotFound(c *fiber.Ctx, err error) error {
 }
 
 func ReturnErrorInternalServerError(c *fiber.Ctx, err error) error {
-	c.Status(http.StatusInternalServerError)
-	return c.JSON(WebResponse{
+	return c.Status(http.StatusInternalServerError).JSON(WebResponse{
 		Code:   http.StatusInternalServerError,
 		Status: err.Error(),
 		Data:   nil,
@@ -39,8 +37,7 @@ func ReturnErrorBadRequest(c *fiber.Ctx, err error) error {
 }
 
 func ReturnErrorUnauthorized(c *fiber.Ctx, err error) error {
-	c.Status(http.StatusUnauthorized)
-	return c.JSON(WebResponse{
+	return c.Status(http.StatusUnauthorized).JSON(WebResponse{
 		Code:   http.StatusUnauthorized,
 		Status: err.Error(),
 		Data:   nil,

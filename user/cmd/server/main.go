@@ -14,7 +14,7 @@ import (
 )
 
 func main() {
-	configuration := config.New()
+	configuration := config.New(".env.dev")
 	db, err := config.NewPostgresSQL(configuration)
 	if err != nil {
 		log.Fatalln("Cannot connect to database", err)
@@ -29,7 +29,7 @@ func main() {
 	}
 
 	port := strings.Split(configuration.Get("USER_SERVICE_URL"), ":")[1]
-	fmt.Println("Category service is running on port", port)
+	fmt.Println("User service is running on port", port)
 
 	grpcServer := grpc.NewServer()
 	pb.RegisterUserServiceServer(grpcServer, userService)

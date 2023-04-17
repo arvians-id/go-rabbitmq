@@ -1,12 +1,12 @@
-package user
+package handler
 
 import (
+	"github.com/arvians-id/go-rabbitmq/gateway/api/user/request"
 	"log"
 
 	"github.com/arvians-id/go-rabbitmq/gateway/cmd/config"
 	"github.com/arvians-id/go-rabbitmq/gateway/helper"
 	"github.com/arvians-id/go-rabbitmq/gateway/pb"
-	"github.com/arvians-id/go-rabbitmq/gateway/request"
 	"github.com/arvians-id/go-rabbitmq/gateway/response"
 	"github.com/gofiber/fiber/v2"
 	"google.golang.org/grpc"
@@ -68,6 +68,7 @@ func (controller *UserController) Create(c *fiber.Ctx) error {
 	if err != nil {
 		return response.ReturnErrorBadRequest(c, err)
 	}
+
 	errValidate := helper.ValidateStruct(userRequest)
 	if errValidate != nil {
 		return response.ReturnErrorBadRequest(c, errValidate)
@@ -86,7 +87,15 @@ func (controller *UserController) Create(c *fiber.Ctx) error {
 
 func (controller *UserController) Update(c *fiber.Ctx) error {
 	var userRequest request.UserUpdateRequest
-	helper.ValidateStruct(userRequest)
+	err := c.BodyParser(&userRequest)
+	if err != nil {
+		return response.ReturnErrorBadRequest(c, err)
+	}
+
+	errValidate := helper.ValidateStruct(userRequest)
+	if errValidate != nil {
+		return response.ReturnErrorBadRequest(c, errValidate)
+	}
 
 	id, err := c.ParamsInt("id")
 	if err != nil {

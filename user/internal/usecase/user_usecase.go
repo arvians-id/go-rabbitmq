@@ -2,7 +2,6 @@ package usecase
 
 import (
 	"context"
-	"log"
 	"time"
 
 	"github.com/arvians-id/go-rabbitmq/user/internal/model"
@@ -50,7 +49,6 @@ func (usecase *UserUsecase) FindByID(ctx context.Context, req *pb.GetUserByIDReq
 }
 
 func (usecase *UserUsecase) Create(ctx context.Context, req *pb.CreateUserRequest) (*pb.GetUserResponse, error) {
-	log.Println(req)
 	userCreated, err := usecase.UserRepository.Create(ctx, &model.User{
 		Name:      req.GetName(),
 		Email:     req.GetEmail(),

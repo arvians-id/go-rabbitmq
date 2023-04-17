@@ -10,10 +10,10 @@ RUN go mod download
 
 COPY . .
 
-WORKDIR /app/user/cmd/server
+WORKDIR /app/todo/cmd/server
 
 RUN go build -o main .
 
-EXPOSE 50050
+EXPOSE 50051
 
 CMD ["./main"]

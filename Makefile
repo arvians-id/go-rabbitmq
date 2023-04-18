@@ -1,8 +1,5 @@
-migrate-up:
-	migrate -path database/postgres/migrations -database "postgres://postgres:postgres@localhost:5432/go_rabbitmq?sslmode=disable" -verbose up
-
-migrate-down:
-	migrate -path database/postgres/migrations -database "postgres://postgres:postgres@localhost:5432/go_rabbitmq?sslmode=disable" -verbose down
+migrate:
+	migrate -path database/postgres/migrations -database "postgres://postgres:postgres@localhost:5432/go_rabbitmq?sslmode=disable" -verbose ${verbose}
 
 create-table:
 	migrate create -ext sql -dir database/postgres/migrations -seq ${table}

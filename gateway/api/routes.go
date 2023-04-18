@@ -11,4 +11,5 @@ func NewRoutes(c *fiber.App, configuration config.Config) {
 	apiGroup := c.Group("/api")
 	user.NewUserRoute(apiGroup, configuration)
 	todo.NewTodoRoute(apiGroup, configuration)
+	todo.NewCategoryTodoRoute(apiGroup, configuration)
 }

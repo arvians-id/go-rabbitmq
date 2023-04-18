@@ -19,3 +19,14 @@ func NewTodoRoute(c fiber.Router, configuration config.Config) {
 	c.Patch("/todos/:id", todoHandler.Update)
 	c.Delete("/todos/:id", todoHandler.Delete)
 }
+
+func NewCategoryTodoRoute(c fiber.Router, configuration config.Config) {
+	categoryTodoClient := client.InitCategoryTodoClient(configuration)
+	categoryTodoService := services.NewCategoryTodoService(categoryTodoClient)
+	categoryTodoHandler := handler.NewCategoryTodoHandler(categoryTodoService)
+
+	c.Get("/category-todos", categoryTodoHandler.FindAll)
+	c.Get("/category-todos/:id", categoryTodoHandler.FindByID)
+	c.Post("/category-todos", categoryTodoHandler.Create)
+	c.Delete("/category-todos/:id", categoryTodoHandler.Delete)
+}

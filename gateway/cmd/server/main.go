@@ -2,9 +2,10 @@ package main
 
 import (
 	"fmt"
+	"github.com/arvians-id/go-rabbitmq/gateway/api"
+	"github.com/goccy/go-json"
+	"github.com/gofiber/fiber/v2/middleware/logger"
 	"log"
-
-	"github.com/arvians-id/go-rabbitmq/gateway/api/user/handler"
 
 	"github.com/arvians-id/go-rabbitmq/gateway/cmd/config"
 	"github.com/gofiber/fiber/v2"
@@ -12,8 +13,12 @@ import (
 )
 
 func main() {
-	configuration := config.New()
-	app := fiber.New()
+	configuration := config.New(".env.dev")
+	app := fiber.New(fiber.Config{
+		JSONEncoder: json.Marshal,
+		JSONDecoder: json.Unmarshal,
+	})
+	app.Use(logger.New())
 	app.Use(cors.New(cors.Config{
 		AllowOrigins:     "*",
 		AllowHeaders:     "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With, X-API-KEY",
@@ -24,7 +29,7 @@ func main() {
 		return c.SendString("Welcome to my API Todo List")
 	})
 
-	handler.NewUserHandler(app, configuration)
+	api.NewRoutes(app, configuration)
 
 	port := fmt.Sprintf(":%s", configuration.Get("APP_PORT"))
 	err := app.Listen(port)

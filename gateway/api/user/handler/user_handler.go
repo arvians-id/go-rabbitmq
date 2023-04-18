@@ -1,11 +1,10 @@
 package handler
 
 import (
-	"github.com/arvians-id/go-rabbitmq/gateway/api/user/client"
 	"github.com/arvians-id/go-rabbitmq/gateway/api/user/request"
+	"github.com/arvians-id/go-rabbitmq/gateway/api/user/services"
 
 	"github.com/arvians-id/go-rabbitmq/gateway/api/user/pb"
-	"github.com/arvians-id/go-rabbitmq/gateway/cmd/config"
 	"github.com/arvians-id/go-rabbitmq/gateway/helper"
 	"github.com/arvians-id/go-rabbitmq/gateway/response"
 	"github.com/gofiber/fiber/v2"
@@ -13,18 +12,17 @@ import (
 )
 
 type UserHandler struct {
-	UserService client.UserClient
+	UserService services.UserService
 }
 
-func NewUserHandler(configuration config.Config) *UserHandler {
-	userClient := client.InitUserClient(configuration)
-	return &UserHandler{
-		UserService: *userClient,
+func NewUserHandler(userService services.UserService) UserHandler {
+	return UserHandler{
+		UserService: userService,
 	}
 }
 
 func (handler *UserHandler) FindAll(c *fiber.Ctx) error {
-	users, err := handler.UserService.UserClient.FindAll(c.Context(), new(emptypb.Empty))
+	users, err := handler.UserService.FindAll(c.Context(), new(emptypb.Empty))
 	if err != nil {
 		return response.ReturnErrorInternalServerError(c, err)
 	}
@@ -55,9 +53,9 @@ func (handler *UserHandler) Create(c *fiber.Ctx) error {
 		return response.ReturnErrorBadRequest(c, err)
 	}
 
-	errValidate := helper.ValidateStruct(userRequest)
-	if errValidate != nil {
-		return response.ReturnErrorBadRequest(c, errValidate)
+	err = helper.ValidateStruct(userRequest)
+	if err != nil {
+		return response.ReturnErrorBadRequest(c, err)
 	}
 
 	userCreated, err := handler.UserService.Create(c.Context(), &pb.CreateUserRequest{

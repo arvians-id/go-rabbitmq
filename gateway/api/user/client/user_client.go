@@ -9,16 +9,16 @@ import (
 )
 
 type UserClient struct {
-	UserClient pb.UserServiceClient
+	Client pb.UserServiceClient
 }
 
-func InitUserClient(configuration config.Config) *UserClient {
+func InitUserClient(configuration config.Config) UserClient {
 	connection, err := grpc.Dial(configuration.Get("USER_SERVICE_URL"), grpc.WithInsecure())
 	if err != nil {
 		log.Fatalln(err)
 	}
 
-	return &UserClient{
-		UserClient: pb.NewUserServiceClient(connection),
+	return UserClient{
+		Client: pb.NewUserServiceClient(connection),
 	}
 }

@@ -11,6 +11,8 @@ import (
 	"google.golang.org/protobuf/types/known/emptypb"
 )
 
+const name = "gateway"
+
 type UserHandler struct {
 	UserService services.UserService
 }

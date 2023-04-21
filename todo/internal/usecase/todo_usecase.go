@@ -6,17 +6,20 @@ import (
 
 	"github.com/arvians-id/go-rabbitmq/todo/internal/model"
 	"github.com/arvians-id/go-rabbitmq/todo/internal/repository"
+	"github.com/arvians-id/go-rabbitmq/todo/internal/services"
 	"github.com/arvians-id/go-rabbitmq/todo/pb"
 	"google.golang.org/protobuf/types/known/emptypb"
 )
 
 type TodoUsecase struct {
+	UserService    services.UserService
 	TodoRepository repository.TodoRepository
 	pb.UnimplementedTodoServiceServer
 }
 
-func NewTodoUsecase(todoRepository repository.TodoRepository) pb.TodoServiceServer {
+func NewTodoUsecase(userService services.UserService, todoRepository repository.TodoRepository) pb.TodoServiceServer {
 	return &TodoUsecase{
+		UserService:    userService,
 		TodoRepository: todoRepository,
 	}
 }
@@ -49,10 +52,17 @@ func (usecase *TodoUsecase) FindByID(ctx context.Context, req *pb.GetTodoByIDReq
 }
 
 func (usecase *TodoUsecase) Create(ctx context.Context, req *pb.CreateTodoRequest) (*pb.GetTodoResponse, error) {
+	userCheck, err := usecase.UserService.FindByID(ctx, &pb.GetUserByIDRequest{
+		Id: req.GetUserId(),
+	})
+	if err != nil {
+		return nil, err
+	}
+
 	todoCreated, err := usecase.TodoRepository.Create(ctx, &model.Todo{
 		Title:          req.GetTitle(),
 		Description:    req.GetDescription(),
-		UserId:         req.GetUserId(),
+		UserId:         userCheck.User.GetId(),
 		CategoryTodoId: req.GetCategoryTodoId(),
 		CreatedAt:      time.Now(),
 		UpdatedAt:      time.Now(),

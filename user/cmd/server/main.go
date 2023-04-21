@@ -1,19 +1,43 @@
 package main
 
 import (
+	"context"
 	"fmt"
 	"log"
 	"net"
 	"strings"
+	"time"
 
 	"github.com/arvians-id/go-rabbitmq/user/cmd/config"
 	"github.com/arvians-id/go-rabbitmq/user/internal/repository"
 	"github.com/arvians-id/go-rabbitmq/user/internal/usecase"
 	"github.com/arvians-id/go-rabbitmq/user/pb"
+	"go.opentelemetry.io/otel"
+	"go.opentelemetry.io/otel/propagation"
 	"google.golang.org/grpc"
 )
 
 func main() {
+	tp, err := config.NewTracerProvider("http://localhost:14268/api/traces")
+	if err != nil {
+		log.Fatalln(err)
+	}
+
+	ctx, cancel := context.WithCancel(context.Background())
+	defer cancel()
+
+	defer func(ctx context.Context) {
+		ctx, cancel = context.WithTimeout(ctx, time.Second*5)
+		defer cancel()
+		err := tp.Shutdown(ctx)
+		if err != nil {
+			log.Fatalln(err)
+		}
+	}(ctx)
+
+	otel.SetTracerProvider(tp)
+	otel.SetTextMapPropagator(propagation.NewCompositeTextMapPropagator(propagation.TraceContext{}, propagation.Baggage{}))
+
 	configuration := config.New(".env.dev")
 	db, err := config.NewPostgresSQL(configuration)
 	if err != nil {

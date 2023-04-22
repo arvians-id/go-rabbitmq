@@ -55,7 +55,9 @@ func main() {
 	port := strings.Split(configuration.Get("USER_SERVICE_URL"), ":")[1]
 	fmt.Println("User service is running on port", port)
 
-	grpcServer := grpc.NewServer()
+	grpcServer := grpc.NewServer(
+		grpc.UnaryInterceptor(config.NewGRPUnaryServerInterceptor()),
+	)
 	pb.RegisterUserServiceServer(grpcServer, userService)
 	err = grpcServer.Serve(lis)
 	if err != nil {

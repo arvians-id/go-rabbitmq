@@ -87,12 +87,12 @@ func (usecase *UserUsecase) Update(ctx context.Context, req *pb.UpdateUserReques
 func (usecase *UserUsecase) Delete(ctx context.Context, req *pb.GetUserByIDRequest) (*emptypb.Empty, error) {
 	userCheck, err := usecase.UserRepository.FindByID(ctx, req.Id)
 	if err != nil {
-		return new(emptypb.Empty), nil
+		return new(emptypb.Empty), err
 	}
 
 	err = usecase.UserRepository.Delete(ctx, userCheck.Id)
 	if err != nil {
-		return new(emptypb.Empty), nil
+		return new(emptypb.Empty), err
 	}
 
 	return new(emptypb.Empty), nil

@@ -66,12 +66,12 @@ func (usecase *CategoryTodoUsecase) Create(ctx context.Context, req *pb.CreateCa
 func (usecase *CategoryTodoUsecase) Delete(ctx context.Context, req *pb.GetCategoryTodoByIDRequest) (*emptypb.Empty, error) {
 	todoCheck, err := usecase.CategoryTodoRepository.FindByID(ctx, req.Id)
 	if err != nil {
-		return new(emptypb.Empty), nil
+		return new(emptypb.Empty), err
 	}
 
 	err = usecase.CategoryTodoRepository.Delete(ctx, todoCheck.Id)
 	if err != nil {
-		return new(emptypb.Empty), nil
+		return new(emptypb.Empty), err
 	}
 
 	return new(emptypb.Empty), nil

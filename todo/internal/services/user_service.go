@@ -2,7 +2,6 @@ package services
 
 import (
 	"context"
-
 	"github.com/arvians-id/go-rabbitmq/todo/internal/client"
 	"github.com/arvians-id/go-rabbitmq/todo/pb"
 	"google.golang.org/protobuf/types/known/emptypb"
@@ -68,5 +67,5 @@ func (service *userService) Delete(ctx context.Context, in *pb.GetUserByIDReques
 		return nil, err
 	}
 
-	return new(emptypb.Empty), err
+	return new(emptypb.Empty), nil
 }

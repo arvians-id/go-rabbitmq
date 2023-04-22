@@ -12,15 +12,17 @@ import (
 )
 
 type TodoUsecase struct {
-	UserService    services.UserService
-	TodoRepository repository.TodoRepository
+	UserService         services.UserService
+	CategoryTodoUsecase pb.CategoryTodoServiceServer
+	TodoRepository      repository.TodoRepository
 	pb.UnimplementedTodoServiceServer
 }
 
-func NewTodoUsecase(userService services.UserService, todoRepository repository.TodoRepository) pb.TodoServiceServer {
+func NewTodoUsecase(userService services.UserService, categoryTodoUsercase pb.CategoryTodoServiceServer, todoRepository repository.TodoRepository) pb.TodoServiceServer {
 	return &TodoUsecase{
-		UserService:    userService,
-		TodoRepository: todoRepository,
+		UserService:         userService,
+		CategoryTodoUsecase: categoryTodoUsercase,
+		TodoRepository:      todoRepository,
 	}
 }
 
@@ -59,11 +61,18 @@ func (usecase *TodoUsecase) Create(ctx context.Context, req *pb.CreateTodoReques
 		return nil, err
 	}
 
+	categoryTodoCheck, err := usecase.CategoryTodoUsecase.FindByID(ctx, &pb.GetCategoryTodoByIDRequest{
+		Id: req.GetCategoryTodoId(),
+	})
+	if err != nil {
+		return nil, err
+	}
+
 	todoCreated, err := usecase.TodoRepository.Create(ctx, &model.Todo{
 		Title:          req.GetTitle(),
 		Description:    req.GetDescription(),
 		UserId:         userCheck.User.GetId(),
-		CategoryTodoId: req.GetCategoryTodoId(),
+		CategoryTodoId: categoryTodoCheck.CategoryTodo.GetId(),
 		CreatedAt:      time.Now(),
 		UpdatedAt:      time.Now(),
 	})
@@ -102,12 +111,12 @@ func (usecase *TodoUsecase) Update(ctx context.Context, req *pb.UpdateTodoReques
 func (usecase *TodoUsecase) Delete(ctx context.Context, req *pb.GetTodoByIDRequest) (*emptypb.Empty, error) {
 	todoCheck, err := usecase.TodoRepository.FindByID(ctx, req.Id)
 	if err != nil {
-		return new(emptypb.Empty), nil
+		return new(emptypb.Empty), err
 	}
 
 	err = usecase.TodoRepository.Delete(ctx, todoCheck.Id)
 	if err != nil {
-		return new(emptypb.Empty), nil
+		return new(emptypb.Empty), err
 	}
 
 	return new(emptypb.Empty), nil

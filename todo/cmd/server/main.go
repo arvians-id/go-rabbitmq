@@ -56,7 +56,7 @@ func main() {
 
 	// Todo
 	todoRepository := repository.NewTodoRepository(db)
-	todoService := usecase.NewTodoUsecase(userService, todoRepository)
+	todoService := usecase.NewTodoUsecase(userService, categoryTodoUsecase, todoRepository)
 
 	lis, err := net.Listen("tcp", configuration.Get("TODO_SERVICE_URL"))
 	if err != nil {
@@ -66,7 +66,9 @@ func main() {
 	port := strings.Split(configuration.Get("TODO_SERVICE_URL"), ":")[1]
 	fmt.Println("Todo service is running on port", port)
 
-	grpcServer := grpc.NewServer()
+	grpcServer := grpc.NewServer(
+		grpc.UnaryInterceptor(config.NewGRPUnaryServerInterceptor()),
+	)
 	pb.RegisterTodoServiceServer(grpcServer, todoService)
 	pb.RegisterCategoryTodoServiceServer(grpcServer, categoryTodoUsecase)
 

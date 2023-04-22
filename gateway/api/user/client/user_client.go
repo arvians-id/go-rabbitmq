@@ -13,7 +13,9 @@ type UserClient struct {
 }
 
 func InitUserClient(configuration config.Config) UserClient {
-	connection, err := grpc.Dial(configuration.Get("USER_SERVICE_URL"), grpc.WithInsecure())
+	connection, err := grpc.Dial(configuration.Get("USER_SERVICE_URL"), grpc.WithInsecure(),
+		grpc.WithUnaryInterceptor(config.NewGRPUnaryClientInterceptor()),
+	)
 	if err != nil {
 		log.Fatalln(err)
 	}

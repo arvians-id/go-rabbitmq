@@ -3,7 +3,6 @@ package repository
 import (
 	"context"
 	"database/sql"
-
 	"github.com/arvians-id/go-rabbitmq/todo/internal/model"
 )
 

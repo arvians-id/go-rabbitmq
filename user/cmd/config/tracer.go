@@ -30,6 +30,6 @@ func NewTracerProvider(url string) (*tracesdk.TracerProvider, error) {
 }
 
 const (
-	ServiceTrace     = "gateway"
+	ServiceTrace     = "user-tracer"
 	EnvironmentTrace = "development"
 )

@@ -12,7 +12,9 @@ type TodoClient struct {
 }
 
 func InitTodoClient(configuration config.Config) TodoClient {
-	connection, err := grpc.Dial(configuration.Get("TODO_SERVICE_URL"), grpc.WithInsecure())
+	connection, err := grpc.Dial(configuration.Get("TODO_SERVICE_URL"), grpc.WithInsecure(),
+		grpc.WithUnaryInterceptor(config.NewGRPUnaryClientInterceptor()),
+	)
 	if err != nil {
 		log.Fatalln(err)
 	}

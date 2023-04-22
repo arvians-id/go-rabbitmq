@@ -30,6 +30,6 @@ func NewTracerProvider(url string) (*tracesdk.TracerProvider, error) {
 }
 
 const (
-	ServiceTrace     = "todo-trace"
+	ServiceTrace     = "todo-tracer"
 	EnvironmentTrace = "development"
 )

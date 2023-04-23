@@ -56,7 +56,7 @@ func main() {
 
 	// Todo
 	todoRepository := repository.NewTodoRepository(db)
-	todoService := usecase.NewTodoUsecase(userService, categoryTodoUsecase, todoRepository)
+	todoService := usecase.NewTodoUsecase(userService, categoryTodoRepository, todoRepository)
 
 	lis, err := net.Listen("tcp", configuration.Get("TODO_SERVICE_URL"))
 	if err != nil {

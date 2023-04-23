@@ -12,17 +12,17 @@ import (
 )
 
 type TodoUsecase struct {
-	UserService         services.UserService
-	CategoryTodoUsecase pb.CategoryTodoServiceServer
-	TodoRepository      repository.TodoRepository
+	UserService            services.UserService
+	CategoryTodoRepository repository.CategoryTodoRepository
+	TodoRepository         repository.TodoRepository
 	pb.UnimplementedTodoServiceServer
 }
 
-func NewTodoUsecase(userService services.UserService, categoryTodoUsercase pb.CategoryTodoServiceServer, todoRepository repository.TodoRepository) pb.TodoServiceServer {
+func NewTodoUsecase(userService services.UserService, categoryTodoRepository repository.CategoryTodoRepository, todoRepository repository.TodoRepository) pb.TodoServiceServer {
 	return &TodoUsecase{
-		UserService:         userService,
-		CategoryTodoUsecase: categoryTodoUsercase,
-		TodoRepository:      todoRepository,
+		UserService:            userService,
+		CategoryTodoRepository: categoryTodoRepository,
+		TodoRepository:         todoRepository,
 	}
 }
 
@@ -61,9 +61,7 @@ func (usecase *TodoUsecase) Create(ctx context.Context, req *pb.CreateTodoReques
 		return nil, err
 	}
 
-	categoryTodoCheck, err := usecase.CategoryTodoUsecase.FindByID(ctx, &pb.GetCategoryTodoByIDRequest{
-		Id: req.GetCategoryTodoId(),
-	})
+	categoryTodoCheck, err := usecase.CategoryTodoRepository.FindByID(ctx, req.GetCategoryTodoId())
 	if err != nil {
 		return nil, err
 	}
@@ -72,7 +70,7 @@ func (usecase *TodoUsecase) Create(ctx context.Context, req *pb.CreateTodoReques
 		Title:          req.GetTitle(),
 		Description:    req.GetDescription(),
 		UserId:         userCheck.User.GetId(),
-		CategoryTodoId: categoryTodoCheck.CategoryTodo.GetId(),
+		CategoryTodoId: categoryTodoCheck.Id,
 		CreatedAt:      time.Now(),
 		UpdatedAt:      time.Now(),
 	})

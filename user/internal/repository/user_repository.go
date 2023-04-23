@@ -4,7 +4,9 @@ import (
 	"context"
 	"database/sql"
 
+	"github.com/arvians-id/go-rabbitmq/user/cmd/config"
 	"github.com/arvians-id/go-rabbitmq/user/internal/model"
+	"go.opentelemetry.io/otel"
 )
 
 type UserRepositoryContract interface {
@@ -26,9 +28,13 @@ func NewUserRepository(db *sql.DB) UserRepository {
 }
 
 func (repository *UserRepository) FindAll(ctx context.Context) ([]*model.User, error) {
+	ctxTracer, span := otel.Tracer(config.ServiceTrace).Start(ctx, "repository.UserService/Repository/FindAll")
+	defer span.End()
+
 	query := `SELECT * FROM users ORDER BY created_at DESC`
-	rows, err := repository.DB.QueryContext(ctx, query)
+	rows, err := repository.DB.QueryContext(ctxTracer, query)
 	if err != nil {
+		span.RecordError(err)
 		return nil, err
 	}
 	defer rows.Close()
@@ -38,6 +44,7 @@ func (repository *UserRepository) FindAll(ctx context.Context) ([]*model.User, e
 		var user model.User
 		err := rows.Scan(&user.Id, &user.Name, &user.Email, &user.CreatedAt, &user.UpdatedAt)
 		if err != nil {
+			span.RecordError(err)
 			return nil, err
 		}
 
@@ -48,12 +55,16 @@ func (repository *UserRepository) FindAll(ctx context.Context) ([]*model.User, e
 }
 
 func (repository *UserRepository) FindByID(ctx context.Context, id int64) (*model.User, error) {
+	ctxTracer, span := otel.Tracer(config.ServiceTrace).Start(ctx, "repository.UserService/Repository/FindByID")
+	defer span.End()
+
 	query := `SELECT * FROM users WHERE id = $1`
-	row := repository.DB.QueryRowContext(ctx, query, id)
+	row := repository.DB.QueryRowContext(ctxTracer, query, id)
 
 	var user model.User
 	err := row.Scan(&user.Id, &user.Name, &user.Email, &user.CreatedAt, &user.UpdatedAt)
 	if err != nil {
+		span.RecordError(err)
 		return nil, err
 	}
 
@@ -61,12 +72,16 @@ func (repository *UserRepository) FindByID(ctx context.Context, id int64) (*mode
 }
 
 func (repository *UserRepository) Create(ctx context.Context, user *model.User) (*model.User, error) {
+	ctxTracer, span := otel.Tracer(config.ServiceTrace).Start(ctx, "repository.UserService/Repository/Create")
+	defer span.End()
+
 	query := `INSERT INTO users(name, email, created_at, updated_at) VALUES($1,$2,$3,$4) RETURNING id`
-	row := repository.DB.QueryRowContext(ctx, query, user.Name, user.Email, user.CreatedAt, user.UpdatedAt)
+	row := repository.DB.QueryRowContext(ctxTracer, query, user.Name, user.Email, user.CreatedAt, user.UpdatedAt)
 
 	var id int64
 	err := row.Scan(&id)
 	if err != nil {
+		span.RecordError(err)
 		return nil, err
 	}
 
@@ -76,9 +91,13 @@ func (repository *UserRepository) Create(ctx context.Context, user *model.User) 
 }
 
 func (repository *UserRepository) Update(ctx context.Context, user *model.User) (*model.User, error) {
+	ctxTracer, span := otel.Tracer(config.ServiceTrace).Start(ctx, "repository.UserService/Repository/Update")
+	defer span.End()
+
 	query := `UPDATE users SET name = $1, updated_at = $2 WHERE id = $3`
-	_, err := repository.DB.ExecContext(ctx, query, user.Name, user.UpdatedAt, user.Id)
+	_, err := repository.DB.ExecContext(ctxTracer, query, user.Name, user.UpdatedAt, user.Id)
 	if err != nil {
+		span.RecordError(err)
 		return nil, err
 	}
 
@@ -86,9 +105,13 @@ func (repository *UserRepository) Update(ctx context.Context, user *model.User) 
 }
 
 func (repository *UserRepository) Delete(ctx context.Context, id int64) error {
+	ctxTracer, span := otel.Tracer(config.ServiceTrace).Start(ctx, "repository.UserService/Repository/Delete")
+	defer span.End()
+
 	query := `DELETE FROM users WHERE id = $1`
-	_, err := repository.DB.ExecContext(ctx, query, id)
+	_, err := repository.DB.ExecContext(ctxTracer, query, id)
 	if err != nil {
+		span.RecordError(err)
 		return err
 	}
 

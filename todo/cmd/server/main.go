@@ -46,17 +46,21 @@ func main() {
 		log.Fatalln("Cannot connect to database", err)
 	}
 
-	// User
+	// User Client
 	userClient := client.InitUserClient(configuration)
 	userService := services.NewUserService(userClient)
 
-	// Category Todo
+	// Category Todo Client
+	categoryTodoClient := client.InitCategoryTodoClient(configuration)
+	categoryTodoService := services.NewCategoryTodoService(categoryTodoClient)
+
+	// Category Todo Server
 	categoryTodoRepository := repository.NewCategoryTodoRepository(db)
 	categoryTodoUsecase := usecase.NewCategoryTodoUsecase(categoryTodoRepository)
 
-	// Todo
+	// Todo Server
 	todoRepository := repository.NewTodoRepository(db)
-	todoService := usecase.NewTodoUsecase(userService, categoryTodoRepository, todoRepository)
+	todoService := usecase.NewTodoUsecase(userService, categoryTodoService, todoRepository)
 
 	lis, err := net.Listen("tcp", configuration.Get("TODO_SERVICE_URL"))
 	if err != nil {

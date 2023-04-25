@@ -20,6 +20,34 @@ import (
 )
 
 func main() {
+	// Init Config
+	configuration := config.New(".env.dev")
+	db, err := config.NewPostgresSQL(configuration)
+	if err != nil {
+		log.Fatalln("Cannot connect to database", err)
+	}
+
+	// Init Rabbit MQ
+	conn, ch, err := config.InitRabbitMQ()
+	if err != nil {
+		log.Fatalln(err)
+	}
+	defer conn.Close()
+	defer ch.Close()
+
+	_, err = ch.QueueDeclare(
+		"mail",
+		true,
+		false,
+		false,
+		false,
+		nil,
+	)
+	if err != nil {
+		log.Fatalln(err)
+	}
+
+	// Init Open Telementry Tracer
 	tp, err := config.NewTracerProvider("http://localhost:14268/api/traces")
 	if err != nil {
 		log.Fatalln(err)
@@ -40,12 +68,7 @@ func main() {
 	otel.SetTracerProvider(tp)
 	otel.SetTextMapPropagator(propagation.NewCompositeTextMapPropagator(propagation.TraceContext{}, propagation.Baggage{}))
 
-	configuration := config.New(".env.dev")
-	db, err := config.NewPostgresSQL(configuration)
-	if err != nil {
-		log.Fatalln("Cannot connect to database", err)
-	}
-
+	// Init Server
 	// User Client
 	userClient := client.InitUserClient(configuration)
 	userService := services.NewUserService(userClient)
@@ -60,7 +83,7 @@ func main() {
 
 	// Todo Server
 	todoRepository := repository.NewTodoRepository(db)
-	todoService := usecase.NewTodoUsecase(userService, categoryTodoService, todoRepository)
+	todoService := usecase.NewTodoUsecase(userService, categoryTodoService, todoRepository, ch)
 
 	lis, err := net.Listen("tcp", configuration.Get("TODO_SERVICE_URL"))
 	if err != nil {

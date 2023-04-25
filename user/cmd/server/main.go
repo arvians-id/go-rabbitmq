@@ -18,6 +18,14 @@ import (
 )
 
 func main() {
+	// Init Config
+	configuration := config.New(".env.dev")
+	db, err := config.NewPostgresSQL(configuration)
+	if err != nil {
+		log.Fatalln("Cannot connect to database", err)
+	}
+
+	// Init Open Telementry Tracer
 	tp, err := config.NewTracerProvider("http://localhost:14268/api/traces")
 	if err != nil {
 		log.Fatalln(err)
@@ -38,12 +46,7 @@ func main() {
 	otel.SetTracerProvider(tp)
 	otel.SetTextMapPropagator(propagation.NewCompositeTextMapPropagator(propagation.TraceContext{}, propagation.Baggage{}))
 
-	configuration := config.New(".env.dev")
-	db, err := config.NewPostgresSQL(configuration)
-	if err != nil {
-		log.Fatalln("Cannot connect to database", err)
-	}
-
+	// Init Server
 	userRepository := repository.NewUserRepository(db)
 	userService := usecase.NewUserUsecase(userRepository)
 

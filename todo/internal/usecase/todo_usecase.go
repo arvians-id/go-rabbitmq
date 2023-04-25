@@ -2,6 +2,9 @@ package usecase
 
 import (
 	"context"
+	"encoding/json"
+	"github.com/rabbitmq/amqp091-go"
+	"log"
 	"time"
 
 	"github.com/arvians-id/go-rabbitmq/todo/internal/model"
@@ -15,14 +18,16 @@ type TodoUsecase struct {
 	UserService         services.UserService
 	CategoryTodoService services.CategoryTodoService
 	TodoRepository      repository.TodoRepository
+	RabbitMQ            *amqp091.Channel
 	pb.UnimplementedTodoServiceServer
 }
 
-func NewTodoUsecase(userService services.UserService, categoryTodoService services.CategoryTodoService, todoRepository repository.TodoRepository) pb.TodoServiceServer {
+func NewTodoUsecase(userService services.UserService, categoryTodoService services.CategoryTodoService, todoRepository repository.TodoRepository, rabbitMQ *amqp091.Channel) pb.TodoServiceServer {
 	return &TodoUsecase{
 		UserService:         userService,
 		CategoryTodoService: categoryTodoService,
 		TodoRepository:      todoRepository,
+		RabbitMQ:            rabbitMQ,
 	}
 }
 
@@ -79,6 +84,37 @@ func (usecase *TodoUsecase) Create(ctx context.Context, req *pb.CreateTodoReques
 	if err != nil {
 		return nil, err
 	}
+
+	// Send Email To Queue
+	go func() {
+		type Message struct {
+			ToEmail string
+			Message string
+		}
+		var message Message
+		message.ToEmail = userCheck.User.GetEmail()
+		message.Message = "Test dynamic message"
+		byteMessage, err := json.Marshal(message)
+		if err != nil {
+			log.Fatalln(err)
+		}
+
+		err = usecase.RabbitMQ.PublishWithContext(
+			ctx,
+			"",
+			"mail",
+			false,
+			false,
+			amqp091.Publishing{
+				DeliveryMode: amqp091.Persistent,
+				ContentType:  "text/plain",
+				Body:         byteMessage,
+			},
+		)
+		if err != nil {
+			log.Fatalln(err)
+		}
+	}()
 
 	return &pb.GetTodoResponse{
 		Todo: todoCreated.ToPB(),

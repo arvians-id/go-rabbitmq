@@ -1,10 +1,12 @@
 package main
 
 import (
-	"log"
-	"time"
-
+	"encoding/json"
 	"github.com/arvians-id/go-rabbitmq/message-broker/cmd/config"
+	"log"
+	"os"
+	"os/signal"
+	"syscall"
 )
 
 func main() {
@@ -41,21 +43,32 @@ func main() {
 		log.Fatalln(err)
 	}
 
-	var forever chan struct{}
-
 	go func() {
+		type Message struct {
+			ToEmail string
+			Message string
+		}
 		for d := range message {
-			log.Printf("Received a message: %s", d.Body)
-			err := config.SendMail(configuration, string(d.Body), "Test Subject Mail", "Hallo bang hehe")
+			var mailMessage Message
+			err := json.Unmarshal(d.Body, &mailMessage)
 			if err != nil {
 				log.Fatalln(err)
 			}
-			time.Sleep(5 * time.Second)
-			log.Printf("mail Sended")
+
+			log.Printf("Received a message: %s", mailMessage.ToEmail)
+			err = config.SendMail(configuration, mailMessage.ToEmail, "Test Subject Mail", mailMessage.Message)
+			if err != nil {
+				log.Fatalln(err)
+			}
+
+			log.Printf("Mail Sended")
 			d.Ack(false)
 		}
 	}()
 
-	log.Printf(" [*] Waiting for messages. To exit press CTRL+C")
-	<-forever
+	log.Printf("Waiting for messages. To exit press CTRL+C")
+
+	interruptChan := make(chan os.Signal, 1)
+	signal.Notify(interruptChan, syscall.SIGINT, syscall.SIGTERM)
+	<-interruptChan
 }

@@ -19,32 +19,17 @@ import (
 )
 
 func main() {
-	conn, ch, err := config.InitRabbitMQ()
-	if err != nil {
-		log.Fatalln(err)
-	}
-	defer conn.Close()
-	defer ch.Close()
+	// Init Config
+	configuration := config.New(".env.dev")
 
-	_, err = ch.QueueDeclare(
-		"mail",
-		true,
-		false,
-		false,
-		false,
-		nil,
-	)
+	// Init Open Telementry Tracer
+	tp, err := config.NewTracerProvider("http://localhost:14268/api/traces")
 	if err != nil {
 		log.Fatalln(err)
 	}
 
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second*5)
 	defer cancel()
-
-	tp, err := config.NewTracerProvider("http://localhost:14268/api/traces")
-	if err != nil {
-		log.Fatalln(err)
-	}
 
 	defer func(ctx context.Context) {
 		ctx, cancel = context.WithTimeout(ctx, time.Second*5)
@@ -58,7 +43,7 @@ func main() {
 	otel.SetTracerProvider(tp)
 	otel.SetTextMapPropagator(propagation.NewCompositeTextMapPropagator(propagation.TraceContext{}, propagation.Baggage{}))
 
-	configuration := config.New(".env.dev")
+	// Init Server
 	app := fiber.New(fiber.Config{
 		JSONEncoder: json.Marshal,
 		JSONDecoder: json.Unmarshal,
@@ -78,7 +63,7 @@ func main() {
 		return c.SendString("Welcome to my API Todo List")
 	})
 
-	api.NewRoutes(app, ch, configuration)
+	api.NewRoutes(app, configuration)
 
 	port := fmt.Sprintf(":%s", configuration.Get("APP_PORT"))
 	err = app.Listen(port)

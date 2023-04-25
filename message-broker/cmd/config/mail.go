@@ -13,9 +13,9 @@ func SendMail(configuration Config, toEmail string, subject string, message stri
 		return err
 	}
 	user := configuration.Get("MAIL_AUTH_USER")
-	passowrd := configuration.Get("MAIL_AUTH_PASSWORD")
+	password := configuration.Get("MAIL_AUTH_PASSWORD")
 
-	smtpAuth := smtp.PlainAuth("", user, passowrd, host)
+	smtpAuth := smtp.PlainAuth("", user, password, host)
 	smtpAddress := fmt.Sprintf("%s:%d", host, port)
 
 	fromEmail := "wids@ganteng.com"

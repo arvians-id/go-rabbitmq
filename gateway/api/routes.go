@@ -5,12 +5,11 @@ import (
 	"github.com/arvians-id/go-rabbitmq/gateway/api/user"
 	"github.com/arvians-id/go-rabbitmq/gateway/cmd/config"
 	"github.com/gofiber/fiber/v2"
-	"github.com/rabbitmq/amqp091-go"
 )
 
-func NewRoutes(c *fiber.App, channel *amqp091.Channel, configuration config.Config) {
+func NewRoutes(c *fiber.App, configuration config.Config) {
 	apiGroup := c.Group("/api")
 	user.NewUserRoute(apiGroup, configuration)
-	todo.NewTodoRoute(apiGroup, channel, configuration)
+	todo.NewTodoRoute(apiGroup, configuration)
 	todo.NewCategoryTodoRoute(apiGroup, configuration)
 }

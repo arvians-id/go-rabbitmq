@@ -7,19 +7,16 @@ import (
 	"github.com/arvians-id/go-rabbitmq/gateway/helper"
 	"github.com/arvians-id/go-rabbitmq/gateway/response"
 	"github.com/gofiber/fiber/v2"
-	"github.com/rabbitmq/amqp091-go"
 	"google.golang.org/protobuf/types/known/emptypb"
 )
 
 type TodoHandler struct {
 	TodoService services.TodoService
-	RabbitMQ    *amqp091.Channel
 }
 
-func NewTodoHandler(todoService services.TodoService, rabbitMQ *amqp091.Channel) TodoHandler {
+func NewTodoHandler(todoService services.TodoService) TodoHandler {
 	return TodoHandler{
 		TodoService: todoService,
-		RabbitMQ:    rabbitMQ,
 	}
 }
 
@@ -66,23 +63,6 @@ func (handler *TodoHandler) Create(c *fiber.Ctx) error {
 		UserId:         todoRequest.UserId,
 		CategoryTodoId: todoRequest.CategoryTodoId,
 	})
-	if err != nil {
-		return response.ReturnErrorInternalServerError(c, err)
-	}
-
-	// Send Email To Queue
-	err = handler.RabbitMQ.PublishWithContext(
-		c.Context(),
-		"",
-		"mail",
-		false,
-		false,
-		amqp091.Publishing{
-			DeliveryMode: amqp091.Persistent,
-			ContentType:  "text/plain",
-			Body:         []byte("widdyarfiansyah00@gmail.com"),
-		},
-	)
 	if err != nil {
 		return response.ReturnErrorInternalServerError(c, err)
 	}

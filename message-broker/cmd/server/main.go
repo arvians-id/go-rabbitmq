@@ -30,6 +30,12 @@ func main() {
 		log.Fatalln(err)
 	}
 
+	err = ch.Qos(
+		1,     // prefetch count
+		0,     // prefetch size
+		false, // global
+	)
+
 	message, err := ch.Consume(
 		q.Name,
 		"",

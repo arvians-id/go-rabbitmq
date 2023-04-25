@@ -19,13 +19,32 @@ import (
 )
 
 func main() {
-	tp, err := config.NewTracerProvider("http://localhost:14268/api/traces")
+	conn, ch, err := config.InitRabbitMQ()
+	if err != nil {
+		log.Fatalln(err)
+	}
+	defer conn.Close()
+	defer ch.Close()
+
+	_, err = ch.QueueDeclare(
+		"mail",
+		true,
+		false,
+		false,
+		false,
+		nil,
+	)
 	if err != nil {
 		log.Fatalln(err)
 	}
 
-	ctx, cancel := context.WithCancel(context.Background())
+	ctx, cancel := context.WithTimeout(context.Background(), time.Second*5)
 	defer cancel()
+
+	tp, err := config.NewTracerProvider("http://localhost:14268/api/traces")
+	if err != nil {
+		log.Fatalln(err)
+	}
 
 	defer func(ctx context.Context) {
 		ctx, cancel = context.WithTimeout(ctx, time.Second*5)
@@ -59,7 +78,7 @@ func main() {
 		return c.SendString("Welcome to my API Todo List")
 	})
 
-	api.NewRoutes(app, configuration)
+	api.NewRoutes(app, ch, configuration)
 
 	port := fmt.Sprintf(":%s", configuration.Get("APP_PORT"))
 	err = app.Listen(port)

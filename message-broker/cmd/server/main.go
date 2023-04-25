@@ -1,13 +1,14 @@
 package main
 
 import (
-	"bytes"
-	"github.com/arvians-id/go-rabbitmq/message-broker/cmd/config"
 	"log"
 	"time"
+
+	"github.com/arvians-id/go-rabbitmq/message-broker/cmd/config"
 )
 
 func main() {
+	configuration := config.New(".env.dev")
 	conn, ch, err := config.InitRabbitMQ()
 	if err != nil {
 		log.Fatalln(err)
@@ -16,7 +17,7 @@ func main() {
 	defer ch.Close()
 
 	q, err := ch.QueueDeclare(
-		"task_queue",
+		"mail",
 		true,
 		false,
 		false,
@@ -45,10 +46,12 @@ func main() {
 	go func() {
 		for d := range message {
 			log.Printf("Received a message: %s", d.Body)
-			dotCount := bytes.Count(d.Body, []byte("."))
-			t := time.Duration(dotCount)
-			time.Sleep(t * time.Second)
-			log.Printf("Done")
+			err := config.SendMail(configuration, string(d.Body), "Test Subject Mail", "Hallo bang hehe")
+			if err != nil {
+				log.Fatalln(err)
+			}
+			time.Sleep(5 * time.Second)
+			log.Printf("mail Sended")
 			d.Ack(false)
 		}
 	}()

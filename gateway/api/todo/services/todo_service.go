@@ -7,7 +7,7 @@ import (
 	"google.golang.org/protobuf/types/known/emptypb"
 )
 
-type TodoService interface {
+type TodoServiceContract interface {
 	FindAll(ctx context.Context, in *emptypb.Empty) (*pb.ListTodoResponse, error)
 	FindByID(ctx context.Context, in *pb.GetTodoByIDRequest) (*pb.GetTodoResponse, error)
 	Create(ctx context.Context, in *pb.CreateTodoRequest) (*pb.GetTodoResponse, error)
@@ -19,7 +19,7 @@ type todoService struct {
 	TodoClient client.TodoClient
 }
 
-func NewTodoService(todoClient client.TodoClient) TodoService {
+func NewTodoService(todoClient client.TodoClient) TodoServiceContract {
 	return &todoService{
 		TodoClient: todoClient,
 	}

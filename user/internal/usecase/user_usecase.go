@@ -11,11 +11,11 @@ import (
 )
 
 type UserUsecase struct {
-	UserRepository repository.UserRepository
+	UserRepository repository.UserRepositoryContract
 	pb.UnimplementedUserServiceServer
 }
 
-func NewUserUsecase(userRepository repository.UserRepository) pb.UserServiceServer {
+func NewUserUsecase(userRepository repository.UserRepositoryContract) pb.UserServiceServer {
 	return &UserUsecase{
 		UserRepository: userRepository,
 	}

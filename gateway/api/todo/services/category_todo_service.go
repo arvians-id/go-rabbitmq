@@ -8,7 +8,7 @@ import (
 	"google.golang.org/protobuf/types/known/emptypb"
 )
 
-type CategoryTodoService interface {
+type CategoryTodoServiceContract interface {
 	FindAll(ctx context.Context, in *emptypb.Empty) (*pb.ListCategoryTodoResponse, error)
 	FindByID(ctx context.Context, in *pb.GetCategoryTodoByIDRequest) (*pb.GetCategoryTodoResponse, error)
 	Create(ctx context.Context, in *pb.CreateCategoryTodoRequest) (*pb.GetCategoryTodoResponse, error)
@@ -19,7 +19,7 @@ type categoryTodoService struct {
 	CategoryTodoClient client.CategoryTodoClient
 }
 
-func NewCategoryTodoService(categoryTodoClient client.CategoryTodoClient) CategoryTodoService {
+func NewCategoryTodoService(categoryTodoClient client.CategoryTodoClient) CategoryTodoServiceContract {
 	return &categoryTodoService{
 		CategoryTodoClient: categoryTodoClient,
 	}

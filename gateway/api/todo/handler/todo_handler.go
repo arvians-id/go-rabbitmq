@@ -11,22 +11,22 @@ import (
 )
 
 type TodoHandler struct {
-	TodoService services.TodoService
+	TodoService services.TodoServiceContract
 }
 
-func NewTodoHandler(todoService services.TodoService) TodoHandler {
+func NewTodoHandler(todoService services.TodoServiceContract) TodoHandler {
 	return TodoHandler{
 		TodoService: todoService,
 	}
 }
 
 func (handler *TodoHandler) FindAll(c *fiber.Ctx) error {
-	users, err := handler.TodoService.FindAll(c.Context(), new(emptypb.Empty))
+	todos, err := handler.TodoService.FindAll(c.Context(), new(emptypb.Empty))
 	if err != nil {
 		return response.ReturnErrorInternalServerError(c, err)
 	}
 
-	return response.ReturnSuccessOK(c, "OK", users)
+	return response.ReturnSuccessOK(c, "OK", todos)
 }
 
 func (handler *TodoHandler) FindByID(c *fiber.Ctx) error {

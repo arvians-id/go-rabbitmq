@@ -11,6 +11,4 @@ RUN go mod tidy
 
 COPY . .
 
-EXPOSE 50051
-
 CMD ["go", "run", "cmd/server/main.go"]

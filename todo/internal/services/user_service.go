@@ -7,7 +7,7 @@ import (
 	"google.golang.org/protobuf/types/known/emptypb"
 )
 
-type UserService interface {
+type UserServiceContract interface {
 	FindAll(ctx context.Context, in *emptypb.Empty) (*pb.ListUserResponse, error)
 	FindByID(ctx context.Context, in *pb.GetUserByIDRequest) (*pb.GetUserResponse, error)
 	Create(ctx context.Context, in *pb.CreateUserRequest) (*pb.GetUserResponse, error)
@@ -19,7 +19,7 @@ type userService struct {
 	UserClient client.UserClient
 }
 
-func NewUserService(userClient client.UserClient) UserService {
+func NewUserService(userClient client.UserClient) UserServiceContract {
 	return &userService{
 		UserClient: userClient,
 	}

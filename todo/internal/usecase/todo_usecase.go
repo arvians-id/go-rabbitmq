@@ -15,14 +15,14 @@ import (
 )
 
 type TodoUsecase struct {
-	UserService         services.UserService
-	CategoryTodoService services.CategoryTodoService
-	TodoRepository      repository.TodoRepository
+	UserService         services.UserServiceContract
+	CategoryTodoService services.CategoryTodoServiceContract
+	TodoRepository      repository.TodoRepositoryContract
 	RabbitMQ            *amqp091.Channel
 	pb.UnimplementedTodoServiceServer
 }
 
-func NewTodoUsecase(userService services.UserService, categoryTodoService services.CategoryTodoService, todoRepository repository.TodoRepository, rabbitMQ *amqp091.Channel) pb.TodoServiceServer {
+func NewTodoUsecase(userService services.UserServiceContract, categoryTodoService services.CategoryTodoServiceContract, todoRepository repository.TodoRepositoryContract, rabbitMQ *amqp091.Channel) pb.TodoServiceServer {
 	return &TodoUsecase{
 		UserService:         userService,
 		CategoryTodoService: categoryTodoService,

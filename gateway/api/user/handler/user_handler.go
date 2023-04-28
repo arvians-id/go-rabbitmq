@@ -14,10 +14,10 @@ import (
 const name = "gateway"
 
 type UserHandler struct {
-	UserService services.UserService
+	UserService services.UserServiceContract
 }
 
-func NewUserHandler(userService services.UserService) UserHandler {
+func NewUserHandler(userService services.UserServiceContract) UserHandler {
 	return UserHandler{
 		UserService: userService,
 	}

@@ -11,10 +11,10 @@ import (
 )
 
 type CategoryTodoHandler struct {
-	CategoryTodoService services.CategoryTodoService
+	CategoryTodoService services.CategoryTodoServiceContract
 }
 
-func NewCategoryTodoHandler(categoryTodoService services.CategoryTodoService) CategoryTodoHandler {
+func NewCategoryTodoHandler(categoryTodoService services.CategoryTodoServiceContract) CategoryTodoHandler {
 	return CategoryTodoHandler{
 		CategoryTodoService: categoryTodoService,
 	}

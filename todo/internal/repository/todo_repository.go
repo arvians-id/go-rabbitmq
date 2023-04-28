@@ -21,8 +21,8 @@ type TodoRepository struct {
 	DB *sql.DB
 }
 
-func NewTodoRepository(db *sql.DB) TodoRepository {
-	return TodoRepository{
+func NewTodoRepository(db *sql.DB) TodoRepositoryContract {
+	return &TodoRepository{
 		DB: db,
 	}
 }

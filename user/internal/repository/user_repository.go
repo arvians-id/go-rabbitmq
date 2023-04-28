@@ -21,8 +21,8 @@ type UserRepository struct {
 	DB *sql.DB
 }
 
-func NewUserRepository(db *sql.DB) UserRepository {
-	return UserRepository{
+func NewUserRepository(db *sql.DB) UserRepositoryContract {
+	return &UserRepository{
 		DB: db,
 	}
 }

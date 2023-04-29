@@ -43,6 +43,12 @@ func main() {
 	otel.SetTracerProvider(tp)
 	otel.SetTextMapPropagator(propagation.NewCompositeTextMapPropagator(propagation.TraceContext{}, propagation.Baggage{}))
 
+	// Init Redis
+	rdb, err := config.InitRedis(ctx)
+	if err != nil {
+		log.Fatalln(err)
+	}
+
 	// Init Server
 	app := fiber.New(fiber.Config{
 		JSONEncoder: json.Marshal,
@@ -63,7 +69,7 @@ func main() {
 		return c.SendString("Welcome to my API Todo List")
 	})
 
-	api.NewRoutes(app, configuration)
+	api.NewRoutes(app, configuration, rdb)
 
 	port := fmt.Sprintf(":%s", configuration.Get("APP_PORT"))
 	err = app.Listen(port)

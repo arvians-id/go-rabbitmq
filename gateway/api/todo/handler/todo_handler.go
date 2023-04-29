@@ -26,7 +26,7 @@ func (handler *TodoHandler) FindAll(c *fiber.Ctx) error {
 		return response.ReturnErrorInternalServerError(c, err)
 	}
 
-	return response.ReturnSuccessOK(c, "OK", todos)
+	return response.ReturnSuccessOK(c, "OK", todos.GetTodos())
 }
 
 func (handler *TodoHandler) FindByID(c *fiber.Ctx) error {
@@ -42,7 +42,7 @@ func (handler *TodoHandler) FindByID(c *fiber.Ctx) error {
 		return response.ReturnErrorInternalServerError(c, err)
 	}
 
-	return response.ReturnSuccessOK(c, "OK", todo)
+	return response.ReturnSuccessOK(c, "OK", todo.GetTodo())
 }
 
 func (handler *TodoHandler) Create(c *fiber.Ctx) error {
@@ -67,7 +67,7 @@ func (handler *TodoHandler) Create(c *fiber.Ctx) error {
 		return response.ReturnErrorInternalServerError(c, err)
 	}
 
-	return response.ReturnSuccessCreated(c, "created", todoCreated)
+	return response.ReturnSuccessCreated(c, "created", todoCreated.GetTodo())
 }
 
 func (handler *TodoHandler) Update(c *fiber.Ctx) error {
@@ -98,7 +98,7 @@ func (handler *TodoHandler) Update(c *fiber.Ctx) error {
 		return response.ReturnErrorInternalServerError(c, err)
 	}
 
-	return response.ReturnSuccessOK(c, "updated", todoUpdated)
+	return response.ReturnSuccessOK(c, "updated", todoUpdated.GetTodo())
 }
 
 func (handler *TodoHandler) Delete(c *fiber.Ctx) error {

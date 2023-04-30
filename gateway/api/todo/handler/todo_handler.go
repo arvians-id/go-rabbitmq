@@ -23,38 +23,41 @@ func NewTodoHandler(todoService services.TodoServiceContract) TodoHandler {
 func (handler *TodoHandler) FindAll(c *fiber.Ctx) error {
 	todos, err := handler.TodoService.FindAll(c.Context(), new(emptypb.Empty))
 	if err != nil {
-		return response.ReturnErrorInternalServerError(c, err)
+		return fiber.NewError(fiber.StatusInternalServerError, err.Error())
 	}
 
-	return response.ReturnSuccessOK(c, "OK", todos.GetTodos())
+	return response.ReturnSuccess(c, fiber.StatusOK, "OK", todos.GetTodos())
 }
 
 func (handler *TodoHandler) FindByID(c *fiber.Ctx) error {
 	id, err := c.ParamsInt("id")
 	if err != nil {
-		return response.ReturnErrorBadRequest(c, err)
+		return fiber.NewError(fiber.StatusBadRequest, err.Error())
 	}
 
 	todo, err := handler.TodoService.FindByID(c.Context(), &pb.GetTodoByIDRequest{
 		Id: int64(id),
 	})
 	if err != nil {
-		return response.ReturnErrorInternalServerError(c, err)
+		if err.Error() == response.GrpcErrorNotFound {
+			return fiber.NewError(fiber.StatusNotFound, err.Error())
+		}
+		return fiber.NewError(fiber.StatusInternalServerError, err.Error())
 	}
 
-	return response.ReturnSuccessOK(c, "OK", todo.GetTodo())
+	return response.ReturnSuccess(c, fiber.StatusOK, "OK", todo.GetTodo())
 }
 
 func (handler *TodoHandler) Create(c *fiber.Ctx) error {
 	var todoRequest request.TodoCreateRequest
 	err := c.BodyParser(&todoRequest)
 	if err != nil {
-		return response.ReturnErrorBadRequest(c, err)
+		return fiber.NewError(fiber.StatusBadRequest, err.Error())
 	}
 
 	err = helper.ValidateStruct(todoRequest)
 	if err != nil {
-		return response.ReturnErrorBadRequest(c, err)
+		return fiber.NewError(fiber.StatusBadRequest, err.Error())
 	}
 
 	todoCreated, err := handler.TodoService.Create(c.Context(), &pb.CreateTodoRequest{
@@ -64,27 +67,27 @@ func (handler *TodoHandler) Create(c *fiber.Ctx) error {
 		CategoryTodoId: todoRequest.CategoryTodoId,
 	})
 	if err != nil {
-		return response.ReturnErrorInternalServerError(c, err)
+		return fiber.NewError(fiber.StatusInternalServerError, err.Error())
 	}
 
-	return response.ReturnSuccessCreated(c, "created", todoCreated.GetTodo())
+	return response.ReturnSuccess(c, fiber.StatusCreated, "created", todoCreated.GetTodo())
 }
 
 func (handler *TodoHandler) Update(c *fiber.Ctx) error {
 	var todoRequest request.TodoUpdateRequest
 	err := c.BodyParser(&todoRequest)
 	if err != nil {
-		return response.ReturnErrorBadRequest(c, err)
+		return fiber.NewError(fiber.StatusBadRequest, err.Error())
 	}
 
 	err = helper.ValidateStruct(todoRequest)
 	if err != nil {
-		return response.ReturnErrorBadRequest(c, err)
+		return fiber.NewError(fiber.StatusBadRequest, err.Error())
 	}
 
 	id, err := c.ParamsInt("id")
 	if err != nil {
-		return response.ReturnErrorBadRequest(c, err)
+		return fiber.NewError(fiber.StatusBadRequest, err.Error())
 	}
 
 	todoUpdated, err := handler.TodoService.Update(c.Context(), &pb.UpdateTodoRequest{
@@ -95,24 +98,30 @@ func (handler *TodoHandler) Update(c *fiber.Ctx) error {
 		UserId:      todoRequest.UserId,
 	})
 	if err != nil {
-		return response.ReturnErrorInternalServerError(c, err)
+		if err.Error() == response.GrpcErrorNotFound {
+			return fiber.NewError(fiber.StatusNotFound, err.Error())
+		}
+		return fiber.NewError(fiber.StatusInternalServerError, err.Error())
 	}
 
-	return response.ReturnSuccessOK(c, "updated", todoUpdated.GetTodo())
+	return response.ReturnSuccess(c, fiber.StatusOK, "updated", todoUpdated.GetTodo())
 }
 
 func (handler *TodoHandler) Delete(c *fiber.Ctx) error {
 	id, err := c.ParamsInt("id")
 	if err != nil {
-		return response.ReturnErrorBadRequest(c, err)
+		return fiber.NewError(fiber.StatusBadRequest, err.Error())
 	}
 
 	_, err = handler.TodoService.Delete(c.Context(), &pb.GetTodoByIDRequest{
 		Id: int64(id),
 	})
 	if err != nil {
-		return response.ReturnErrorInternalServerError(c, err)
+		if err.Error() == response.GrpcErrorNotFound {
+			return fiber.NewError(fiber.StatusNotFound, err.Error())
+		}
+		return fiber.NewError(fiber.StatusInternalServerError, err.Error())
 	}
 
-	return response.ReturnSuccessOK(c, "deleted", nil)
+	return response.ReturnSuccess(c, fiber.StatusOK, "deleted", nil)
 }

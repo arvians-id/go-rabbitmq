@@ -2,7 +2,9 @@ package main
 
 import (
 	"context"
+	"errors"
 	"fmt"
+	"github.com/arvians-id/go-rabbitmq/gateway/response"
 	"log"
 	"time"
 
@@ -53,6 +55,16 @@ func main() {
 	app := fiber.New(fiber.Config{
 		JSONEncoder: json.Marshal,
 		JSONDecoder: json.Unmarshal,
+		ErrorHandler: func(ctx *fiber.Ctx, err error) error {
+			code := fiber.StatusInternalServerError
+
+			var e *fiber.Error
+			if errors.As(err, &e) {
+				code = e.Code
+			}
+
+			return response.ReturnError(ctx, code, err)
+		},
 	})
 	app.Use(logger.New())
 	app.Use(cors.New(cors.Config{
@@ -62,9 +74,9 @@ func main() {
 		AllowCredentials: true,
 	}))
 	app.Get("/", func(c *fiber.Ctx) error {
-		tr := tp.Tracer("component-main")
+		tr := tp.Tracer("main-endpoint")
 
-		_, span := tr.Start(ctx, "foo")
+		_, span := tr.Start(ctx, "root")
 		defer span.End()
 		return c.SendString("Welcome to my API Todo List")
 	})

@@ -23,54 +23,57 @@ func NewCategoryTodoHandler(categoryTodoService services.CategoryTodoServiceCont
 func (handler *CategoryTodoHandler) FindAll(c *fiber.Ctx) error {
 	categoryTodos, err := handler.CategoryTodoService.FindAll(c.Context(), new(emptypb.Empty))
 	if err != nil {
-		return response.ReturnErrorInternalServerError(c, err)
+		return fiber.NewError(fiber.StatusInternalServerError, err.Error())
 	}
 
-	return response.ReturnSuccessOK(c, "OK", categoryTodos)
+	return response.ReturnSuccess(c, fiber.StatusOK, "OK", categoryTodos)
 }
 
 func (handler *CategoryTodoHandler) FindByID(c *fiber.Ctx) error {
 	id, err := c.ParamsInt("id")
 	if err != nil {
-		return response.ReturnErrorBadRequest(c, err)
+		return fiber.NewError(fiber.StatusBadRequest, err.Error())
 	}
 
 	categoryTodo, err := handler.CategoryTodoService.FindByID(c.Context(), &pb.GetCategoryTodoByIDRequest{
 		Id: int64(id),
 	})
 	if err != nil {
-		return response.ReturnErrorInternalServerError(c, err)
+		if err.Error() == response.GrpcErrorNotFound {
+			return fiber.NewError(fiber.StatusNotFound, err.Error())
+		}
+		return fiber.NewError(fiber.StatusInternalServerError, err.Error())
 	}
 
-	return response.ReturnSuccessOK(c, "OK", categoryTodo)
+	return response.ReturnSuccess(c, fiber.StatusOK, "OK", categoryTodo)
 }
 
 func (handler *CategoryTodoHandler) Create(c *fiber.Ctx) error {
 	var categoryTodoRequest request.CategoryTodoCreateRequest
 	err := c.BodyParser(&categoryTodoRequest)
 	if err != nil {
-		return response.ReturnErrorBadRequest(c, err)
+		return fiber.NewError(fiber.StatusBadRequest, err.Error())
 	}
 
 	err = helper.ValidateStruct(categoryTodoRequest)
 	if err != nil {
-		return response.ReturnErrorBadRequest(c, err)
+		return fiber.NewError(fiber.StatusBadRequest, err.Error())
 	}
 
 	categoryTodoCreated, err := handler.CategoryTodoService.Create(c.Context(), &pb.CreateCategoryTodoRequest{
 		Name: categoryTodoRequest.Name,
 	})
 	if err != nil {
-		return response.ReturnErrorInternalServerError(c, err)
+		return fiber.NewError(fiber.StatusInternalServerError, err.Error())
 	}
 
-	return response.ReturnSuccessCreated(c, "created", categoryTodoCreated)
+	return response.ReturnSuccess(c, fiber.StatusCreated, "created", categoryTodoCreated)
 }
 
 func (handler *CategoryTodoHandler) Delete(c *fiber.Ctx) error {
 	id, err := c.ParamsInt("id")
 	if err != nil {
-		return response.ReturnErrorBadRequest(c, err)
+		return fiber.NewError(fiber.StatusBadRequest, err.Error())
 	}
 
 	_, err = handler.CategoryTodoService.Delete(c.Context(), &pb.GetCategoryTodoByIDRequest{
@@ -78,8 +81,11 @@ func (handler *CategoryTodoHandler) Delete(c *fiber.Ctx) error {
 	})
 
 	if err != nil {
-		return response.ReturnErrorInternalServerError(c, err)
+		if err.Error() == response.GrpcErrorNotFound {
+			return fiber.NewError(fiber.StatusNotFound, err.Error())
+		}
+		return fiber.NewError(fiber.StatusInternalServerError, err.Error())
 	}
 
-	return response.ReturnSuccessOK(c, "deleted", nil)
+	return response.ReturnSuccess(c, fiber.StatusOK, "deleted", nil)
 }

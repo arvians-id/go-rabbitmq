@@ -26,46 +26,21 @@ func NewTodoService(todoClient client.TodoClient) TodoServiceContract {
 }
 
 func (service *todoService) FindAll(ctx context.Context, in *emptypb.Empty) (*pb.ListTodoResponse, error) {
-	todos, err := service.TodoClient.Client.FindAll(ctx, in)
-	if err != nil {
-		return nil, err
-	}
-
-	return todos, nil
+	return service.TodoClient.Client.FindAll(ctx, in)
 }
 
 func (service *todoService) FindByID(ctx context.Context, in *pb.GetTodoByIDRequest) (*pb.GetTodoResponse, error) {
-	todo, err := service.TodoClient.Client.FindByID(ctx, in)
-	if err != nil {
-		return nil, err
-	}
-
-	return todo, nil
+	return service.TodoClient.Client.FindByID(ctx, in)
 }
 
 func (service *todoService) Create(ctx context.Context, in *pb.CreateTodoRequest) (*pb.GetTodoResponse, error) {
-	todo, err := service.TodoClient.Client.Create(ctx, in)
-	if err != nil {
-		return nil, err
-	}
-
-	return todo, nil
+	return service.TodoClient.Client.Create(ctx, in)
 }
 
 func (service *todoService) Update(ctx context.Context, in *pb.UpdateTodoRequest) (*pb.GetTodoResponse, error) {
-	todo, err := service.TodoClient.Client.Update(ctx, in)
-	if err != nil {
-		return nil, err
-	}
-
-	return todo, nil
+	return service.TodoClient.Client.Update(ctx, in)
 }
 
 func (service *todoService) Delete(ctx context.Context, in *pb.GetTodoByIDRequest) (*emptypb.Empty, error) {
-	_, err := service.TodoClient.Client.Delete(ctx, in)
-	if err != nil {
-		return nil, err
-	}
-
-	return new(emptypb.Empty), err
+	return service.TodoClient.Client.Delete(ctx, in)
 }

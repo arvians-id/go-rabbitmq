@@ -26,37 +26,17 @@ func NewCategoryTodoService(categoryTodoClient client.CategoryTodoClient) Catego
 }
 
 func (service *categoryTodoService) FindAll(ctx context.Context, in *emptypb.Empty) (*pb.ListCategoryTodoResponse, error) {
-	categoryTodos, err := service.CategoryTodoClient.Client.FindAll(ctx, in)
-	if err != nil {
-		return nil, err
-	}
-
-	return categoryTodos, nil
+	return service.CategoryTodoClient.Client.FindAll(ctx, in)
 }
 
 func (service *categoryTodoService) FindByID(ctx context.Context, in *pb.GetCategoryTodoByIDRequest) (*pb.GetCategoryTodoResponse, error) {
-	categoryTodo, err := service.CategoryTodoClient.Client.FindByID(ctx, in)
-	if err != nil {
-		return nil, err
-	}
-
-	return categoryTodo, err
+	return service.CategoryTodoClient.Client.FindByID(ctx, in)
 }
 
 func (service *categoryTodoService) Create(ctx context.Context, in *pb.CreateCategoryTodoRequest) (*pb.GetCategoryTodoResponse, error) {
-	categoryTodo, err := service.CategoryTodoClient.Client.Create(ctx, in)
-	if err != nil {
-		return nil, err
-	}
-
-	return categoryTodo, nil
+	return service.CategoryTodoClient.Client.Create(ctx, in)
 }
 
 func (service *categoryTodoService) Delete(ctx context.Context, in *pb.GetCategoryTodoByIDRequest) (*emptypb.Empty, error) {
-	_, err := service.CategoryTodoClient.Client.Delete(ctx, in)
-	if err != nil {
-		return nil, err
-	}
-
-	return new(emptypb.Empty), nil
+	return service.CategoryTodoClient.Client.Delete(ctx, in)
 }

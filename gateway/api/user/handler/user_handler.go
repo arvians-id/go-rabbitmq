@@ -26,38 +26,41 @@ func NewUserHandler(userService services.UserServiceContract) UserHandler {
 func (handler *UserHandler) FindAll(c *fiber.Ctx) error {
 	users, err := handler.UserService.FindAll(c.Context(), new(emptypb.Empty))
 	if err != nil {
-		return response.ReturnErrorInternalServerError(c, err)
+		return fiber.NewError(fiber.StatusInternalServerError, err.Error())
 	}
 
-	return response.ReturnSuccessOK(c, "OK", users)
+	return response.ReturnSuccess(c, fiber.StatusOK, "OK", users)
 }
 
 func (handler *UserHandler) FindByID(c *fiber.Ctx) error {
 	id, err := c.ParamsInt("id")
 	if err != nil {
-		return response.ReturnErrorBadRequest(c, err)
+		return fiber.NewError(fiber.StatusBadRequest, err.Error())
 	}
 
 	user, err := handler.UserService.FindByID(c.Context(), &pb.GetUserByIDRequest{
 		Id: int64(id),
 	})
 	if err != nil {
-		return response.ReturnErrorInternalServerError(c, err)
+		if err.Error() == response.GrpcErrorNotFound {
+			return fiber.NewError(fiber.StatusNotFound, err.Error())
+		}
+		return fiber.NewError(fiber.StatusInternalServerError, err.Error())
 	}
 
-	return response.ReturnSuccessOK(c, "OK", user)
+	return response.ReturnSuccess(c, fiber.StatusOK, "OK", user)
 }
 
 func (handler *UserHandler) Create(c *fiber.Ctx) error {
 	var userRequest request.UserCreateRequest
 	err := c.BodyParser(&userRequest)
 	if err != nil {
-		return response.ReturnErrorBadRequest(c, err)
+		return fiber.NewError(fiber.StatusBadRequest, err.Error())
 	}
 
 	err = helper.ValidateStruct(userRequest)
 	if err != nil {
-		return response.ReturnErrorBadRequest(c, err)
+		return fiber.NewError(fiber.StatusBadRequest, err.Error())
 	}
 
 	userCreated, err := handler.UserService.Create(c.Context(), &pb.CreateUserRequest{
@@ -65,49 +68,58 @@ func (handler *UserHandler) Create(c *fiber.Ctx) error {
 		Email: userRequest.Email,
 	})
 	if err != nil {
-		return response.ReturnErrorInternalServerError(c, err)
+		return fiber.NewError(fiber.StatusInternalServerError, err.Error())
 	}
 
-	return response.ReturnSuccessCreated(c, "created", userCreated)
+	return response.ReturnSuccess(c, fiber.StatusCreated, "created", userCreated)
 }
 
 func (handler *UserHandler) Update(c *fiber.Ctx) error {
 	var userRequest request.UserUpdateRequest
 	err := c.BodyParser(&userRequest)
 	if err != nil {
-		return response.ReturnErrorBadRequest(c, err)
+		return fiber.NewError(fiber.StatusBadRequest, err.Error())
 	}
 
 	errValidate := helper.ValidateStruct(userRequest)
 	if errValidate != nil {
-		return response.ReturnErrorBadRequest(c, errValidate)
+		return fiber.NewError(fiber.StatusBadRequest, err.Error())
 	}
 
 	id, err := c.ParamsInt("id")
 	if err != nil {
-		return response.ReturnErrorBadRequest(c, err)
+		return fiber.NewError(fiber.StatusBadRequest, err.Error())
 	}
 
 	userUpdated, err := handler.UserService.Update(c.Context(), &pb.UpdateUserRequest{
 		Id:   int64(id),
 		Name: userRequest.Name,
 	})
+	if err != nil {
+		if err.Error() == response.GrpcErrorNotFound {
+			return fiber.NewError(fiber.StatusNotFound, err.Error())
+		}
+		return fiber.NewError(fiber.StatusInternalServerError, err.Error())
+	}
 
-	return response.ReturnSuccessOK(c, "updated", userUpdated)
+	return response.ReturnSuccess(c, fiber.StatusOK, "updated", userUpdated)
 }
 
 func (handler *UserHandler) Delete(c *fiber.Ctx) error {
 	id, err := c.ParamsInt("id")
 	if err != nil {
-		return response.ReturnErrorBadRequest(c, err)
+		return fiber.NewError(fiber.StatusBadRequest, err.Error())
 	}
 
 	_, err = handler.UserService.Delete(c.Context(), &pb.GetUserByIDRequest{
 		Id: int64(id),
 	})
 	if err != nil {
-		return err
+		if err.Error() == response.GrpcErrorNotFound {
+			return fiber.NewError(fiber.StatusNotFound, err.Error())
+		}
+		return fiber.NewError(fiber.StatusInternalServerError, err.Error())
 	}
 
-	return response.ReturnSuccessOK(c, "deleted", nil)
+	return response.ReturnSuccess(c, fiber.StatusOK, "deleted", nil)
 }

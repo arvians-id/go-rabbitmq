@@ -27,46 +27,21 @@ func NewUserService(userClient client.UserClient) UserServiceContract {
 }
 
 func (service *userService) FindAll(ctx context.Context, in *emptypb.Empty) (*pb.ListUserResponse, error) {
-	users, err := service.UserClient.Client.FindAll(ctx, in)
-	if err != nil {
-		return nil, err
-	}
-
-	return users, nil
+	return service.UserClient.Client.FindAll(ctx, in)
 }
 
 func (service *userService) FindByID(ctx context.Context, in *pb.GetUserByIDRequest) (*pb.GetUserResponse, error) {
-	user, err := service.UserClient.Client.FindByID(ctx, in)
-	if err != nil {
-		return nil, err
-	}
-
-	return user, nil
+	return service.UserClient.Client.FindByID(ctx, in)
 }
 
 func (service *userService) Create(ctx context.Context, in *pb.CreateUserRequest) (*pb.GetUserResponse, error) {
-	user, err := service.UserClient.Client.Create(ctx, in)
-	if err != nil {
-		return nil, err
-	}
-
-	return user, nil
+	return service.UserClient.Client.Create(ctx, in)
 }
 
 func (service *userService) Update(ctx context.Context, in *pb.UpdateUserRequest) (*pb.GetUserResponse, error) {
-	user, err := service.UserClient.Client.Update(ctx, in)
-	if err != nil {
-		return nil, err
-	}
-
-	return user, nil
+	return service.UserClient.Client.Update(ctx, in)
 }
 
 func (service *userService) Delete(ctx context.Context, in *pb.GetUserByIDRequest) (*emptypb.Empty, error) {
-	_, err := service.UserClient.Client.Delete(ctx, in)
-	if err != nil {
-		return nil, err
-	}
-
-	return new(emptypb.Empty), err
+	return service.UserClient.Client.Delete(ctx, in)
 }

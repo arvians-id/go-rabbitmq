@@ -5,7 +5,9 @@ import (
 	"errors"
 	"fmt"
 	"github.com/arvians-id/go-rabbitmq/gateway/response"
+	"github.com/gofiber/fiber/v2/middleware/csrf"
 	"log"
+	"os"
 	"time"
 
 	"github.com/arvians-id/go-rabbitmq/gateway/api"
@@ -66,7 +68,26 @@ func main() {
 			return response.ReturnError(ctx, code, err)
 		},
 	})
-	app.Use(logger.New())
+
+	// Set CSRF
+	app.Use(csrf.New())
+
+	// Set Logging
+	file, err := os.OpenFile("./logs/main.log", os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
+	if err != nil {
+		log.Fatalln("error opening file:", err)
+	}
+	defer file.Close()
+	app.Use(logger.New(logger.Config{
+		Format:     "[${time}] | ${status} | ${latency} | ${ip} | ${method} | ${path} | ${error}\n",
+		Output:     file,
+		TimeFormat: "02-Jan-2006 15:04:05",
+		Done: func(c *fiber.Ctx, logString []byte) {
+			fmt.Print(string(logString))
+		},
+	}))
+
+	// Set CORS
 	app.Use(cors.New(cors.Config{
 		AllowOrigins:     "*",
 		AllowHeaders:     "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With, X-API-KEY",
@@ -74,15 +95,13 @@ func main() {
 		AllowCredentials: true,
 	}))
 	app.Get("/", func(c *fiber.Ctx) error {
-		tr := tp.Tracer("main-endpoint")
-
-		_, span := tr.Start(ctx, "root")
-		defer span.End()
 		return c.SendString("Welcome to my API Todo List")
 	})
 
+	// Set Routes
 	api.NewRoutes(app, configuration, rdb)
 
+	// Start Server
 	port := fmt.Sprintf(":%s", configuration.Get("APP_PORT"))
 	err = app.Listen(port)
 	if err != nil {

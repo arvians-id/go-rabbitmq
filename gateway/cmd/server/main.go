@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"github.com/arvians-id/go-rabbitmq/gateway/response"
 	"github.com/gofiber/fiber/v2/middleware/csrf"
+	"github.com/gofiber/fiber/v2/utils"
 	"log"
 	"os"
 	"time"
@@ -27,7 +28,7 @@ func main() {
 	configuration := config.New(".env.dev")
 
 	// Init Open Telementry Tracer
-	tp, err := config.NewTracerProvider("http://localhost:14268/api/traces")
+	tp, err := config.NewTracerProvider(configuration)
 	if err != nil {
 		log.Fatalln(err)
 	}
@@ -48,7 +49,7 @@ func main() {
 	otel.SetTextMapPropagator(propagation.NewCompositeTextMapPropagator(propagation.TraceContext{}, propagation.Baggage{}))
 
 	// Init Redis
-	rdb, err := config.InitRedis(ctx)
+	rdb, err := config.InitRedis(configuration, ctx)
 	if err != nil {
 		log.Fatalln(err)
 	}
@@ -70,7 +71,14 @@ func main() {
 	})
 
 	// Set CSRF
-	app.Use(csrf.New())
+	app.Use(csrf.New(csrf.Config{
+		KeyLookup:      "header:X-CSRF-Token",
+		CookieName:     "csrf_token",
+		CookieSameSite: "Lax",
+		CookieHTTPOnly: true,
+		Expiration:     15 * time.Minute,
+		KeyGenerator:   utils.UUID,
+	}))
 
 	// Set Logging
 	file, err := os.OpenFile("./logs/main.log", os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)

@@ -11,7 +11,7 @@ import (
 
 func main() {
 	configuration := config.New(".env.dev")
-	conn, ch, err := config.InitRabbitMQ()
+	conn, ch, err := config.InitRabbitMQ(configuration)
 	if err != nil {
 		log.Fatalln(err)
 	}

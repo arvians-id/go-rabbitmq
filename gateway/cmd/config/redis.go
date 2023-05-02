@@ -2,17 +2,28 @@ package config
 
 import (
 	"context"
+	"fmt"
 	"github.com/redis/go-redis/v9"
+	"strconv"
 )
 
-func InitRedis(ctx context.Context) (*redis.Client, error) {
+func InitRedis(configuration Config, ctx context.Context) (*redis.Client, error) {
+	redisHost := configuration.Get("REDIS_HOST")
+	redisPort := configuration.Get("REDIS_PORT")
+	redisPassword := configuration.Get("REDIS_PASSWORD")
+	redisDB, err := strconv.Atoi(configuration.Get("REDIS_DB"))
+	if err != nil {
+		return nil, err
+	}
+
+	addr := fmt.Sprintf("%s:%s", redisHost, redisPort)
 	rdb := redis.NewClient(&redis.Options{
-		Addr:     "localhost:6379",
-		Password: "",
-		DB:       0,
+		Addr:     addr,
+		Password: redisPassword,
+		DB:       redisDB,
 	})
 
-	err := rdb.Ping(ctx).Err()
+	err = rdb.Ping(ctx).Err()
 	if err != nil {
 		return nil, err
 	}

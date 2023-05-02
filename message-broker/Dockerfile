@@ -4,11 +4,11 @@ RUN apk update && apk add --no-cache git
 
 WORKDIR /app
 
-COPY go.mod .
-COPY go.sum .
+COPY /cmd/server/main.go .
+COPY . .
 
 RUN go mod tidy
 
-COPY . .
+RUN go build -o main
 
-CMD ["go", "run", "cmd/server/main.go"]
+CMD ./main

@@ -28,7 +28,7 @@ func main() {
 	}
 
 	// Init Rabbit MQ
-	conn, ch, err := config.InitRabbitMQ()
+	conn, ch, err := config.InitRabbitMQ(configuration)
 	if err != nil {
 		log.Fatalln(err)
 	}
@@ -48,7 +48,7 @@ func main() {
 	}
 
 	// Init Open Telementry Tracer
-	tp, err := config.NewTracerProvider("http://localhost:14268/api/traces")
+	tp, err := config.NewTracerProvider(configuration)
 	if err != nil {
 		log.Fatalln(err)
 	}

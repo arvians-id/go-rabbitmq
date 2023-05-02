@@ -1,0 +1,135 @@
+version: "3.9"
+
+services:
+  todo-db:
+    container_name: todo-db
+    image: postgres:latest
+    restart: always
+    volumes:
+      - ./database/postgres/data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=go_rabbitmq
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+    ports:
+      - "5432:5432"
+    networks:
+      - todo-network
+  todo-redis:
+    container_name: redis
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    networks:
+      - todo-network
+    restart: always
+  todo-gateway:
+    container_name: todo-gateway
+    image: arvians/go-todo-gateway:latest
+    environment:
+      - USER_SERVICE_URL=todo-user:50050
+      - TODO_SERVICE_URL=todo-todo:50051
+      - JAEGER_HOST=todo-jaeger
+      - JAEGER_PORT=14268
+      - REDIS_HOST=todo-redis
+      - REDIS_PORT=6379
+      - REDIS_PASSWORD=
+      - REDIS_DB=0
+    ports:
+      - "3000:3000"
+    depends_on:
+      - todo-db
+    restart: always
+    networks:
+      - todo-network
+  todo-user:
+    container_name: todo-user
+    image: arvians/go-todo-user:latest
+    environment:
+      - USER_SERVICE_URL=todo-user:50050
+      - TODO_SERVICE_URL=todo-todo:50051
+      - DB_HOST=todo-db
+      - DB_PORT=5432
+      - DB_DATABASE=go_rabbitmq
+      - DB_USERNAME=root
+      - DB_PASSWORD=root
+      - DB_CONNECTION=postgres
+      - DB_SSL_MODE=disable
+      - DB_POOL_MIN=10
+      - DB_POOL_MAX=60
+      - DB_MAX_IDLE_TIME=60
+      - DB_MAX_LIFE_TIME=60
+      - JAEGER_HOST=todo-jaeger
+      - JAEGER_PORT=14268
+    ports:
+      - "50050:50050"
+    depends_on:
+      - todo-db
+    restart: always
+    networks:
+      - todo-network
+  todo-todo:
+    container_name: todo-todo
+    image: arvians/go-todo-todo:latest
+    environment:
+      - USER_SERVICE_URL=todo-user:50050
+      - TODO_SERVICE_URL=todo-todo:50051
+      - DB_HOST=todo-db
+      - DB_PORT=5432
+      - DB_DATABASE=go_rabbitmq
+      - DB_USERNAME=root
+      - DB_PASSWORD=root
+      - DB_CONNECTION=postgres
+      - DB_SSL_MODE=disable
+      - DB_POOL_MIN=10
+      - DB_POOL_MAX=60
+      - DB_MAX_IDLE_TIME=60
+      - DB_MAX_LIFE_TIME=60
+      - JAEGER_HOST=todo-jaeger
+      - JAEGER_PORT=14268
+      - MQ_HOST=todo-rabbitmq
+      - MQ_USER=guest
+      - MQ_PASSWORD=guest
+      - MQ_PORT=5672
+    ports:
+      - "50051:50051"
+    depends_on:
+      - todo-db
+    restart: always
+    networks:
+      - todo-network
+  todo-message_broker:
+    container_name: todo-message-broker
+    image: arvians/go-todo-message-broker:latest
+    restart: always
+    environment:
+      - MQ_HOST=todo-rabbitmq
+      - MQ_USER=guest
+      - MQ_PASSWORD=guest
+      - MQ_PORT=5672
+    networks:
+      - todo-network
+  todo-rabbitmq:
+    container_name: todo-rabbitmq
+    image: rabbitmq:3.11-management
+    restart: always
+    volumes:
+      - ./database/rabbitmq/data:/var/lib/rabbitmq/
+      - ./database/rabbitmq/log:/var/log/rabbitmq
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+    networks:
+      - todo-network
+  todo-jaeger:
+    container_name: todo-jaeger
+    image: jaegertracing/all-in-one:1.44
+    ports:
+      - "16686:16686"
+    restart: always
+    networks:
+      - todo-network
+
+networks:
+  todo-network:
+    driver: bridge

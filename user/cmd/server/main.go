@@ -26,7 +26,7 @@ func main() {
 	}
 
 	// Init Open Telementry Tracer
-	tp, err := config.NewTracerProvider("http://localhost:14268/api/traces")
+	tp, err := config.NewTracerProvider(configuration)
 	if err != nil {
 		log.Fatalln(err)
 	}

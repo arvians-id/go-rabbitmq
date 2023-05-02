@@ -1,6 +1,7 @@
 package handler
 
 import (
+	"github.com/arvians-id/go-rabbitmq/gateway/api/todo/dto"
 	"github.com/arvians-id/go-rabbitmq/gateway/api/todo/pb"
 	"github.com/arvians-id/go-rabbitmq/gateway/api/todo/request"
 	"github.com/arvians-id/go-rabbitmq/gateway/api/todo/services"
@@ -8,16 +9,71 @@ import (
 	"github.com/arvians-id/go-rabbitmq/gateway/response"
 	"github.com/gofiber/fiber/v2"
 	"google.golang.org/protobuf/types/known/emptypb"
+	"sync"
 )
 
 type TodoHandler struct {
-	TodoService services.TodoServiceContract
+	TodoService         services.TodoServiceContract
+	CategoryTodoService services.CategoryTodoServiceContract
 }
 
-func NewTodoHandler(todoService services.TodoServiceContract) TodoHandler {
+func NewTodoHandler(todoService services.TodoServiceContract, categoryTodoService services.CategoryTodoServiceContract) TodoHandler {
 	return TodoHandler{
-		TodoService: todoService,
+		TodoService:         todoService,
+		CategoryTodoService: categoryTodoService,
 	}
+}
+
+func (handler *TodoHandler) DisplayTodoCategoryList(c *fiber.Ctx) error {
+	var wg sync.WaitGroup
+	var mutex sync.Mutex
+	var todos *pb.ListTodoResponse
+	var categoryTodos *pb.ListCategoryTodoResponse
+	var err error
+	wg.Add(2)
+
+	go func() {
+		var errGo error
+		todos, errGo = handler.TodoService.FindAll(c.Context(), new(emptypb.Empty))
+		if errGo != nil {
+			mutex.Lock()
+			err = errGo
+			mutex.Unlock()
+		}
+		defer wg.Done()
+	}()
+
+	go func() {
+		var errGo error
+		categoryTodos, errGo = handler.CategoryTodoService.FindAll(c.Context(), new(emptypb.Empty))
+		if errGo != nil {
+			mutex.Lock()
+			err = errGo
+			mutex.Unlock()
+		}
+		defer wg.Done()
+	}()
+	wg.Wait()
+
+	if err != nil {
+		return fiber.NewError(fiber.StatusInternalServerError, err.Error())
+	}
+
+	// If you want to run this handler sequentially, you can use this code
+	//todos, err := handler.TodoService.FindAll(c.Context(), new(emptypb.Empty))
+	//if err != nil {
+	//	return fiber.NewError(fiber.StatusInternalServerError, err.Error())
+	//}
+	//
+	//categoryTodos, err := handler.CategoryTodoService.FindAll(c.Context(), new(emptypb.Empty))
+	//if err != nil {
+	//	return fiber.NewError(fiber.StatusInternalServerError, err.Error())
+	//}
+
+	return response.ReturnSuccess(c, fiber.StatusOK, "OK", &dto.DisplayTodoCategoryList{
+		Todos:         todos.GetTodos(),
+		CategoryTodos: categoryTodos.GetCategoryTodos(),
+	})
 }
 
 func (handler *TodoHandler) FindAll(c *fiber.Ctx) error {

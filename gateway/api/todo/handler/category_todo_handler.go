@@ -26,7 +26,7 @@ func (handler *CategoryTodoHandler) FindAll(c *fiber.Ctx) error {
 		return fiber.NewError(fiber.StatusInternalServerError, err.Error())
 	}
 
-	return response.ReturnSuccess(c, fiber.StatusOK, "OK", categoryTodos)
+	return response.ReturnSuccess(c, fiber.StatusOK, "OK", categoryTodos.GetCategoryTodos())
 }
 
 func (handler *CategoryTodoHandler) FindByID(c *fiber.Ctx) error {
@@ -45,7 +45,7 @@ func (handler *CategoryTodoHandler) FindByID(c *fiber.Ctx) error {
 		return fiber.NewError(fiber.StatusInternalServerError, err.Error())
 	}
 
-	return response.ReturnSuccess(c, fiber.StatusOK, "OK", categoryTodo)
+	return response.ReturnSuccess(c, fiber.StatusOK, "OK", categoryTodo.GetCategoryTodo())
 }
 
 func (handler *CategoryTodoHandler) Create(c *fiber.Ctx) error {
@@ -67,7 +67,7 @@ func (handler *CategoryTodoHandler) Create(c *fiber.Ctx) error {
 		return fiber.NewError(fiber.StatusInternalServerError, err.Error())
 	}
 
-	return response.ReturnSuccess(c, fiber.StatusCreated, "created", categoryTodoCreated)
+	return response.ReturnSuccess(c, fiber.StatusCreated, "created", categoryTodoCreated.GetCategoryTodo())
 }
 
 func (handler *CategoryTodoHandler) Delete(c *fiber.Ctx) error {

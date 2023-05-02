@@ -29,7 +29,7 @@ func (handler *UserHandler) FindAll(c *fiber.Ctx) error {
 		return fiber.NewError(fiber.StatusInternalServerError, err.Error())
 	}
 
-	return response.ReturnSuccess(c, fiber.StatusOK, "OK", users)
+	return response.ReturnSuccess(c, fiber.StatusOK, "OK", users.GetUsers())
 }
 
 func (handler *UserHandler) FindByID(c *fiber.Ctx) error {
@@ -48,7 +48,7 @@ func (handler *UserHandler) FindByID(c *fiber.Ctx) error {
 		return fiber.NewError(fiber.StatusInternalServerError, err.Error())
 	}
 
-	return response.ReturnSuccess(c, fiber.StatusOK, "OK", user)
+	return response.ReturnSuccess(c, fiber.StatusOK, "OK", user.GetUser())
 }
 
 func (handler *UserHandler) Create(c *fiber.Ctx) error {
@@ -71,7 +71,7 @@ func (handler *UserHandler) Create(c *fiber.Ctx) error {
 		return fiber.NewError(fiber.StatusInternalServerError, err.Error())
 	}
 
-	return response.ReturnSuccess(c, fiber.StatusCreated, "created", userCreated)
+	return response.ReturnSuccess(c, fiber.StatusCreated, "created", userCreated.GetUser())
 }
 
 func (handler *UserHandler) Update(c *fiber.Ctx) error {
@@ -102,7 +102,7 @@ func (handler *UserHandler) Update(c *fiber.Ctx) error {
 		return fiber.NewError(fiber.StatusInternalServerError, err.Error())
 	}
 
-	return response.ReturnSuccess(c, fiber.StatusOK, "updated", userUpdated)
+	return response.ReturnSuccess(c, fiber.StatusOK, "updated", userUpdated.GetUser())
 }
 
 func (handler *UserHandler) Delete(c *fiber.Ctx) error {

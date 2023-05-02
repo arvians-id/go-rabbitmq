@@ -1,4 +1,5 @@
 .idea
-gateway/application.exe
-gateway/tmp
+*/application.exe
+*/tmp
 database/postgres/data
+database/rabbitmq

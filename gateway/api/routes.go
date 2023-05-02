@@ -12,5 +12,4 @@ func NewRoutes(c *fiber.App, configuration config.Config, redisClient *redis.Cli
 	apiGroup := c.Group("/api")
 	user.NewUserRoute(apiGroup, configuration)
 	todo.NewTodoRoute(apiGroup, configuration, redisClient)
-	todo.NewCategoryTodoRoute(apiGroup, configuration)
 }

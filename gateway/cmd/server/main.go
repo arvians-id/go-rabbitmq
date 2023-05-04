@@ -2,39 +2,29 @@ package main
 
 import (
 	"context"
-	"errors"
 	"fmt"
-	"github.com/arvians-id/go-rabbitmq/gateway/response"
-	"github.com/gofiber/fiber/v2/middleware/csrf"
-	"github.com/gofiber/fiber/v2/utils"
+	"github.com/arvians-id/go-rabbitmq/gateway/api"
+	"github.com/arvians-id/go-rabbitmq/gateway/cmd/config"
+	"go.opentelemetry.io/otel"
+	"go.opentelemetry.io/otel/propagation"
 	"log"
 	"os"
 	"time"
-
-	"github.com/arvians-id/go-rabbitmq/gateway/api"
-	"github.com/goccy/go-json"
-	"github.com/gofiber/fiber/v2/middleware/logger"
-
-	"github.com/arvians-id/go-rabbitmq/gateway/cmd/config"
-	"github.com/gofiber/fiber/v2"
-	"github.com/gofiber/fiber/v2/middleware/cors"
-
-	"go.opentelemetry.io/otel"
-	"go.opentelemetry.io/otel/propagation"
 )
 
 func main() {
 	// Init Config
-	configuration := config.New(".env.dev")
+	configuration := config.New()
+
+	// Set Context
+	ctx, cancel := context.WithTimeout(context.Background(), time.Second*5)
+	defer cancel()
 
 	// Init Open Telementry Tracer
 	tp, err := config.NewTracerProvider(configuration)
 	if err != nil {
-		log.Fatalln(err)
+		log.Fatalln("There is something wrong with the tracer provider", err)
 	}
-
-	ctx, cancel := context.WithTimeout(context.Background(), time.Second*5)
-	defer cancel()
 
 	defer func(ctx context.Context) {
 		ctx, cancel = context.WithTimeout(ctx, time.Second*5)
@@ -48,68 +38,19 @@ func main() {
 	otel.SetTracerProvider(tp)
 	otel.SetTextMapPropagator(propagation.NewCompositeTextMapPropagator(propagation.TraceContext{}, propagation.Baggage{}))
 
-	// Init Redis
-	rdb, err := config.InitRedis(configuration, ctx)
-	if err != nil {
-		log.Fatalln(err)
-	}
-
-	// Init Server
-	app := fiber.New(fiber.Config{
-		JSONEncoder: json.Marshal,
-		JSONDecoder: json.Unmarshal,
-		ErrorHandler: func(ctx *fiber.Ctx, err error) error {
-			code := fiber.StatusInternalServerError
-
-			var e *fiber.Error
-			if errors.As(err, &e) {
-				code = e.Code
-			}
-
-			return response.ReturnError(ctx, code, err)
-		},
-	})
-
-	// Set CSRF
-	app.Use(csrf.New(csrf.Config{
-		KeyLookup:      "header:X-CSRF-Token",
-		CookieName:     "csrf_token",
-		CookieSameSite: "Lax",
-		CookieHTTPOnly: true,
-		Expiration:     15 * time.Minute,
-		KeyGenerator:   utils.UUID,
-	}))
-
-	// Set Logging
+	// Init Log File
 	file, err := os.OpenFile("./logs/main.log", os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
 	if err != nil {
-		log.Fatalln("error opening file:", err)
+		log.Fatalln("There is something wrong with the log file", err)
 	}
 	defer file.Close()
-	app.Use(logger.New(logger.Config{
-		Format:     "[${time}] | ${status} | ${latency} | ${ip} | ${method} | ${path} | ${error}\n",
-		Output:     file,
-		TimeFormat: "02-Jan-2006 15:04:05",
-		Done: func(c *fiber.Ctx, logString []byte) {
-			fmt.Print(string(logString))
-		},
-	}))
-
-	// Set CORS
-	app.Use(cors.New(cors.Config{
-		AllowOrigins:     "*",
-		AllowHeaders:     "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With, X-API-KEY",
-		AllowMethods:     "POST, DELETE, PUT, PATCH, GET",
-		AllowCredentials: true,
-	}))
-	app.Get("/", func(c *fiber.Ctx) error {
-		return c.SendString("Welcome to my API Todo List")
-	})
-
-	// Set Routes
-	api.NewRoutes(app, configuration, rdb)
 
 	// Start Server
+	app, err := api.NewRoutes(configuration, file)
+	if err != nil {
+		log.Fatalln("There is something wrong with the server", err)
+	}
+
 	port := fmt.Sprintf(":%s", configuration.Get("APP_PORT"))
 	err = app.Listen(port)
 	if err != nil {

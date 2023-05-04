@@ -1,6 +1,9 @@
 migrate:
 	migrate -path database/postgres/migrations -database "postgres://postgres:postgres@localhost:5432/go_rabbitmq?sslmode=disable" -verbose ${verbose}
 
+migrate-test:
+	migrate -path database/postgres/migrations -database "postgres://root:root@host.docker.internal:5432/go_rabbitmq_test?sslmode=disable" -verbose ${verbose}
+
 migrate-prod:
 	migrate -path database/postgres/migrations -database "postgres://root:root@host.docker.internal:5432/go_rabbitmq?sslmode=disable" -verbose ${verbose}
 

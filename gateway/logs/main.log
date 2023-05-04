@@ -307,3 +307,35 @@
 [02-May-2023 21:32:27] | 200 | 1.1485ms | 127.0.0.1 | GET | /api/display-todos | -
 [02-May-2023 21:32:28] | 200 | 1.3509ms | 127.0.0.1 | GET | /api/display-todos | -
 [02-May-2023 21:32:29] | 200 | 1.2622ms | 127.0.0.1 | GET | /api/display-todos | -
+[03-May-2023 13:06:17] | 200 | 84.0073ms | 127.0.0.1 | GET | /api/todos | -
+[03-May-2023 13:06:26] | 200 | 3.2273ms | 127.0.0.1 | GET | /api/display-todos | -
+[03-May-2023 13:13:30] | 200 | 88.9355ms | 127.0.0.1 | GET | /api/display-todos | -
+[03-May-2023 13:13:31] | 200 | 1.9981ms | 127.0.0.1 | GET | /api/display-todos | -
+[03-May-2023 13:13:33] | 200 | 1.1718ms | 127.0.0.1 | GET | /api/todos | -
+[03-May-2023 13:13:40] | 200 | 1.1391ms | 127.0.0.1 | GET | /api/todos | -
+[03-May-2023 13:13:44] | 200 | 850.2µs | 127.0.0.1 | GET | /api/todos | -
+[03-May-2023 13:16:45] | 200 | 71.3932ms | 127.0.0.1 | GET | /api/todos | -
+[03-May-2023 13:16:46] | 200 | 1.0196ms | 127.0.0.1 | GET | /api/todos | -
+[03-May-2023 13:16:50] | 200 | 3.312ms | 127.0.0.1 | GET | /api/display-todos | -
+[03-May-2023 13:16:53] | 404 | 36.2018ms | 127.0.0.1 | GET | /api/todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[03-May-2023 13:16:59] | 200 | 3.7451ms | 127.0.0.1 | GET | /api/todos/15 | -
+[03-May-2023 13:17:04] | 200 | 732.4µs | 127.0.0.1 | GET | /api/todos/15 | -
+[03-May-2023 13:17:05] | 200 | 1.2759ms | 127.0.0.1 | GET | /api/todos/15 | -
+[03-May-2023 13:17:06] | 200 |  1.29ms | 127.0.0.1 | GET | /api/todos/15 | -
+[03-May-2023 13:17:06] | 200 | 942.8µs | 127.0.0.1 | GET | /api/todos/15 | -
+[03-May-2023 13:58:30] | 200 | 77.6758ms | 127.0.0.1 | GET | /api/todos | -
+[04-May-2023 09:39:14] | 200 | 318.5823ms | 127.0.0.1 | GET | /api/users | -
+[04-May-2023 09:39:18] | 404 | 3.7832ms | 127.0.0.1 | GET | /api/users/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[04-May-2023 09:50:33] | 400 |      0s | 127.0.0.1 | POST | /api/users | validation error on field:UserCreateRequest.Email
+[04-May-2023 09:50:40] | 400 |      0s | 127.0.0.1 | POST | /api/users | validation error on field:UserCreateRequest.Name
+[04-May-2023 09:59:42] | 400 |      0s | 127.0.0.1 | POST | /api/users | validation error on field:UserCreateRequest.Email
+[04-May-2023 10:10:54] | 404 | 69.8688ms | 127.0.0.1 | PATCH | /api/users/2 | rpc error: code = Unknown desc = sql: no rows in result set
+[04-May-2023 10:14:09] | 400 | 508.8µs | 127.0.0.1 | POST | /api/users | validation error on field:UserCreateRequest.Name & UserCreateRequest.Email
+[04-May-2023 10:14:38] | 400 |      0s | 127.0.0.1 | POST | /api/users | validation error on field:UserCreateRequest.Name & UserCreateRequest.Email
+[04-May-2023 10:14:40] | 400 |      0s | 127.0.0.1 | POST | /api/users | validation error on field:UserCreateRequest.Name & UserCreateRequest.Email
+[04-May-2023 10:16:08] | 400 | 532.8µs | 127.0.0.1 | PATCH | /api/users/2 | validation error on field:UserUpdateRequest.Name & UserUpdateRequest.Email
+[04-May-2023 10:16:48] | 400 | 507.6µs | 127.0.0.1 | PATCH | /api/users/2 | validation error on field:UserUpdateRequest.Name & UserUpdateRequest.Email
+[04-May-2023 10:16:51] | 400 |      0s | 127.0.0.1 | PATCH | /api/users/2 | validation error on field:UserUpdateRequest.Email
+[04-May-2023 10:17:04] | 400 |      0s | 127.0.0.1 | PATCH | /api/users/2 | validation error on field:UserUpdateRequest.Name
+[04-May-2023 10:18:31] | 404 | 2.9126ms | 127.0.0.1 | PATCH | /api/users/2 | rpc error: code = Unknown desc = sql: no rows in result set
+[04-May-2023 10:18:50] | 400 |      0s | 127.0.0.1 | PATCH | /api/users/2 | validation error on field:UserUpdateRequest.Name

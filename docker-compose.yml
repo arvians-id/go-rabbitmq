@@ -27,6 +27,7 @@ services:
     container_name: todo-gateway
     image: arvians/go-todo-gateway:latest
     environment:
+      - STATE=production
       - USER_SERVICE_URL=todo-user:50050
       - TODO_SERVICE_URL=todo-todo:50051
       - JAEGER_HOST=todo-jaeger
@@ -46,6 +47,7 @@ services:
     container_name: todo-user
     image: arvians/go-todo-user:latest
     environment:
+      - STATE=production
       - USER_SERVICE_URL=todo-user:50050
       - TODO_SERVICE_URL=todo-todo:50051
       - DB_HOST=todo-db
@@ -72,6 +74,7 @@ services:
     container_name: todo-todo
     image: arvians/go-todo-todo:latest
     environment:
+      - STATE=production
       - USER_SERVICE_URL=todo-user:50050
       - TODO_SERVICE_URL=todo-todo:50051
       - DB_HOST=todo-db
@@ -103,6 +106,7 @@ services:
     image: arvians/go-todo-message-broker:latest
     restart: always
     environment:
+      - STATE=production
       - MQ_HOST=todo-rabbitmq
       - MQ_USER=guest
       - MQ_PASSWORD=guest

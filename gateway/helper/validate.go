@@ -10,8 +10,8 @@ import (
 
 var validate = validator.New()
 
-func ValidateStruct(user interface{}) error {
-	val := reflect.ValueOf(user)
+func ValidateStruct(entity interface{}) error {
+	val := reflect.ValueOf(entity)
 	if val.Kind() == reflect.Ptr {
 		val = val.Elem()
 	}
@@ -21,7 +21,7 @@ func ValidateStruct(user interface{}) error {
 	}
 
 	errorValidation := "validation error on field:"
-	err := validate.Struct(user)
+	err := validate.Struct(entity)
 	if err != nil {
 		for i, err := range err.(validator.ValidationErrors) {
 			if i > 0 {

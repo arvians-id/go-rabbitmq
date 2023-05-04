@@ -5,9 +5,13 @@ import (
 	"fmt"
 	"github.com/redis/go-redis/v9"
 	"strconv"
+	"time"
 )
 
-func InitRedis(configuration Config, ctx context.Context) (*redis.Client, error) {
+func InitRedis(configuration Config) (*redis.Client, error) {
+	ctx, cancel := context.WithTimeout(context.Background(), time.Second*5)
+	defer cancel()
+
 	redisHost := configuration.Get("REDIS_HOST")
 	redisPort := configuration.Get("REDIS_PORT")
 	redisPassword := configuration.Get("REDIS_PASSWORD")

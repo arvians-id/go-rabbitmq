@@ -3,3 +3,4 @@
 */tmp
 database/postgres/data
 database/rabbitmq
+*/.env

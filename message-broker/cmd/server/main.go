@@ -10,7 +10,7 @@ import (
 )
 
 func main() {
-	configuration := config.New(".env.dev")
+	configuration := config.New()
 	conn, ch, err := config.InitRabbitMQ(configuration)
 	if err != nil {
 		log.Fatalln(err)

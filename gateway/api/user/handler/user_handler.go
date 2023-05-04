@@ -81,8 +81,8 @@ func (handler *UserHandler) Update(c *fiber.Ctx) error {
 		return fiber.NewError(fiber.StatusBadRequest, err.Error())
 	}
 
-	errValidate := helper.ValidateStruct(userRequest)
-	if errValidate != nil {
+	err = helper.ValidateStruct(userRequest)
+	if err != nil {
 		return fiber.NewError(fiber.StatusBadRequest, err.Error())
 	}
 

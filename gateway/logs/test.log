@@ -371,3 +371,1283 @@
 [04-May-2023 11:20:36] | 404 | 2.0074ms | 0.0.0.0 | DELETE | /api/users/1 | rpc error: code = Unknown desc = sql: no rows in result set
 [04-May-2023 11:20:36] | 201 | 3.2187ms | 0.0.0.0 | POST | /api/users | -
 [04-May-2023 11:20:36] | 200 | 5.0755ms | 0.0.0.0 | DELETE | /api/users/86 | -
+[04-May-2023 14:02:24] | 200 | 348.0183ms | 0.0.0.0 | GET | /api/users | -
+[04-May-2023 14:02:24] | 201 | 16.5801ms | 0.0.0.0 | POST | /api/users | -
+[04-May-2023 14:02:24] | 200 | 2.4004ms | 0.0.0.0 | GET | /api/users | -
+[04-May-2023 14:02:25] | 404 | 1.9823ms | 0.0.0.0 | GET | /api/users/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[04-May-2023 14:02:25] | 201 | 3.9431ms | 0.0.0.0 | POST | /api/users | -
+[04-May-2023 14:02:25] | 200 | 1.858ms | 0.0.0.0 | GET | /api/users/88 | -
+[04-May-2023 14:02:25] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Name
+[04-May-2023 14:02:25] | 400 | 509.2µs | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Email
+[04-May-2023 14:02:25] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Email
+[04-May-2023 14:02:25] | 201 | 3.404ms | 0.0.0.0 | POST | /api/users | -
+[04-May-2023 14:02:25] | 404 | 2.4859ms | 0.0.0.0 | PATCH | /api/users/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[04-May-2023 14:02:25] | 201 | 3.2409ms | 0.0.0.0 | POST | /api/users | -
+[04-May-2023 14:02:25] | 400 |      0s | 0.0.0.0 | PATCH | /api/users/90 | validation error on field:UserUpdateRequest.Name
+[04-May-2023 14:02:25] | 201 | 3.5188ms | 0.0.0.0 | POST | /api/users | -
+[04-May-2023 14:02:25] | 200 | 4.9053ms | 0.0.0.0 | PATCH | /api/users/91 | -
+[04-May-2023 14:02:25] | 404 | 2.4429ms | 0.0.0.0 | DELETE | /api/users/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[04-May-2023 14:02:25] | 201 | 3.3142ms | 0.0.0.0 | POST | /api/users | -
+[04-May-2023 14:02:25] | 200 | 5.2918ms | 0.0.0.0 | DELETE | /api/users/92 | -
+[04-May-2023 14:02:50] | 200 | 372.123ms | 0.0.0.0 | GET | /api/users | -
+[04-May-2023 14:02:50] | 201 | 4.7541ms | 0.0.0.0 | POST | /api/users | -
+[04-May-2023 14:02:50] | 200 | 1.5686ms | 0.0.0.0 | GET | /api/users | -
+[04-May-2023 14:02:51] | 404 | 2.0128ms | 0.0.0.0 | GET | /api/users/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[04-May-2023 14:02:51] | 201 | 3.9234ms | 0.0.0.0 | POST | /api/users | -
+[04-May-2023 14:02:51] | 200 | 2.1315ms | 0.0.0.0 | GET | /api/users/94 | -
+[04-May-2023 14:02:51] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Name
+[04-May-2023 14:02:51] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Email
+[04-May-2023 14:02:51] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Email
+[04-May-2023 14:02:51] | 201 | 4.0271ms | 0.0.0.0 | POST | /api/users | -
+[04-May-2023 14:02:51] | 404 | 2.0373ms | 0.0.0.0 | PATCH | /api/users/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[04-May-2023 14:02:51] | 201 | 3.538ms | 0.0.0.0 | POST | /api/users | -
+[04-May-2023 14:02:51] | 400 |      0s | 0.0.0.0 | PATCH | /api/users/96 | validation error on field:UserUpdateRequest.Name
+[04-May-2023 14:02:51] | 201 | 3.1351ms | 0.0.0.0 | POST | /api/users | -
+[04-May-2023 14:02:51] | 200 | 5.7337ms | 0.0.0.0 | PATCH | /api/users/97 | -
+[04-May-2023 14:02:51] | 404 | 1.6739ms | 0.0.0.0 | DELETE | /api/users/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[04-May-2023 14:02:51] | 201 | 3.4407ms | 0.0.0.0 | POST | /api/users | -
+[04-May-2023 14:02:51] | 200 | 5.2186ms | 0.0.0.0 | DELETE | /api/users/98 | -
+[04-May-2023 14:12:51] | 404 | 607.8µs | 0.0.0.0 | GET | /api/category_todos | Cannot GET /api/category_todos
+[04-May-2023 14:12:51] | 404 |      0s | 0.0.0.0 | POST | /api/category_todos | Cannot POST /api/category_todos
+[04-May-2023 14:12:51] | 404 |      0s | 0.0.0.0 | GET | /api/category_todos | Cannot GET /api/category_todos
+[04-May-2023 14:12:51] | 404 | 540.5µs | 0.0.0.0 | GET | /api/category_todos/1 | Cannot GET /api/category_todos/1
+[04-May-2023 14:12:51] | 404 |      0s | 0.0.0.0 | POST | /api/category_todos | Cannot POST /api/category_todos
+[04-May-2023 14:12:51] | 404 |      0s | 0.0.0.0 | POST | /api/category_todos | Cannot POST /api/category_todos
+[04-May-2023 14:12:52] | 404 |      0s | 0.0.0.0 | POST | /api/category_todos | Cannot POST /api/category_todos
+[04-May-2023 14:12:52] | 404 |      0s | 0.0.0.0 | DELETE | /api/category_todos/1 | Cannot DELETE /api/category_todos/1
+[04-May-2023 14:12:52] | 404 |      0s | 0.0.0.0 | POST | /api/category_todos | Cannot POST /api/category_todos
+[04-May-2023 14:12:52] | 200 | 86.1109ms | 0.0.0.0 | GET | /api/users | -
+[04-May-2023 14:12:52] | 201 | 25.2565ms | 0.0.0.0 | POST | /api/users | -
+[04-May-2023 14:12:52] | 200 | 3.6467ms | 0.0.0.0 | GET | /api/users | -
+[04-May-2023 14:12:52] | 404 | 3.4193ms | 0.0.0.0 | GET | /api/users/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[04-May-2023 14:12:52] | 201 | 3.9244ms | 0.0.0.0 | POST | /api/users | -
+[04-May-2023 14:12:52] | 200 | 2.0269ms | 0.0.0.0 | GET | /api/users/100 | -
+[04-May-2023 14:12:52] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Name
+[04-May-2023 14:12:52] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Email
+[04-May-2023 14:12:53] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Email
+[04-May-2023 14:12:53] | 201 | 4.3285ms | 0.0.0.0 | POST | /api/users | -
+[04-May-2023 14:12:53] | 404 | 2.4315ms | 0.0.0.0 | PATCH | /api/users/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[04-May-2023 14:12:53] | 201 | 4.2649ms | 0.0.0.0 | POST | /api/users | -
+[04-May-2023 14:12:53] | 400 |      0s | 0.0.0.0 | PATCH | /api/users/102 | validation error on field:UserUpdateRequest.Name
+[04-May-2023 14:12:53] | 201 | 4.0106ms | 0.0.0.0 | POST | /api/users | -
+[04-May-2023 14:12:53] | 200 | 6.0867ms | 0.0.0.0 | PATCH | /api/users/103 | -
+[04-May-2023 14:12:53] | 404 | 2.8945ms | 0.0.0.0 | DELETE | /api/users/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[04-May-2023 14:12:53] | 201 | 4.1918ms | 0.0.0.0 | POST | /api/users | -
+[04-May-2023 14:12:53] | 200 | 6.2555ms | 0.0.0.0 | DELETE | /api/users/104 | -
+[04-May-2023 14:14:23] | 200 | 369.5083ms | 0.0.0.0 | GET | /api/users | -
+[04-May-2023 14:14:23] | 201 | 6.2747ms | 0.0.0.0 | POST | /api/users | -
+[04-May-2023 14:14:23] | 200 | 1.2247ms | 0.0.0.0 | GET | /api/users | -
+[04-May-2023 14:14:24] | 404 | 2.5517ms | 0.0.0.0 | GET | /api/users/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[04-May-2023 14:14:24] | 201 | 3.9114ms | 0.0.0.0 | POST | /api/users | -
+[04-May-2023 14:14:24] | 200 | 2.2121ms | 0.0.0.0 | GET | /api/users/106 | -
+[04-May-2023 14:14:24] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Name
+[04-May-2023 14:14:24] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Email
+[04-May-2023 14:14:24] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Email
+[04-May-2023 14:14:24] | 201 | 3.4979ms | 0.0.0.0 | POST | /api/users | -
+[04-May-2023 14:14:25] | 404 | 1.6933ms | 0.0.0.0 | PATCH | /api/users/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[04-May-2023 14:14:25] | 201 | 3.3788ms | 0.0.0.0 | POST | /api/users | -
+[04-May-2023 14:14:25] | 400 |      0s | 0.0.0.0 | PATCH | /api/users/108 | validation error on field:UserUpdateRequest.Name
+[04-May-2023 14:14:25] | 201 | 4.5119ms | 0.0.0.0 | POST | /api/users | -
+[04-May-2023 14:14:25] | 200 | 5.0895ms | 0.0.0.0 | PATCH | /api/users/109 | -
+[04-May-2023 14:14:25] | 404 | 2.3404ms | 0.0.0.0 | DELETE | /api/users/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[04-May-2023 14:14:25] | 201 | 5.2773ms | 0.0.0.0 | POST | /api/users | -
+[04-May-2023 14:14:25] | 200 | 6.3746ms | 0.0.0.0 | DELETE | /api/users/110 | -
+[04-May-2023 14:14:25] | 200 | 85.4233ms | 0.0.0.0 | GET | /api/category-todos | -
+[04-May-2023 14:14:25] | 201 | 15.5611ms | 0.0.0.0 | POST | /api/category-todos | -
+[04-May-2023 14:14:25] | 200 | 2.1349ms | 0.0.0.0 | GET | /api/category-todos | -
+[04-May-2023 14:14:25] | 404 | 2.8544ms | 0.0.0.0 | GET | /api/category-todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[04-May-2023 14:14:25] | 201 | 4.0517ms | 0.0.0.0 | POST | /api/category-todos | -
+[04-May-2023 14:14:25] | 200 | 1.9997ms | 0.0.0.0 | GET | /api/category-todos/2 | -
+[04-May-2023 14:14:25] | 400 |      0s | 0.0.0.0 | POST | /api/category-todos | validation error on field:CategoryTodoCreateRequest.Name
+[04-May-2023 14:14:25] | 201 | 3.9294ms | 0.0.0.0 | POST | /api/category-todos | -
+[04-May-2023 14:14:26] | 404 | 3.3363ms | 0.0.0.0 | DELETE | /api/category-todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[04-May-2023 14:14:26] | 201 | 3.8193ms | 0.0.0.0 | POST | /api/category-todos | -
+[04-May-2023 14:14:26] | 200 | 6.3526ms | 0.0.0.0 | DELETE | /api/category-todos/4 | -
+[04-May-2023 14:14:56] | 200 | 289.8437ms | 0.0.0.0 | GET | /api/category-todos | -
+[04-May-2023 14:14:56] | 201 | 3.7066ms | 0.0.0.0 | POST | /api/category-todos | -
+[04-May-2023 14:14:56] | 200 | 1.721ms | 0.0.0.0 | GET | /api/category-todos | -
+[04-May-2023 14:14:56] | 404 | 2.1401ms | 0.0.0.0 | GET | /api/category-todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[04-May-2023 14:14:57] | 201 | 3.4854ms | 0.0.0.0 | POST | /api/category-todos | -
+[04-May-2023 14:14:57] | 200 | 1.9169ms | 0.0.0.0 | GET | /api/category-todos/6 | -
+[04-May-2023 14:14:57] | 400 |      0s | 0.0.0.0 | POST | /api/category-todos | validation error on field:CategoryTodoCreateRequest.Name
+[04-May-2023 14:14:57] | 201 | 3.3196ms | 0.0.0.0 | POST | /api/category-todos | -
+[04-May-2023 14:14:57] | 404 | 2.6484ms | 0.0.0.0 | DELETE | /api/category-todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[04-May-2023 14:14:57] | 201 | 3.7577ms | 0.0.0.0 | POST | /api/category-todos | -
+[04-May-2023 14:14:57] | 200 | 5.8537ms | 0.0.0.0 | DELETE | /api/category-todos/8 | -
+[04-May-2023 14:14:57] | 200 | 1.7094ms | 0.0.0.0 | GET | /api/users | -
+[04-May-2023 14:14:57] | 201 | 3.7689ms | 0.0.0.0 | POST | /api/users | -
+[04-May-2023 14:14:57] | 200 | 1.6176ms | 0.0.0.0 | GET | /api/users | -
+[04-May-2023 14:14:57] | 404 | 2.3251ms | 0.0.0.0 | GET | /api/users/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[04-May-2023 14:14:57] | 201 | 3.9584ms | 0.0.0.0 | POST | /api/users | -
+[04-May-2023 14:14:57] | 200 | 2.5927ms | 0.0.0.0 | GET | /api/users/112 | -
+[04-May-2023 14:14:57] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Name
+[04-May-2023 14:14:57] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Email
+[04-May-2023 14:14:58] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Email
+[04-May-2023 14:14:58] | 201 | 3.5709ms | 0.0.0.0 | POST | /api/users | -
+[04-May-2023 14:14:58] | 404 | 2.5455ms | 0.0.0.0 | PATCH | /api/users/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[04-May-2023 14:14:58] | 201 | 3.351ms | 0.0.0.0 | POST | /api/users | -
+[04-May-2023 14:14:58] | 400 | 507.1µs | 0.0.0.0 | PATCH | /api/users/114 | validation error on field:UserUpdateRequest.Name
+[04-May-2023 14:14:58] | 201 | 3.288ms | 0.0.0.0 | POST | /api/users | -
+[04-May-2023 14:14:58] | 200 | 4.1426ms | 0.0.0.0 | PATCH | /api/users/115 | -
+[04-May-2023 14:14:58] | 404 | 2.0289ms | 0.0.0.0 | DELETE | /api/users/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[04-May-2023 14:14:58] | 201 | 3.4625ms | 0.0.0.0 | POST | /api/users | -
+[04-May-2023 14:14:58] | 200 | 5.1266ms | 0.0.0.0 | DELETE | /api/users/116 | -
+[04-May-2023 14:32:52] | 200 | 364.5241ms | 0.0.0.0 | GET | /api/category-todos | -
+[04-May-2023 14:32:52] | 201 | 8.6109ms | 0.0.0.0 | POST | /api/category-todos | -
+[04-May-2023 14:32:52] | 200 | 1.6493ms | 0.0.0.0 | GET | /api/category-todos | -
+[04-May-2023 14:32:53] | 404 | 1.9163ms | 0.0.0.0 | GET | /api/category-todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[04-May-2023 14:32:53] | 201 | 3.5497ms | 0.0.0.0 | POST | /api/category-todos | -
+[04-May-2023 14:32:53] | 200 | 2.0459ms | 0.0.0.0 | GET | /api/category-todos/10 | -
+[04-May-2023 14:32:53] | 400 |      0s | 0.0.0.0 | POST | /api/category-todos | validation error on field:CategoryTodoCreateRequest.Name
+[04-May-2023 14:32:53] | 201 | 3.3231ms | 0.0.0.0 | POST | /api/category-todos | -
+[04-May-2023 14:32:53] | 404 | 1.9127ms | 0.0.0.0 | DELETE | /api/category-todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[04-May-2023 14:32:53] | 201 | 3.915ms | 0.0.0.0 | POST | /api/category-todos | -
+[04-May-2023 14:32:53] | 200 | 5.6856ms | 0.0.0.0 | DELETE | /api/category-todos/12 | -
+[04-May-2023 14:32:53] | 200 | 64.9956ms | 0.0.0.0 | GET | /api/users | -
+[04-May-2023 14:32:53] | 201 | 9.4322ms | 0.0.0.0 | POST | /api/users | -
+[04-May-2023 14:32:53] | 200 | 1.2479ms | 0.0.0.0 | GET | /api/users | -
+[04-May-2023 14:32:53] | 404 | 1.9378ms | 0.0.0.0 | GET | /api/users/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[04-May-2023 14:32:53] | 201 | 4.3706ms | 0.0.0.0 | POST | /api/users | -
+[04-May-2023 14:32:53] | 200 | 1.7574ms | 0.0.0.0 | GET | /api/users/118 | -
+[04-May-2023 14:32:53] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Name
+[04-May-2023 14:32:53] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Email
+[04-May-2023 14:32:54] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Email
+[04-May-2023 14:32:54] | 201 | 3.0663ms | 0.0.0.0 | POST | /api/users | -
+[04-May-2023 14:32:54] | 404 | 1.9233ms | 0.0.0.0 | PATCH | /api/users/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[04-May-2023 14:32:54] | 201 | 3.0104ms | 0.0.0.0 | POST | /api/users | -
+[04-May-2023 14:32:54] | 400 |      0s | 0.0.0.0 | PATCH | /api/users/120 | validation error on field:UserUpdateRequest.Name
+[04-May-2023 14:32:54] | 201 | 3.7431ms | 0.0.0.0 | POST | /api/users | -
+[04-May-2023 14:32:54] | 200 | 4.4862ms | 0.0.0.0 | PATCH | /api/users/121 | -
+[04-May-2023 14:32:54] | 404 | 2.0311ms | 0.0.0.0 | DELETE | /api/users/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[04-May-2023 14:32:54] | 201 | 3.0461ms | 0.0.0.0 | POST | /api/users | -
+[04-May-2023 14:32:54] | 200 | 3.7973ms | 0.0.0.0 | DELETE | /api/users/122 | -
+[04-May-2023 14:32:54] | 201 | 3.1936ms | 0.0.0.0 | POST | /api/category-todos | -
+[04-May-2023 14:32:54] | 201 | 3.8877ms | 0.0.0.0 | POST | /api/users | -
+[04-May-2023 14:32:54] | 200 | 2.4477ms | 0.0.0.0 | GET | /api/todos | -
+[04-May-2023 14:32:54] | 201 | 3.0694ms | 0.0.0.0 | POST | /api/category-todos | -
+[04-May-2023 14:32:54] | 201 | 2.9078ms | 0.0.0.0 | POST | /api/users | -
+[04-May-2023 14:32:54] | 201 | 15.341ms | 0.0.0.0 | POST | /api/todos | -
+[04-May-2023 14:32:54] | 200 | 2.4458ms | 0.0.0.0 | GET | /api/todos | -
+[04-May-2023 14:33:19] | 201 | 287.7211ms | 0.0.0.0 | POST | /api/category-todos | -
+[04-May-2023 14:33:19] | 201 | 3.3928ms | 0.0.0.0 | POST | /api/users | -
+[04-May-2023 14:33:19] | 200 | 2.6558ms | 0.0.0.0 | GET | /api/todos | -
+[04-May-2023 14:33:19] | 201 | 3.0807ms | 0.0.0.0 | POST | /api/category-todos | -
+[04-May-2023 14:33:19] | 201 | 2.949ms | 0.0.0.0 | POST | /api/users | -
+[04-May-2023 14:33:19] | 201 | 7.1092ms | 0.0.0.0 | POST | /api/todos | -
+[04-May-2023 14:33:19] | 200 | 2.2704ms | 0.0.0.0 | GET | /api/todos | -
+[04-May-2023 14:33:19] | 200 | 1.455ms | 0.0.0.0 | GET | /api/users | -
+[04-May-2023 14:33:20] | 201 | 3.1665ms | 0.0.0.0 | POST | /api/users | -
+[04-May-2023 14:33:20] | 200 | 1.0345ms | 0.0.0.0 | GET | /api/users | -
+[04-May-2023 14:33:20] | 404 | 2.461ms | 0.0.0.0 | GET | /api/users/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[04-May-2023 14:33:20] | 201 | 3.0903ms | 0.0.0.0 | POST | /api/users | -
+[04-May-2023 14:33:20] | 200 | 1.7385ms | 0.0.0.0 | GET | /api/users/128 | -
+[04-May-2023 14:33:20] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Name
+[04-May-2023 14:33:20] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Email
+[04-May-2023 14:33:20] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Email
+[04-May-2023 14:33:20] | 201 | 3.5959ms | 0.0.0.0 | POST | /api/users | -
+[04-May-2023 14:33:20] | 404 | 2.1858ms | 0.0.0.0 | PATCH | /api/users/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[04-May-2023 14:33:20] | 201 | 3.1109ms | 0.0.0.0 | POST | /api/users | -
+[04-May-2023 14:33:20] | 400 |      0s | 0.0.0.0 | PATCH | /api/users/130 | validation error on field:UserUpdateRequest.Name
+[04-May-2023 14:33:20] | 201 | 3.0511ms | 0.0.0.0 | POST | /api/users | -
+[04-May-2023 14:33:20] | 200 | 4.2223ms | 0.0.0.0 | PATCH | /api/users/131 | -
+[04-May-2023 14:33:20] | 404 | 1.9585ms | 0.0.0.0 | DELETE | /api/users/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[04-May-2023 14:33:20] | 201 | 3.2501ms | 0.0.0.0 | POST | /api/users | -
+[04-May-2023 14:33:20] | 200 | 4.2222ms | 0.0.0.0 | DELETE | /api/users/132 | -
+[04-May-2023 14:33:20] | 200 | 1.2584ms | 0.0.0.0 | GET | /api/category-todos | -
+[04-May-2023 14:33:21] | 201 | 3.524ms | 0.0.0.0 | POST | /api/category-todos | -
+[04-May-2023 14:33:21] | 200 | 1.827ms | 0.0.0.0 | GET | /api/category-todos | -
+[04-May-2023 14:33:21] | 404 | 1.6356ms | 0.0.0.0 | GET | /api/category-todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[04-May-2023 14:33:21] | 201 | 3.2269ms | 0.0.0.0 | POST | /api/category-todos | -
+[04-May-2023 14:33:21] | 200 | 1.6234ms | 0.0.0.0 | GET | /api/category-todos/18 | -
+[04-May-2023 14:33:21] | 400 |      0s | 0.0.0.0 | POST | /api/category-todos | validation error on field:CategoryTodoCreateRequest.Name
+[04-May-2023 14:33:21] | 201 | 3.424ms | 0.0.0.0 | POST | /api/category-todos | -
+[04-May-2023 14:33:21] | 404 | 1.9384ms | 0.0.0.0 | DELETE | /api/category-todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[04-May-2023 14:33:21] | 201 | 3.3521ms | 0.0.0.0 | POST | /api/category-todos | -
+[04-May-2023 14:33:21] | 200 | 4.3291ms | 0.0.0.0 | DELETE | /api/category-todos/20 | -
+[04-May-2023 14:33:47] | 200 | 292.1541ms | 0.0.0.0 | GET | /api/category-todos | -
+[04-May-2023 14:33:47] | 201 | 3.3535ms | 0.0.0.0 | POST | /api/category-todos | -
+[04-May-2023 14:33:47] | 200 | 1.5709ms | 0.0.0.0 | GET | /api/category-todos | -
+[04-May-2023 14:33:47] | 404 | 1.8559ms | 0.0.0.0 | GET | /api/category-todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[04-May-2023 14:33:48] | 201 | 3.1975ms | 0.0.0.0 | POST | /api/category-todos | -
+[04-May-2023 14:33:48] | 200 | 2.3157ms | 0.0.0.0 | GET | /api/category-todos/22 | -
+[04-May-2023 14:33:48] | 400 |      0s | 0.0.0.0 | POST | /api/category-todos | validation error on field:CategoryTodoCreateRequest.Name
+[04-May-2023 14:33:48] | 201 | 3.1567ms | 0.0.0.0 | POST | /api/category-todos | -
+[04-May-2023 14:33:48] | 404 | 1.9737ms | 0.0.0.0 | DELETE | /api/category-todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[04-May-2023 14:33:48] | 201 | 3.2932ms | 0.0.0.0 | POST | /api/category-todos | -
+[04-May-2023 14:33:48] | 200 | 4.2945ms | 0.0.0.0 | DELETE | /api/category-todos/24 | -
+[04-May-2023 14:33:48] | 200 | 1.0353ms | 0.0.0.0 | GET | /api/users | -
+[04-May-2023 14:33:48] | 201 | 3.192ms | 0.0.0.0 | POST | /api/users | -
+[04-May-2023 14:33:48] | 200 | 1.3162ms | 0.0.0.0 | GET | /api/users | -
+[04-May-2023 14:33:48] | 404 | 2.2853ms | 0.0.0.0 | GET | /api/users/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[04-May-2023 14:33:48] | 201 | 3.6541ms | 0.0.0.0 | POST | /api/users | -
+[04-May-2023 14:33:48] | 200 | 1.9061ms | 0.0.0.0 | GET | /api/users/134 | -
+[04-May-2023 14:33:48] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Name
+[04-May-2023 14:33:48] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Email
+[04-May-2023 14:33:48] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Email
+[04-May-2023 14:33:48] | 201 | 3.2245ms | 0.0.0.0 | POST | /api/users | -
+[04-May-2023 14:33:48] | 404 | 1.9299ms | 0.0.0.0 | PATCH | /api/users/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[04-May-2023 14:33:49] | 201 | 2.3015ms | 0.0.0.0 | POST | /api/users | -
+[04-May-2023 14:33:49] | 400 |      0s | 0.0.0.0 | PATCH | /api/users/136 | validation error on field:UserUpdateRequest.Name
+[04-May-2023 14:33:49] | 201 | 3.1782ms | 0.0.0.0 | POST | /api/users | -
+[04-May-2023 14:33:49] | 200 | 4.5017ms | 0.0.0.0 | PATCH | /api/users/137 | -
+[04-May-2023 14:33:49] | 404 | 2.0678ms | 0.0.0.0 | DELETE | /api/users/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[04-May-2023 14:33:49] | 201 | 3.1227ms | 0.0.0.0 | POST | /api/users | -
+[04-May-2023 14:33:49] | 200 | 3.9438ms | 0.0.0.0 | DELETE | /api/users/138 | -
+[04-May-2023 14:33:49] | 201 | 3.2076ms | 0.0.0.0 | POST | /api/category-todos | -
+[04-May-2023 14:33:49] | 201 | 3.3116ms | 0.0.0.0 | POST | /api/users | -
+[04-May-2023 14:33:49] | 200 | 2.311ms | 0.0.0.0 | GET | /api/todos | -
+[04-May-2023 14:33:49] | 201 | 3.0037ms | 0.0.0.0 | POST | /api/category-todos | -
+[04-May-2023 14:33:49] | 201 | 2.9401ms | 0.0.0.0 | POST | /api/users | -
+[04-May-2023 14:33:49] | 201 | 6.5277ms | 0.0.0.0 | POST | /api/todos | -
+[04-May-2023 14:33:49] | 200 | 2.0567ms | 0.0.0.0 | GET | /api/todos | -
+[04-May-2023 14:34:31] | 201 | 387.7784ms | 0.0.0.0 | POST | /api/category-todos | -
+[04-May-2023 14:34:31] | 201 | 75.9341ms | 0.0.0.0 | POST | /api/users | -
+[04-May-2023 14:34:31] | 200 | 4.1348ms | 0.0.0.0 | GET | /api/todos | -
+[04-May-2023 14:34:31] | 201 | 3.3444ms | 0.0.0.0 | POST | /api/category-todos | -
+[04-May-2023 14:34:31] | 201 | 3.045ms | 0.0.0.0 | POST | /api/users | -
+[04-May-2023 14:34:31] | 201 | 9.2577ms | 0.0.0.0 | POST | /api/todos | -
+[04-May-2023 14:34:31] | 200 | 2.2665ms | 0.0.0.0 | GET | /api/todos | -
+[04-May-2023 14:34:31] | 200 | 1.5671ms | 0.0.0.0 | GET | /api/users | -
+[04-May-2023 14:34:31] | 201 | 3.7949ms | 0.0.0.0 | POST | /api/users | -
+[04-May-2023 14:34:31] | 200 | 1.3617ms | 0.0.0.0 | GET | /api/users | -
+[04-May-2023 14:34:31] | 404 | 1.9035ms | 0.0.0.0 | GET | /api/users/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[04-May-2023 14:34:31] | 201 | 3.2394ms | 0.0.0.0 | POST | /api/users | -
+[04-May-2023 14:34:31] | 200 | 2.0428ms | 0.0.0.0 | GET | /api/users/144 | -
+[04-May-2023 14:34:31] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Name
+[04-May-2023 14:34:31] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Email
+[04-May-2023 14:34:32] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Email
+[04-May-2023 14:34:32] | 201 | 3.0918ms | 0.0.0.0 | POST | /api/users | -
+[04-May-2023 14:34:32] | 404 | 1.7749ms | 0.0.0.0 | PATCH | /api/users/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[04-May-2023 14:34:32] | 201 | 3.1298ms | 0.0.0.0 | POST | /api/users | -
+[04-May-2023 14:34:32] | 400 |      0s | 0.0.0.0 | PATCH | /api/users/146 | validation error on field:UserUpdateRequest.Name
+[04-May-2023 14:34:32] | 201 | 3.4799ms | 0.0.0.0 | POST | /api/users | -
+[04-May-2023 14:34:32] | 200 | 4.2546ms | 0.0.0.0 | PATCH | /api/users/147 | -
+[04-May-2023 14:34:32] | 404 | 2.2507ms | 0.0.0.0 | DELETE | /api/users/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[04-May-2023 14:34:32] | 201 | 3.2057ms | 0.0.0.0 | POST | /api/users | -
+[04-May-2023 14:34:32] | 200 | 5.1594ms | 0.0.0.0 | DELETE | /api/users/148 | -
+[04-May-2023 14:34:32] | 200 | 1.2992ms | 0.0.0.0 | GET | /api/category-todos | -
+[04-May-2023 14:34:32] | 201 | 3.0664ms | 0.0.0.0 | POST | /api/category-todos | -
+[04-May-2023 14:34:32] | 200 | 1.0814ms | 0.0.0.0 | GET | /api/category-todos | -
+[04-May-2023 14:34:32] | 404 | 1.6504ms | 0.0.0.0 | GET | /api/category-todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[04-May-2023 14:34:32] | 201 | 3.386ms | 0.0.0.0 | POST | /api/category-todos | -
+[04-May-2023 14:34:32] | 200 | 1.8739ms | 0.0.0.0 | GET | /api/category-todos/30 | -
+[04-May-2023 14:34:32] | 400 |      0s | 0.0.0.0 | POST | /api/category-todos | validation error on field:CategoryTodoCreateRequest.Name
+[04-May-2023 14:34:32] | 201 | 3.1052ms | 0.0.0.0 | POST | /api/category-todos | -
+[04-May-2023 14:34:32] | 404 | 2.0684ms | 0.0.0.0 | DELETE | /api/category-todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[04-May-2023 14:34:33] | 201 | 3.1161ms | 0.0.0.0 | POST | /api/category-todos | -
+[04-May-2023 14:34:33] | 200 | 4.0479ms | 0.0.0.0 | DELETE | /api/category-todos/32 | -
+[05-May-2023 10:08:11] | 200 | 489.7571ms | 0.0.0.0 | GET | /api/category-todos | -
+[05-May-2023 10:08:11] | 201 | 34.3322ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:08:11] | 200 | 1.037ms | 0.0.0.0 | GET | /api/category-todos | -
+[05-May-2023 10:08:11] | 404 | 2.1009ms | 0.0.0.0 | GET | /api/category-todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:08:11] | 201 | 3.5521ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:08:11] | 200 | 1.8114ms | 0.0.0.0 | GET | /api/category-todos/34 | -
+[05-May-2023 10:08:11] | 400 |      0s | 0.0.0.0 | POST | /api/category-todos | validation error on field:CategoryTodoCreateRequest.Name
+[05-May-2023 10:08:12] | 201 | 3.2216ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:08:12] | 404 | 3.2526ms | 0.0.0.0 | DELETE | /api/category-todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:08:12] | 201 | 3.5452ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:08:12] | 200 | 6.8447ms | 0.0.0.0 | DELETE | /api/category-todos/36 | -
+[05-May-2023 10:08:12] | 200 | 78.401ms | 0.0.0.0 | GET | /api/users | -
+[05-May-2023 10:08:12] | 201 | 17.4458ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:08:12] | 200 | 1.4507ms | 0.0.0.0 | GET | /api/users | -
+[05-May-2023 10:08:12] | 404 | 2.4639ms | 0.0.0.0 | GET | /api/users/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:08:12] | 201 | 3.6777ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:08:12] | 200 | 1.9418ms | 0.0.0.0 | GET | /api/users/150 | -
+[05-May-2023 10:08:12] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Name
+[05-May-2023 10:08:12] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Email
+[05-May-2023 10:08:12] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Email
+[05-May-2023 10:08:12] | 201 | 4.1517ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:08:13] | 404 | 2.212ms | 0.0.0.0 | PATCH | /api/users/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:08:13] | 201 | 3.5678ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:08:13] | 400 |      0s | 0.0.0.0 | PATCH | /api/users/152 | validation error on field:UserUpdateRequest.Name
+[05-May-2023 10:08:13] | 201 | 3.4238ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:08:13] | 200 | 5.1292ms | 0.0.0.0 | PATCH | /api/users/153 | -
+[05-May-2023 10:08:13] | 404 | 1.7721ms | 0.0.0.0 | DELETE | /api/users/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:08:13] | 201 | 4.8932ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:08:13] | 200 | 5.4375ms | 0.0.0.0 | DELETE | /api/users/154 | -
+[05-May-2023 10:08:13] | 201 | 3.5287ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:08:13] | 201 | 3.5388ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:08:13] | 200 | 3.2894ms | 0.0.0.0 | GET | /api/todos | -
+[05-May-2023 10:08:13] | 201 | 2.8148ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:08:13] | 201 | 4.3715ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:08:13] | 201 | 14.3875ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:08:13] | 200 | 2.9058ms | 0.0.0.0 | GET | /api/todos | -
+[05-May-2023 10:08:13] | 201 | 3.014ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:08:13] | 201 | 3.1121ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:08:13] | 404 | 2.3717ms | 0.0.0.0 | GET | /api/todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:08:13] | 201 | 3.3514ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:08:13] | 201 | 3.4151ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:08:13] | 201 | 7.098ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:08:13] | 200 | 2.6829ms | 0.0.0.0 | GET | /api/todos/6 | -
+[05-May-2023 10:08:13] | 201 | 3.1796ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:08:13] | 201 | 3.8709ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:08:13] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.Title
+[05-May-2023 10:08:13] | 201 | 4.6288ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:08:13] | 201 | 3.6848ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:08:13] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.Description
+[05-May-2023 10:08:13] | 201 | 3.1003ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:08:13] | 201 | 4.238ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:08:13] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.UserId
+[05-May-2023 10:08:14] | 201 | 3.2385ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:08:14] | 201 | 3.1454ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:08:14] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.CategoryTodoId
+[05-May-2023 10:08:14] | 201 | 4.8514ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:08:14] | 201 | 3.287ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:08:14] | 201 | 7.8306ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:08:14] | 201 | 3.1028ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:08:14] | 201 | 4.8379ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:08:14] | 404 | 2.2461ms | 0.0.0.0 | DELETE | /api/todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:08:14] | 201 | 3.4933ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:08:14] | 201 | 3.2461ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:08:14] | 201 | 7.3279ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:08:14] | 200 | 5.6563ms | 0.0.0.0 | DELETE | /api/todos/8 | -
+[05-May-2023 10:09:37] | 200 | 367.6315ms | 0.0.0.0 | GET | /api/category-todos | -
+[05-May-2023 10:09:37] | 201 | 7.2386ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:09:37] | 200 | 537.5µs | 0.0.0.0 | GET | /api/category-todos | -
+[05-May-2023 10:09:37] | 404 | 1.9059ms | 0.0.0.0 | GET | /api/category-todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:09:37] | 201 | 3.1921ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:09:37] | 200 | 1.5683ms | 0.0.0.0 | GET | /api/category-todos/49 | -
+[05-May-2023 10:09:37] | 400 |      0s | 0.0.0.0 | POST | /api/category-todos | validation error on field:CategoryTodoCreateRequest.Name
+[05-May-2023 10:09:37] | 201 | 4.4641ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:09:37] | 404 | 2.1546ms | 0.0.0.0 | DELETE | /api/category-todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:09:37] | 201 | 2.8339ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:09:37] | 200 | 4.927ms | 0.0.0.0 | DELETE | /api/category-todos/51 | -
+[05-May-2023 10:09:37] | 200 | 67.8949ms | 0.0.0.0 | GET | /api/users | -
+[05-May-2023 10:09:38] | 201 | 8.1434ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:09:38] | 200 | 1.3642ms | 0.0.0.0 | GET | /api/users | -
+[05-May-2023 10:09:38] | 404 | 1.9987ms | 0.0.0.0 | GET | /api/users/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:09:38] | 201 | 3.0931ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:09:38] | 200 | 1.5875ms | 0.0.0.0 | GET | /api/users/167 | -
+[05-May-2023 10:09:38] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Name
+[05-May-2023 10:09:38] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Email
+[05-May-2023 10:09:38] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Email
+[05-May-2023 10:09:38] | 201 | 3.1297ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:09:38] | 404 | 1.7522ms | 0.0.0.0 | PATCH | /api/users/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:09:38] | 201 | 3.0462ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:09:38] | 400 |      0s | 0.0.0.0 | PATCH | /api/users/169 | validation error on field:UserUpdateRequest.Name
+[05-May-2023 10:09:38] | 201 | 3.5623ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:09:38] | 200 | 4.8108ms | 0.0.0.0 | PATCH | /api/users/170 | -
+[05-May-2023 10:09:38] | 404 | 2.0636ms | 0.0.0.0 | DELETE | /api/users/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:09:38] | 201 | 3.0861ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:09:38] | 200 | 4.8359ms | 0.0.0.0 | DELETE | /api/users/171 | -
+[05-May-2023 10:09:39] | 201 | 3.2804ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:09:39] | 201 | 3.3265ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:09:39] | 200 | 2.3151ms | 0.0.0.0 | GET | /api/todos | -
+[05-May-2023 10:09:39] | 201 | 3.3568ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:09:39] | 201 | 3.0563ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:09:39] | 201 | 7.7034ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:09:39] | 200 | 2.928ms | 0.0.0.0 | GET | /api/todos | -
+[05-May-2023 10:09:39] | 201 | 3.2002ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:09:39] | 201 | 3.2239ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:09:39] | 404 | 2.4033ms | 0.0.0.0 | GET | /api/todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:09:39] | 201 | 2.9892ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:09:39] | 201 | 2.9168ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:09:39] | 201 | 6.638ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:09:39] | 200 | 2.7464ms | 0.0.0.0 | GET | /api/todos/10 | -
+[05-May-2023 10:09:39] | 201 | 3.2864ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:09:39] | 201 | 3.2701ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:09:39] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.Title
+[05-May-2023 10:09:39] | 201 | 3.3303ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:09:39] | 201 | 3.2949ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:09:39] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.Description
+[05-May-2023 10:09:39] | 201 | 3.2192ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:09:39] | 201 | 3.3317ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:09:39] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.UserId
+[05-May-2023 10:09:39] | 201 | 3.1613ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:09:39] | 201 | 2.9897ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:09:39] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.CategoryTodoId
+[05-May-2023 10:09:39] | 201 | 3.2741ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:09:39] | 201 | 3.1507ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:09:39] | 201 | 7.4587ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:09:39] | 201 | 1.7442ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:09:39] | 201 | 3.2199ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:09:39] | 404 | 2.546ms | 0.0.0.0 | DELETE | /api/todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:09:39] | 201 | 3.5581ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:09:39] | 201 | 4.0225ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:09:39] | 201 | 7.7833ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:09:39] | 200 | 5.5928ms | 0.0.0.0 | DELETE | /api/todos/12 | -
+[05-May-2023 10:22:33] | 200 | 378.1377ms | 0.0.0.0 | GET | /api/category-todos | -
+[05-May-2023 10:22:34] | 201 | 8.2877ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:22:34] | 200 | 1.6668ms | 0.0.0.0 | GET | /api/category-todos | -
+[05-May-2023 10:22:34] | 404 | 2.3865ms | 0.0.0.0 | GET | /api/category-todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:22:34] | 201 | 4.0033ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:22:34] | 200 | 1.9825ms | 0.0.0.0 | GET | /api/category-todos/65 | -
+[05-May-2023 10:22:34] | 400 |      0s | 0.0.0.0 | POST | /api/category-todos | validation error on field:CategoryTodoCreateRequest.Name
+[05-May-2023 10:22:34] | 201 | 3.5945ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:22:34] | 404 | 1.7925ms | 0.0.0.0 | DELETE | /api/category-todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:22:34] | 201 | 3.4747ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:22:34] | 200 | 5.2873ms | 0.0.0.0 | DELETE | /api/category-todos/67 | -
+[05-May-2023 10:22:34] | 201 | 3.8582ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:22:34] | 201 | 71.9583ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:22:34] | 200 | 3.994ms | 0.0.0.0 | GET | /api/todos | -
+[05-May-2023 10:22:34] | 201 | 3.8313ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:22:34] | 201 | 3.6712ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:22:34] | 201 | 10.2851ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:22:34] | 200 | 2.4856ms | 0.0.0.0 | GET | /api/todos | -
+[05-May-2023 10:22:34] | 201 | 3.8195ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:22:34] | 201 | 3.9804ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:22:34] | 404 | 3.0377ms | 0.0.0.0 | GET | /api/todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:22:35] | 201 | 4.6701ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:22:35] | 201 | 3.9224ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:22:35] | 201 | 8.3667ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:22:35] | 200 | 3.3933ms | 0.0.0.0 | GET | /api/todos/15 | -
+[05-May-2023 10:22:35] | 201 | 3.3606ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:22:35] | 201 | 3.9795ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:22:35] | 400 | 507.6µs | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.Title
+[05-May-2023 10:22:35] | 201 | 4.6845ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:22:35] | 201 | 4.024ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:22:35] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.Description
+[05-May-2023 10:22:35] | 201 | 4.0164ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:22:35] | 201 | 4.123ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:22:35] | 400 | 510.6µs | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.UserId
+[05-May-2023 10:22:35] | 201 | 3.4848ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:22:35] | 201 | 3.3066ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:22:35] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.CategoryTodoId
+[05-May-2023 10:22:35] | 201 | 2.9826ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:22:35] | 201 | 3.0654ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:22:35] | 201 | 13.4305ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:22:35] | 201 | 3.9547ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:22:35] | 201 | 4.0152ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:22:35] | 400 | 509.5µs | 0.0.0.0 | PATCH | /api/todos/1 | validation error on field:TodoUpdateRequest.Title & TodoUpdateRequest.Description & TodoUpdateRequest.UserId
+[05-May-2023 10:22:35] | 201 | 4.3405ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:22:35] | 201 | 3.9631ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:22:35] | 405 |      0s | 0.0.0.0 | PATCH | /api/todos | Method Not Allowed
+[05-May-2023 10:22:35] | 201 | 4.4053ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:22:35] | 201 | 3.9253ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:22:35] | 405 |      0s | 0.0.0.0 | PATCH | /api/todos | Method Not Allowed
+[05-May-2023 10:22:36] | 201 | 3.4506ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:22:36] | 201 | 3.0814ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:22:36] | 405 |      0s | 0.0.0.0 | PATCH | /api/todos | Method Not Allowed
+[05-May-2023 10:22:36] | 201 | 3.3605ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:22:36] | 201 | 3.3721ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:22:36] | 201 | 7.108ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:22:36] | 500 | 3.4095ms | 0.0.0.0 | PATCH | /api/todos/17 | rpc error: code = Unknown desc = pq: null value in column "is_done" of relation "todos" violates not-null constraint
+[05-May-2023 10:22:36] | 200 | 2.958ms | 0.0.0.0 | GET | /api/todos/17 | -
+[05-May-2023 10:22:36] | 201 | 3.4258ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:22:36] | 201 | 3.7069ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:22:36] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.CategoryTodoId
+[05-May-2023 10:22:36] | 201 | 3.3315ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:22:36] | 201 | 2.9318ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:22:36] | 404 | 2.4861ms | 0.0.0.0 | DELETE | /api/todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:22:36] | 201 | 4.2741ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:22:36] | 201 | 3.6569ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:22:36] | 201 | 8.3515ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:22:36] | 200 | 6.1596ms | 0.0.0.0 | DELETE | /api/todos/18 | -
+[05-May-2023 10:22:36] | 200 | 1.6746ms | 0.0.0.0 | GET | /api/users | -
+[05-May-2023 10:22:36] | 201 | 3.2988ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:22:36] | 200 | 1.2809ms | 0.0.0.0 | GET | /api/users | -
+[05-May-2023 10:22:36] | 404 | 1.9571ms | 0.0.0.0 | GET | /api/users/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:22:36] | 201 | 3.1852ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:22:36] | 200 | 1.7926ms | 0.0.0.0 | GET | /api/users/202 | -
+[05-May-2023 10:22:36] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Name
+[05-May-2023 10:22:36] | 400 | 1.5194ms | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Email
+[05-May-2023 10:22:37] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Email
+[05-May-2023 10:22:37] | 201 | 3.1635ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:22:37] | 404 | 1.9549ms | 0.0.0.0 | PATCH | /api/users/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:22:37] | 201 | 3.2787ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:22:37] | 400 |      0s | 0.0.0.0 | PATCH | /api/users/204 | validation error on field:UserUpdateRequest.Name
+[05-May-2023 10:22:37] | 201 | 3.1865ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:22:37] | 200 | 4.6643ms | 0.0.0.0 | PATCH | /api/users/205 | -
+[05-May-2023 10:22:37] | 404 | 2.0684ms | 0.0.0.0 | DELETE | /api/users/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:22:37] | 201 | 3.6232ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:22:37] | 200 | 5.5109ms | 0.0.0.0 | DELETE | /api/users/206 | -
+[05-May-2023 10:25:16] | 200 | 373.1301ms | 0.0.0.0 | GET | /api/users | -
+[05-May-2023 10:25:16] | 201 | 4.2998ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:25:16] | 200 | 1.0332ms | 0.0.0.0 | GET | /api/users | -
+[05-May-2023 10:25:16] | 404 | 1.7874ms | 0.0.0.0 | GET | /api/users/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:25:16] | 201 | 3.411ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:25:16] | 200 | 1.9442ms | 0.0.0.0 | GET | /api/users/208 | -
+[05-May-2023 10:25:16] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Name
+[05-May-2023 10:25:16] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Email
+[05-May-2023 10:25:16] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Email
+[05-May-2023 10:25:16] | 201 | 3.1151ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:25:16] | 404 | 1.8753ms | 0.0.0.0 | PATCH | /api/users/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:25:17] | 201 | 4.1934ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:25:17] | 400 |      0s | 0.0.0.0 | PATCH | /api/users/210 | validation error on field:UserUpdateRequest.Name
+[05-May-2023 10:25:17] | 201 | 3.1887ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:25:17] | 200 | 4.6416ms | 0.0.0.0 | PATCH | /api/users/211 | -
+[05-May-2023 10:25:17] | 404 | 2.0021ms | 0.0.0.0 | DELETE | /api/users/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:25:17] | 201 | 4.0443ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:25:17] | 200 | 5.1593ms | 0.0.0.0 | DELETE | /api/users/212 | -
+[05-May-2023 10:25:17] | 201 | 64.9259ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:25:17] | 201 | 3.3916ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:25:17] | 200 | 3.1999ms | 0.0.0.0 | GET | /api/todos | -
+[05-May-2023 10:25:17] | 201 | 3.2029ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:25:17] | 201 | 3.1166ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:25:17] | 201 | 8.5042ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:25:17] | 200 | 2.3456ms | 0.0.0.0 | GET | /api/todos | -
+[05-May-2023 10:25:17] | 201 | 2.755ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:25:17] | 201 | 3.3246ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:25:17] | 404 | 2.3157ms | 0.0.0.0 | GET | /api/todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:25:17] | 201 | 3.3425ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:25:17] | 201 | 3.0856ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:25:17] | 201 | 6.1708ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:25:17] | 200 | 2.7466ms | 0.0.0.0 | GET | /api/todos/20 | -
+[05-May-2023 10:25:17] | 201 | 3.0082ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:25:17] | 201 | 3.018ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:25:17] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.Title
+[05-May-2023 10:25:17] | 201 | 3.0038ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:25:17] | 201 | 2.6364ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:25:17] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.Description
+[05-May-2023 10:25:17] | 201 | 3.266ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:25:17] | 201 | 3.179ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:25:17] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.UserId
+[05-May-2023 10:25:17] | 201 | 2.9386ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:25:17] | 201 | 3.2044ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:25:17] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.CategoryTodoId
+[05-May-2023 10:25:18] | 201 | 2.8708ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:25:18] | 201 | 3.0738ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:25:18] | 201 | 6.8299ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:25:18] | 201 | 2.9813ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:25:18] | 201 | 3.061ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:25:18] | 404 | 1.9203ms | 0.0.0.0 | PATCH | /api/todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:25:18] | 201 | 2.9969ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:25:18] | 201 | 3.1155ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:25:18] | 405 |      0s | 0.0.0.0 | PATCH | /api/todos | Method Not Allowed
+[05-May-2023 10:25:18] | 201 | 3.3284ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:25:18] | 201 | 3.1851ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:25:18] | 405 |      0s | 0.0.0.0 | PATCH | /api/todos | Method Not Allowed
+[05-May-2023 10:25:18] | 201 | 3.2667ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:25:18] | 201 | 3.1225ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:25:18] | 405 |      0s | 0.0.0.0 | PATCH | /api/todos | Method Not Allowed
+[05-May-2023 10:25:18] | 201 | 3.384ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:25:18] | 201 | 3.1562ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:25:18] | 201 | 6.4398ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:25:18] | 500 | 3.2664ms | 0.0.0.0 | PATCH | /api/todos/22 | rpc error: code = Unknown desc = pq: null value in column "is_done" of relation "todos" violates not-null constraint
+[05-May-2023 10:25:18] | 200 | 3.0042ms | 0.0.0.0 | GET | /api/todos/22 | -
+[05-May-2023 10:25:18] | 201 | 2.9715ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:25:18] | 201 | 3.2222ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:25:18] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.CategoryTodoId
+[05-May-2023 10:25:18] | 201 | 3.4431ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:25:18] | 201 | 2.7572ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:25:18] | 404 | 1.8585ms | 0.0.0.0 | DELETE | /api/todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:25:18] | 201 | 4.6833ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:25:18] | 201 | 3.3509ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:25:18] | 201 | 6.8001ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:25:18] | 200 | 4.5062ms | 0.0.0.0 | DELETE | /api/todos/23 | -
+[05-May-2023 10:25:18] | 200 | 1.5501ms | 0.0.0.0 | GET | /api/category-todos | -
+[05-May-2023 10:25:18] | 201 | 3.1773ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:25:18] | 200 |   508µs | 0.0.0.0 | GET | /api/category-todos | -
+[05-May-2023 10:25:19] | 404 | 1.9945ms | 0.0.0.0 | GET | /api/category-todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:25:19] | 201 | 3.2576ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:25:19] | 200 | 2.1544ms | 0.0.0.0 | GET | /api/category-todos/103 | -
+[05-May-2023 10:25:19] | 400 |      0s | 0.0.0.0 | POST | /api/category-todos | validation error on field:CategoryTodoCreateRequest.Name
+[05-May-2023 10:25:19] | 201 | 3.1018ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:25:19] | 404 | 2.1513ms | 0.0.0.0 | DELETE | /api/category-todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:25:19] | 201 | 3.365ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:25:19] | 200 | 3.9723ms | 0.0.0.0 | DELETE | /api/category-todos/105 | -
+[05-May-2023 10:30:47] | 200 | 357.9825ms | 0.0.0.0 | GET | /api/users | -
+[05-May-2023 10:30:47] | 201 | 8.6525ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:30:47] | 200 | 1.1567ms | 0.0.0.0 | GET | /api/users | -
+[05-May-2023 10:30:48] | 404 | 1.9564ms | 0.0.0.0 | GET | /api/users/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:30:48] | 201 | 3.4632ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:30:48] | 200 | 2.0223ms | 0.0.0.0 | GET | /api/users/231 | -
+[05-May-2023 10:30:48] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Name
+[05-May-2023 10:30:48] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Email
+[05-May-2023 10:30:48] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Email
+[05-May-2023 10:30:48] | 201 | 3.1509ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:30:48] | 404 | 1.997ms | 0.0.0.0 | PATCH | /api/users/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:30:48] | 201 | 3.1893ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:30:48] | 400 |      0s | 0.0.0.0 | PATCH | /api/users/233 | validation error on field:UserUpdateRequest.Name
+[05-May-2023 10:30:48] | 201 | 3.2905ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:30:48] | 200 | 4.0131ms | 0.0.0.0 | PATCH | /api/users/234 | -
+[05-May-2023 10:30:48] | 404 | 1.8708ms | 0.0.0.0 | DELETE | /api/users/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:30:48] | 201 | 3.3034ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:30:48] | 200 | 5.7523ms | 0.0.0.0 | DELETE | /api/users/235 | -
+[05-May-2023 10:30:48] | 200 | 62.1759ms | 0.0.0.0 | GET | /api/category-todos | -
+[05-May-2023 10:30:48] | 201 | 8.2849ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:30:48] | 200 | 1.4491ms | 0.0.0.0 | GET | /api/category-todos | -
+[05-May-2023 10:30:49] | 404 | 1.9979ms | 0.0.0.0 | GET | /api/category-todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:30:49] | 201 | 3.1948ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:30:49] | 200 | 1.6334ms | 0.0.0.0 | GET | /api/category-todos/107 | -
+[05-May-2023 10:30:49] | 400 |      0s | 0.0.0.0 | POST | /api/category-todos | validation error on field:CategoryTodoCreateRequest.Name
+[05-May-2023 10:30:49] | 201 | 3.4243ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:30:49] | 404 | 1.8775ms | 0.0.0.0 | DELETE | /api/category-todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:30:49] | 201 | 3.2227ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:30:49] | 200 | 5.5524ms | 0.0.0.0 | DELETE | /api/category-todos/109 | -
+[05-May-2023 10:30:49] | 201 | 3.0398ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:30:49] | 201 | 3.2628ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:30:49] | 200 | 3.1293ms | 0.0.0.0 | GET | /api/todos | -
+[05-May-2023 10:30:49] | 201 | 3.0443ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:30:49] | 201 | 3.0714ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:30:49] | 201 | 8.473ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:30:49] | 200 | 2.1319ms | 0.0.0.0 | GET | /api/todos | -
+[05-May-2023 10:30:49] | 201 | 2.8846ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:30:49] | 201 | 2.6976ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:30:49] | 404 | 2.8868ms | 0.0.0.0 | GET | /api/todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:30:49] | 201 | 2.995ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:30:49] | 201 | 3.1347ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:30:49] | 201 | 6.4954ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:30:49] | 200 | 2.5649ms | 0.0.0.0 | GET | /api/todos/25 | -
+[05-May-2023 10:30:49] | 201 | 3.1152ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:30:49] | 201 | 3.3605ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:30:49] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.Title
+[05-May-2023 10:30:49] | 201 | 3.3329ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:30:49] | 201 | 3.9523ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:30:49] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.Description
+[05-May-2023 10:30:50] | 201 | 3.1529ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:30:50] | 201 | 3.1772ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:30:50] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.UserId
+[05-May-2023 10:30:50] | 201 | 2.9607ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:30:50] | 201 | 2.8837ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:30:50] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.CategoryTodoId
+[05-May-2023 10:30:50] | 201 | 3.1485ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:30:50] | 201 | 2.9962ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:30:50] | 201 | 7.0755ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:30:50] | 201 | 3.9109ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:30:50] | 201 | 3.0728ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:30:50] | 404 | 1.9801ms | 0.0.0.0 | PATCH | /api/todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:30:50] | 201 | 3.1821ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:30:50] | 201 | 3.3261ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:30:50] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.CategoryTodoId
+[05-May-2023 10:30:50] | 201 | 3.2224ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:30:50] | 201 | 3.2886ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:30:50] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.CategoryTodoId
+[05-May-2023 10:30:50] | 201 | 4.0207ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:30:50] | 201 | 3.4301ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:30:50] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.CategoryTodoId
+[05-May-2023 10:30:50] | 201 | 4.4355ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:30:50] | 201 | 3.2133ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:30:50] | 201 | 6.7316ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:30:50] | 500 | 2.9425ms | 0.0.0.0 | PATCH | /api/todos/27 | rpc error: code = Unknown desc = pq: null value in column "is_done" of relation "todos" violates not-null constraint
+[05-May-2023 10:30:50] | 200 | 2.918ms | 0.0.0.0 | GET | /api/todos/27 | -
+[05-May-2023 10:30:50] | 201 | 3.3273ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:30:50] | 201 | 3.0712ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:30:50] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.CategoryTodoId
+[05-May-2023 10:30:50] | 201 | 4.2496ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:30:50] | 201 | 3.1075ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:30:50] | 404 | 1.7641ms | 0.0.0.0 | DELETE | /api/todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:30:50] | 201 | 3.1424ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:30:50] | 201 | 3.0621ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:30:50] | 201 | 6.5984ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:30:50] | 200 | 4.6406ms | 0.0.0.0 | DELETE | /api/todos/28 | -
+[05-May-2023 10:37:18] | 200 | 365.8187ms | 0.0.0.0 | GET | /api/category-todos | -
+[05-May-2023 10:37:18] | 201 | 10.5384ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:37:18] | 200 | 1.0951ms | 0.0.0.0 | GET | /api/category-todos | -
+[05-May-2023 10:37:19] | 404 | 2.0687ms | 0.0.0.0 | GET | /api/category-todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:37:19] | 201 | 3.1246ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:37:19] | 200 | 1.7358ms | 0.0.0.0 | GET | /api/category-todos/128 | -
+[05-May-2023 10:37:19] | 400 |      0s | 0.0.0.0 | POST | /api/category-todos | validation error on field:CategoryTodoCreateRequest.Name
+[05-May-2023 10:37:19] | 201 | 3.7951ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:37:19] | 404 | 2.096ms | 0.0.0.0 | DELETE | /api/category-todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:37:19] | 201 | 3.8439ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:37:19] | 200 | 6.1871ms | 0.0.0.0 | DELETE | /api/category-todos/130 | -
+[05-May-2023 10:37:19] | 200 | 58.2376ms | 0.0.0.0 | GET | /api/users | -
+[05-May-2023 10:37:19] | 201 | 7.9273ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:37:19] | 200 | 1.3922ms | 0.0.0.0 | GET | /api/users | -
+[05-May-2023 10:37:19] | 404 | 1.746ms | 0.0.0.0 | GET | /api/users/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:37:19] | 201 | 3.353ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:37:19] | 200 | 1.6636ms | 0.0.0.0 | GET | /api/users/254 | -
+[05-May-2023 10:37:19] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Name
+[05-May-2023 10:37:19] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Email
+[05-May-2023 10:37:19] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Email
+[05-May-2023 10:37:20] | 201 | 3.3533ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:37:20] | 404 | 2.0302ms | 0.0.0.0 | PATCH | /api/users/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:37:20] | 201 | 3.3918ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:37:20] | 400 |      0s | 0.0.0.0 | PATCH | /api/users/256 | validation error on field:UserUpdateRequest.Name
+[05-May-2023 10:37:20] | 201 | 2.6767ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:37:20] | 200 | 4.9621ms | 0.0.0.0 | PATCH | /api/users/257 | -
+[05-May-2023 10:37:20] | 404 | 1.8967ms | 0.0.0.0 | DELETE | /api/users/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:37:20] | 201 | 3.5307ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:37:20] | 200 | 6.0922ms | 0.0.0.0 | DELETE | /api/users/258 | -
+[05-May-2023 10:37:20] | 201 | 3.1594ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:37:20] | 201 | 3.1743ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:37:20] | 200 | 2.5243ms | 0.0.0.0 | GET | /api/todos | -
+[05-May-2023 10:37:20] | 201 | 3.0518ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:37:20] | 201 | 3.2178ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:37:20] | 201 | 8.2735ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:37:20] | 200 | 2.1956ms | 0.0.0.0 | GET | /api/todos | -
+[05-May-2023 10:37:20] | 201 | 3.0415ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:37:20] | 201 | 2.999ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:37:20] | 404 | 2.3185ms | 0.0.0.0 | GET | /api/todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:37:20] | 201 | 3.0693ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:37:20] | 201 | 3.1376ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:37:20] | 201 | 7.3479ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:37:20] | 200 | 2.7783ms | 0.0.0.0 | GET | /api/todos/30 | -
+[05-May-2023 10:37:20] | 201 | 3.179ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:37:20] | 201 | 2.6922ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:37:20] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.Title
+[05-May-2023 10:37:20] | 201 | 1.6869ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:37:20] | 201 | 2.8841ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:37:20] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.Description
+[05-May-2023 10:37:20] | 201 | 2.8998ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:37:20] | 201 | 2.6601ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:37:20] | 400 | 507.6µs | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.UserId
+[05-May-2023 10:37:21] | 201 | 3.0231ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:37:21] | 201 | 3.2002ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:37:21] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.CategoryTodoId
+[05-May-2023 10:37:21] | 201 | 3.5729ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:37:21] | 201 | 3.1479ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:37:21] | 201 | 6.5447ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:37:21] | 201 | 3.2463ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:37:21] | 201 | 3.2389ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:37:21] | 404 | 1.7391ms | 0.0.0.0 | PATCH | /api/todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:37:21] | 201 | 3.0715ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:37:21] | 201 | 3.3048ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:37:21] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.CategoryTodoId
+[05-May-2023 10:37:21] | 201 | 3.3744ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:37:21] | 201 | 3.4672ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:37:21] | 201 | 7.0964ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:37:21] | 400 |      0s | 0.0.0.0 | PATCH | /api/todos/32 | validation error on field:TodoUpdateRequest.Description
+[05-May-2023 10:37:21] | 201 | 3.0245ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:37:21] | 201 | 3.3955ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:37:21] | 201 | 6.9033ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:37:21] | 400 |      0s | 0.0.0.0 | PATCH | /api/todos/33 | validation error on field:TodoUpdateRequest.UserId
+[05-May-2023 10:37:21] | 201 | 3.036ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:37:21] | 201 | 1.8022ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:37:21] | 201 | 6.5036ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:37:21] | 500 | 3.0359ms | 0.0.0.0 | PATCH | /api/todos/34 | rpc error: code = Unknown desc = pq: null value in column "is_done" of relation "todos" violates not-null constraint
+[05-May-2023 10:37:21] | 200 | 2.7803ms | 0.0.0.0 | GET | /api/todos/34 | -
+[05-May-2023 10:37:21] | 201 | 3.385ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:37:21] | 201 | 3.4645ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:37:21] | 201 | 7.967ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:37:21] | 500 | 3.5334ms | 0.0.0.0 | PATCH | /api/todos/35 | rpc error: code = Unknown desc = pq: null value in column "is_done" of relation "todos" violates not-null constraint
+[05-May-2023 10:37:21] | 200 | 3.2064ms | 0.0.0.0 | GET | /api/todos/35 | -
+[05-May-2023 10:37:21] | 201 | 3.9671ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:37:21] | 201 | 3.3528ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:37:21] | 404 | 1.7331ms | 0.0.0.0 | DELETE | /api/todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:37:21] | 201 | 3.0916ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:37:21] | 201 | 3.2973ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:37:21] | 201 | 6.4896ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:37:21] | 200 | 4.4568ms | 0.0.0.0 | DELETE | /api/todos/36 | -
+[05-May-2023 10:38:45] | 201 | 366.786ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:38:45] | 201 | 70.5799ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:38:45] | 200 | 4.0855ms | 0.0.0.0 | GET | /api/todos | -
+[05-May-2023 10:38:46] | 201 | 3.3454ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:38:46] | 201 | 2.968ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:38:46] | 201 | 9.3206ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:38:46] | 200 | 2.2278ms | 0.0.0.0 | GET | /api/todos | -
+[05-May-2023 10:38:46] | 201 | 4.1107ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:38:46] | 201 | 3.201ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:38:46] | 404 | 2.7538ms | 0.0.0.0 | GET | /api/todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:38:46] | 201 | 4.1532ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:38:46] | 201 | 3.3687ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:38:46] | 201 | 6.9786ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:38:46] | 200 | 3.0552ms | 0.0.0.0 | GET | /api/todos/38 | -
+[05-May-2023 10:38:46] | 201 | 1.8633ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:38:46] | 201 | 3.1326ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:38:46] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.Title
+[05-May-2023 10:38:46] | 201 | 3.5607ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:38:46] | 201 | 3.3617ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:38:46] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.Description
+[05-May-2023 10:38:46] | 201 | 3.664ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:38:46] | 201 | 3.4606ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:38:46] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.UserId
+[05-May-2023 10:38:46] | 201 | 3.7969ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:38:46] | 201 | 3.6244ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:38:46] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.CategoryTodoId
+[05-May-2023 10:38:46] | 201 | 3.5333ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:38:46] | 201 | 3.2626ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:38:46] | 201 | 6.8161ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:38:46] | 201 | 2.8437ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:38:46] | 201 | 3.4242ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:38:46] | 404 | 1.986ms | 0.0.0.0 | PATCH | /api/todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:38:46] | 201 | 3.5071ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:38:46] | 201 | 3.2557ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:38:46] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.CategoryTodoId
+[05-May-2023 10:38:46] | 201 | 3.8009ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:38:46] | 201 | 3.5257ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:38:46] | 201 | 7.5164ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:38:46] | 400 |      0s | 0.0.0.0 | PATCH | /api/todos/40 | validation error on field:TodoUpdateRequest.Description
+[05-May-2023 10:38:47] | 201 | 2.7489ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:38:47] | 201 | 3.6071ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:38:47] | 201 | 6.5956ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:38:47] | 400 |      0s | 0.0.0.0 | PATCH | /api/todos/41 | validation error on field:TodoUpdateRequest.UserId
+[05-May-2023 10:38:47] | 201 | 3.0366ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:38:47] | 201 | 3.2785ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:38:47] | 201 | 6.8059ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:38:47] | 500 | 3.4178ms | 0.0.0.0 | PATCH | /api/todos/42 | rpc error: code = Unknown desc = pq: null value in column "is_done" of relation "todos" violates not-null constraint
+[05-May-2023 10:38:47] | 200 | 2.8428ms | 0.0.0.0 | GET | /api/todos/42 | -
+[05-May-2023 10:38:47] | 201 | 3.1578ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:38:47] | 201 | 3.0961ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:38:47] | 201 | 6.1151ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:38:47] | 200 | 4.7804ms | 0.0.0.0 | PATCH | /api/todos/43 | -
+[05-May-2023 10:38:47] | 200 | 2.659ms | 0.0.0.0 | GET | /api/todos/43 | -
+[05-May-2023 10:38:47] | 201 | 3.4551ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:38:47] | 201 | 3.3091ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:38:47] | 404 | 1.8687ms | 0.0.0.0 | DELETE | /api/todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:38:47] | 201 | 3.1073ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:38:47] | 201 | 3.0207ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:38:47] | 201 | 6.5391ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:38:47] | 200 | 4.9116ms | 0.0.0.0 | DELETE | /api/todos/44 | -
+[05-May-2023 10:38:47] | 200 | 1.3151ms | 0.0.0.0 | GET | /api/category-todos | -
+[05-May-2023 10:38:47] | 201 | 4.0472ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:38:47] | 200 | 1.6454ms | 0.0.0.0 | GET | /api/category-todos | -
+[05-May-2023 10:38:47] | 404 | 3.0201ms | 0.0.0.0 | GET | /api/category-todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:38:47] | 201 | 3.6632ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:38:47] | 200 | 1.6199ms | 0.0.0.0 | GET | /api/category-todos/166 | -
+[05-May-2023 10:38:47] | 400 |      0s | 0.0.0.0 | POST | /api/category-todos | validation error on field:CategoryTodoCreateRequest.Name
+[05-May-2023 10:38:47] | 201 | 3.512ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:38:48] | 404 | 1.8944ms | 0.0.0.0 | DELETE | /api/category-todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:38:48] | 201 | 3.5119ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:38:48] | 200 | 4.8359ms | 0.0.0.0 | DELETE | /api/category-todos/168 | -
+[05-May-2023 10:38:48] | 200 | 1.5717ms | 0.0.0.0 | GET | /api/users | -
+[05-May-2023 10:38:48] | 201 | 3.2575ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:38:48] | 200 | 1.1561ms | 0.0.0.0 | GET | /api/users | -
+[05-May-2023 10:38:48] | 404 | 1.9362ms | 0.0.0.0 | GET | /api/users/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:38:48] | 201 | 3.1981ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:38:48] | 200 | 1.5462ms | 0.0.0.0 | GET | /api/users/294 | -
+[05-May-2023 10:38:48] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Name
+[05-May-2023 10:38:48] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Email
+[05-May-2023 10:38:48] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Email
+[05-May-2023 10:38:48] | 201 | 2.9293ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:38:48] | 404 | 2.6832ms | 0.0.0.0 | PATCH | /api/users/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:38:48] | 201 | 4.1794ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:38:48] | 400 | 784.1µs | 0.0.0.0 | PATCH | /api/users/296 | validation error on field:UserUpdateRequest.Name
+[05-May-2023 10:38:48] | 201 | 3.0539ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:38:48] | 200 | 4.534ms | 0.0.0.0 | PATCH | /api/users/297 | -
+[05-May-2023 10:38:48] | 404 | 2.0678ms | 0.0.0.0 | DELETE | /api/users/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:38:49] | 201 | 3.2519ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:38:49] | 200 | 4.8638ms | 0.0.0.0 | DELETE | /api/users/298 | -
+[05-May-2023 10:39:10] | 200 | 292.0378ms | 0.0.0.0 | GET | /api/users | -
+[05-May-2023 10:39:10] | 201 | 3.1279ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:39:10] | 200 | 1.6173ms | 0.0.0.0 | GET | /api/users | -
+[05-May-2023 10:39:10] | 404 | 1.8744ms | 0.0.0.0 | GET | /api/users/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:39:10] | 201 | 3.0195ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:39:10] | 200 | 1.6059ms | 0.0.0.0 | GET | /api/users/300 | -
+[05-May-2023 10:39:10] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Name
+[05-May-2023 10:39:10] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Email
+[05-May-2023 10:39:10] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Email
+[05-May-2023 10:39:10] | 201 | 3.0514ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:39:10] | 404 | 1.7154ms | 0.0.0.0 | PATCH | /api/users/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:39:10] | 201 | 3.3105ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:39:10] | 400 |      0s | 0.0.0.0 | PATCH | /api/users/302 | validation error on field:UserUpdateRequest.Name
+[05-May-2023 10:39:11] | 201 | 3.6198ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:39:11] | 200 | 4.1278ms | 0.0.0.0 | PATCH | /api/users/303 | -
+[05-May-2023 10:39:11] | 404 | 1.7012ms | 0.0.0.0 | DELETE | /api/users/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:39:11] | 201 | 3.238ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:39:11] | 200 | 4.7515ms | 0.0.0.0 | DELETE | /api/users/304 | -
+[05-May-2023 10:39:11] | 200 | 2.049ms | 0.0.0.0 | GET | /api/category-todos | -
+[05-May-2023 10:39:11] | 201 | 3.8855ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:39:11] | 200 | 1.2688ms | 0.0.0.0 | GET | /api/category-todos | -
+[05-May-2023 10:39:11] | 404 | 2.5828ms | 0.0.0.0 | GET | /api/category-todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:39:11] | 201 | 1.6617ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:39:11] | 200 | 2.0749ms | 0.0.0.0 | GET | /api/category-todos/170 | -
+[05-May-2023 10:39:11] | 400 |      0s | 0.0.0.0 | POST | /api/category-todos | validation error on field:CategoryTodoCreateRequest.Name
+[05-May-2023 10:39:11] | 201 | 2.6352ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:39:11] | 404 | 3.0358ms | 0.0.0.0 | DELETE | /api/category-todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:39:11] | 201 | 3.0852ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:39:11] | 200 | 4.2066ms | 0.0.0.0 | DELETE | /api/category-todos/172 | -
+[05-May-2023 10:39:11] | 201 | 3.1626ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:39:11] | 201 | 2.9636ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:39:11] | 200 | 2.3759ms | 0.0.0.0 | GET | /api/todos | -
+[05-May-2023 10:39:11] | 201 | 2.9716ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:39:11] | 201 | 3.7547ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:39:11] | 201 | 7.3306ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:39:11] | 200 | 2.1616ms | 0.0.0.0 | GET | /api/todos | -
+[05-May-2023 10:39:12] | 201 | 3.0316ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:39:12] | 201 | 3.0597ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:39:12] | 404 | 2.4965ms | 0.0.0.0 | GET | /api/todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:39:12] | 201 | 3.0867ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:39:12] | 201 | 3.158ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:39:12] | 201 | 6.7017ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:39:12] | 200 | 2.729ms | 0.0.0.0 | GET | /api/todos/46 | -
+[05-May-2023 10:39:12] | 201 | 3.0885ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:39:12] | 201 | 1.6555ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:39:12] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.Title
+[05-May-2023 10:39:12] | 201 | 2.2088ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:39:12] | 201 | 2.925ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:39:12] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.Description
+[05-May-2023 10:39:12] | 201 | 3.0786ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:39:12] | 201 | 3.167ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:39:12] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.UserId
+[05-May-2023 10:39:12] | 201 | 3.4405ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:39:12] | 201 | 3.539ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:39:12] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.CategoryTodoId
+[05-May-2023 10:39:12] | 201 | 4.045ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:39:12] | 201 | 3.246ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:39:12] | 201 | 6.9377ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:39:12] | 201 | 3.2237ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:39:12] | 201 | 3.7991ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:39:12] | 404 | 2.3296ms | 0.0.0.0 | PATCH | /api/todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:39:12] | 201 | 2.9078ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:39:12] | 201 | 2.9582ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:39:12] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.CategoryTodoId
+[05-May-2023 10:39:12] | 201 | 3.7038ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:39:12] | 201 | 3.343ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:39:12] | 201 | 6.8463ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:39:12] | 400 |      0s | 0.0.0.0 | PATCH | /api/todos/48 | validation error on field:TodoUpdateRequest.Description
+[05-May-2023 10:39:12] | 201 | 2.9605ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:39:12] | 201 | 3.1789ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:39:12] | 201 | 6.3691ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:39:12] | 400 |      0s | 0.0.0.0 | PATCH | /api/todos/49 | validation error on field:TodoUpdateRequest.UserId
+[05-May-2023 10:39:12] | 201 | 2.7655ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:39:12] | 201 | 3.0281ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:39:12] | 201 | 6.6757ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:39:12] | 500 | 2.9762ms | 0.0.0.0 | PATCH | /api/todos/50 | rpc error: code = Unknown desc = pq: null value in column "is_done" of relation "todos" violates not-null constraint
+[05-May-2023 10:39:12] | 200 | 2.8729ms | 0.0.0.0 | GET | /api/todos/50 | -
+[05-May-2023 10:39:13] | 201 | 3.055ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:39:13] | 201 | 3.2465ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:39:13] | 201 | 6.5785ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:39:13] | 200 | 4.6917ms | 0.0.0.0 | PATCH | /api/todos/51 | -
+[05-May-2023 10:39:13] | 200 | 2.8473ms | 0.0.0.0 | GET | /api/todos/51 | -
+[05-May-2023 10:39:13] | 201 | 2.9715ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:39:13] | 201 | 3.0272ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:39:13] | 404 | 1.7011ms | 0.0.0.0 | DELETE | /api/todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:39:13] | 201 | 3.2958ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:39:13] | 201 | 3.0198ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:39:13] | 201 |  6.54ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:39:13] | 200 | 4.7551ms | 0.0.0.0 | DELETE | /api/todos/52 | -
+[05-May-2023 10:39:52] | 200 | 357.0067ms | 0.0.0.0 | GET | /api/users | -
+[05-May-2023 10:39:52] | 201 | 7.7508ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:39:52] | 200 | 1.1156ms | 0.0.0.0 | GET | /api/users | -
+[05-May-2023 10:39:53] | 404 | 2.1391ms | 0.0.0.0 | GET | /api/users/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:39:53] | 201 | 3.4586ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:39:53] | 200 | 1.606ms | 0.0.0.0 | GET | /api/users/323 | -
+[05-May-2023 10:39:53] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Name
+[05-May-2023 10:39:53] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Email
+[05-May-2023 10:39:53] | 400 |   510µs | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Email
+[05-May-2023 10:39:53] | 201 | 3.0749ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:39:53] | 404 | 2.0849ms | 0.0.0.0 | PATCH | /api/users/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:39:53] | 201 | 4.3044ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:39:53] | 400 |      0s | 0.0.0.0 | PATCH | /api/users/325 | validation error on field:UserUpdateRequest.Name
+[05-May-2023 10:39:53] | 201 | 3.1521ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:39:53] | 200 | 4.7063ms | 0.0.0.0 | PATCH | /api/users/326 | -
+[05-May-2023 10:39:53] | 404 | 2.112ms | 0.0.0.0 | DELETE | /api/users/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:39:53] | 201 | 3.4447ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:39:53] | 200 | 4.9827ms | 0.0.0.0 | DELETE | /api/users/327 | -
+[05-May-2023 10:39:53] | 201 | 74.8085ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:39:53] | 201 | 3.5895ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:39:53] | 200 | 3.6385ms | 0.0.0.0 | GET | /api/todos | -
+[05-May-2023 10:39:53] | 201 | 2.7939ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:39:53] | 201 | 3.2608ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:39:53] | 201 | 10.3765ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:39:54] | 200 | 2.4487ms | 0.0.0.0 | GET | /api/todos | -
+[05-May-2023 10:39:54] | 201 | 3.1734ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:39:54] | 201 | 1.6621ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:39:54] | 404 | 3.4528ms | 0.0.0.0 | GET | /api/todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:39:54] | 201 | 2.8681ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:39:54] | 201 | 3.654ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:39:54] | 201 | 6.8345ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:39:54] | 200 | 3.022ms | 0.0.0.0 | GET | /api/todos/54 | -
+[05-May-2023 10:39:54] | 201 | 3.5326ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:39:54] | 201 | 1.7463ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:39:54] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.Title
+[05-May-2023 10:39:54] | 201 | 3.6671ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:39:54] | 201 | 3.0576ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:39:54] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.Description
+[05-May-2023 10:39:54] | 201 | 3.0225ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:39:54] | 201 | 3.2714ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:39:54] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.UserId
+[05-May-2023 10:39:54] | 201 | 3.1251ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:39:54] | 201 | 2.7323ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:39:54] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.CategoryTodoId
+[05-May-2023 10:39:54] | 201 | 3.3467ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:39:54] | 201 | 3.3284ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:39:54] | 201 | 6.8454ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:39:54] | 201 | 3.2982ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:39:54] | 201 | 2.9458ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:39:54] | 404 | 1.9097ms | 0.0.0.0 | PATCH | /api/todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:39:54] | 201 | 3.6992ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:39:54] | 201 |  3.16ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:39:54] | 201 | 6.7553ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:39:54] | 400 |      0s | 0.0.0.0 | PATCH | /api/todos/56 | validation error on field:TodoUpdateRequest.Title
+[05-May-2023 10:39:54] | 201 | 2.6924ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:39:54] | 201 | 3.3405ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:39:54] | 201 | 7.4047ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:39:54] | 400 |      0s | 0.0.0.0 | PATCH | /api/todos/57 | validation error on field:TodoUpdateRequest.Description
+[05-May-2023 10:39:54] | 201 | 3.4632ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:39:54] | 201 | 3.432ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:39:54] | 201 | 8.0157ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:39:54] | 400 |      0s | 0.0.0.0 | PATCH | /api/todos/58 | validation error on field:TodoUpdateRequest.UserId
+[05-May-2023 10:39:55] | 201 | 3.7713ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:39:55] | 201 | 3.2578ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:39:55] | 201 | 7.0453ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:39:55] | 500 | 3.1577ms | 0.0.0.0 | PATCH | /api/todos/59 | rpc error: code = Unknown desc = pq: null value in column "is_done" of relation "todos" violates not-null constraint
+[05-May-2023 10:39:55] | 200 | 4.2673ms | 0.0.0.0 | GET | /api/todos/59 | -
+[05-May-2023 10:39:55] | 201 | 3.0071ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:39:55] | 201 | 1.6754ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:39:55] | 201 | 7.8612ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:39:55] | 200 | 4.6469ms | 0.0.0.0 | PATCH | /api/todos/60 | -
+[05-May-2023 10:39:55] | 200 | 2.7643ms | 0.0.0.0 | GET | /api/todos/60 | -
+[05-May-2023 10:39:55] | 201 | 3.4674ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:39:55] | 201 | 3.0132ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:39:55] | 404 | 1.523ms | 0.0.0.0 | DELETE | /api/todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:39:55] | 201 | 2.9316ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:39:55] | 201 | 2.8983ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:39:55] | 201 | 6.6755ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:39:55] | 200 | 4.7788ms | 0.0.0.0 | DELETE | /api/todos/61 | -
+[05-May-2023 10:39:55] | 200 | 1.2724ms | 0.0.0.0 | GET | /api/category-todos | -
+[05-May-2023 10:39:55] | 201 | 3.146ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:39:55] | 200 | 1.1305ms | 0.0.0.0 | GET | /api/category-todos | -
+[05-May-2023 10:39:55] | 404 | 2.2333ms | 0.0.0.0 | GET | /api/category-todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:39:55] | 201 | 3.129ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:39:55] | 200 | 1.6961ms | 0.0.0.0 | GET | /api/category-todos/208 | -
+[05-May-2023 10:39:55] | 400 |      0s | 0.0.0.0 | POST | /api/category-todos | validation error on field:CategoryTodoCreateRequest.Name
+[05-May-2023 10:39:55] | 201 | 2.8951ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:39:55] | 404 | 1.7778ms | 0.0.0.0 | DELETE | /api/category-todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:39:55] | 201 | 3.0056ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:39:55] | 200 | 4.2075ms | 0.0.0.0 | DELETE | /api/category-todos/210 | -
+[05-May-2023 10:42:51] | 200 | 375.4409ms | 0.0.0.0 | GET | /api/category-todos | -
+[05-May-2023 10:42:51] | 201 | 8.2367ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:42:51] | 200 | 1.4095ms | 0.0.0.0 | GET | /api/category-todos | -
+[05-May-2023 10:42:52] | 404 | 1.9176ms | 0.0.0.0 | GET | /api/category-todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:42:52] | 201 | 3.3697ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:42:52] | 200 | 1.7801ms | 0.0.0.0 | GET | /api/category-todos/212 | -
+[05-May-2023 10:42:52] | 400 |      0s | 0.0.0.0 | POST | /api/category-todos | validation error on field:CategoryTodoCreateRequest.Name
+[05-May-2023 10:42:52] | 201 | 3.2256ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:42:52] | 404 | 1.8273ms | 0.0.0.0 | DELETE | /api/category-todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:42:52] | 201 | 3.4642ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:42:52] | 200 | 5.5222ms | 0.0.0.0 | DELETE | /api/category-todos/214 | -
+[05-May-2023 10:42:52] | 201 | 3.4376ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:42:52] | 201 | 70.825ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:42:52] | 200 | 3.0752ms | 0.0.0.0 | GET | /api/todos | -
+[05-May-2023 10:42:52] | 201 | 3.2264ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:42:52] | 201 | 3.1978ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:42:52] | 201 | 10.3326ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:42:52] | 200 | 2.1607ms | 0.0.0.0 | GET | /api/todos | -
+[05-May-2023 10:42:52] | 201 | 3.3313ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:42:52] | 201 | 3.416ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:42:52] | 404 | 2.6446ms | 0.0.0.0 | GET | /api/todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:42:52] | 201 | 1.7167ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:42:52] | 201 | 3.4449ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:42:52] | 201 | 6.9698ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:42:52] | 200 | 2.7976ms | 0.0.0.0 | GET | /api/todos/63 | -
+[05-May-2023 10:42:52] | 201 | 3.4819ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:42:52] | 201 | 3.7737ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:42:52] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.Title
+[05-May-2023 10:42:52] | 201 | 2.9455ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:42:52] | 201 | 3.1733ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:42:52] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.Description
+[05-May-2023 10:42:53] | 201 | 3.089ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:42:53] | 201 | 2.9442ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:42:53] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.UserId
+[05-May-2023 10:42:53] | 201 | 2.9904ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:42:53] | 201 | 3.0637ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:42:53] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.CategoryTodoId
+[05-May-2023 10:42:53] | 201 | 3.1946ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:42:53] | 201 | 3.0106ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:42:53] | 201 | 6.6458ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:42:53] | 201 | 3.1879ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:42:53] | 201 | 3.2975ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:42:53] | 404 | 2.0305ms | 0.0.0.0 | PATCH | /api/todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:42:53] | 201 | 3.6781ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:42:53] | 201 | 3.3983ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:42:53] | 201 | 7.3949ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:42:53] | 400 |      0s | 0.0.0.0 | PATCH | /api/todos/65 | validation error on field:TodoUpdateRequest.Title
+[05-May-2023 10:42:53] | 201 | 3.069ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:42:53] | 201 | 2.9005ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:42:53] | 201 | 6.8287ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:42:53] | 400 |      0s | 0.0.0.0 | PATCH | /api/todos/66 | validation error on field:TodoUpdateRequest.Description
+[05-May-2023 10:42:53] | 201 | 3.7231ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:42:53] | 201 | 3.3448ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:42:53] | 201 | 6.4816ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:42:53] | 400 |      0s | 0.0.0.0 | PATCH | /api/todos/67 | validation error on field:TodoUpdateRequest.UserId
+[05-May-2023 10:42:53] | 201 | 3.1008ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:42:53] | 201 | 3.0982ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:42:53] | 201 | 6.5146ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:42:53] | 500 | 3.5775ms | 0.0.0.0 | PATCH | /api/todos/68 | rpc error: code = Unknown desc = pq: null value in column "is_done" of relation "todos" violates not-null constraint
+[05-May-2023 10:42:53] | 200 | 2.9796ms | 0.0.0.0 | GET | /api/todos/68 | -
+[05-May-2023 10:42:53] | 201 | 3.0935ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:42:53] | 201 | 3.1549ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:42:53] | 201 | 2.9465ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:42:53] | 201 | 7.1002ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:42:53] | 200 | 4.8582ms | 0.0.0.0 | PATCH | /api/todos/69 | -
+[05-May-2023 10:42:53] | 200 | 2.659ms | 0.0.0.0 | GET | /api/todos/69 | -
+[05-May-2023 10:42:53] | 201 | 3.2703ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:42:53] | 201 | 3.7696ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:42:53] | 404 | 2.0994ms | 0.0.0.0 | DELETE | /api/todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:42:53] | 201 | 3.5076ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:42:53] | 201 | 3.3856ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:42:53] | 201 | 7.2587ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:42:53] | 200 | 5.1699ms | 0.0.0.0 | DELETE | /api/todos/70 | -
+[05-May-2023 10:42:54] | 200 | 2.2605ms | 0.0.0.0 | GET | /api/users | -
+[05-May-2023 10:42:54] | 201 | 3.1534ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:42:54] | 200 | 1.3594ms | 0.0.0.0 | GET | /api/users | -
+[05-May-2023 10:42:54] | 404 | 2.0758ms | 0.0.0.0 | GET | /api/users/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:42:54] | 201 | 2.7381ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:42:54] | 200 | 2.4104ms | 0.0.0.0 | GET | /api/users/364 | -
+[05-May-2023 10:42:54] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Name
+[05-May-2023 10:42:54] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Email
+[05-May-2023 10:42:54] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Email
+[05-May-2023 10:42:54] | 201 | 3.089ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:42:54] | 404 | 1.9723ms | 0.0.0.0 | PATCH | /api/users/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:42:54] | 201 | 3.4097ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:42:54] | 400 |      0s | 0.0.0.0 | PATCH | /api/users/366 | validation error on field:UserUpdateRequest.Name
+[05-May-2023 10:42:54] | 201 | 3.8082ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:42:54] | 200 | 4.9894ms | 0.0.0.0 | PATCH | /api/users/367 | -
+[05-May-2023 10:42:54] | 404 | 2.092ms | 0.0.0.0 | DELETE | /api/users/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:42:54] | 201 | 3.3361ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:42:54] | 200 | 6.0014ms | 0.0.0.0 | DELETE | /api/users/368 | -
+[05-May-2023 10:43:26] | 201 | 294.4936ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:43:26] | 201 | 3.4809ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:43:26] | 200 | 2.5885ms | 0.0.0.0 | GET | /api/todos | -
+[05-May-2023 10:43:26] | 201 | 3.8585ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:43:26] | 201 | 3.2241ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:43:26] | 201 | 6.9763ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:43:26] | 200 | 2.1924ms | 0.0.0.0 | GET | /api/todos | -
+[05-May-2023 10:43:26] | 201 | 2.8876ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:43:26] | 201 | 3.7628ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:43:26] | 404 | 2.7535ms | 0.0.0.0 | GET | /api/todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:43:26] | 201 | 3.2846ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:43:26] | 201 | 3.0002ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:43:26] | 201 | 6.4861ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:43:26] | 200 | 3.1884ms | 0.0.0.0 | GET | /api/todos/72 | -
+[05-May-2023 10:43:26] | 201 | 2.9687ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:43:26] | 201 | 3.1259ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:43:26] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.Title
+[05-May-2023 10:43:26] | 201 | 2.7966ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:43:26] | 201 | 3.529ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:43:26] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.Description
+[05-May-2023 10:43:26] | 201 | 3.2892ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:43:26] | 201 | 3.6243ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:43:26] | 400 |   509µs | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.UserId
+[05-May-2023 10:43:26] | 201 | 3.3311ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:43:26] | 201 | 3.6706ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:43:26] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.CategoryTodoId
+[05-May-2023 10:43:26] | 201 | 2.778ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:43:26] | 201 | 2.9515ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:43:26] | 201 | 6.6626ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:43:27] | 201 | 3.3287ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:43:27] | 201 | 3.0913ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:43:27] | 404 | 1.8336ms | 0.0.0.0 | PATCH | /api/todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:43:27] | 201 | 3.3058ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:43:27] | 201 | 3.2524ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:43:27] | 201 | 6.6158ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:43:27] | 400 |      0s | 0.0.0.0 | PATCH | /api/todos/74 | validation error on field:TodoUpdateRequest.Title
+[05-May-2023 10:43:27] | 201 | 3.1073ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:43:27] | 201 | 3.1825ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:43:27] | 201 | 6.7465ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:43:27] | 400 |      0s | 0.0.0.0 | PATCH | /api/todos/75 | validation error on field:TodoUpdateRequest.Description
+[05-May-2023 10:43:27] | 201 | 3.1302ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:43:27] | 201 | 3.0399ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:43:27] | 201 | 6.6483ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:43:27] | 400 |      0s | 0.0.0.0 | PATCH | /api/todos/76 | validation error on field:TodoUpdateRequest.UserId
+[05-May-2023 10:43:27] | 201 | 2.7544ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:43:27] | 201 | 2.5624ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:43:27] | 201 | 6.8602ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:43:27] | 500 | 2.9678ms | 0.0.0.0 | PATCH | /api/todos/77 | rpc error: code = Unknown desc = pq: null value in column "is_done" of relation "todos" violates not-null constraint
+[05-May-2023 10:43:27] | 200 | 2.885ms | 0.0.0.0 | GET | /api/todos/77 | -
+[05-May-2023 10:43:27] | 201 | 2.188ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:43:27] | 201 | 4.0351ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:43:27] | 201 | 2.8791ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:43:27] | 201 | 6.5319ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:43:27] | 200 | 4.6882ms | 0.0.0.0 | PATCH | /api/todos/78 | -
+[05-May-2023 10:43:27] | 200 | 2.8664ms | 0.0.0.0 | GET | /api/todos/78 | -
+[05-May-2023 10:43:27] | 201 | 3.1863ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:43:27] | 201 | 3.2392ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:43:27] | 404 | 1.7484ms | 0.0.0.0 | DELETE | /api/todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:43:27] | 201 | 2.9965ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:43:27] | 201 | 3.305ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:43:27] | 201 | 6.5417ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:43:27] | 200 | 4.583ms | 0.0.0.0 | DELETE | /api/todos/79 | -
+[05-May-2023 10:43:27] | 200 | 1.2798ms | 0.0.0.0 | GET | /api/category-todos | -
+[05-May-2023 10:43:27] | 201 | 3.1659ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:43:27] | 200 | 1.1749ms | 0.0.0.0 | GET | /api/category-todos | -
+[05-May-2023 10:43:27] | 404 | 2.558ms | 0.0.0.0 | GET | /api/category-todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:43:27] | 201 | 3.6693ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:43:27] | 200 | 2.058ms | 0.0.0.0 | GET | /api/category-todos/250 | -
+[05-May-2023 10:43:28] | 400 |      0s | 0.0.0.0 | POST | /api/category-todos | validation error on field:CategoryTodoCreateRequest.Name
+[05-May-2023 10:43:28] | 201 | 3.2799ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:43:28] | 404 | 2.168ms | 0.0.0.0 | DELETE | /api/category-todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:43:28] | 201 | 3.5692ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:43:28] | 200 | 4.4424ms | 0.0.0.0 | DELETE | /api/category-todos/252 | -
+[05-May-2023 10:43:28] | 200 | 2.3394ms | 0.0.0.0 | GET | /api/users | -
+[05-May-2023 10:43:28] | 201 | 3.3339ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:43:28] | 200 | 1.3477ms | 0.0.0.0 | GET | /api/users | -
+[05-May-2023 10:43:28] | 404 | 1.8833ms | 0.0.0.0 | GET | /api/users/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:43:28] | 201 | 2.924ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:43:28] | 200 | 1.5884ms | 0.0.0.0 | GET | /api/users/388 | -
+[05-May-2023 10:43:28] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Name
+[05-May-2023 10:43:28] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Email
+[05-May-2023 10:43:28] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Email
+[05-May-2023 10:43:28] | 201 | 3.0656ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:43:28] | 404 | 1.8522ms | 0.0.0.0 | PATCH | /api/users/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:43:28] | 201 | 3.727ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:43:28] | 400 |      0s | 0.0.0.0 | PATCH | /api/users/390 | validation error on field:UserUpdateRequest.Name
+[05-May-2023 10:43:29] | 201 | 3.2597ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:43:29] | 200 | 4.523ms | 0.0.0.0 | PATCH | /api/users/391 | -
+[05-May-2023 10:43:29] | 404 | 1.8917ms | 0.0.0.0 | DELETE | /api/users/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:43:29] | 201 | 3.1539ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:43:29] | 200 | 4.2303ms | 0.0.0.0 | DELETE | /api/users/392 | -
+[05-May-2023 10:43:48] | 201 | 302.9641ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:43:48] | 201 | 3.743ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:43:48] | 200 | 3.1814ms | 0.0.0.0 | GET | /api/todos | -
+[05-May-2023 10:43:48] | 201 | 3.8754ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:43:48] | 201 | 3.6493ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:43:48] | 201 | 7.4227ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:43:48] | 200 | 3.286ms | 0.0.0.0 | GET | /api/todos | -
+[05-May-2023 10:43:48] | 201 | 2.9195ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:43:48] | 201 | 3.1725ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:43:48] | 404 | 2.7453ms | 0.0.0.0 | GET | /api/todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:43:48] | 201 | 2.9845ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:43:48] | 201 | 3.1531ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:43:48] | 201 | 7.0544ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:43:48] | 200 | 3.1799ms | 0.0.0.0 | GET | /api/todos/81 | -
+[05-May-2023 10:43:48] | 201 | 3.4723ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:43:48] | 201 | 3.2526ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:43:48] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.Title
+[05-May-2023 10:43:48] | 201 | 3.2241ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:43:48] | 201 | 3.1777ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:43:48] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.Description
+[05-May-2023 10:43:48] | 201 | 3.068ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:43:48] | 201 | 3.1686ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:43:48] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.UserId
+[05-May-2023 10:43:48] | 201 | 4.5721ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:43:48] | 201 | 4.1711ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:43:48] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.CategoryTodoId
+[05-May-2023 10:43:49] | 201 | 3.1748ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:43:49] | 201 | 2.6384ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:43:49] | 201 | 10.6813ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:43:49] | 201 | 3.4611ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:43:49] | 201 | 3.155ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:43:49] | 404 | 2.114ms | 0.0.0.0 | PATCH | /api/todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:43:49] | 201 | 3.2138ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:43:49] | 201 | 3.1773ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:43:49] | 201 | 6.9021ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:43:49] | 400 |      0s | 0.0.0.0 | PATCH | /api/todos/83 | validation error on field:TodoUpdateRequest.Title
+[05-May-2023 10:43:49] | 201 | 3.1496ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:43:49] | 201 | 3.1826ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:43:49] | 201 | 8.1442ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:43:49] | 400 |      0s | 0.0.0.0 | PATCH | /api/todos/84 | validation error on field:TodoUpdateRequest.Description
+[05-May-2023 10:43:49] | 201 | 3.4456ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:43:49] | 201 | 3.8951ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:43:49] | 201 | 8.4692ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:43:49] | 400 |      0s | 0.0.0.0 | PATCH | /api/todos/85 | validation error on field:TodoUpdateRequest.UserId
+[05-May-2023 10:43:49] | 201 | 3.6921ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:43:49] | 201 | 3.6967ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:43:49] | 201 | 9.0831ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:43:49] | 500 | 3.7709ms | 0.0.0.0 | PATCH | /api/todos/86 | rpc error: code = Unknown desc = pq: null value in column "is_done" of relation "todos" violates not-null constraint
+[05-May-2023 10:43:49] | 200 | 3.2443ms | 0.0.0.0 | GET | /api/todos/86 | -
+[05-May-2023 10:43:49] | 201 | 3.3576ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:43:49] | 201 | 3.7259ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:43:49] | 201 | 3.1545ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:43:49] | 201 | 8.3301ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:43:49] | 200 | 5.7705ms | 0.0.0.0 | PATCH | /api/todos/87 | -
+[05-May-2023 10:43:49] | 200 | 3.302ms | 0.0.0.0 | GET | /api/todos/87 | -
+[05-May-2023 10:43:49] | 201 | 3.9733ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:43:49] | 201 | 3.7186ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:43:49] | 404 | 2.1342ms | 0.0.0.0 | DELETE | /api/todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:43:49] | 201 | 4.0651ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:43:49] | 201 | 3.6922ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:43:49] | 201 | 7.4177ms | 0.0.0.0 | POST | /api/todos | -
+[05-May-2023 10:43:49] | 200 | 5.7436ms | 0.0.0.0 | DELETE | /api/todos/88 | -
+[05-May-2023 10:43:49] | 200 | 1.3947ms | 0.0.0.0 | GET | /api/category-todos | -
+[05-May-2023 10:43:50] | 201 | 3.0832ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:43:50] | 200 | 1.0314ms | 0.0.0.0 | GET | /api/category-todos | -
+[05-May-2023 10:43:50] | 404 | 1.7812ms | 0.0.0.0 | GET | /api/category-todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:43:50] | 201 | 3.2328ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:43:50] | 200 | 1.6007ms | 0.0.0.0 | GET | /api/category-todos/271 | -
+[05-May-2023 10:43:50] | 400 |      0s | 0.0.0.0 | POST | /api/category-todos | validation error on field:CategoryTodoCreateRequest.Name
+[05-May-2023 10:43:50] | 201 | 3.4608ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:43:50] | 404 | 1.7497ms | 0.0.0.0 | DELETE | /api/category-todos/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:43:50] | 201 | 3.0015ms | 0.0.0.0 | POST | /api/category-todos | -
+[05-May-2023 10:43:50] | 200 | 4.2505ms | 0.0.0.0 | DELETE | /api/category-todos/273 | -
+[05-May-2023 10:43:50] | 200 | 1.1112ms | 0.0.0.0 | GET | /api/users | -
+[05-May-2023 10:43:50] | 201 | 3.6026ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:43:50] | 200 | 1.0505ms | 0.0.0.0 | GET | /api/users | -
+[05-May-2023 10:43:50] | 404 | 1.8827ms | 0.0.0.0 | GET | /api/users/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:43:50] | 201 | 3.3762ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:43:50] | 200 | 1.5678ms | 0.0.0.0 | GET | /api/users/412 | -
+[05-May-2023 10:43:50] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Name
+[05-May-2023 10:43:50] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Email
+[05-May-2023 10:43:50] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Email
+[05-May-2023 10:43:51] | 201 | 2.9811ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:43:51] | 404 | 1.8805ms | 0.0.0.0 | PATCH | /api/users/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:43:51] | 201 | 2.5721ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:43:51] | 400 |      0s | 0.0.0.0 | PATCH | /api/users/414 | validation error on field:UserUpdateRequest.Name
+[05-May-2023 10:43:51] | 201 | 3.0879ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:43:51] | 200 | 5.3348ms | 0.0.0.0 | PATCH | /api/users/415 | -
+[05-May-2023 10:43:51] | 404 | 2.1321ms | 0.0.0.0 | DELETE | /api/users/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[05-May-2023 10:43:51] | 201 | 3.2453ms | 0.0.0.0 | POST | /api/users | -
+[05-May-2023 10:43:51] | 200 | 4.202ms | 0.0.0.0 | DELETE | /api/users/416 | -

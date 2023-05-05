@@ -20,3 +20,6 @@ build:
 	docker build ./message-broker -t arvians/go-todo-message-broker:latest
 	docker build ./todo -t arvians/go-todo-todo:latest
 	docker build ./user -t arvians/go-todo-user:latest
+
+test:
+	ginkgo gateway/tests/integration

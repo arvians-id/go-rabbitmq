@@ -1,12 +1,12 @@
 package integration_test
 
 import (
-	"encoding/json"
 	"fmt"
 	"github.com/arvians-id/go-rabbitmq/gateway/api"
 	"github.com/arvians-id/go-rabbitmq/gateway/cmd/config"
 	"github.com/arvians-id/go-rabbitmq/gateway/response"
 	"github.com/arvians-id/go-rabbitmq/gateway/tests/setup"
+	"github.com/goccy/go-json"
 	"github.com/gofiber/fiber/v2"
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"

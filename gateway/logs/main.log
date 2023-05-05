@@ -339,3 +339,5 @@
 [04-May-2023 10:17:04] | 400 |      0s | 127.0.0.1 | PATCH | /api/users/2 | validation error on field:UserUpdateRequest.Name
 [04-May-2023 10:18:31] | 404 | 2.9126ms | 127.0.0.1 | PATCH | /api/users/2 | rpc error: code = Unknown desc = sql: no rows in result set
 [04-May-2023 10:18:50] | 400 |      0s | 127.0.0.1 | PATCH | /api/users/2 | validation error on field:UserUpdateRequest.Name
+[04-May-2023 14:08:15] | 400 |     1ms | 127.0.0.1 | POST | /api/category-todos | validation error on field:CategoryTodoCreateRequest.Name
+[04-May-2023 14:16:15] | 200 | 90.7075ms | 127.0.0.1 | GET | /api/todos | -

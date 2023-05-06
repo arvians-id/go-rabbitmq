@@ -42,7 +42,7 @@ func (repository *UserRepository) FindAll(ctx context.Context) ([]*model.User, e
 	var users []*model.User
 	for rows.Next() {
 		var user model.User
-		err := rows.Scan(&user.Id, &user.Name, &user.Email, &user.CreatedAt, &user.UpdatedAt)
+		err := rows.Scan(&user.Id, &user.Name, &user.Email, &user.Password, &user.CreatedAt, &user.UpdatedAt)
 		if err != nil {
 			span.RecordError(err)
 			return nil, err
@@ -62,7 +62,7 @@ func (repository *UserRepository) FindByID(ctx context.Context, id int64) (*mode
 	row := repository.DB.QueryRowContext(ctxTracer, query, id)
 
 	var user model.User
-	err := row.Scan(&user.Id, &user.Name, &user.Email, &user.CreatedAt, &user.UpdatedAt)
+	err := row.Scan(&user.Id, &user.Name, &user.Email, &user.Password, &user.CreatedAt, &user.UpdatedAt)
 	if err != nil {
 		span.RecordError(err)
 		return nil, err
@@ -75,8 +75,8 @@ func (repository *UserRepository) Create(ctx context.Context, user *model.User) 
 	ctxTracer, span := otel.Tracer(config.ServiceTrace).Start(ctx, "repository.UserService/Repository/Create")
 	defer span.End()
 
-	query := `INSERT INTO users(name, email, created_at, updated_at) VALUES($1,$2,$3,$4) RETURNING id`
-	row := repository.DB.QueryRowContext(ctxTracer, query, user.Name, user.Email, user.CreatedAt, user.UpdatedAt)
+	query := `INSERT INTO users(name, email, password, created_at, updated_at) VALUES($1,$2,$3,$4,$5) RETURNING id`
+	row := repository.DB.QueryRowContext(ctxTracer, query, user.Name, user.Email, user.Password, user.CreatedAt, user.UpdatedAt)
 
 	var id int64
 	err := row.Scan(&id)
@@ -94,8 +94,8 @@ func (repository *UserRepository) Update(ctx context.Context, user *model.User) 
 	ctxTracer, span := otel.Tracer(config.ServiceTrace).Start(ctx, "repository.UserService/Repository/Update")
 	defer span.End()
 
-	query := `UPDATE users SET name = $1, updated_at = $2 WHERE id = $3`
-	_, err := repository.DB.ExecContext(ctxTracer, query, user.Name, user.UpdatedAt, user.Id)
+	query := `UPDATE users SET name = $1, password = $2, updated_at = $3 WHERE id = $4`
+	_, err := repository.DB.ExecContext(ctxTracer, query, user.Name, user.Password, user.UpdatedAt, user.Id)
 	if err != nil {
 		span.RecordError(err)
 		return nil, err

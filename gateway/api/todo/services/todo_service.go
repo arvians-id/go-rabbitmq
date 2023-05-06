@@ -3,7 +3,7 @@ package services
 import (
 	"context"
 	"github.com/arvians-id/go-rabbitmq/gateway/api/todo/client"
-	"github.com/arvians-id/go-rabbitmq/gateway/api/todo/pb"
+	"github.com/arvians-id/go-rabbitmq/gateway/pb"
 	"google.golang.org/protobuf/types/known/emptypb"
 )
 

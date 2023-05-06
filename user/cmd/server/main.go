@@ -25,6 +25,26 @@ func main() {
 		log.Fatalln("Cannot connect to database", err)
 	}
 
+	// Init Rabbit MQ
+	conn, ch, err := config.InitRabbitMQ(configuration)
+	if err != nil {
+		log.Fatalln(err)
+	}
+	defer conn.Close()
+	defer ch.Close()
+
+	_, err = ch.QueueDeclare(
+		"mail",
+		true,
+		false,
+		false,
+		false,
+		nil,
+	)
+	if err != nil {
+		log.Fatalln(err)
+	}
+
 	// Init Open Telementry Tracer
 	tp, err := config.NewTracerProvider(configuration)
 	if err != nil {
@@ -48,7 +68,7 @@ func main() {
 
 	// Init Server
 	userRepository := repository.NewUserRepository(db)
-	userService := usecase.NewUserUsecase(userRepository)
+	userService := usecase.NewUserUsecase(userRepository, ch)
 
 	lis, err := net.Listen("tcp", configuration.Get("USER_SERVICE_URL"))
 	if err != nil {

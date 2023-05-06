@@ -20,7 +20,6 @@ import (
 var _ = Describe("Todo", func() {
 	var server *fiber.App
 	var user map[string]interface{}
-	var categoryTodo map[string]interface{}
 	configuration := config.New("../../.env")
 	file, err := os.OpenFile("../../logs/test.log", os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
 	if err != nil {
@@ -33,13 +32,13 @@ var _ = Describe("Todo", func() {
 
 	BeforeEach(func() {
 		bodyRequest := strings.NewReader(`{"name": "Belajar Bahasa Pemrograman"}`)
-		req := httptest.NewRequest(http.MethodPost, "/api/category-todos", bodyRequest)
+		req := httptest.NewRequest(http.MethodPost, "/api/categories", bodyRequest)
 		req.Header.Add("Content-Type", "application/json")
 		resp, err := server.Test(req)
 		Expect(err).NotTo(HaveOccurred())
 
-		responseBodyCategoryTodo := map[string]interface{}{}
-		err = json.NewDecoder(resp.Body).Decode(&responseBodyCategoryTodo)
+		responseBodyCategory := map[string]interface{}{}
+		err = json.NewDecoder(resp.Body).Decode(&responseBodyCategory)
 		Expect(err).NotTo(HaveOccurred())
 
 		bodyRequest = strings.NewReader(`{"name": "widdy","email": "widdy@gmail.com"}`)
@@ -53,7 +52,6 @@ var _ = Describe("Todo", func() {
 		Expect(err).NotTo(HaveOccurred())
 
 		user = responseBodyUser["data"].(map[string]interface{})
-		categoryTodo = responseBodyCategoryTodo["data"].(map[string]interface{})
 	})
 
 	AfterEach(func() {
@@ -83,8 +81,7 @@ var _ = Describe("Todo", func() {
 		When("The value of the data todos isn't null", func() {
 			It("Should return a success message upon successfully find all todos", func() {
 				idUser := fmt.Sprintf("%d", int(user["id"].(float64)))
-				idCategoryTodo := fmt.Sprintf("%d", int(categoryTodo["id"].(float64)))
-				bodyRequest := strings.NewReader(`{"title": "This is first todo","description": "Lorem ipsum","user_id": ` + idUser + `,"category_todo_id": ` + idCategoryTodo + `}`)
+				bodyRequest := strings.NewReader(`{"title": "This is first todo","description": "Lorem ipsum","user_id": ` + idUser + `}`)
 				req := httptest.NewRequest(http.MethodPost, "/api/todos", bodyRequest)
 				req.Header.Add("Content-Type", "application/json")
 				resp, err := server.Test(req)
@@ -103,7 +100,6 @@ var _ = Describe("Todo", func() {
 				Expect(responseBody["data"].([]interface{})[0].(map[string]interface{})["title"]).To(Equal("This is first todo"))
 				Expect(responseBody["data"].([]interface{})[0].(map[string]interface{})["description"]).To(Equal("Lorem ipsum"))
 				Expect(int(responseBody["data"].([]interface{})[0].(map[string]interface{})["user_id"].(float64))).To(Equal(int(user["id"].(float64))))
-				Expect(int(responseBody["data"].([]interface{})[0].(map[string]interface{})["category_todo_id"].(float64))).To(Equal(int(categoryTodo["id"].(float64))))
 			})
 		})
 	})
@@ -128,8 +124,7 @@ var _ = Describe("Todo", func() {
 		When("The value of the data todo isn't null", func() {
 			It("Should return a success message upon successfully find todo by id", func() {
 				idUser := fmt.Sprintf("%d", int(user["id"].(float64)))
-				idCategoryTodo := fmt.Sprintf("%d", int(categoryTodo["id"].(float64)))
-				bodyRequest := strings.NewReader(`{"title": "This is first todo","description": "Lorem ipsum","user_id": ` + idUser + `,"category_todo_id": ` + idCategoryTodo + `}`)
+				bodyRequest := strings.NewReader(`{"title": "This is first todo","description": "Lorem ipsum","user_id": ` + idUser + `}`)
 				req := httptest.NewRequest(http.MethodPost, "/api/todos", bodyRequest)
 				req.Header.Add("Content-Type", "application/json")
 				resp, err := server.Test(req)
@@ -154,7 +149,6 @@ var _ = Describe("Todo", func() {
 				Expect(responseBody["data"].(map[string]interface{})["title"]).To(Equal("This is first todo"))
 				Expect(responseBody["data"].(map[string]interface{})["description"]).To(Equal("Lorem ipsum"))
 				Expect(int(responseBody["data"].(map[string]interface{})["user_id"].(float64))).To(Equal(int(user["id"].(float64))))
-				Expect(int(responseBody["data"].(map[string]interface{})["category_todo_id"].(float64))).To(Equal(int(categoryTodo["id"].(float64))))
 			})
 		})
 	})
@@ -164,8 +158,7 @@ var _ = Describe("Todo", func() {
 			When("The field title is blank", func() {
 				It("Should throw a validation error in request with message 'bad request' on the 'title' field", func() {
 					idUser := fmt.Sprintf("%d", int(user["id"].(float64)))
-					idCategoryTodo := fmt.Sprintf("%d", int(categoryTodo["id"].(float64)))
-					bodyRequest := strings.NewReader(`{"description": "Lorem ipsum","user_id": ` + idUser + `,"category_todo_id": ` + idCategoryTodo + `}`)
+					bodyRequest := strings.NewReader(`{"description": "Lorem ipsum","user_id": ` + idUser + `}`)
 					req := httptest.NewRequest(http.MethodPost, "/api/todos", bodyRequest)
 					req.Header.Add("Content-Type", "application/json")
 					resp, err := server.Test(req)
@@ -184,8 +177,7 @@ var _ = Describe("Todo", func() {
 			When("The field description is blank", func() {
 				It("Should throw a validation error in request with message 'bad request' on the 'description' field", func() {
 					idUser := fmt.Sprintf("%d", int(user["id"].(float64)))
-					idCategoryTodo := fmt.Sprintf("%d", int(categoryTodo["id"].(float64)))
-					bodyRequest := strings.NewReader(`{"title": "This is first todo","user_id": ` + idUser + `,"category_todo_id": ` + idCategoryTodo + `}`)
+					bodyRequest := strings.NewReader(`{"title": "This is first todo","user_id": ` + idUser + `}`)
 					req := httptest.NewRequest(http.MethodPost, "/api/todos", bodyRequest)
 					req.Header.Add("Content-Type", "application/json")
 					resp, err := server.Test(req)
@@ -203,8 +195,7 @@ var _ = Describe("Todo", func() {
 
 			When("The field user_id is blank", func() {
 				It("Should throw a validation error in request with message 'bad request' on the 'user_id' field", func() {
-					idCategoryTodo := fmt.Sprintf("%d", int(categoryTodo["id"].(float64)))
-					bodyRequest := strings.NewReader(`{"title": "This is first todo","description": "Lorem ipsum","category_todo_id": ` + idCategoryTodo + `}`)
+					bodyRequest := strings.NewReader(`{"title": "This is first todo","description": "Lorem ipsum"}`)
 					req := httptest.NewRequest(http.MethodPost, "/api/todos", bodyRequest)
 					req.Header.Add("Content-Type", "application/json")
 					resp, err := server.Test(req)
@@ -219,32 +210,12 @@ var _ = Describe("Todo", func() {
 					Expect(responseBody["data"]).To(BeNil())
 				})
 			})
-
-			When("The field category_todo_id is blank", func() {
-				It("Should throw a validation error in request with message 'bad request' on the 'category_todo_id' field", func() {
-					idUser := fmt.Sprintf("%d", int(user["id"].(float64)))
-					bodyRequest := strings.NewReader(`{"title": "This is first todo","description": "Lorem ipsum","user_id": ` + idUser + `}`)
-					req := httptest.NewRequest(http.MethodPost, "/api/todos", bodyRequest)
-					req.Header.Add("Content-Type", "application/json")
-					resp, err := server.Test(req)
-					Expect(err).NotTo(HaveOccurred())
-
-					responseBody := map[string]interface{}{}
-					err = json.NewDecoder(resp.Body).Decode(&responseBody)
-					Expect(err).NotTo(HaveOccurred())
-
-					Expect(int(responseBody["code"].(float64))).To(Equal(http.StatusBadRequest))
-					Expect(responseBody["status"]).To(Equal("validation error on field:TodoCreateRequest.CategoryTodoId"))
-					Expect(responseBody["data"]).To(BeNil())
-				})
-			})
 		})
 
 		When("The data in the create todo request is valid", func() {
 			It("Should return a success message upon successfully creating the todo", func() {
 				idUser := fmt.Sprintf("%d", int(user["id"].(float64)))
-				idCategoryTodo := fmt.Sprintf("%d", int(categoryTodo["id"].(float64)))
-				bodyRequest := strings.NewReader(`{"title": "This is first todo","description": "Lorem ipsum","user_id": ` + idUser + `,"category_todo_id": ` + idCategoryTodo + `}`)
+				bodyRequest := strings.NewReader(`{"title": "This is first todo","description": "Lorem ipsum","user_id": ` + idUser + `}`)
 				req := httptest.NewRequest(http.MethodPost, "/api/todos", bodyRequest)
 				req.Header.Add("Content-Type", "application/json")
 				resp, err := server.Test(req)
@@ -259,7 +230,6 @@ var _ = Describe("Todo", func() {
 				Expect(responseBody["data"].(map[string]interface{})["title"]).To(Equal("This is first todo"))
 				Expect(responseBody["data"].(map[string]interface{})["description"]).To(Equal("Lorem ipsum"))
 				Expect(int(responseBody["data"].(map[string]interface{})["user_id"].(float64))).To(Equal(int(user["id"].(float64))))
-				Expect(int(responseBody["data"].(map[string]interface{})["category_todo_id"].(float64))).To(Equal(int(categoryTodo["id"].(float64))))
 			})
 		})
 	})
@@ -288,8 +258,7 @@ var _ = Describe("Todo", func() {
 			When("The field title is blank", func() {
 				It("Should throw a validation error in request with message 'bad request' on the 'title' field", func() {
 					idUser := fmt.Sprintf("%d", int(user["id"].(float64)))
-					idCategoryTodo := fmt.Sprintf("%d", int(categoryTodo["id"].(float64)))
-					bodyRequest := strings.NewReader(`{"title": "This is first todo","description": "Lorem ipsum","user_id": ` + idUser + `,"category_todo_id": ` + idCategoryTodo + `}`)
+					bodyRequest := strings.NewReader(`{"title": "This is first todo","description": "Lorem ipsum","user_id": ` + idUser + `}`)
 					req := httptest.NewRequest(http.MethodPost, "/api/todos", bodyRequest)
 					req.Header.Add("Content-Type", "application/json")
 					resp, err := server.Test(req)
@@ -320,8 +289,7 @@ var _ = Describe("Todo", func() {
 			When("The field description is blank", func() {
 				It("Should throw a validation error in request with message 'bad request' on the 'description' field", func() {
 					idUser := fmt.Sprintf("%d", int(user["id"].(float64)))
-					idCategoryTodo := fmt.Sprintf("%d", int(categoryTodo["id"].(float64)))
-					bodyRequest := strings.NewReader(`{"title": "This is first todo","description": "Lorem ipsum","user_id": ` + idUser + `,"category_todo_id": ` + idCategoryTodo + `}`)
+					bodyRequest := strings.NewReader(`{"title": "This is first todo","description": "Lorem ipsum","user_id": ` + idUser + `}`)
 					req := httptest.NewRequest(http.MethodPost, "/api/todos", bodyRequest)
 					req.Header.Add("Content-Type", "application/json")
 					resp, err := server.Test(req)
@@ -352,8 +320,7 @@ var _ = Describe("Todo", func() {
 			When("The field user_id is blank", func() {
 				It("Should throw a validation error in request with message 'bad request' on the 'user_id' field", func() {
 					idUser := fmt.Sprintf("%d", int(user["id"].(float64)))
-					idCategoryTodo := fmt.Sprintf("%d", int(categoryTodo["id"].(float64)))
-					bodyRequest := strings.NewReader(`{"title": "This is first todo","description": "Lorem ipsum","user_id": ` + idUser + `,"category_todo_id": ` + idCategoryTodo + `}`)
+					bodyRequest := strings.NewReader(`{"title": "This is first todo","description": "Lorem ipsum","user_id": ` + idUser + `}`)
 					req := httptest.NewRequest(http.MethodPost, "/api/todos", bodyRequest)
 					req.Header.Add("Content-Type", "application/json")
 					resp, err := server.Test(req)
@@ -386,8 +353,7 @@ var _ = Describe("Todo", func() {
 			When("The request without field is_done", func() {
 				It("Should return a success message upon successfully creating the todo", func() {
 					idUser := fmt.Sprintf("%d", int(user["id"].(float64)))
-					idCategoryTodo := fmt.Sprintf("%d", int(categoryTodo["id"].(float64)))
-					bodyRequest := strings.NewReader(`{"title": "This is first todo","description": "Lorem ipsum","user_id": ` + idUser + `,"category_todo_id": ` + idCategoryTodo + `}`)
+					bodyRequest := strings.NewReader(`{"title": "This is first todo","description": "Lorem ipsum","user_id": ` + idUser + `}`)
 					req := httptest.NewRequest(http.MethodPost, "/api/todos", bodyRequest)
 					req.Header.Add("Content-Type", "application/json")
 					resp, err := server.Test(req)
@@ -424,7 +390,6 @@ var _ = Describe("Todo", func() {
 					Expect(responseBody["data"].(map[string]interface{})["is_done"]).To(Equal(false))
 					Expect(responseBody["data"].(map[string]interface{})["description"]).To(Equal("Lorem ipsum"))
 					Expect(int(responseBody["data"].(map[string]interface{})["user_id"].(float64))).To(Equal(int(user["id"].(float64))))
-					Expect(int(responseBody["data"].(map[string]interface{})["category_todo_id"].(float64))).To(Equal(int(categoryTodo["id"].(float64))))
 				})
 			})
 
@@ -442,8 +407,7 @@ var _ = Describe("Todo", func() {
 					idUserNew := fmt.Sprintf("%d", int(responseBodyUser["data"].(map[string]interface{})["id"].(float64)))
 
 					idUser := fmt.Sprintf("%d", int(user["id"].(float64)))
-					idCategoryTodo := fmt.Sprintf("%d", int(categoryTodo["id"].(float64)))
-					bodyRequest = strings.NewReader(`{"title": "This is first todo","description": "Lorem ipsum","user_id": ` + idUser + `,"category_todo_id": ` + idCategoryTodo + `}`)
+					bodyRequest = strings.NewReader(`{"title": "This is first todo","description": "Lorem ipsum","user_id": ` + idUser + `}`)
 					req = httptest.NewRequest(http.MethodPost, "/api/todos", bodyRequest)
 					req.Header.Add("Content-Type", "application/json")
 					resp, err = server.Test(req)
@@ -480,7 +444,6 @@ var _ = Describe("Todo", func() {
 					Expect(responseBody["data"].(map[string]interface{})["is_done"]).To(Equal(true))
 					Expect(responseBody["data"].(map[string]interface{})["description"]).To(Equal("Lorem ipsum edited"))
 					Expect(int(responseBody["data"].(map[string]interface{})["user_id"].(float64))).To(Equal(int(responseBodyUser["data"].(map[string]interface{})["id"].(float64))))
-					Expect(int(responseBody["data"].(map[string]interface{})["category_todo_id"].(float64))).To(Equal(int(categoryTodo["id"].(float64))))
 				})
 			})
 		})
@@ -506,8 +469,7 @@ var _ = Describe("Todo", func() {
 		When("The value of the data todo isn't null", func() {
 			It("Should return a success message upon successfully deleted", func() {
 				idUser := fmt.Sprintf("%d", int(user["id"].(float64)))
-				idCategoryTodo := fmt.Sprintf("%d", int(categoryTodo["id"].(float64)))
-				bodyRequest := strings.NewReader(`{"title": "This is first todo","description": "Lorem ipsum","user_id": ` + idUser + `,"category_todo_id": ` + idCategoryTodo + `}`)
+				bodyRequest := strings.NewReader(`{"title": "This is first todo","description": "Lorem ipsum","user_id": ` + idUser + `}`)
 				req := httptest.NewRequest(http.MethodPost, "/api/todos", bodyRequest)
 				req.Header.Add("Content-Type", "application/json")
 				resp, err := server.Test(req)

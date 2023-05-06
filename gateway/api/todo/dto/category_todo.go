@@ -1,8 +1,8 @@
 package dto
 
-import "github.com/arvians-id/go-rabbitmq/gateway/api/todo/pb"
+import "github.com/arvians-id/go-rabbitmq/gateway/pb"
 
-type DisplayTodoCategoryList struct {
-	Todos         []*pb.Todo         `json:"todos"`
-	CategoryTodos []*pb.CategoryTodo `json:"category_todos"`
+type DisplayCategoryTodoList struct {
+	Todos      []*pb.Todo     `json:"todos"`
+	Categories []*pb.Category `json:"categories"`
 }

@@ -341,3 +341,88 @@
 [04-May-2023 10:18:50] | 400 |      0s | 127.0.0.1 | PATCH | /api/users/2 | validation error on field:UserUpdateRequest.Name
 [04-May-2023 14:08:15] | 400 |     1ms | 127.0.0.1 | POST | /api/category-todos | validation error on field:CategoryTodoCreateRequest.Name
 [04-May-2023 14:16:15] | 200 | 90.7075ms | 127.0.0.1 | GET | /api/todos | -
+[05-May-2023 10:18:58] | 200 | 69.2805ms | 127.0.0.1 | GET | /api/todos | -
+[05-May-2023 10:19:05] | 200 | 72.9679ms | 127.0.0.1 | GET | /api/users | -
+[05-May-2023 10:19:14] | 201 | 10.6457ms | 127.0.0.1 | POST | /api/users | -
+[05-May-2023 10:19:34] | 201 | 12.2528ms | 127.0.0.1 | POST | /api/category-todos | -
+[05-May-2023 10:19:43] | 200 | 2.625ms | 127.0.0.1 | GET | /api/category-todos | -
+[05-May-2023 10:20:01] | 201 | 101.4547ms | 127.0.0.1 | POST | /api/todos | -
+[05-May-2023 10:20:28] | 200 | 4.726ms | 127.0.0.1 | GET | /api/todos | -
+[05-May-2023 10:21:11] | 200 | 74.7369ms | 127.0.0.1 | GET | /api/todos/13 | -
+[05-May-2023 10:23:17] | 404 | 3.3766ms | 127.0.0.1 | PATCH | /api/todos/66 | rpc error: code = Unknown desc = sql: no rows in result set
+[06-May-2023 15:17:22] | 200 | 481.1817ms | 127.0.0.1 | GET | /api/todos | -
+[06-May-2023 15:17:26] | 200 | 90.5228ms | 127.0.0.1 | GET | /api/users | -
+[06-May-2023 15:17:55] | 200 | 2.394ms | 127.0.0.1 | GET | /api/users | -
+[06-May-2023 15:17:57] | 404 |      0s | 127.0.0.1 | GET | /api/category-todos | Cannot GET /api/category-todos
+[06-May-2023 15:18:27] | 200 | 75.4804ms | 127.0.0.1 | GET | /api/todos | -
+[06-May-2023 15:18:28] | 500 | 384.7949ms | 127.0.0.1 | GET | /api/categories | rpc error: code = Unknown desc = pq: relation "categories" does not exist
+[06-May-2023 15:21:27] | 500 | 67.5029ms | 127.0.0.1 | GET | /api/categories | rpc error: code = Unknown desc = pq: relation "categories" does not exist
+[06-May-2023 15:21:29] | 500 | 3.4847ms | 127.0.0.1 | GET | /api/categories/1 | rpc error: code = Unknown desc = pq: relation "categories" does not exist
+[06-May-2023 15:22:23] | 500 | 1.3114934s | 127.0.0.1 | GET | /api/categories/1 | rpc error: code = Unknown desc = pq: relation "categories" does not exist
+[06-May-2023 15:22:27] | 500 | 1.4733ms | 127.0.0.1 | GET | /api/categories | rpc error: code = Unknown desc = pq: relation "categori" does not exist
+[06-May-2023 15:23:07] | 201 | 117.8531ms | 127.0.0.1 | POST | /api/users | -
+[06-May-2023 15:24:46] | 200 | 383.1176ms | 127.0.0.1 | GET | /api/categories | -
+[06-May-2023 15:24:50] | 200 | 68.3109ms | 127.0.0.1 | GET | /api/users | -
+[06-May-2023 15:25:43] | 200 | 1.7659ms | 127.0.0.1 | GET | /api/users | -
+[06-May-2023 15:26:00] | 201 | 72.5444ms | 127.0.0.1 | POST | /api/users | -
+[06-May-2023 15:26:03] | 200 | 2.5809ms | 127.0.0.1 | GET | /api/users | -
+[06-May-2023 15:37:54] | 200 | 73.5182ms | 127.0.0.1 | GET | /api/users | -
+[06-May-2023 15:38:04] | 200 | 2.1103ms | 127.0.0.1 | GET | /api/users | -
+[06-May-2023 15:38:13] | 201 | 62.3103ms | 127.0.0.1 | POST | /api/users | -
+[06-May-2023 15:40:08] | 404 | 307.3914ms | 127.0.0.1 | PATCH | /api/users/2 | rpc error: code = Unknown desc = sql: no rows in result set
+[06-May-2023 15:40:13] | 500 | 54.7691ms | 127.0.0.1 | PATCH | /api/users/1 | rpc error: code = Unknown desc = pq: column "updated_at" is of type timestamp without time zone but expression is of type integer
+[06-May-2023 15:40:38] | 200 | 381.4905ms | 127.0.0.1 | PATCH | /api/users/1 | -
+[06-May-2023 15:40:54] | 200 | 56.9855ms | 127.0.0.1 | PATCH | /api/users/1 | -
+[06-May-2023 15:41:24] | 400 |      0s | 127.0.0.1 | PATCH | /api/users/1 | validation error on field:UserUpdateRequest.Password
+[06-May-2023 15:41:55] | 200 | 75.1466ms | 127.0.0.1 | PATCH | /api/users/1 | -
+[06-May-2023 15:42:09] | 200 | 59.5176ms | 127.0.0.1 | PATCH | /api/users/1 | -
+[06-May-2023 15:42:17] | 200 | 4.1298ms | 127.0.0.1 | PATCH | /api/users/1 | -
+[06-May-2023 15:42:52] | 200 | 57.4323ms | 127.0.0.1 | PATCH | /api/users/1 | -
+[06-May-2023 15:43:22] | 200 | 85.6779ms | 127.0.0.1 | PATCH | /api/users/1 | -
+[06-May-2023 15:43:43] | 200 | 368.9747ms | 127.0.0.1 | PATCH | /api/users/1 | -
+[06-May-2023 15:43:49] | 200 | 5.4084ms | 127.0.0.1 | PATCH | /api/users/1 | -
+[06-May-2023 15:44:33] | 200 | 375.8271ms | 127.0.0.1 | PATCH | /api/users/1 | -
+[06-May-2023 15:44:39] | 200 | 7.6567ms | 127.0.0.1 | PATCH | /api/users/1 | -
+[06-May-2023 15:45:59] | 200 | 369.542ms | 127.0.0.1 | PATCH | /api/users/1 | -
+[06-May-2023 15:46:08] | 200 | 59.939ms | 127.0.0.1 | PATCH | /api/users/1 | -
+[06-May-2023 15:46:10] | 200 | 59.0185ms | 127.0.0.1 | PATCH | /api/users/1 | -
+[06-May-2023 15:46:14] | 200 | 5.8092ms | 127.0.0.1 | PATCH | /api/users/1 | -
+[06-May-2023 15:47:24] | 200 | 131.0725ms | 127.0.0.1 | PATCH | /api/users/1 | -
+[06-May-2023 15:47:39] | 200 | 377.3248ms | 127.0.0.1 | PATCH | /api/users/1 | -
+[06-May-2023 15:50:18] | 500 | 313.2827ms | 127.0.0.1 | PATCH | /api/users/1 | rpc error: code = Unknown desc = pq: syntax error at or near ")"
+[06-May-2023 15:52:26] | 200 | 318.8539ms | 127.0.0.1 | PATCH | /api/users/1 | -
+[06-May-2023 15:52:57] | 500 | 317.4124ms | 127.0.0.1 | PATCH | /api/users/1 | rpc error: code = Unknown desc = pq: null value in column "password" of relation "users" violates not-null constraint
+[06-May-2023 15:54:58] | 200 | 315.735ms | 127.0.0.1 | PATCH | /api/users/1 | -
+[06-May-2023 15:55:05] | 200 | 5.6765ms | 127.0.0.1 | PATCH | /api/users/1 | -
+[06-May-2023 15:55:16] | 200 | 5.5102ms | 127.0.0.1 | PATCH | /api/users/1 | -
+[06-May-2023 15:55:24] | 200 | 4.6688ms | 127.0.0.1 | PATCH | /api/users/1 | -
+[06-May-2023 15:55:28] | 200 | 10.7412ms | 127.0.0.1 | PATCH | /api/users/1 | -
+[06-May-2023 15:55:35] | 200 | 5.8612ms | 127.0.0.1 | PATCH | /api/users/1 | -
+[06-May-2023 15:58:21] | 200 | 364.9429ms | 127.0.0.1 | PATCH | /api/users/1 | -
+[06-May-2023 15:58:27] | 200 | 6.7828ms | 127.0.0.1 | PATCH | /api/users/1 | -
+[06-May-2023 15:58:47] | 200 | 366.5749ms | 127.0.0.1 | PATCH | /api/users/1 | -
+[06-May-2023 15:58:56] | 200 | 7.2091ms | 127.0.0.1 | PATCH | /api/users/1 | -
+[06-May-2023 15:59:01] | 200 | 6.0634ms | 127.0.0.1 | PATCH | /api/users/1 | -
+[06-May-2023 15:59:02] | 200 | 6.5416ms | 127.0.0.1 | PATCH | /api/users/1 | -
+[06-May-2023 15:59:09] | 200 | 57.6474ms | 127.0.0.1 | PATCH | /api/users/1 | -
+[06-May-2023 15:59:10] | 200 | 58.8206ms | 127.0.0.1 | PATCH | /api/users/1 | -
+[06-May-2023 15:59:11] | 200 | 56.4607ms | 127.0.0.1 | PATCH | /api/users/1 | -
+[06-May-2023 15:59:17] | 200 | 5.7943ms | 127.0.0.1 | PATCH | /api/users/1 | -
+[06-May-2023 15:59:22] | 200 | 5.5553ms | 127.0.0.1 | PATCH | /api/users/1 | -
+[06-May-2023 16:05:55] | 400 | 999.4µs | 127.0.0.1 | POST | /api/todos | validation error on field:TodoCreateRequest.CategoryId
+[06-May-2023 16:06:15] | 500 | 77.9207ms | 127.0.0.1 | POST | /api/todos | rpc error: code = Unknown desc = sql: no rows in result set
+[06-May-2023 16:06:25] | 500 | 3.985ms | 127.0.0.1 | POST | /api/todos | rpc error: code = Internal desc = grpc: failed to unmarshal the received message: proto: cannot parse invalid wire-format data
+[06-May-2023 16:09:00] | 500 | 1.5149ms | 127.0.0.1 | GET | /api/todos | rpc error: code = Unavailable desc = connection error: desc = "transport: Error while dialing: dial tcp [::1]:50051: connectex: No connection could be made because the target machine actively refused it."
+[06-May-2023 16:09:08] | 200 | 312.7979ms | 127.0.0.1 | GET | /api/todos | -
+[06-May-2023 16:09:13] | 404 | 3.6131ms | 127.0.0.1 | GET | /api/todos/13 | rpc error: code = Unknown desc = sql: no rows in result set
+[06-May-2023 16:09:15] | 201 | 17.7422ms | 127.0.0.1 | POST | /api/todos | -
+[06-May-2023 16:09:37] | 201 | 60.8517ms | 127.0.0.1 | POST | /api/users | -
+[06-May-2023 16:11:44] | 201 | 122.1109ms | 127.0.0.1 | POST | /api/users | -
+[06-May-2023 16:11:58] | 201 | 91.6239ms | 127.0.0.1 | POST | /api/todos | -
+[06-May-2023 16:14:53] | 200 | 307.6894ms | 127.0.0.1 | GET | /api/categories | -
+[06-May-2023 16:14:57] | 201 | 10.7253ms | 127.0.0.1 | POST | /api/categories | -
+[06-May-2023 16:14:59] | 200 | 1.5769ms | 127.0.0.1 | GET | /api/categories | -
+[06-May-2023 16:15:02] | 200 | 2.4437ms | 127.0.0.1 | GET | /api/categories/1 | -
+[06-May-2023 16:15:04] | 200 | 8.3018ms | 127.0.0.1 | DELETE | /api/categories/1 | -
+[06-May-2023 16:15:06] | 200 | 1.2641ms | 127.0.0.1 | GET | /api/categories | -
+[06-May-2023 16:15:09] | 404 | 3.0577ms | 127.0.0.1 | GET | /api/categories/1 | rpc error: code = Unknown desc = sql: no rows in result set

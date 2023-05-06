@@ -27,26 +27,6 @@ func main() {
 		log.Fatalln("Cannot connect to database", err)
 	}
 
-	// Init Rabbit MQ
-	conn, ch, err := config.InitRabbitMQ(configuration)
-	if err != nil {
-		log.Fatalln(err)
-	}
-	defer conn.Close()
-	defer ch.Close()
-
-	_, err = ch.QueueDeclare(
-		"mail",
-		true,
-		false,
-		false,
-		false,
-		nil,
-	)
-	if err != nil {
-		log.Fatalln(err)
-	}
-
 	// Init Open Telementry Tracer
 	tp, err := config.NewTracerProvider(configuration)
 	if err != nil {
@@ -73,17 +53,9 @@ func main() {
 	userClient := client.InitUserClient(configuration)
 	userService := services.NewUserService(userClient)
 
-	// Category Todo Client
-	categoryTodoClient := client.InitCategoryTodoClient(configuration)
-	categoryTodoService := services.NewCategoryTodoService(categoryTodoClient)
-
-	// Category Todo Server
-	categoryTodoRepository := repository.NewCategoryTodoRepository(db)
-	categoryTodoUsecase := usecase.NewCategoryTodoUsecase(categoryTodoRepository)
-
 	// Todo Server
 	todoRepository := repository.NewTodoRepository(db)
-	todoService := usecase.NewTodoUsecase(userService, categoryTodoService, todoRepository, ch)
+	todoService := usecase.NewTodoUsecase(todoRepository, userService)
 
 	lis, err := net.Listen("tcp", configuration.Get("TODO_SERVICE_URL"))
 	if err != nil {
@@ -97,7 +69,6 @@ func main() {
 		grpc.UnaryInterceptor(config.NewGRPUnaryServerInterceptor()),
 	)
 	pb.RegisterTodoServiceServer(grpcServer, todoService)
-	pb.RegisterCategoryTodoServiceServer(grpcServer, categoryTodoUsecase)
 
 	err = grpcServer.Serve(lis)
 	if err != nil {

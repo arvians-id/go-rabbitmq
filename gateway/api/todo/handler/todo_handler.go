@@ -2,10 +2,10 @@ package handler
 
 import (
 	"github.com/arvians-id/go-rabbitmq/gateway/api/todo/dto"
-	"github.com/arvians-id/go-rabbitmq/gateway/api/todo/pb"
 	"github.com/arvians-id/go-rabbitmq/gateway/api/todo/request"
 	"github.com/arvians-id/go-rabbitmq/gateway/api/todo/services"
 	"github.com/arvians-id/go-rabbitmq/gateway/helper"
+	"github.com/arvians-id/go-rabbitmq/gateway/pb"
 	"github.com/arvians-id/go-rabbitmq/gateway/response"
 	"github.com/gofiber/fiber/v2"
 	"google.golang.org/protobuf/types/known/emptypb"
@@ -13,14 +13,14 @@ import (
 )
 
 type TodoHandler struct {
-	TodoService         services.TodoServiceContract
-	CategoryTodoService services.CategoryTodoServiceContract
+	TodoService     services.TodoServiceContract
+	CategoryService services.CategoryServiceContract
 }
 
-func NewTodoHandler(todoService services.TodoServiceContract, categoryTodoService services.CategoryTodoServiceContract) TodoHandler {
+func NewTodoHandler(todoService services.TodoServiceContract, categoryService services.CategoryServiceContract) TodoHandler {
 	return TodoHandler{
-		TodoService:         todoService,
-		CategoryTodoService: categoryTodoService,
+		TodoService:     todoService,
+		CategoryService: categoryService,
 	}
 }
 
@@ -28,7 +28,7 @@ func (handler *TodoHandler) DisplayTodoCategoryList(c *fiber.Ctx) error {
 	var wg sync.WaitGroup
 	var mutex sync.Mutex
 	var todos *pb.ListTodoResponse
-	var categoryTodos *pb.ListCategoryTodoResponse
+	var categorys *pb.ListCategoryResponse
 	var err error
 	wg.Add(2)
 
@@ -45,7 +45,7 @@ func (handler *TodoHandler) DisplayTodoCategoryList(c *fiber.Ctx) error {
 
 	go func() {
 		var errGo error
-		categoryTodos, errGo = handler.CategoryTodoService.FindAll(c.Context(), new(emptypb.Empty))
+		categorys, errGo = handler.CategoryService.FindAll(c.Context(), new(emptypb.Empty))
 		if errGo != nil {
 			mutex.Lock()
 			err = errGo
@@ -65,14 +65,14 @@ func (handler *TodoHandler) DisplayTodoCategoryList(c *fiber.Ctx) error {
 	//	return fiber.NewError(fiber.StatusInternalServerError, err.Error())
 	//}
 	//
-	//categoryTodos, err := handler.CategoryTodoService.FindAll(c.Context(), new(emptypb.Empty))
+	//categorys, err := handler.CategoryService.FindAll(c.Context(), new(emptypb.Empty))
 	//if err != nil {
 	//	return fiber.NewError(fiber.StatusInternalServerError, err.Error())
 	//}
 
-	return response.ReturnSuccess(c, fiber.StatusOK, "OK", &dto.DisplayTodoCategoryList{
-		Todos:         todos.GetTodos(),
-		CategoryTodos: categoryTodos.GetCategoryTodos(),
+	return response.ReturnSuccess(c, fiber.StatusOK, "OK", &dto.DisplayCategoryTodoList{
+		Todos:      todos.GetTodos(),
+		Categories: categorys.GetCategories(),
 	})
 }
 
@@ -117,10 +117,9 @@ func (handler *TodoHandler) Create(c *fiber.Ctx) error {
 	}
 
 	todoCreated, err := handler.TodoService.Create(c.Context(), &pb.CreateTodoRequest{
-		Title:          todoRequest.Title,
-		Description:    todoRequest.Description,
-		UserId:         todoRequest.UserId,
-		CategoryTodoId: todoRequest.CategoryTodoId,
+		Title:       todoRequest.Title,
+		Description: todoRequest.Description,
+		UserId:      todoRequest.UserId,
 	})
 	if err != nil {
 		return fiber.NewError(fiber.StatusInternalServerError, err.Error())

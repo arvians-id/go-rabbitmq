@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 	"github.com/arvians-id/go-rabbitmq/gateway/api/todo/client"
-	"github.com/arvians-id/go-rabbitmq/gateway/api/todo/pb"
+	"github.com/arvians-id/go-rabbitmq/gateway/pb"
 	"github.com/goccy/go-json"
 	"github.com/redis/go-redis/v9"
 	"google.golang.org/protobuf/types/known/emptypb"

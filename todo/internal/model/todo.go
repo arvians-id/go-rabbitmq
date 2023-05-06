@@ -8,25 +8,23 @@ import (
 )
 
 type Todo struct {
-	Id             int64
-	Title          string
-	Description    string
-	IsDone         *bool
-	UserId         int64
-	CategoryTodoId int64
-	CreatedAt      time.Time
-	UpdatedAt      time.Time
+	Id          int64
+	Title       string
+	Description string
+	IsDone      *bool
+	UserId      int64
+	CreatedAt   time.Time
+	UpdatedAt   time.Time
 }
 
 func (todo *Todo) ToPB() *pb.Todo {
 	return &pb.Todo{
-		Id:             todo.Id,
-		Title:          todo.Title,
-		Description:    todo.Description,
-		IsDone:         todo.IsDone,
-		UserId:         todo.UserId,
-		CategoryTodoId: todo.CategoryTodoId,
-		CreatedAt:      timestamppb.New(todo.CreatedAt),
-		UpdatedAt:      timestamppb.New(todo.UpdatedAt),
+		Id:          todo.Id,
+		Title:       todo.Title,
+		Description: todo.Description,
+		IsDone:      todo.IsDone,
+		UserId:      todo.UserId,
+		CreatedAt:   timestamppb.New(todo.CreatedAt),
+		UpdatedAt:   timestamppb.New(todo.UpdatedAt),
 	}
 }

@@ -1,8 +1,8 @@
 package client
 
 import (
-	"github.com/arvians-id/go-rabbitmq/gateway/api/todo/pb"
 	"github.com/arvians-id/go-rabbitmq/gateway/cmd/config"
+	"github.com/arvians-id/go-rabbitmq/gateway/pb"
 	"google.golang.org/grpc"
 	"log"
 )

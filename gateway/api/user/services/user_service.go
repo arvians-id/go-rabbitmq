@@ -4,7 +4,7 @@ import (
 	"context"
 
 	"github.com/arvians-id/go-rabbitmq/gateway/api/user/client"
-	"github.com/arvians-id/go-rabbitmq/gateway/api/user/pb"
+	"github.com/arvians-id/go-rabbitmq/gateway/pb"
 	"google.golang.org/protobuf/types/known/emptypb"
 )
 

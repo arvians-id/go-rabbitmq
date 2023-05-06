@@ -4,8 +4,8 @@ import (
 	"github.com/arvians-id/go-rabbitmq/gateway/api/user/request"
 	"github.com/arvians-id/go-rabbitmq/gateway/api/user/services"
 
-	"github.com/arvians-id/go-rabbitmq/gateway/api/user/pb"
 	"github.com/arvians-id/go-rabbitmq/gateway/helper"
+	"github.com/arvians-id/go-rabbitmq/gateway/pb"
 	"github.com/arvians-id/go-rabbitmq/gateway/response"
 	"github.com/gofiber/fiber/v2"
 	"google.golang.org/protobuf/types/known/emptypb"
@@ -64,8 +64,9 @@ func (handler *UserHandler) Create(c *fiber.Ctx) error {
 	}
 
 	userCreated, err := handler.UserService.Create(c.Context(), &pb.CreateUserRequest{
-		Name:  userRequest.Name,
-		Email: userRequest.Email,
+		Name:     userRequest.Name,
+		Email:    userRequest.Email,
+		Password: userRequest.Password,
 	})
 	if err != nil {
 		return fiber.NewError(fiber.StatusInternalServerError, err.Error())
@@ -92,8 +93,9 @@ func (handler *UserHandler) Update(c *fiber.Ctx) error {
 	}
 
 	userUpdated, err := handler.UserService.Update(c.Context(), &pb.UpdateUserRequest{
-		Id:   int64(id),
-		Name: userRequest.Name,
+		Id:       int64(id),
+		Name:     userRequest.Name,
+		Password: userRequest.Password,
 	})
 	if err != nil {
 		if err.Error() == response.GrpcErrorNotFound {

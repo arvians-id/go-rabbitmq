@@ -10,13 +10,12 @@ import (
 )
 
 func NewTodoRoute(c fiber.Router, configuration config.Config, redisClient *redis.Client) {
-	categoryTodoClient := client.InitCategoryTodoClient(configuration)
-	categoryTodoService := services.NewCategoryTodoService(categoryTodoClient)
-	categoryTodoHandler := handler.NewCategoryTodoHandler(categoryTodoService)
+	categoryClient := client.InitCategoryClient(configuration)
+	categoryService := services.NewCategoryService(categoryClient)
 
 	todoClient := client.InitTodoClient(configuration)
 	todoService := services.NewTodoServiceCache(todoClient, redisClient)
-	todoHandler := handler.NewTodoHandler(todoService, categoryTodoService)
+	todoHandler := handler.NewTodoHandler(todoService, categoryService)
 
 	c.Get("/display-todos", todoHandler.DisplayTodoCategoryList)
 	c.Get("/todos", todoHandler.FindAll)
@@ -24,9 +23,4 @@ func NewTodoRoute(c fiber.Router, configuration config.Config, redisClient *redi
 	c.Post("/todos", todoHandler.Create)
 	c.Patch("/todos/:id", todoHandler.Update)
 	c.Delete("/todos/:id", todoHandler.Delete)
-
-	c.Get("/category-todos", categoryTodoHandler.FindAll)
-	c.Get("/category-todos/:id", categoryTodoHandler.FindByID)
-	c.Post("/category-todos", categoryTodoHandler.Create)
-	c.Delete("/category-todos/:id", categoryTodoHandler.Delete)
 }

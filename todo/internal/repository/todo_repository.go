@@ -42,7 +42,7 @@ func (repository *TodoRepository) FindAll(ctx context.Context) ([]*model.Todo, e
 	var todos []*model.Todo
 	for rows.Next() {
 		var todo model.Todo
-		err := rows.Scan(&todo.Id, &todo.Title, &todo.Description, &todo.IsDone, &todo.UserId, &todo.CategoryTodoId, &todo.CreatedAt, &todo.UpdatedAt)
+		err := rows.Scan(&todo.Id, &todo.Title, &todo.Description, &todo.IsDone, &todo.UserId, &todo.CreatedAt, &todo.UpdatedAt)
 		if err != nil {
 			span.RecordError(err)
 			return nil, err
@@ -62,7 +62,7 @@ func (repository *TodoRepository) FindByID(ctx context.Context, id int64) (*mode
 	row := repository.DB.QueryRowContext(ctxTracer, query, id)
 
 	var todo model.Todo
-	err := row.Scan(&todo.Id, &todo.Title, &todo.Description, &todo.IsDone, &todo.UserId, &todo.CategoryTodoId, &todo.CreatedAt, &todo.UpdatedAt)
+	err := row.Scan(&todo.Id, &todo.Title, &todo.Description, &todo.IsDone, &todo.UserId, &todo.CreatedAt, &todo.UpdatedAt)
 	if err != nil {
 		span.RecordError(err)
 		return nil, err
@@ -75,8 +75,8 @@ func (repository *TodoRepository) Create(ctx context.Context, todo *model.Todo) 
 	ctxTracer, span := otel.Tracer(config.ServiceTrace).Start(ctx, "repository.TodoService/Repository/Create")
 	defer span.End()
 
-	query := `INSERT INTO todos(title, description, user_id, category_todo_id, created_at, updated_at) VALUES($1,$2,$3,$4,$5,$6) RETURNING id`
-	row := repository.DB.QueryRowContext(ctxTracer, query, todo.Title, todo.Description, todo.UserId, todo.CategoryTodoId, todo.CreatedAt, todo.UpdatedAt)
+	query := `INSERT INTO todos(title, description, user_id, created_at, updated_at) VALUES($1,$2,$3,$4,$5) RETURNING id`
+	row := repository.DB.QueryRowContext(ctxTracer, query, todo.Title, todo.Description, todo.UserId, todo.CreatedAt, todo.UpdatedAt)
 
 	var id int64
 	err := row.Scan(&id)

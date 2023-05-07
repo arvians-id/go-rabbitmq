@@ -12,18 +12,19 @@ import (
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/gofiber/fiber/v2/middleware/csrf"
+	"github.com/gofiber/fiber/v2/middleware/etag"
 	"github.com/gofiber/fiber/v2/middleware/logger"
 	"github.com/gofiber/fiber/v2/utils"
-	"log"
+	"github.com/rabbitmq/amqp091-go"
 	"os"
 	"time"
 )
 
-func NewRoutes(configuration config.Config, logFile *os.File) (*fiber.App, error) {
+func NewRoutes(configuration config.Config, logFile *os.File, ch *amqp091.Channel) (*fiber.App, error) {
 	// Init Redis
 	redisClient, err := config.InitRedis(configuration)
 	if err != nil {
-		log.Fatalln("There is something wrong with the redis", err)
+		panic(err)
 	}
 
 	// Init Server
@@ -54,6 +55,9 @@ func NewRoutes(configuration config.Config, logFile *os.File) (*fiber.App, error
 		}))
 	}
 
+	// Set Etag
+	app.Use(etag.New())
+
 	// Set Logging
 	app.Use(logger.New(logger.Config{
 		Format:     "[${time}] | ${status} | ${latency} | ${ip} | ${method} | ${path} | ${error}\n",
@@ -77,8 +81,8 @@ func NewRoutes(configuration config.Config, logFile *os.File) (*fiber.App, error
 
 	// Set Routes
 	apiGroup := app.Group("/api")
-	user.NewUserRoute(apiGroup, configuration)
-	todo.NewTodoRoute(apiGroup, configuration, redisClient)
+	user.NewUserRoute(apiGroup, configuration, ch)
+	todo.NewTodoRoute(apiGroup, configuration, redisClient, ch)
 	category.NewCategoryRoute(apiGroup, configuration)
 
 	return app, nil

@@ -7,7 +7,9 @@ import (
 	"github.com/arvians-id/go-rabbitmq/gateway/helper"
 	"github.com/arvians-id/go-rabbitmq/gateway/pb"
 	"github.com/arvians-id/go-rabbitmq/gateway/response"
+	"github.com/goccy/go-json"
 	"github.com/gofiber/fiber/v2"
+	"github.com/rabbitmq/amqp091-go"
 	"google.golang.org/protobuf/types/known/emptypb"
 	"sync"
 )
@@ -15,12 +17,14 @@ import (
 type TodoHandler struct {
 	TodoService     services.TodoServiceContract
 	CategoryService services.CategoryServiceContract
+	RabbitMQ        *amqp091.Channel
 }
 
-func NewTodoHandler(todoService services.TodoServiceContract, categoryService services.CategoryServiceContract) TodoHandler {
+func NewTodoHandler(todoService services.TodoServiceContract, categoryService services.CategoryServiceContract, rabbitMQ *amqp091.Channel) TodoHandler {
 	return TodoHandler{
 		TodoService:     todoService,
 		CategoryService: categoryService,
+		RabbitMQ:        rabbitMQ,
 	}
 }
 
@@ -58,17 +62,6 @@ func (handler *TodoHandler) DisplayTodoCategoryList(c *fiber.Ctx) error {
 	if err != nil {
 		return fiber.NewError(fiber.StatusInternalServerError, err.Error())
 	}
-
-	// If you want to run this handler sequentially, you can use this code
-	//todos, err := handler.TodoService.FindAll(c.Context(), new(emptypb.Empty))
-	//if err != nil {
-	//	return fiber.NewError(fiber.StatusInternalServerError, err.Error())
-	//}
-	//
-	//categorys, err := handler.CategoryService.FindAll(c.Context(), new(emptypb.Empty))
-	//if err != nil {
-	//	return fiber.NewError(fiber.StatusInternalServerError, err.Error())
-	//}
 
 	return response.ReturnSuccess(c, fiber.StatusOK, "OK", &dto.DisplayCategoryTodoList{
 		Todos:      todos.GetTodos(),
@@ -121,6 +114,46 @@ func (handler *TodoHandler) Create(c *fiber.Ctx) error {
 		Description: todoRequest.Description,
 		UserId:      todoRequest.UserId,
 	})
+	if err != nil {
+		return fiber.NewError(fiber.StatusInternalServerError, err.Error())
+	}
+	err = handler.RabbitMQ.ExchangeDeclare(
+		"todos", // Nama exchange
+		"topic", // Jenis exchange
+		true,    // Durable
+		false,   // Auto-deleted
+		false,   // Internal
+		false,   // No-wait
+		nil,     // Arguments
+	)
+	if err != nil {
+		return fiber.NewError(fiber.StatusInternalServerError, err.Error())
+	}
+
+	type CategoryTodo struct {
+		TodoID     int64   `json:"todo_id"`
+		CategoryID []int64 `json:"category_id"`
+	}
+	var categoryTodo CategoryTodo
+	categoryTodo.TodoID = todoCreated.GetTodo().GetId()
+	categoryTodo.CategoryID = todoRequest.Categories
+
+	data, err := json.Marshal(categoryTodo)
+	if err != nil {
+		return fiber.NewError(fiber.StatusBadRequest, err.Error())
+	}
+
+	err = handler.RabbitMQ.PublishWithContext(
+		c.Context(),
+		"todos",                 // Nama exchange
+		"category_todo.created", // Routing key
+		false,                   // Mandatory
+		false,                   // Immediate
+		amqp091.Publishing{
+			ContentType: "application/json",
+			Body:        data,
+		},
+	)
 	if err != nil {
 		return fiber.NewError(fiber.StatusInternalServerError, err.Error())
 	}

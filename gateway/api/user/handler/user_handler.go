@@ -3,6 +3,9 @@ package handler
 import (
 	"github.com/arvians-id/go-rabbitmq/gateway/api/user/request"
 	"github.com/arvians-id/go-rabbitmq/gateway/api/user/services"
+	"github.com/goccy/go-json"
+	"github.com/rabbitmq/amqp091-go"
+	"log"
 
 	"github.com/arvians-id/go-rabbitmq/gateway/helper"
 	"github.com/arvians-id/go-rabbitmq/gateway/pb"
@@ -15,11 +18,13 @@ const name = "gateway"
 
 type UserHandler struct {
 	UserService services.UserServiceContract
+	RabbitMQ    *amqp091.Channel
 }
 
-func NewUserHandler(userService services.UserServiceContract) UserHandler {
+func NewUserHandler(userService services.UserServiceContract, rabbitMQ *amqp091.Channel) UserHandler {
 	return UserHandler{
 		UserService: userService,
+		RabbitMQ:    rabbitMQ,
 	}
 }
 
@@ -71,6 +76,49 @@ func (handler *UserHandler) Create(c *fiber.Ctx) error {
 	if err != nil {
 		return fiber.NewError(fiber.StatusInternalServerError, err.Error())
 	}
+
+	// Send Email To Queue
+	_, err = handler.RabbitMQ.QueueDeclare(
+		"mail",
+		true,
+		false,
+		false,
+		false,
+		nil,
+	)
+	if err != nil {
+		log.Fatalln(err)
+	}
+
+	go func() {
+		type Message struct {
+			ToEmail string
+			Message string
+		}
+		var message Message
+		message.ToEmail = userRequest.Email
+		message.Message = "Test dynamic message"
+		byteMessage, err := json.Marshal(message)
+		if err != nil {
+			log.Fatalln(err)
+		}
+
+		err = handler.RabbitMQ.PublishWithContext(
+			c.Context(),
+			"",
+			"mail",
+			false,
+			false,
+			amqp091.Publishing{
+				DeliveryMode: amqp091.Persistent,
+				ContentType:  "text/plain",
+				Body:         byteMessage,
+			},
+		)
+		if err != nil {
+			log.Fatalln(err)
+		}
+	}()
 
 	return response.ReturnSuccess(c, fiber.StatusCreated, "created", userCreated.GetUser())
 }

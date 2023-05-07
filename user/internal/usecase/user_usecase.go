@@ -2,10 +2,7 @@ package usecase
 
 import (
 	"context"
-	"encoding/json"
-	"github.com/rabbitmq/amqp091-go"
 	"golang.org/x/crypto/bcrypt"
-	"log"
 	"time"
 
 	"github.com/arvians-id/go-rabbitmq/user/internal/model"
@@ -16,14 +13,12 @@ import (
 
 type UserUsecase struct {
 	UserRepository repository.UserRepositoryContract
-	RabbitMQ       *amqp091.Channel
 	pb.UnimplementedUserServiceServer
 }
 
-func NewUserUsecase(userRepository repository.UserRepositoryContract, rabbitMQ *amqp091.Channel) pb.UserServiceServer {
+func NewUserUsecase(userRepository repository.UserRepositoryContract) pb.UserServiceServer {
 	return &UserUsecase{
 		UserRepository: userRepository,
-		RabbitMQ:       rabbitMQ,
 	}
 }
 
@@ -70,37 +65,6 @@ func (usecase *UserUsecase) Create(ctx context.Context, req *pb.CreateUserReques
 	if err != nil {
 		return nil, err
 	}
-
-	// Send Email To Queue
-	go func() {
-		type Message struct {
-			ToEmail string
-			Message string
-		}
-		var message Message
-		message.ToEmail = req.GetEmail()
-		message.Message = "Test dynamic message"
-		byteMessage, err := json.Marshal(message)
-		if err != nil {
-			log.Fatalln(err)
-		}
-
-		err = usecase.RabbitMQ.PublishWithContext(
-			ctx,
-			"",
-			"mail",
-			false,
-			false,
-			amqp091.Publishing{
-				DeliveryMode: amqp091.Persistent,
-				ContentType:  "text/plain",
-				Body:         byteMessage,
-			},
-		)
-		if err != nil {
-			log.Fatalln(err)
-		}
-	}()
 
 	return &pb.GetUserResponse{
 		User: userCreated.ToPB(),

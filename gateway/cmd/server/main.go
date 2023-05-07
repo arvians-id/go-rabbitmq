@@ -16,6 +16,14 @@ func main() {
 	// Init Config
 	configuration := config.New()
 
+	// Init Rabbit MQ
+	conn, ch, err := config.InitRabbitMQ(configuration)
+	if err != nil {
+		log.Fatalln(err)
+	}
+	defer conn.Close()
+	defer ch.Close()
+
 	// Set Context
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second*5)
 	defer cancel()
@@ -46,7 +54,7 @@ func main() {
 	defer file.Close()
 
 	// Start Server
-	app, err := api.NewRoutes(configuration, file)
+	app, err := api.NewRoutes(configuration, file, ch)
 	if err != nil {
 		log.Fatalln("There is something wrong with the server", err)
 	}

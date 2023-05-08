@@ -1,7 +1,8 @@
 package handler
 
 import (
-	"github.com/arvians-id/go-rabbitmq/gateway/api/todo/dto"
+	"context"
+	"github.com/arvians-id/go-rabbitmq/gateway/api/category_todo/dto"
 	"github.com/arvians-id/go-rabbitmq/gateway/response"
 	"github.com/goccy/go-json"
 	"github.com/gofiber/fiber/v2"
@@ -25,39 +26,34 @@ func (handler *CategoryTodoHandler) Delete(c *fiber.Ctx) error {
 		return fiber.NewError(fiber.StatusBadRequest, err.Error())
 	}
 
-	exchangeName := "category_todo_exchange"
-	err = handler.RabbitMQ.ExchangeDeclare(
-		exchangeName,
-		"topic",
-		true,
-		false,
-		false,
-		false,
-		nil,
-	)
-	if err != nil {
-		return fiber.NewError(fiber.StatusInternalServerError, err.Error())
-	}
-
-	data, err := json.Marshal(categoryTodo)
-	if err != nil {
-		return fiber.NewError(fiber.StatusBadRequest, err.Error())
-	}
-
-	err = handler.RabbitMQ.PublishWithContext(
-		c.Context(),
-		exchangeName,
-		"category_todo.deleted",
-		false,
-		false,
-		amqp091.Publishing{
-			ContentType: "application/json",
-			Body:        data,
-		},
-	)
+	err = handler.publish(c.Context(), "category_todo.deleted", categoryTodo)
 	if err != nil {
 		return fiber.NewError(fiber.StatusInternalServerError, err.Error())
 	}
 
 	return response.ReturnSuccess(c, fiber.StatusOK, "deleted", nil)
+}
+
+func (handler *CategoryTodoHandler) publish(ctx context.Context, key string, data interface{}) error {
+	marshaled, err := json.Marshal(data)
+	if err != nil {
+		return fiber.NewError(fiber.StatusBadRequest, err.Error())
+	}
+
+	err = handler.RabbitMQ.PublishWithContext(
+		ctx,
+		"category_todo_exchange",
+		key,
+		false,
+		false,
+		amqp091.Publishing{
+			ContentType: "application/json",
+			Body:        marshaled,
+		},
+	)
+	if err != nil {
+		return err
+	}
+
+	return nil
 }

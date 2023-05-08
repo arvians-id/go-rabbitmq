@@ -8,7 +8,7 @@ import (
 )
 
 type CategoryTodoRepositoryContract interface {
-	Create(ctx context.Context, category *model.CategoriesTodo) error
+	Create(ctx context.Context, category *model.TodoWithCategoriesIDResponse) error
 	Delete(ctx context.Context, todoID int64, categoryID int64) error
 }
 
@@ -22,10 +22,10 @@ func NewCategoryTodoRepository(db *sql.DB) CategoryTodoRepositoryContract {
 	}
 }
 
-func (repository *CategoryTodoRepository) Create(ctx context.Context, category *model.CategoriesTodo) error {
-	for _, categoryID := range category.CategoryID {
+func (repository *CategoryTodoRepository) Create(ctx context.Context, category *model.TodoWithCategoriesIDResponse) error {
+	for _, categoryID := range category.CategoriesID {
 		query := `INSERT INTO category_todo(todo_id, category_id) VALUES($1,$2)`
-		_, err := repository.DB.ExecContext(ctx, query, category.TodoID, categoryID)
+		_, err := repository.DB.ExecContext(ctx, query, category.Id, categoryID)
 		if err != nil {
 			return err
 		}

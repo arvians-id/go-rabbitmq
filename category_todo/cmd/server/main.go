@@ -4,8 +4,7 @@ import (
 	"context"
 	"fmt"
 	"github.com/arvians-id/go-rabbitmq/category_todo/cmd/config"
-	"github.com/arvians-id/go-rabbitmq/category_todo/internal/repository"
-	"github.com/arvians-id/go-rabbitmq/category_todo/internal/usecase"
+	"github.com/arvians-id/go-rabbitmq/category_todo/internal"
 	"log"
 	"os"
 	"os/signal"
@@ -23,23 +22,7 @@ func main() {
 	// Init RabbitMQ
 	conn, ch, err := config.InitRabbitMQ(configuration)
 	if err != nil {
-		log.Fatalln(err)
-	}
-	defer conn.Close()
-	defer ch.Close()
-
-	exchange := "category_todo_exchange"
-	err = ch.ExchangeDeclare(
-		exchange,
-		"topic",
-		true,
-		false,
-		false,
-		false,
-		nil,
-	)
-	if err != nil {
-		log.Fatalln("Cannot declare exchange", err)
+		log.Fatalln("Cannot connect to RabbitMQ", err)
 	}
 
 	fmt.Println("Category todo service is running")
@@ -47,22 +30,11 @@ func main() {
 	// Init Server
 	// Category Todo Server
 	ctx := context.Background()
+	internal.NewApp(ctx, ch, db)
 
-	categoryTodoRepository := repository.NewCategoryTodoRepository(db)
-	categoryTodoUsecase := usecase.NewCategoryTodoUsecase(categoryTodoRepository)
-
-	go func() {
-		err = categoryTodoUsecase.Delete(ctx, ch)
-		if err != nil {
-			log.Fatalln(err)
-		}
-	}()
-
-	go func() {
-		err = categoryTodoUsecase.Create(ctx, ch)
-		if err != nil {
-			log.Fatalln(err)
-		}
+	defer func() {
+		conn.Close()
+		ch.Close()
 	}()
 
 	interruptChan := make(chan os.Signal, 1)

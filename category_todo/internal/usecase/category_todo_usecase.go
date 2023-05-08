@@ -23,7 +23,22 @@ func NewCategoryTodoUsecase(todoRepository repository.CategoryTodoRepositoryCont
 		CategoryTodoRepository: todoRepository,
 	}
 }
+
 func (usecase *CategoryTodoUsecase) Create(ctx context.Context, channel *amqp091.Channel) error {
+	exchange := "todo_exchange"
+	err := channel.ExchangeDeclare(
+		exchange,
+		"topic",
+		true,
+		false,
+		false,
+		false,
+		nil,
+	)
+	if err != nil {
+		return err
+	}
+
 	queue, err := channel.QueueDeclare(
 		"",
 		false,
@@ -38,8 +53,8 @@ func (usecase *CategoryTodoUsecase) Create(ctx context.Context, channel *amqp091
 
 	err = channel.QueueBind(
 		queue.Name,
-		"category_todo.created",
-		"category_todo_exchange",
+		"todo.created",
+		exchange,
 		false,
 		nil,
 	)
@@ -62,30 +77,51 @@ func (usecase *CategoryTodoUsecase) Create(ctx context.Context, channel *amqp091
 
 	var wg sync.WaitGroup
 	wg.Add(1)
+	var errs error
 
 	go func() {
 		defer wg.Done()
 		for d := range msgs {
-			var categoryTodo model.CategoriesTodo
+			var categoryTodo model.TodoWithCategoriesIDResponse
 			err := json.Unmarshal(d.Body, &categoryTodo)
 			if err != nil {
-				panic(err)
+				errs = err
+				return
 			}
-			err = usecase.CategoryTodoRepository.Create(ctx, &model.CategoriesTodo{
-				TodoID:     categoryTodo.TodoID,
-				CategoryID: categoryTodo.CategoryID,
+
+			err = usecase.CategoryTodoRepository.Create(ctx, &model.TodoWithCategoriesIDResponse{
+				Id:           categoryTodo.Id,
+				CategoriesID: categoryTodo.CategoriesID,
 			})
 			if err != nil {
-				panic(err)
+				errs = err
+				return
 			}
 		}
 	}()
 	wg.Wait()
+	if errs != nil {
+		return errs
+	}
 
 	return nil
 }
 
 func (usecase *CategoryTodoUsecase) Delete(ctx context.Context, channel *amqp091.Channel) error {
+	exchange := "category_todo_exchange"
+	err := channel.ExchangeDeclare(
+		exchange,
+		"topic",
+		true,
+		false,
+		false,
+		false,
+		nil,
+	)
+	if err != nil {
+		return err
+	}
+
 	queue, err := channel.QueueDeclare(
 		"",
 		false,
@@ -101,7 +137,7 @@ func (usecase *CategoryTodoUsecase) Delete(ctx context.Context, channel *amqp091
 	err = channel.QueueBind(
 		queue.Name,
 		"category_todo.deleted",
-		"category_todo_exchange",
+		exchange,
 		false,
 		nil,
 	)
@@ -124,6 +160,7 @@ func (usecase *CategoryTodoUsecase) Delete(ctx context.Context, channel *amqp091
 
 	var wg sync.WaitGroup
 	wg.Add(1)
+	var errs error
 
 	go func() {
 		defer wg.Done()
@@ -131,16 +168,21 @@ func (usecase *CategoryTodoUsecase) Delete(ctx context.Context, channel *amqp091
 			var categoryTodo model.CategoryTodo
 			err := json.Unmarshal(d.Body, &categoryTodo)
 			if err != nil {
-				panic(err)
+				errs = err
+				return
 			}
 
 			err = usecase.CategoryTodoRepository.Delete(ctx, categoryTodo.TodoID, categoryTodo.CategoryID)
 			if err != nil {
-				panic(err)
+				errs = err
+				return
 			}
 		}
 	}()
 	wg.Wait()
+	if errs != nil {
+		return errs
+	}
 
 	return nil
 }

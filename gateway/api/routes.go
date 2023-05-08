@@ -83,9 +83,15 @@ func NewRoutes(configuration config.Config, logFile *os.File, ch *amqp091.Channe
 	// Set Routes
 	apiGroup := app.Group("/api")
 	user.NewUserRoute(apiGroup, configuration, ch)
-	todo.NewTodoRoute(apiGroup, configuration, redisClient, ch)
 	category.NewCategoryRoute(apiGroup, configuration)
-	category_todo.NewCategoryTodoRoute(apiGroup, ch)
+	err = todo.NewTodoRoute(apiGroup, configuration, redisClient, ch)
+	if err != nil {
+		return nil, err
+	}
+	err = category_todo.NewCategoryTodoRoute(apiGroup, ch)
+	if err != nil {
+		return nil, err
+	}
 
 	return app, nil
 }

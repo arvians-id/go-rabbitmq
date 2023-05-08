@@ -10,7 +10,22 @@ import (
 	"github.com/redis/go-redis/v9"
 )
 
-func NewTodoRoute(c fiber.Router, configuration config.Config, redisClient *redis.Client, channel *amqp091.Channel) {
+func NewTodoRoute(c fiber.Router, configuration config.Config, redisClient *redis.Client, channel *amqp091.Channel) error {
+	// Create Category Todo
+	exchangeName := "todo_exchange"
+	err := channel.ExchangeDeclare(
+		exchangeName,
+		"topic",
+		true,
+		false,
+		false,
+		false,
+		nil,
+	)
+	if err != nil {
+		return err
+	}
+
 	categoryClient := client.InitCategoryClient(configuration)
 	categoryService := services.NewCategoryService(categoryClient)
 
@@ -24,4 +39,6 @@ func NewTodoRoute(c fiber.Router, configuration config.Config, redisClient *redi
 	c.Post("/todos", todoHandler.Create)
 	c.Patch("/todos/:id", todoHandler.Update)
 	c.Delete("/todos/:id", todoHandler.Delete)
+
+	return nil
 }

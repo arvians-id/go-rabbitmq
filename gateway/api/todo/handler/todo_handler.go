@@ -1,6 +1,7 @@
 package handler
 
 import (
+	"context"
 	"github.com/arvians-id/go-rabbitmq/gateway/api/todo/dto"
 	"github.com/arvians-id/go-rabbitmq/gateway/api/todo/request"
 	"github.com/arvians-id/go-rabbitmq/gateway/api/todo/services"
@@ -10,6 +11,7 @@ import (
 	"github.com/goccy/go-json"
 	"github.com/gofiber/fiber/v2"
 	"github.com/rabbitmq/amqp091-go"
+	"google.golang.org/protobuf/proto"
 	"google.golang.org/protobuf/types/known/emptypb"
 	"sync"
 )
@@ -118,41 +120,16 @@ func (handler *TodoHandler) Create(c *fiber.Ctx) error {
 		return fiber.NewError(fiber.StatusInternalServerError, err.Error())
 	}
 
-	// Create Category Todo
-	exchangeName := "category_todo_exchange"
-	err = handler.RabbitMQ.ExchangeDeclare(
-		exchangeName,
-		"topic",
-		true,
-		false,
-		false,
-		false,
-		nil,
-	)
-	if err != nil {
-		return fiber.NewError(fiber.StatusInternalServerError, err.Error())
-	}
-
-	var categoryTodo dto.CategoriesTodo
-	categoryTodo.TodoID = todoCreated.GetTodo().GetId()
-	categoryTodo.CategoryID = todoRequest.Categories
-
-	data, err := json.Marshal(categoryTodo)
-	if err != nil {
-		return fiber.NewError(fiber.StatusBadRequest, err.Error())
-	}
-
-	err = handler.RabbitMQ.PublishWithContext(
-		c.Context(),
-		exchangeName,
-		"category_todo.created",
-		false,
-		false,
-		amqp091.Publishing{
-			ContentType: "application/json",
-			Body:        data,
-		},
-	)
+	err = handler.publish(c.Context(), "todo.created", &dto.TodoWithCategoriesIDResponse{
+		CategoriesID: todoRequest.Categories,
+		Id:           todoCreated.GetTodo().GetId(),
+		Title:        todoCreated.GetTodo().GetTitle(),
+		Description:  todoCreated.GetTodo().GetDescription(),
+		IsDone:       proto.Bool(todoCreated.GetTodo().GetIsDone()),
+		UserId:       todoCreated.GetTodo().GetUserId(),
+		CreatedAt:    todoCreated.GetTodo().GetCreatedAt().AsTime(),
+		UpdatedAt:    todoCreated.GetTodo().GetUpdatedAt().AsTime(),
+	})
 	if err != nil {
 		return fiber.NewError(fiber.StatusInternalServerError, err.Error())
 	}
@@ -211,4 +188,28 @@ func (handler *TodoHandler) Delete(c *fiber.Ctx) error {
 	}
 
 	return response.ReturnSuccess(c, fiber.StatusOK, "deleted", nil)
+}
+
+func (handler *TodoHandler) publish(ctx context.Context, key string, data interface{}) error {
+	marshaled, err := json.Marshal(data)
+	if err != nil {
+		return err
+	}
+
+	err = handler.RabbitMQ.PublishWithContext(
+		ctx,
+		"todo_exchange",
+		key,
+		false,
+		false,
+		amqp091.Publishing{
+			ContentType: "application/json",
+			Body:        marshaled,
+		},
+	)
+	if err != nil {
+		return err
+	}
+
+	return nil
 }

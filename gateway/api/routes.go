@@ -4,6 +4,7 @@ import (
 	"errors"
 	"fmt"
 	"github.com/arvians-id/go-rabbitmq/gateway/api/category"
+	"github.com/arvians-id/go-rabbitmq/gateway/api/category_todo"
 	"github.com/arvians-id/go-rabbitmq/gateway/api/todo"
 	"github.com/arvians-id/go-rabbitmq/gateway/api/user"
 	"github.com/arvians-id/go-rabbitmq/gateway/cmd/config"
@@ -84,6 +85,7 @@ func NewRoutes(configuration config.Config, logFile *os.File, ch *amqp091.Channe
 	user.NewUserRoute(apiGroup, configuration, ch)
 	todo.NewTodoRoute(apiGroup, configuration, redisClient, ch)
 	category.NewCategoryRoute(apiGroup, configuration)
+	category_todo.NewCategoryTodoRoute(apiGroup, ch)
 
 	return app, nil
 }

@@ -117,24 +117,23 @@ func (handler *TodoHandler) Create(c *fiber.Ctx) error {
 	if err != nil {
 		return fiber.NewError(fiber.StatusInternalServerError, err.Error())
 	}
+
+	// Create Category Todo
+	exchangeName := "category_todo_exchange"
 	err = handler.RabbitMQ.ExchangeDeclare(
-		"todos", // Nama exchange
-		"topic", // Jenis exchange
-		true,    // Durable
-		false,   // Auto-deleted
-		false,   // Internal
-		false,   // No-wait
-		nil,     // Arguments
+		exchangeName,
+		"topic",
+		true,
+		false,
+		false,
+		false,
+		nil,
 	)
 	if err != nil {
 		return fiber.NewError(fiber.StatusInternalServerError, err.Error())
 	}
 
-	type CategoryTodo struct {
-		TodoID     int64   `json:"todo_id"`
-		CategoryID []int64 `json:"category_id"`
-	}
-	var categoryTodo CategoryTodo
+	var categoryTodo dto.CategoriesTodo
 	categoryTodo.TodoID = todoCreated.GetTodo().GetId()
 	categoryTodo.CategoryID = todoRequest.Categories
 
@@ -145,10 +144,10 @@ func (handler *TodoHandler) Create(c *fiber.Ctx) error {
 
 	err = handler.RabbitMQ.PublishWithContext(
 		c.Context(),
-		"todos",                 // Nama exchange
-		"category_todo.created", // Routing key
-		false,                   // Mandatory
-		false,                   // Immediate
+		exchangeName,
+		"category_todo.created",
+		false,
+		false,
 		amqp091.Publishing{
 			ContentType: "application/json",
 			Body:        data,

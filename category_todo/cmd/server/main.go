@@ -10,7 +10,6 @@ import (
 	"os"
 	"os/signal"
 	"syscall"
-	"time"
 )
 
 func main() {
@@ -29,44 +28,42 @@ func main() {
 	defer conn.Close()
 	defer ch.Close()
 
+	exchange := "category_todo_exchange"
 	err = ch.ExchangeDeclare(
-		"todos", // Nama exchange
-		"topic", // Jenis exchange
-		true,    // Durable
-		false,   // Auto-deleted
-		false,   // Internal
-		false,   // No-wait
-		nil,     // Arguments
+		exchange,
+		"topic",
+		true,
+		false,
+		false,
+		false,
+		nil,
 	)
 	if err != nil {
-		log.Fatalf("Failed to declare an exchange: %v", err)
-	}
-
-	q, err := ch.QueueDeclare(
-		"",    // Nama antrian kosong (RabbitMQ akan memberikan nama antrian yang unik)
-		false, // Non-durable
-		false, // Non-autodelete
-		true,  // Exclusive (antrian hanya dapat digunakan oleh satu subscriber)
-		false, // No-wait
-		nil,   // Arguments
-	)
-	if err != nil {
-		log.Fatalf("Failed to declare a queue: %v", err)
-	}
-
-	// Init Server
-	// Category Todo Server
-	ctx, cancel := context.WithTimeout(context.Background(), time.Second*10)
-	defer cancel()
-
-	categoryTodoRepository := repository.NewCategoryTodoRepository(db)
-	categoryTodoUsecase := usecase.NewCategoryTodoUsecase(categoryTodoRepository)
-	_, err = categoryTodoUsecase.Create(ctx, ch, q)
-	if err != nil {
-		log.Fatalln(err)
+		log.Fatalln("Cannot declare exchange", err)
 	}
 
 	fmt.Println("Category todo service is running")
+
+	// Init Server
+	// Category Todo Server
+	ctx := context.Background()
+
+	categoryTodoRepository := repository.NewCategoryTodoRepository(db)
+	categoryTodoUsecase := usecase.NewCategoryTodoUsecase(categoryTodoRepository)
+
+	go func() {
+		err = categoryTodoUsecase.Delete(ctx, ch)
+		if err != nil {
+			log.Fatalln(err)
+		}
+	}()
+
+	go func() {
+		err = categoryTodoUsecase.Create(ctx, ch)
+		if err != nil {
+			log.Fatalln(err)
+		}
+	}()
 
 	interruptChan := make(chan os.Signal, 1)
 	signal.Notify(interruptChan, syscall.SIGINT, syscall.SIGTERM)

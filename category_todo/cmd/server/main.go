@@ -25,6 +25,15 @@ func main() {
 		log.Fatalln("Cannot connect to RabbitMQ", err)
 	}
 
+	err = ch.Qos(
+		1,     // prefetch count
+		0,     // prefetch size
+		false, // global
+	)
+	if err != nil {
+		log.Fatalln("Cannot set Qos", err)
+	}
+
 	fmt.Println("Category todo service is running")
 
 	// Init Server

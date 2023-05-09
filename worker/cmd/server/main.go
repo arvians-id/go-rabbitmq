@@ -1,9 +1,9 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
 	"github.com/arvians-id/go-rabbitmq/worker/cmd/config"
+	"github.com/arvians-id/go-rabbitmq/worker/internal"
 	"log"
 	"os"
 	"os/signal"
@@ -11,24 +11,13 @@ import (
 )
 
 func main() {
+	// Init Config
 	configuration := config.New()
+
+	// Init RabbitMQ
 	conn, ch, err := config.InitRabbitMQ(configuration)
 	if err != nil {
-		log.Fatalln(err)
-	}
-
-	fmt.Println("Category todo service is running")
-
-	q, err := ch.QueueDeclare(
-		"mail",
-		true,
-		false,
-		false,
-		false,
-		nil,
-	)
-	if err != nil {
-		log.Fatalln(err)
+		log.Fatalln("Cannot connect to RabbitMQ", err)
 	}
 
 	err = ch.Qos(
@@ -36,42 +25,14 @@ func main() {
 		0,     // prefetch size
 		false, // global
 	)
-
-	message, err := ch.Consume(
-		q.Name,
-		"",
-		false,
-		false,
-		false,
-		false,
-		nil,
-	)
 	if err != nil {
-		log.Fatalln(err)
+		log.Fatalln("Cannot set Qos", err)
 	}
 
-	go func() {
-		type Message struct {
-			ToEmail string
-			Message string
-		}
-		for d := range message {
-			var mailMessage Message
-			err := json.Unmarshal(d.Body, &mailMessage)
-			if err != nil {
-				log.Fatalln(err)
-			}
+	fmt.Println("Worker message service is running")
 
-			log.Printf("Received a message: %s", mailMessage.ToEmail)
-			err = config.SendMail(configuration, mailMessage.ToEmail, "Test Subject Mail", mailMessage.Message)
-			if err != nil {
-				log.Fatalln(err)
-			}
-
-			log.Printf("Mail Sended")
-			d.Ack(false)
-		}
-	}()
+	// Init Server
+	internal.NewApp(configuration, ch)
 
 	defer func() {
 		conn.Close()

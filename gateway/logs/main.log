@@ -875,3 +875,15 @@
 [09-May-2023 11:56:37] | 500 | 319.0448ms | 127.0.0.1 | GET | /api/todos/109 | rpc error: code = Unknown desc = sql: Scan error on column index 5, name "categories": unsupported Scan, storing driver.Value type []uint8 into type *[]string
 [09-May-2023 11:57:08] | 200 | 316.409ms | 127.0.0.1 | GET | /api/todos/109 | -
 [09-May-2023 11:57:48] | 500 | 319.4847ms | 127.0.0.1 | GET | /api/todos/109 | rpc error: code = Unknown desc = sql: Scan error on column index 5, name "categories": unsupported Scan, storing driver.Value type []uint8 into type *[]string
+[09-May-2023 12:03:35] | 200 | 323.0425ms | 127.0.0.1 | GET | /api/todos/109 | -
+[09-May-2023 12:03:55] | 500 | 308.7995ms | 127.0.0.1 | GET | /api/todos | rpc error: code = Unknown desc = sql: Scan error on column index 7, name "categories": converting NULL to string is unsupported
+[09-May-2023 12:06:41] | 200 | 309.9303ms | 127.0.0.1 | GET | /api/todos | -
+[09-May-2023 12:29:15] | 200 | 78.0986ms | 127.0.0.1 | GET | /api/todos | -
+[09-May-2023 12:29:19] | 200 | 67.7312ms | 127.0.0.1 | GET | /api/display-todos | -
+[09-May-2023 12:30:17] | 201 | 176.6219ms | 127.0.0.1 | POST | /api/todos | -
+[09-May-2023 12:30:18] | 201 | 6.8523ms | 127.0.0.1 | POST | /api/todos | -
+[09-May-2023 12:30:19] | 201 | 7.7374ms | 127.0.0.1 | POST | /api/todos | -
+[09-May-2023 12:37:00] | 200 | 1.0368ms | 127.0.0.1 | DELETE | /api/category-todo | -
+[09-May-2023 12:37:02] | 200 | 670.6µs | 127.0.0.1 | DELETE | /api/category-todo | -
+[09-May-2023 12:37:09] | 200 | 895.4µs | 127.0.0.1 | DELETE | /api/category-todo | -
+[09-May-2023 12:37:32] | 201 | 143.4863ms | 127.0.0.1 | POST | /api/users | -

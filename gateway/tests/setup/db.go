@@ -40,11 +40,15 @@ func TearDownTest(configuration config.Config) error {
 	db.SetConnMaxLifetime(60 * time.Second)
 	db.SetConnMaxIdleTime(60 * time.Second)
 
+	_, err = db.Exec(`DELETE FROM category_todo;`)
+	if err != nil {
+		return err
+	}
 	_, err = db.Exec(`DELETE FROM todos;`)
 	if err != nil {
 		return err
 	}
-	_, err = db.Exec(`DELETE FROM category_todos;`)
+	_, err = db.Exec(`DELETE FROM categories;`)
 	if err != nil {
 		return err
 	}

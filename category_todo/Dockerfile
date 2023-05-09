@@ -7,8 +7,6 @@ WORKDIR /app
 COPY /cmd/server/main.go .
 COPY . .
 
-EXPOSE 50053
-
 RUN go mod tidy
 
 RUN go build -o main

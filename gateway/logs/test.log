@@ -1651,3 +1651,62 @@
 [05-May-2023 10:43:51] | 404 | 2.1321ms | 0.0.0.0 | DELETE | /api/users/1 | rpc error: code = Unknown desc = sql: no rows in result set
 [05-May-2023 10:43:51] | 201 | 3.2453ms | 0.0.0.0 | POST | /api/users | -
 [05-May-2023 10:43:51] | 200 | 4.202ms | 0.0.0.0 | DELETE | /api/users/416 | -
+[09-May-2023 13:50:12] | 201 | 353.3004ms | 0.0.0.0 | POST | /api/categories | -
+[09-May-2023 13:50:12] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Password
+[09-May-2023 13:51:28] | 201 | 348.0395ms | 0.0.0.0 | POST | /api/categories | -
+[09-May-2023 13:51:28] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Password
+[09-May-2023 13:51:28] | 201 | 4.0735ms | 0.0.0.0 | POST | /api/categories | -
+[09-May-2023 13:51:28] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Password
+[09-May-2023 13:51:29] | 201 | 3.7878ms | 0.0.0.0 | POST | /api/categories | -
+[09-May-2023 13:51:29] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Password
+[09-May-2023 13:51:29] | 201 | 4.2517ms | 0.0.0.0 | POST | /api/categories | -
+[09-May-2023 13:51:29] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Password
+[09-May-2023 13:51:29] | 201 | 2.927ms | 0.0.0.0 | POST | /api/categories | -
+[09-May-2023 13:51:29] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Password
+[09-May-2023 13:51:29] | 201 | 3.4129ms | 0.0.0.0 | POST | /api/categories | -
+[09-May-2023 13:51:29] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Password
+[09-May-2023 13:51:29] | 201 | 3.8175ms | 0.0.0.0 | POST | /api/categories | -
+[09-May-2023 13:51:29] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Password
+[09-May-2023 13:51:29] | 201 | 3.5633ms | 0.0.0.0 | POST | /api/categories | -
+[09-May-2023 13:51:29] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Password
+[09-May-2023 13:51:29] | 201 | 3.1344ms | 0.0.0.0 | POST | /api/categories | -
+[09-May-2023 13:51:29] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Password
+[09-May-2023 13:51:29] | 201 | 4.3105ms | 0.0.0.0 | POST | /api/categories | -
+[09-May-2023 13:51:29] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Password
+[09-May-2023 13:51:29] | 201 | 2.4058ms | 0.0.0.0 | POST | /api/categories | -
+[09-May-2023 13:51:29] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Password
+[09-May-2023 13:51:30] | 201 | 3.8851ms | 0.0.0.0 | POST | /api/categories | -
+[09-May-2023 13:51:30] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Password
+[09-May-2023 13:51:30] | 201 | 3.2639ms | 0.0.0.0 | POST | /api/categories | -
+[09-May-2023 13:51:30] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Password
+[09-May-2023 13:51:30] | 201 | 4.321ms | 0.0.0.0 | POST | /api/categories | -
+[09-May-2023 13:51:30] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Password
+[09-May-2023 13:51:30] | 201 | 3.2524ms | 0.0.0.0 | POST | /api/categories | -
+[09-May-2023 13:51:30] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Password
+[09-May-2023 13:51:30] | 201 | 3.5168ms | 0.0.0.0 | POST | /api/categories | -
+[09-May-2023 13:51:30] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Password
+[09-May-2023 13:51:30] | 200 | 62.3899ms | 0.0.0.0 | GET | /api/users | -
+[09-May-2023 13:51:30] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Password
+[09-May-2023 13:51:30] | 200 | 1.257ms | 0.0.0.0 | GET | /api/users | -
+[09-May-2023 13:51:30] | 404 | 2.4853ms | 0.0.0.0 | GET | /api/users/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[09-May-2023 13:51:30] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Password
+[09-May-2023 13:51:31] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Name & UserCreateRequest.Password
+[09-May-2023 13:51:31] | 400 | 527.7µs | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Email & UserCreateRequest.Password
+[09-May-2023 13:51:31] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Email & UserCreateRequest.Password
+[09-May-2023 13:51:31] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Password
+[09-May-2023 13:51:31] | 404 | 2.015ms | 0.0.0.0 | PATCH | /api/users/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[09-May-2023 13:51:31] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Password
+[09-May-2023 13:51:31] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Password
+[09-May-2023 13:51:31] | 404 | 2.1857ms | 0.0.0.0 | DELETE | /api/users/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[09-May-2023 13:51:31] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Password
+[09-May-2023 13:51:31] | 200 | 2.423ms | 0.0.0.0 | GET | /api/categories | -
+[09-May-2023 13:51:32] | 201 | 4.2988ms | 0.0.0.0 | POST | /api/categories | -
+[09-May-2023 13:51:32] | 200 | 1.2037ms | 0.0.0.0 | GET | /api/categories | -
+[09-May-2023 13:51:32] | 404 | 2.383ms | 0.0.0.0 | GET | /api/categories/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[09-May-2023 13:51:32] | 201 | 3.2873ms | 0.0.0.0 | POST | /api/categories | -
+[09-May-2023 13:51:32] | 200 | 1.9488ms | 0.0.0.0 | GET | /api/categories/22 | -
+[09-May-2023 13:51:32] | 400 |      0s | 0.0.0.0 | POST | /api/categories | validation error on field:CategoryCreateRequest.Name
+[09-May-2023 13:51:32] | 201 | 3.5381ms | 0.0.0.0 | POST | /api/categories | -
+[09-May-2023 13:51:32] | 404 | 2.0112ms | 0.0.0.0 | DELETE | /api/categories/1 | rpc error: code = Unknown desc = sql: no rows in result set
+[09-May-2023 13:51:32] | 201 | 3.3436ms | 0.0.0.0 | POST | /api/categories | -
+[09-May-2023 13:51:32] | 200 | 5.9594ms | 0.0.0.0 | DELETE | /api/categories/24 | -

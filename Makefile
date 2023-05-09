@@ -18,6 +18,8 @@ build:
 	docker build ./worker -t arvians/go-todo-worker:latest
 	docker build ./todo -t arvians/go-todo-todo:latest
 	docker build ./user -t arvians/go-todo-user:latest
+	docker build ./category_todo -t arvians/go-todo-category-todo:latest
+	docker build ./category -t arvians/go-todo-category:latest
 
 test:
 	ginkgo gateway/tests/integration

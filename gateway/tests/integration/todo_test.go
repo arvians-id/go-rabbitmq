@@ -25,7 +25,17 @@ var _ = Describe("Todo", func() {
 	if err != nil {
 		log.Fatalln("There is something wrong with the log file", err)
 	}
-	server, err = api.NewRoutes(configuration, file)
+
+	// Init Rabbit MQ
+	conn, ch, err := config.InitRabbitMQ(configuration)
+	if err != nil {
+		log.Fatalln(err)
+	}
+	defer conn.Close()
+	defer ch.Close()
+
+	// Init Server
+	server, err = api.NewRoutes(configuration, file, ch)
 	if err != nil {
 		log.Fatalln("There is something wrong with the server", err)
 	}

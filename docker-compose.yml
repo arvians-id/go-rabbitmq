@@ -30,13 +30,17 @@ services:
       - STATE=production
       - USER_SERVICE_URL=todo-user:50050
       - TODO_SERVICE_URL=todo-todo:50051
-      - CATEGORY_SERVICE_URL=localhost:50052
+      - CATEGORY_SERVICE_URL=todo-category:50052
       - JAEGER_HOST=todo-jaeger
       - JAEGER_PORT=14268
       - REDIS_HOST=todo-redis
       - REDIS_PORT=6379
       - REDIS_PASSWORD=
       - REDIS_DB=0
+      - MQ_HOST=todo-rabbitmq
+      - MQ_USER=guest
+      - MQ_PASSWORD=guest
+      - MQ_PORT=5672
     ports:
       - "3000:3000"
     depends_on:
@@ -51,7 +55,7 @@ services:
       - STATE=production
       - USER_SERVICE_URL=todo-user:50050
       - TODO_SERVICE_URL=todo-todo:50051
-      - CATEGORY_SERVICE_URL=localhost:50052
+      - CATEGORY_SERVICE_URL=todo-category:50052
       - DB_HOST=todo-db
       - DB_PORT=5432
       - DB_DATABASE=go_rabbitmq
@@ -79,7 +83,7 @@ services:
       - STATE=production
       - USER_SERVICE_URL=todo-user:50050
       - TODO_SERVICE_URL=todo-todo:50051
-      - CATEGORY_SERVICE_URL=localhost:50052
+      - CATEGORY_SERVICE_URL=todo-category:50052
       - DB_HOST=todo-db
       - DB_PORT=5432
       - DB_DATABASE=go_rabbitmq
@@ -93,12 +97,36 @@ services:
       - DB_MAX_LIFE_TIME=60
       - JAEGER_HOST=todo-jaeger
       - JAEGER_PORT=14268
-      - MQ_HOST=todo-rabbitmq
-      - MQ_USER=guest
-      - MQ_PASSWORD=guest
-      - MQ_PORT=5672
     ports:
       - "50051:50051"
+    depends_on:
+      - todo-db
+    restart: always
+    networks:
+      - todo-network
+  todo-category:
+    container_name: todo-category
+    image: arvians/go-todo-category:latest
+    environment:
+      - STATE=production
+      - USER_SERVICE_URL=todo-user:50050
+      - TODO_SERVICE_URL=todo-todo:50051
+      - CATEGORY_SERVICE_URL=todo-category:50052
+      - DB_HOST=todo-db
+      - DB_PORT=5432
+      - DB_DATABASE=go_rabbitmq
+      - DB_USERNAME=root
+      - DB_PASSWORD=root
+      - DB_CONNECTION=postgres
+      - DB_SSL_MODE=disable
+      - DB_POOL_MIN=10
+      - DB_POOL_MAX=60
+      - DB_MAX_IDLE_TIME=60
+      - DB_MAX_LIFE_TIME=60
+      - JAEGER_HOST=todo-jaeger
+      - JAEGER_PORT=14268
+    ports:
+      - "50052:50052"
     depends_on:
       - todo-db
     restart: always
@@ -111,7 +139,7 @@ services:
       - STATE=production
       - USER_SERVICE_URL=todo-user:50050
       - TODO_SERVICE_URL=todo-todo:50051
-      - CATEGORY_SERVICE_URL=localhost:50052
+      - CATEGORY_SERVICE_URL=todo-category:50052
       - DB_HOST=todo-db
       - DB_PORT=5432
       - DB_DATABASE=go_rabbitmq
@@ -129,8 +157,6 @@ services:
       - MQ_USER=guest
       - MQ_PASSWORD=guest
       - MQ_PORT=5672
-    ports:
-      - "50051:50051"
     depends_on:
       - todo-db
     restart: always

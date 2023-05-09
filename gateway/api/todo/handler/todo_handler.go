@@ -65,7 +65,7 @@ func (handler *TodoHandler) DisplayTodoCategoryList(c *fiber.Ctx) error {
 		return fiber.NewError(fiber.StatusInternalServerError, err.Error())
 	}
 
-	return response.ReturnSuccess(c, fiber.StatusOK, "OK", &dto.DisplayCategoryTodoList{
+	return response.ReturnSuccess(c, fiber.StatusOK, "OK", &dto.DisplayCategoryTodoListResponse{
 		Todos:      todos.GetTodos(),
 		Categories: categorys.GetCategories(),
 	})
@@ -120,7 +120,7 @@ func (handler *TodoHandler) Create(c *fiber.Ctx) error {
 		return fiber.NewError(fiber.StatusInternalServerError, err.Error())
 	}
 
-	err = handler.publish(c.Context(), "todo.created", &dto.TodoWithCategoriesIDResponse{
+	err = handler.publish(c.Context(), "todo.created", &dto.DisplayTodoWithCategoriesIDResponse{
 		CategoriesID: todoRequest.Categories,
 		Id:           todoCreated.GetTodo().GetId(),
 		Title:        todoCreated.GetTodo().GetTitle(),

@@ -2,7 +2,8 @@ package main
 
 import (
 	"encoding/json"
-	"github.com/arvians-id/go-rabbitmq/message-broker/cmd/config"
+	"fmt"
+	"github.com/arvians-id/go-rabbitmq/worker/cmd/config"
 	"log"
 	"os"
 	"os/signal"
@@ -15,8 +16,8 @@ func main() {
 	if err != nil {
 		log.Fatalln(err)
 	}
-	defer conn.Close()
-	defer ch.Close()
+
+	fmt.Println("Category todo service is running")
 
 	q, err := ch.QueueDeclare(
 		"mail",
@@ -72,7 +73,10 @@ func main() {
 		}
 	}()
 
-	log.Printf("Waiting for messages. To exit press CTRL+C")
+	defer func() {
+		conn.Close()
+		ch.Close()
+	}()
 
 	interruptChan := make(chan os.Signal, 1)
 	signal.Notify(interruptChan, syscall.SIGINT, syscall.SIGTERM)

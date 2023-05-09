@@ -839,3 +839,39 @@
 [08-May-2023 20:45:00] | 201 | 8.5183ms | 127.0.0.1 | POST | /api/todos | -
 [08-May-2023 20:51:15] | 200 | 103.0412ms | 127.0.0.1 | GET | /api/display-todos | -
 [08-May-2023 20:56:24] | 200 | 72.4374ms | 127.0.0.1 | GET | /api/todos | -
+[08-May-2023 21:03:02] | 200 | 67.1683ms | 127.0.0.1 | GET | /api/todos | -
+[08-May-2023 21:06:52] | 200 | 71.6424ms | 127.0.0.1 | GET | /api/todos | -
+[08-May-2023 21:06:54] | 201 | 73.9298ms | 127.0.0.1 | POST | /api/todos | -
+[08-May-2023 21:06:55] | 201 | 13.5613ms | 127.0.0.1 | POST | /api/todos | -
+[08-May-2023 21:06:56] | 201 | 6.2296ms | 127.0.0.1 | POST | /api/todos | -
+[08-May-2023 21:06:57] | 201 | 5.5196ms | 127.0.0.1 | POST | /api/todos | -
+[08-May-2023 21:06:57] | 201 | 6.9457ms | 127.0.0.1 | POST | /api/todos | -
+[08-May-2023 21:06:58] | 201 | 7.243ms | 127.0.0.1 | POST | /api/todos | -
+[08-May-2023 21:16:09] | 200 | 72.7503ms | 127.0.0.1 | GET | /api/categories | -
+[08-May-2023 21:16:17] | 201 | 163.304ms | 127.0.0.1 | POST | /api/todos | -
+[09-May-2023 11:21:02] | 200 | 67.0952ms | 127.0.0.1 | GET | /api/todos | -
+[09-May-2023 11:40:17] | 500 | 315.8393ms | 127.0.0.1 | GET | /api/todos | rpc error: code = Unknown desc = sql: Scan error on column index 5, name "categories": unsupported Scan, storing driver.Value type []uint8 into type *[]string
+[09-May-2023 11:41:11] | 500 | 75.9326ms | 127.0.0.1 | GET | /api/todos/13 | rpc error: code = Unknown desc = pq: got 1 parameters but the statement requires 0
+[09-May-2023 11:41:22] | 500 | 2.9314ms | 127.0.0.1 | GET | /api/todos/109 | rpc error: code = Unknown desc = pq: got 1 parameters but the statement requires 0
+[09-May-2023 11:41:42] | 500 | 6.3721ms | 127.0.0.1 | GET | /api/todos | rpc error: code = Unknown desc = sql: Scan error on column index 5, name "categories": unsupported Scan, storing driver.Value type []uint8 into type *[]string
+[09-May-2023 11:42:23] | 500 | 2.3243483s | 127.0.0.1 | GET | /api/todos | rpc error: code = Unavailable desc = connection error: desc = "transport: Error while dialing: dial tcp [::1]:50051: connectex: No connection could be made because the target machine actively refused it."
+[09-May-2023 11:42:28] | 500 | 313.0137ms | 127.0.0.1 | GET | /api/todos | rpc error: code = Unknown desc = sql: expected 7 destination arguments in Scan, not 8
+[09-May-2023 11:42:41] | 200 | 316.749ms | 127.0.0.1 | GET | /api/todos | -
+[09-May-2023 11:43:03] | 500 | 322.3775ms | 127.0.0.1 | GET | /api/todos | rpc error: code = Unknown desc = sql: expected 7 destination arguments in Scan, not 8
+[09-May-2023 11:43:40] | 500 | 310.5497ms | 127.0.0.1 | GET | /api/todos | rpc error: code = Unknown desc = pq: column "c.name" must appear in the GROUP BY clause or be used in an aggregate function
+[09-May-2023 11:44:06] | 500 | 321.958ms | 127.0.0.1 | GET | /api/todos | rpc error: code = Unknown desc = sql: Scan error on column index 5, name "categories": unsupported Scan, storing driver.Value type []uint8 into type *[]string
+[09-May-2023 11:45:24] | 500 | 310.3984ms | 127.0.0.1 | GET | /api/todos | rpc error: code = Unknown desc = sql: Scan error on column index 5, name "categories": unsupported Scan, storing driver.Value type []uint8 into type *[]string
+[09-May-2023 11:45:43] | 500 | 308.2591ms | 127.0.0.1 | GET | /api/todos | rpc error: code = Unknown desc = sql: Scan error on column index 5, name "categories": unsupported Scan, storing driver.Value type []uint8 into type *[]string
+[09-May-2023 11:47:59] | 500 | 321.6953ms | 127.0.0.1 | GET | /api/todos | rpc error: code = Unknown desc = sql: Scan error on column index 5, name "categories": converting NULL to string is unsupported
+[09-May-2023 11:50:05] | 500 | 322.1695ms | 127.0.0.1 | GET | /api/todos | rpc error: code = Unknown desc = sql: Scan error on column index 5, name "string_agg": converting NULL to string is unsupported
+[09-May-2023 11:52:36] | 500 | 320.3037ms | 127.0.0.1 | GET | /api/todos | rpc error: code = Unknown desc = sql: Scan error on column index 5, name "string_agg": converting NULL to string is unsupported
+[09-May-2023 11:53:03] | 500 | 313.3755ms | 127.0.0.1 | GET | /api/todos | rpc error: code = Unknown desc = sql: Scan error on column index 5, name "categories": converting NULL to string is unsupported
+[09-May-2023 11:53:22] | 500 | 312.2031ms | 127.0.0.1 | GET | /api/todos | rpc error: code = Unknown desc = sql: Scan error on column index 7, name "categories": unsupported Scan, storing driver.Value type string into type *time.Time
+[09-May-2023 11:53:39] | 500 | 320.612ms | 127.0.0.1 | GET | /api/todos | rpc error: code = Unknown desc = sql: Scan error on column index 7, name "categories": converting NULL to string is unsupported
+[09-May-2023 11:54:02] | 500 | 311.7309ms | 127.0.0.1 | GET | /api/todos | rpc error: code = Unknown desc = sql: Scan error on column index 7, name "categories": converting NULL to string is unsupported
+[09-May-2023 11:54:50] | 500 | 312.2098ms | 127.0.0.1 | GET | /api/todos | rpc error: code = Unknown desc = sql: Scan error on column index 7, name "categories": destination not a pointer
+[09-May-2023 11:55:40] | 500 | 304.5133ms | 127.0.0.1 | GET | /api/todos/109 | rpc error: code = Unknown desc = pq: got 1 parameters but the statement requires 0
+[09-May-2023 11:56:24] | 200 | 324.6769ms | 127.0.0.1 | GET | /api/todos/109 | -
+[09-May-2023 11:56:37] | 500 | 319.0448ms | 127.0.0.1 | GET | /api/todos/109 | rpc error: code = Unknown desc = sql: Scan error on column index 5, name "categories": unsupported Scan, storing driver.Value type []uint8 into type *[]string
+[09-May-2023 11:57:08] | 200 | 316.409ms | 127.0.0.1 | GET | /api/todos/109 | -
+[09-May-2023 11:57:48] | 500 | 319.4847ms | 127.0.0.1 | GET | /api/todos/109 | rpc error: code = Unknown desc = sql: Scan error on column index 5, name "categories": unsupported Scan, storing driver.Value type []uint8 into type *[]string

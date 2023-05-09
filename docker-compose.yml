@@ -30,6 +30,7 @@ services:
       - STATE=production
       - USER_SERVICE_URL=todo-user:50050
       - TODO_SERVICE_URL=todo-todo:50051
+      - CATEGORY_SERVICE_URL=localhost:50052
       - JAEGER_HOST=todo-jaeger
       - JAEGER_PORT=14268
       - REDIS_HOST=todo-redis
@@ -50,6 +51,7 @@ services:
       - STATE=production
       - USER_SERVICE_URL=todo-user:50050
       - TODO_SERVICE_URL=todo-todo:50051
+      - CATEGORY_SERVICE_URL=localhost:50052
       - DB_HOST=todo-db
       - DB_PORT=5432
       - DB_DATABASE=go_rabbitmq
@@ -77,6 +79,7 @@ services:
       - STATE=production
       - USER_SERVICE_URL=todo-user:50050
       - TODO_SERVICE_URL=todo-todo:50051
+      - CATEGORY_SERVICE_URL=localhost:50052
       - DB_HOST=todo-db
       - DB_PORT=5432
       - DB_DATABASE=go_rabbitmq
@@ -101,9 +104,41 @@ services:
     restart: always
     networks:
       - todo-network
-  todo-message_broker:
-    container_name: todo-message-broker
-    image: arvians/go-todo-message-broker:latest
+  todo-category_todo:
+    container_name: todo-category-todo
+    image: arvians/go-todo-category-todo:latest
+    environment:
+      - STATE=production
+      - USER_SERVICE_URL=todo-user:50050
+      - TODO_SERVICE_URL=todo-todo:50051
+      - CATEGORY_SERVICE_URL=localhost:50052
+      - DB_HOST=todo-db
+      - DB_PORT=5432
+      - DB_DATABASE=go_rabbitmq
+      - DB_USERNAME=root
+      - DB_PASSWORD=root
+      - DB_CONNECTION=postgres
+      - DB_SSL_MODE=disable
+      - DB_POOL_MIN=10
+      - DB_POOL_MAX=60
+      - DB_MAX_IDLE_TIME=60
+      - DB_MAX_LIFE_TIME=60
+      - JAEGER_HOST=todo-jaeger
+      - JAEGER_PORT=14268
+      - MQ_HOST=todo-rabbitmq
+      - MQ_USER=guest
+      - MQ_PASSWORD=guest
+      - MQ_PORT=5672
+    ports:
+      - "50051:50051"
+    depends_on:
+      - todo-db
+    restart: always
+    networks:
+      - todo-network
+  todo-worker:
+    container_name: todo-worker
+    image: arvians/go-todo-worker:latest
     restart: always
     environment:
       - STATE=production

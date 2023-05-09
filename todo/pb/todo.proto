@@ -21,8 +21,9 @@ message Todo {
   string description = 3;
   optional bool is_done = 4;
   int64 user_id = 5;
-  google.protobuf.Timestamp created_at = 6;
-  google.protobuf.Timestamp updated_at = 7;
+  string categories = 6;
+  google.protobuf.Timestamp created_at = 7;
+  google.protobuf.Timestamp updated_at = 8;
 }
 
 message ListTodoResponse {

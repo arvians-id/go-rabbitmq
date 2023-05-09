@@ -13,6 +13,7 @@ type Todo struct {
 	Description string
 	IsDone      *bool
 	UserId      int64
+	Categories  string
 	CreatedAt   time.Time
 	UpdatedAt   time.Time
 }
@@ -24,6 +25,7 @@ func (todo *Todo) ToPB() *pb.Todo {
 		Description: todo.Description,
 		IsDone:      todo.IsDone,
 		UserId:      todo.UserId,
+		Categories:  todo.Categories,
 		CreatedAt:   timestamppb.New(todo.CreatedAt),
 		UpdatedAt:   timestamppb.New(todo.UpdatedAt),
 	}

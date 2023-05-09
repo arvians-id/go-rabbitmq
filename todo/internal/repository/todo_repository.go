@@ -3,7 +3,6 @@ package repository
 import (
 	"context"
 	"database/sql"
-
 	"github.com/arvians-id/go-rabbitmq/todo/cmd/config"
 	"github.com/arvians-id/go-rabbitmq/todo/internal/model"
 	"go.opentelemetry.io/otel"
@@ -31,7 +30,12 @@ func (repository *TodoRepository) FindAll(ctx context.Context) ([]*model.Todo, e
 	ctxTracer, span := otel.Tracer(config.ServiceTrace).Start(ctx, "repository.TodoService/Repository/FindAll")
 	defer span.End()
 
-	query := `SELECT * FROM todos ORDER BY created_at DESC`
+	query := `SELECT t.id, t.title, t.description, t.is_done, t.user_id, t.created_at, t.updated_at, COALESCE(STRING_AGG(c.name, ', '), '') as categories
+			  FROM todos t
+			  LEFT JOIN category_todo ct ON t.id = ct.todo_id
+			  LEFT JOIN categories c ON c.id = ct.category_id
+			  GROUP BY t.id
+			  ORDER BY t.created_at DESC`
 	rows, err := repository.DB.QueryContext(ctxTracer, query)
 	if err != nil {
 		span.RecordError(err)
@@ -42,7 +46,7 @@ func (repository *TodoRepository) FindAll(ctx context.Context) ([]*model.Todo, e
 	var todos []*model.Todo
 	for rows.Next() {
 		var todo model.Todo
-		err := rows.Scan(&todo.Id, &todo.Title, &todo.Description, &todo.IsDone, &todo.UserId, &todo.CreatedAt, &todo.UpdatedAt)
+		err := rows.Scan(&todo.Id, &todo.Title, &todo.Description, &todo.IsDone, &todo.UserId, &todo.CreatedAt, &todo.UpdatedAt, &todo.Categories)
 		if err != nil {
 			span.RecordError(err)
 			return nil, err
@@ -58,11 +62,17 @@ func (repository *TodoRepository) FindByID(ctx context.Context, id int64) (*mode
 	ctxTracer, span := otel.Tracer(config.ServiceTrace).Start(ctx, "repository.TodoService/Repository/FindByID")
 	defer span.End()
 
-	query := `SELECT * FROM todos WHERE id = $1`
+	query := `SELECT t.id, t.title, t.description, t.is_done, t.user_id, STRING_AGG(c.name, ',') as categories, t.created_at, t.updated_at
+			  FROM todos t
+			  LEFT JOIN category_todo ct ON t.id = ct.todo_id
+			  LEFT JOIN categories c ON c.id = ct.category_id
+			  WHERE t.id = $1
+			  GROUP BY t.id
+			  ORDER BY t.created_at DESC`
 	row := repository.DB.QueryRowContext(ctxTracer, query, id)
 
 	var todo model.Todo
-	err := row.Scan(&todo.Id, &todo.Title, &todo.Description, &todo.IsDone, &todo.UserId, &todo.CreatedAt, &todo.UpdatedAt)
+	err := row.Scan(&todo.Id, &todo.Title, &todo.Description, &todo.IsDone, &todo.UserId, &todo.Categories, &todo.CreatedAt, &todo.UpdatedAt)
 	if err != nil {
 		span.RecordError(err)
 		return nil, err

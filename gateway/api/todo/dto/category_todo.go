@@ -5,12 +5,12 @@ import (
 	"time"
 )
 
-type DisplayCategoryTodoList struct {
+type DisplayCategoryTodoListResponse struct {
 	Todos      []*pb.Todo     `json:"todos"`
 	Categories []*pb.Category `json:"categories"`
 }
 
-type TodoWithCategoriesIDResponse struct {
+type DisplayTodoWithCategoriesIDResponse struct {
 	CategoriesID []int64   `json:"categories_id"`
 	Id           int64     `json:"id"`
 	Title        string    `json:"title"`

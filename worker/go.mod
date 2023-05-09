@@ -1,4 +1,4 @@
-module github.com/arvians-id/go-rabbitmq/message-broker
+module github.com/arvians-id/go-rabbitmq/worker
 
 go 1.20
 

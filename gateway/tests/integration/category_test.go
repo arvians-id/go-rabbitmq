@@ -26,12 +26,10 @@ var _ = Describe("Category", func() {
 	}
 
 	// Init Rabbit MQ
-	conn, ch, err := config.InitRabbitMQ(configuration)
+	_, ch, err := config.InitRabbitMQ(configuration)
 	if err != nil {
 		log.Fatalln(err)
 	}
-	defer conn.Close()
-	defer ch.Close()
 
 	// Init Server
 	server, err = api.NewRoutes(configuration, file, ch)

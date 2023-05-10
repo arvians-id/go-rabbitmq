@@ -16,14 +16,21 @@ func NewApp(ctx context.Context, channel *amqp091.Channel, db *sql.DB) {
 	go func() {
 		err := categoryTodoUsecase.Delete(ctx, channel)
 		if err != nil {
-			log.Fatalln(err)
+			log.Println(err)
 		}
 	}()
 
 	go func() {
 		err := categoryTodoUsecase.Create(ctx, channel)
 		if err != nil {
-			log.Fatalln(err)
+			log.Println(err)
+		}
+	}()
+
+	go func() {
+		err := categoryTodoUsecase.Update(ctx, channel)
+		if err != nil {
+			log.Println(err)
 		}
 	}()
 }

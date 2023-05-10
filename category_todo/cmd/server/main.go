@@ -16,13 +16,13 @@ func main() {
 	configuration := config.New()
 	db, err := config.NewPostgresSQL(configuration)
 	if err != nil {
-		log.Fatalln("Cannot connect to database", err)
+		log.Println("Cannot connect to database", err)
 	}
 
 	// Init RabbitMQ
 	conn, ch, err := config.InitRabbitMQ(configuration)
 	if err != nil {
-		log.Fatalln("Cannot connect to RabbitMQ", err)
+		log.Println("Cannot connect to RabbitMQ", err)
 	}
 
 	err = ch.Qos(
@@ -31,7 +31,7 @@ func main() {
 		false, // global
 	)
 	if err != nil {
-		log.Fatalln("Cannot set Qos", err)
+		log.Println("Cannot set Qos", err)
 	}
 
 	fmt.Println("Category todo service is running")

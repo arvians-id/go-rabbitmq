@@ -10,6 +10,7 @@ import (
 	"github.com/gofiber/fiber/v2"
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
+	"golang.org/x/crypto/bcrypt"
 	"log"
 	"net/http"
 	"net/http/httptest"
@@ -26,12 +27,10 @@ var _ = Describe("User", func() {
 	}
 
 	// Init Rabbit MQ
-	conn, ch, err := config.InitRabbitMQ(configuration)
+	_, ch, err := config.InitRabbitMQ(configuration)
 	if err != nil {
-		log.Fatalln(err)
+		log.Fatalln("There is something wrong with the rabbit mq", err)
 	}
-	defer conn.Close()
-	defer ch.Close()
 
 	// Init Server
 	server, err = api.NewRoutes(configuration, file, ch)
@@ -65,7 +64,7 @@ var _ = Describe("User", func() {
 
 		When("The value of the data users isn't null", func() {
 			It("Should return a success message upon successfully find all users", func() {
-				bodyRequest := strings.NewReader(`{"name": "widdy","email": "widdy@gmail.com"}`)
+				bodyRequest := strings.NewReader(`{"name": "widdy","email": "widdy@gmail.com","password": "widdy123"}`)
 				req := httptest.NewRequest(http.MethodPost, "/api/users", bodyRequest)
 				req.Header.Add("Content-Type", "application/json")
 				resp, err := server.Test(req)
@@ -105,7 +104,7 @@ var _ = Describe("User", func() {
 
 		When("The value of the data user isn't null", func() {
 			It("Should return a success message upon successfully find user by id", func() {
-				bodyRequest := strings.NewReader(`{"name": "widdy","email": "widdy@gmail.com"}`)
+				bodyRequest := strings.NewReader(`{"name": "widdy","email": "widdy@gmail.com","password": "widdy123"}`)
 				req := httptest.NewRequest(http.MethodPost, "/api/users", bodyRequest)
 				req.Header.Add("Content-Type", "application/json")
 				resp, err := server.Test(req)
@@ -136,7 +135,7 @@ var _ = Describe("User", func() {
 		Context("The data in the create user request is invalid", func() {
 			When("The field name is blank", func() {
 				It("Should throw a validation error in request with message 'bad request' on the 'name' field", func() {
-					bodyRequest := strings.NewReader(`{"email": "widdy@gmail.com"}`)
+					bodyRequest := strings.NewReader(`{"email": "widdy@gmail.com","password": "widdy123"}`)
 					req := httptest.NewRequest(http.MethodPost, "/api/users", bodyRequest)
 					req.Header.Add("Content-Type", "application/json")
 					resp, err := server.Test(req)
@@ -154,7 +153,7 @@ var _ = Describe("User", func() {
 
 			When("The field email is blank", func() {
 				It("Should throw a validation error in request with message 'bad request' on the 'email' field", func() {
-					bodyRequest := strings.NewReader(`{"name": "Widdy Tampan"}`)
+					bodyRequest := strings.NewReader(`{"name": "Widdy Tampan","password": "widdy123"}`)
 					req := httptest.NewRequest(http.MethodPost, "/api/users", bodyRequest)
 					req.Header.Add("Content-Type", "application/json")
 					resp, err := server.Test(req)
@@ -170,9 +169,27 @@ var _ = Describe("User", func() {
 				})
 			})
 
+			When("The field password is blank", func() {
+				It("Should throw a validation error in request with message 'bad request' on the 'password' field", func() {
+					bodyRequest := strings.NewReader(`{"name": "Widdy Tampan","email": "widdy@gmail.com"}`)
+					req := httptest.NewRequest(http.MethodPost, "/api/users", bodyRequest)
+					req.Header.Add("Content-Type", "application/json")
+					resp, err := server.Test(req)
+					Expect(err).NotTo(HaveOccurred())
+
+					responseBody := map[string]interface{}{}
+					err = json.NewDecoder(resp.Body).Decode(&responseBody)
+					Expect(err).NotTo(HaveOccurred())
+
+					Expect(int(responseBody["code"].(float64))).To(Equal(http.StatusBadRequest))
+					Expect(responseBody["status"]).To(Equal("validation error on field:UserCreateRequest.Password"))
+					Expect(responseBody["data"]).To(BeNil())
+				})
+			})
+
 			When("The field email is not valid email", func() {
 				It("Should throw a validation error in request with message 'bad request' on the 'email' field", func() {
-					bodyRequest := strings.NewReader(`{"name": "Widdy Tampan","email": "widdy"}`)
+					bodyRequest := strings.NewReader(`{"name": "Widdy Tampan","email": "widdy","password": "widdy123"}`)
 					req := httptest.NewRequest(http.MethodPost, "/api/users", bodyRequest)
 					req.Header.Add("Content-Type", "application/json")
 					resp, err := server.Test(req)
@@ -191,7 +208,7 @@ var _ = Describe("User", func() {
 
 		When("The data in the create user request is valid", func() {
 			It("Should return a success message upon successfully creating the user", func() {
-				bodyRequest := strings.NewReader(`{"name": "widdy","email": "widdy@gmail.com"}`)
+				bodyRequest := strings.NewReader(`{"name": "widdy","email": "widdy@gmail.com","password": "widdy123"}`)
 				req := httptest.NewRequest(http.MethodPost, "/api/users", bodyRequest)
 				req.Header.Add("Content-Type", "application/json")
 				resp, err := server.Test(req)
@@ -230,7 +247,7 @@ var _ = Describe("User", func() {
 		Context("The data in the update user request is invalid", func() {
 			When("The field name is blank", func() {
 				It("Should throw a validation error in request with message 'bad request' on the 'name' field", func() {
-					bodyRequest := strings.NewReader(`{"name": "widdy","email": "widdy@gmail.com"}`)
+					bodyRequest := strings.NewReader(`{"name": "widdy","email": "widdy@gmail.com","password": "widdy123"}`)
 					req := httptest.NewRequest(http.MethodPost, "/api/users", bodyRequest)
 					req.Header.Add("Content-Type", "application/json")
 					resp, err := server.Test(req)
@@ -261,7 +278,7 @@ var _ = Describe("User", func() {
 
 		When("The data in the update user request is valid", func() {
 			It("Should return a success message upon successfully creating the user", func() {
-				bodyRequest := strings.NewReader(`{"name": "widdy","email": "widdy@gmail.com"}`)
+				bodyRequest := strings.NewReader(`{"name": "widdy","email": "widdy@gmail.com","password": "widdy123"}`)
 				req := httptest.NewRequest(http.MethodPost, "/api/users", bodyRequest)
 				req.Header.Add("Content-Type", "application/json")
 				resp, err := server.Test(req)
@@ -273,7 +290,7 @@ var _ = Describe("User", func() {
 
 				id := int(responseBody["data"].(map[string]interface{})["id"].(float64))
 				target := fmt.Sprintf("/api/users/%d", id)
-				bodyRequest = strings.NewReader(`{"name": "widdtampan"}`)
+				bodyRequest = strings.NewReader(`{"name": "widdtampan","password": "tampan123"}`)
 				req = httptest.NewRequest(http.MethodPatch, target, bodyRequest)
 				req.Header.Add("Content-Type", "application/json")
 				resp, err = server.Test(req)
@@ -283,6 +300,8 @@ var _ = Describe("User", func() {
 				err = json.NewDecoder(resp.Body).Decode(&responseBody)
 				Expect(err).NotTo(HaveOccurred())
 
+				err = bcrypt.CompareHashAndPassword([]byte(responseBody["data"].(map[string]interface{})["password"].(string)), []byte("tampan123"))
+				Expect(err).NotTo(HaveOccurred())
 				Expect(int(responseBody["code"].(float64))).To(Equal(http.StatusOK))
 				Expect(responseBody["status"]).To(Equal("updated"))
 				Expect(responseBody["data"].(map[string]interface{})["name"]).To(Equal("widdtampan"))
@@ -309,7 +328,7 @@ var _ = Describe("User", func() {
 
 		When("The value of the data user isn't null", func() {
 			It("Should return a success message upon successfully deleted", func() {
-				bodyRequest := strings.NewReader(`{"name": "widdy","email": "widdy@gmail.com"}`)
+				bodyRequest := strings.NewReader(`{"name": "widdy","email": "widdy@gmail.com","password": "widdy123"}`)
 				req := httptest.NewRequest(http.MethodPost, "/api/users", bodyRequest)
 				req.Header.Add("Content-Type", "application/json")
 				resp, err := server.Test(req)

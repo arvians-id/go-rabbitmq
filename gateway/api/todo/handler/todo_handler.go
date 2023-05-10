@@ -168,6 +168,20 @@ func (handler *TodoHandler) Update(c *fiber.Ctx) error {
 		return fiber.NewError(fiber.StatusInternalServerError, err.Error())
 	}
 
+	err = handler.publish(c.Context(), "todo.updated", &dto.DisplayTodoWithCategoriesIDResponse{
+		CategoriesID: todoRequest.Categories,
+		Id:           todoUpdated.GetTodo().GetId(),
+		Title:        todoUpdated.GetTodo().GetTitle(),
+		Description:  todoUpdated.GetTodo().GetDescription(),
+		IsDone:       proto.Bool(todoUpdated.GetTodo().GetIsDone()),
+		UserId:       todoUpdated.GetTodo().GetUserId(),
+		CreatedAt:    todoUpdated.GetTodo().GetCreatedAt().AsTime(),
+		UpdatedAt:    todoUpdated.GetTodo().GetUpdatedAt().AsTime(),
+	})
+	if err != nil {
+		return fiber.NewError(fiber.StatusInternalServerError, err.Error())
+	}
+
 	return response.ReturnSuccess(c, fiber.StatusOK, "updated", todoUpdated.GetTodo())
 }
 

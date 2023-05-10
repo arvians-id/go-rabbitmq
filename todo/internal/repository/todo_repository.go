@@ -62,7 +62,7 @@ func (repository *TodoRepository) FindByID(ctx context.Context, id int64) (*mode
 	ctxTracer, span := otel.Tracer(config.ServiceTrace).Start(ctx, "repository.TodoService/Repository/FindByID")
 	defer span.End()
 
-	query := `SELECT t.id, t.title, t.description, t.is_done, t.user_id, STRING_AGG(c.name, ',') as categories, t.created_at, t.updated_at
+	query := `SELECT t.id, t.title, t.description, t.is_done, t.user_id, COALESCE(STRING_AGG(c.name, ', '), '') as categories, t.created_at, t.updated_at
 			  FROM todos t
 			  LEFT JOIN category_todo ct ON t.id = ct.todo_id
 			  LEFT JOIN categories c ON c.id = ct.category_id

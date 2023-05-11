@@ -10,7 +10,6 @@ import (
 	"github.com/gofiber/fiber/v2"
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
-	"golang.org/x/crypto/bcrypt"
 	"log"
 	"net/http"
 	"net/http/httptest"
@@ -277,7 +276,7 @@ var _ = Describe("User", func() {
 		})
 
 		When("The data in the update user request is valid", func() {
-			It("Should return a success message upon successfully creating the user", func() {
+			It("Should return a success message upon successfully updating the user", func() {
 				bodyRequest := strings.NewReader(`{"name": "widdy","email": "widdy@gmail.com","password": "widdy123"}`)
 				req := httptest.NewRequest(http.MethodPost, "/api/users", bodyRequest)
 				req.Header.Add("Content-Type", "application/json")
@@ -300,8 +299,6 @@ var _ = Describe("User", func() {
 				err = json.NewDecoder(resp.Body).Decode(&responseBody)
 				Expect(err).NotTo(HaveOccurred())
 
-				err = bcrypt.CompareHashAndPassword([]byte(responseBody["data"].(map[string]interface{})["password"].(string)), []byte("tampan123"))
-				Expect(err).NotTo(HaveOccurred())
 				Expect(int(responseBody["code"].(float64))).To(Equal(http.StatusOK))
 				Expect(responseBody["status"]).To(Equal("updated"))
 				Expect(responseBody["data"].(map[string]interface{})["name"]).To(Equal("widdtampan"))

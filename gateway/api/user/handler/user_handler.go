@@ -14,8 +14,6 @@ import (
 	"google.golang.org/protobuf/types/known/emptypb"
 )
 
-const name = "gateway"
-
 type UserHandler struct {
 	UserService services.UserServiceContract
 	RabbitMQ    *amqp091.Channel
@@ -34,7 +32,18 @@ func (handler *UserHandler) FindAll(c *fiber.Ctx) error {
 		return fiber.NewError(fiber.StatusInternalServerError, err.Error())
 	}
 
-	return response.ReturnSuccess(c, fiber.StatusOK, "OK", users.GetUsers())
+	var data []pb.User
+	for _, user := range users.GetUsers() {
+		data = append(data, pb.User{
+			Id:        user.GetId(),
+			Name:      user.GetName(),
+			Email:     user.GetEmail(),
+			CreatedAt: user.GetCreatedAt(),
+			UpdatedAt: user.GetUpdatedAt(),
+		})
+	}
+
+	return response.ReturnSuccess(c, fiber.StatusOK, "OK", data)
 }
 
 func (handler *UserHandler) FindByID(c *fiber.Ctx) error {
@@ -53,7 +62,13 @@ func (handler *UserHandler) FindByID(c *fiber.Ctx) error {
 		return fiber.NewError(fiber.StatusInternalServerError, err.Error())
 	}
 
-	return response.ReturnSuccess(c, fiber.StatusOK, "OK", user.GetUser())
+	return response.ReturnSuccess(c, fiber.StatusOK, "OK", &pb.User{
+		Id:        user.GetUser().GetId(),
+		Name:      user.GetUser().GetName(),
+		Email:     user.GetUser().GetEmail(),
+		CreatedAt: user.GetUser().GetCreatedAt(),
+		UpdatedAt: user.GetUser().GetUpdatedAt(),
+	})
 }
 
 func (handler *UserHandler) Create(c *fiber.Ctx) error {
@@ -120,7 +135,13 @@ func (handler *UserHandler) Create(c *fiber.Ctx) error {
 		}
 	}()
 
-	return response.ReturnSuccess(c, fiber.StatusCreated, "created", userCreated.GetUser())
+	return response.ReturnSuccess(c, fiber.StatusCreated, "created", &pb.User{
+		Id:        userCreated.GetUser().GetId(),
+		Name:      userCreated.GetUser().GetName(),
+		Email:     userCreated.GetUser().GetEmail(),
+		CreatedAt: userCreated.GetUser().GetCreatedAt(),
+		UpdatedAt: userCreated.GetUser().GetUpdatedAt(),
+	})
 }
 
 func (handler *UserHandler) Update(c *fiber.Ctx) error {
@@ -152,7 +173,13 @@ func (handler *UserHandler) Update(c *fiber.Ctx) error {
 		return fiber.NewError(fiber.StatusInternalServerError, err.Error())
 	}
 
-	return response.ReturnSuccess(c, fiber.StatusOK, "updated", userUpdated.GetUser())
+	return response.ReturnSuccess(c, fiber.StatusOK, "updated", &pb.User{
+		Id:        userUpdated.GetUser().GetId(),
+		Name:      userUpdated.GetUser().GetName(),
+		Email:     userUpdated.GetUser().GetEmail(),
+		CreatedAt: userUpdated.GetUser().GetCreatedAt(),
+		UpdatedAt: userUpdated.GetUser().GetUpdatedAt(),
+	})
 }
 
 func (handler *UserHandler) Delete(c *fiber.Ctx) error {

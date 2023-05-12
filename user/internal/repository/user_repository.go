@@ -12,6 +12,7 @@ import (
 type UserRepositoryContract interface {
 	FindAll(ctx context.Context) ([]*model.User, error)
 	FindByID(ctx context.Context, id int64) (*model.User, error)
+	FindByEmail(ctx context.Context, email string) (*model.User, error)
 	Create(ctx context.Context, user *model.User) (*model.User, error)
 	Update(ctx context.Context, user *model.User) (*model.User, error)
 	Delete(ctx context.Context, id int64) error
@@ -60,6 +61,23 @@ func (repository *UserRepository) FindByID(ctx context.Context, id int64) (*mode
 
 	query := `SELECT * FROM users WHERE id = $1`
 	row := repository.DB.QueryRowContext(ctxTracer, query, id)
+
+	var user model.User
+	err := row.Scan(&user.Id, &user.Name, &user.Email, &user.Password, &user.CreatedAt, &user.UpdatedAt)
+	if err != nil {
+		span.RecordError(err)
+		return nil, err
+	}
+
+	return &user, nil
+}
+
+func (repository *UserRepository) FindByEmail(ctx context.Context, email string) (*model.User, error) {
+	ctxTracer, span := otel.Tracer(config.ServiceTrace).Start(ctx, "repository.UserService/Repository/FindByEmail")
+	defer span.End()
+
+	query := `SELECT * FROM users WHERE email = $1`
+	row := repository.DB.QueryRowContext(ctxTracer, query, email)
 
 	var user model.User
 	err := row.Scan(&user.Id, &user.Name, &user.Email, &user.Password, &user.CreatedAt, &user.UpdatedAt)

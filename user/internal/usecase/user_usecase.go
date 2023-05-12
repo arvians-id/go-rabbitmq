@@ -2,6 +2,7 @@ package usecase
 
 import (
 	"context"
+	"errors"
 	"golang.org/x/crypto/bcrypt"
 	"time"
 
@@ -42,6 +43,22 @@ func (usecase *UserUsecase) FindByID(ctx context.Context, req *pb.GetUserByIDReq
 	user, err := usecase.UserRepository.FindByID(ctx, req.Id)
 	if err != nil {
 		return nil, err
+	}
+
+	return &pb.GetUserResponse{
+		User: user.ToPB(),
+	}, nil
+}
+
+func (usecase *UserUsecase) ValidateLogin(ctx context.Context, req *pb.GetValidateLoginRequest) (*pb.GetUserResponse, error) {
+	user, err := usecase.UserRepository.FindByEmail(ctx, req.Email)
+	if err != nil {
+		return nil, err
+	}
+
+	err = bcrypt.CompareHashAndPassword([]byte(user.Password), []byte(req.Password))
+	if err != nil {
+		return nil, errors.New("invalid password")
 	}
 
 	return &pb.GetUserResponse{

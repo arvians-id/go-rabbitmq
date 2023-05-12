@@ -25,6 +25,7 @@ const _ = grpc.SupportPackageIsVersion7
 type UserServiceClient interface {
 	FindAll(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*ListUserResponse, error)
 	FindByID(ctx context.Context, in *GetUserByIDRequest, opts ...grpc.CallOption) (*GetUserResponse, error)
+	ValidateLogin(ctx context.Context, in *GetValidateLoginRequest, opts ...grpc.CallOption) (*GetUserResponse, error)
 	Create(ctx context.Context, in *CreateUserRequest, opts ...grpc.CallOption) (*GetUserResponse, error)
 	Update(ctx context.Context, in *UpdateUserRequest, opts ...grpc.CallOption) (*GetUserResponse, error)
 	Delete(ctx context.Context, in *GetUserByIDRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
@@ -50,6 +51,15 @@ func (c *userServiceClient) FindAll(ctx context.Context, in *emptypb.Empty, opts
 func (c *userServiceClient) FindByID(ctx context.Context, in *GetUserByIDRequest, opts ...grpc.CallOption) (*GetUserResponse, error) {
 	out := new(GetUserResponse)
 	err := c.cc.Invoke(ctx, "/proto.UserService/FindByID", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *userServiceClient) ValidateLogin(ctx context.Context, in *GetValidateLoginRequest, opts ...grpc.CallOption) (*GetUserResponse, error) {
+	out := new(GetUserResponse)
+	err := c.cc.Invoke(ctx, "/proto.UserService/ValidateLogin", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -89,6 +99,7 @@ func (c *userServiceClient) Delete(ctx context.Context, in *GetUserByIDRequest, 
 type UserServiceServer interface {
 	FindAll(context.Context, *emptypb.Empty) (*ListUserResponse, error)
 	FindByID(context.Context, *GetUserByIDRequest) (*GetUserResponse, error)
+	ValidateLogin(context.Context, *GetValidateLoginRequest) (*GetUserResponse, error)
 	Create(context.Context, *CreateUserRequest) (*GetUserResponse, error)
 	Update(context.Context, *UpdateUserRequest) (*GetUserResponse, error)
 	Delete(context.Context, *GetUserByIDRequest) (*emptypb.Empty, error)
@@ -104,6 +115,9 @@ func (UnimplementedUserServiceServer) FindAll(context.Context, *emptypb.Empty) (
 }
 func (UnimplementedUserServiceServer) FindByID(context.Context, *GetUserByIDRequest) (*GetUserResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method FindByID not implemented")
+}
+func (UnimplementedUserServiceServer) ValidateLogin(context.Context, *GetValidateLoginRequest) (*GetUserResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ValidateLogin not implemented")
 }
 func (UnimplementedUserServiceServer) Create(context.Context, *CreateUserRequest) (*GetUserResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
@@ -159,6 +173,24 @@ func _UserService_FindByID_Handler(srv interface{}, ctx context.Context, dec fun
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(UserServiceServer).FindByID(ctx, req.(*GetUserByIDRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UserService_ValidateLogin_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetValidateLoginRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UserServiceServer).ValidateLogin(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/proto.UserService/ValidateLogin",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UserServiceServer).ValidateLogin(ctx, req.(*GetValidateLoginRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -231,6 +263,10 @@ var UserService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "FindByID",
 			Handler:    _UserService_FindByID_Handler,
+		},
+		{
+			MethodName: "ValidateLogin",
+			Handler:    _UserService_ValidateLogin_Handler,
 		},
 		{
 			MethodName: "Create",

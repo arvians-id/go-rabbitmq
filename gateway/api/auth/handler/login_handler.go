@@ -106,6 +106,11 @@ func (handler *LoginHandler) Login(c *fiber.Ctx) error {
 		return fiber.NewError(fiber.StatusBadRequest, err.Error())
 	}
 
+	err = helper.ValidateStruct(requestLogin)
+	if err != nil {
+		return fiber.NewError(fiber.StatusBadRequest, err.Error())
+	}
+
 	user, err := handler.UserService.ValidateLogin(c.Context(), &pb.GetValidateLoginRequest{
 		Email:    requestLogin.Email,
 		Password: requestLogin.Password,
@@ -117,7 +122,7 @@ func (handler *LoginHandler) Login(c *fiber.Ctx) error {
 	claims := jwt.Claims(jwt.MapClaims{
 		"id":    user.GetUser().GetId(),
 		"email": user.GetUser().GetEmail(),
-		"exp":   time.Now().Add(time.Hour * 72).Unix(),
+		"exp":   time.Now().Add(time.Hour * 1).Unix(),
 	})
 
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)

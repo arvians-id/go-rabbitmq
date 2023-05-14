@@ -19,6 +19,7 @@ import (
 
 var _ = Describe("Category", func() {
 	var server *fiber.App
+	var jwtHeader string
 	configuration := config.New("../../.env")
 	file, err := os.OpenFile("../../logs/test.log", os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
 	if err != nil {
@@ -37,6 +38,30 @@ var _ = Describe("Category", func() {
 		log.Fatalln("There is something wrong with the server", err)
 	}
 
+	BeforeEach(func() {
+		bodyRequest := strings.NewReader(`{"name": "Widdy","email": "widdy@gmail.com","password": "widdy123"}`)
+		req := httptest.NewRequest(http.MethodPost, "/register", bodyRequest)
+		req.Header.Add("Content-Type", "application/json")
+		resp, err := server.Test(req)
+		Expect(err).NotTo(HaveOccurred())
+
+		bodyRequest = strings.NewReader(`{"email": "widdy@gmail.com","password": "widdy123"}`)
+		req = httptest.NewRequest(http.MethodPost, "/login", bodyRequest)
+		req.Header.Add("Content-Type", "application/json")
+		resp, err = server.Test(req)
+		Expect(err).NotTo(HaveOccurred())
+
+		responseBody := map[string]interface{}{}
+		err = json.NewDecoder(resp.Body).Decode(&responseBody)
+		Expect(err).NotTo(HaveOccurred())
+
+		Expect(int(responseBody["code"].(float64))).To(Equal(http.StatusOK))
+		Expect(responseBody["status"]).To(Equal("OK"))
+		Expect(responseBody["data"].(map[string]interface{})["access_token"]).ToNot(BeNil())
+
+		jwtHeader = fmt.Sprintf("Bearer %s", responseBody["data"].(map[string]interface{})["access_token"].(string))
+	})
+
 	AfterEach(func() {
 		err = setup.TearDownTest(configuration)
 		if err != nil {
@@ -48,6 +73,8 @@ var _ = Describe("Category", func() {
 		When("The value of the data category is null", func() {
 			It("Should return success with null data", func() {
 				req := httptest.NewRequest(http.MethodGet, "/api/categories", nil)
+				req.Header.Add("Content-Type", "application/json")
+				req.Header.Add("Authorization", jwtHeader)
 				resp, err := server.Test(req)
 				Expect(err).NotTo(HaveOccurred())
 
@@ -66,10 +93,13 @@ var _ = Describe("Category", func() {
 				bodyRequest := strings.NewReader(`{"name": "Belajar Bahasa Pemrograman"}`)
 				req := httptest.NewRequest(http.MethodPost, "/api/categories", bodyRequest)
 				req.Header.Add("Content-Type", "application/json")
+				req.Header.Add("Authorization", jwtHeader)
 				resp, err := server.Test(req)
 				Expect(err).NotTo(HaveOccurred())
 
 				req = httptest.NewRequest(http.MethodGet, "/api/categories", nil)
+				req.Header.Add("Content-Type", "application/json")
+				req.Header.Add("Authorization", jwtHeader)
 				resp, err = server.Test(req)
 				Expect(err).NotTo(HaveOccurred())
 
@@ -88,6 +118,8 @@ var _ = Describe("Category", func() {
 		When("The value of the data category is null", func() {
 			It("Should throw an error not found", func() {
 				req := httptest.NewRequest(http.MethodGet, "/api/categories/1", nil)
+				req.Header.Add("Content-Type", "application/json")
+				req.Header.Add("Authorization", jwtHeader)
 				resp, err := server.Test(req)
 				Expect(err).NotTo(HaveOccurred())
 
@@ -106,6 +138,7 @@ var _ = Describe("Category", func() {
 				bodyRequest := strings.NewReader(`{"name": "Belajar Bahasa Pemrograman"}`)
 				req := httptest.NewRequest(http.MethodPost, "/api/categories", bodyRequest)
 				req.Header.Add("Content-Type", "application/json")
+				req.Header.Add("Authorization", jwtHeader)
 				resp, err := server.Test(req)
 				Expect(err).NotTo(HaveOccurred())
 
@@ -116,6 +149,8 @@ var _ = Describe("Category", func() {
 				id := int(responseBody["data"].(map[string]interface{})["id"].(float64))
 				target := fmt.Sprintf("/api/categories/%d", id)
 				req = httptest.NewRequest(http.MethodGet, target, nil)
+				req.Header.Add("Content-Type", "application/json")
+				req.Header.Add("Authorization", jwtHeader)
 				resp, err = server.Test(req)
 				Expect(err).NotTo(HaveOccurred())
 
@@ -137,6 +172,7 @@ var _ = Describe("Category", func() {
 					bodyRequest := strings.NewReader(`{}`)
 					req := httptest.NewRequest(http.MethodPost, "/api/categories", bodyRequest)
 					req.Header.Add("Content-Type", "application/json")
+					req.Header.Add("Authorization", jwtHeader)
 					resp, err := server.Test(req)
 					Expect(err).NotTo(HaveOccurred())
 
@@ -156,6 +192,7 @@ var _ = Describe("Category", func() {
 				bodyRequest := strings.NewReader(`{"name": "Belajar Bahasa Pemrograman"}`)
 				req := httptest.NewRequest(http.MethodPost, "/api/categories", bodyRequest)
 				req.Header.Add("Content-Type", "application/json")
+				req.Header.Add("Authorization", jwtHeader)
 				resp, err := server.Test(req)
 				Expect(err).NotTo(HaveOccurred())
 
@@ -174,6 +211,8 @@ var _ = Describe("Category", func() {
 		When("The value of the data category is null", func() {
 			It("Should throw an error not found", func() {
 				req := httptest.NewRequest(http.MethodDelete, "/api/categories/1", nil)
+				req.Header.Add("Content-Type", "application/json")
+				req.Header.Add("Authorization", jwtHeader)
 				resp, err := server.Test(req)
 				Expect(err).NotTo(HaveOccurred())
 
@@ -192,6 +231,7 @@ var _ = Describe("Category", func() {
 				bodyRequest := strings.NewReader(`{"name": "Belajar Bahasa Pemrograman"}`)
 				req := httptest.NewRequest(http.MethodPost, "/api/categories", bodyRequest)
 				req.Header.Add("Content-Type", "application/json")
+				req.Header.Add("Authorization", jwtHeader)
 				resp, err := server.Test(req)
 				Expect(err).NotTo(HaveOccurred())
 
@@ -202,6 +242,8 @@ var _ = Describe("Category", func() {
 				id := int(responseBody["data"].(map[string]interface{})["id"].(float64))
 				target := fmt.Sprintf("/api/categories/%d", id)
 				req = httptest.NewRequest(http.MethodDelete, target, nil)
+				req.Header.Add("Content-Type", "application/json")
+				req.Header.Add("Authorization", jwtHeader)
 				resp, err = server.Test(req)
 				Expect(err).NotTo(HaveOccurred())
 

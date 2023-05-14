@@ -21,6 +21,7 @@ var _ = Describe("Todo", func() {
 	var server *fiber.App
 	var user map[string]interface{}
 	var category map[string]interface{}
+	var jwtHeader string
 	configuration := config.New("../../.env")
 	file, err := os.OpenFile("../../logs/test.log", os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
 	if err != nil {
@@ -40,24 +41,41 @@ var _ = Describe("Todo", func() {
 	}
 
 	BeforeEach(func() {
-		bodyRequest := strings.NewReader(`{"name": "Belajar Bahasa Pemrograman"}`)
-		req := httptest.NewRequest(http.MethodPost, "/api/categories", bodyRequest)
+		bodyRequest := strings.NewReader(`{"name": "Widdy","email": "widdy@gmail.com","password": "widdy123"}`)
+		req := httptest.NewRequest(http.MethodPost, "/register", bodyRequest)
 		req.Header.Add("Content-Type", "application/json")
 		resp, err := server.Test(req)
 		Expect(err).NotTo(HaveOccurred())
 
-		responseBodyCategory := map[string]interface{}{}
-		err = json.NewDecoder(resp.Body).Decode(&responseBodyCategory)
+		responseBodyUser := map[string]interface{}{}
+		err = json.NewDecoder(resp.Body).Decode(&responseBodyUser)
 		Expect(err).NotTo(HaveOccurred())
 
-		bodyRequest = strings.NewReader(`{"name": "widdy","email": "widdy@gmail.com","password": "widdy123"}`)
-		req = httptest.NewRequest(http.MethodPost, "/api/users", bodyRequest)
+		bodyRequest = strings.NewReader(`{"email": "widdy@gmail.com","password": "widdy123"}`)
+		req = httptest.NewRequest(http.MethodPost, "/login", bodyRequest)
 		req.Header.Add("Content-Type", "application/json")
 		resp, err = server.Test(req)
 		Expect(err).NotTo(HaveOccurred())
 
-		responseBodyUser := map[string]interface{}{}
-		err = json.NewDecoder(resp.Body).Decode(&responseBodyUser)
+		responseBody := map[string]interface{}{}
+		err = json.NewDecoder(resp.Body).Decode(&responseBody)
+		Expect(err).NotTo(HaveOccurred())
+
+		Expect(int(responseBody["code"].(float64))).To(Equal(http.StatusOK))
+		Expect(responseBody["status"]).To(Equal("OK"))
+		Expect(responseBody["data"].(map[string]interface{})["access_token"]).ToNot(BeNil())
+
+		jwtHeader = fmt.Sprintf("Bearer %s", responseBody["data"].(map[string]interface{})["access_token"].(string))
+
+		bodyRequest = strings.NewReader(`{"name": "Belajar Bahasa Pemrograman"}`)
+		req = httptest.NewRequest(http.MethodPost, "/api/categories", bodyRequest)
+		req.Header.Add("Content-Type", "application/json")
+		req.Header.Add("Authorization", jwtHeader)
+		resp, err = server.Test(req)
+		Expect(err).NotTo(HaveOccurred())
+
+		responseBodyCategory := map[string]interface{}{}
+		err = json.NewDecoder(resp.Body).Decode(&responseBodyCategory)
 		Expect(err).NotTo(HaveOccurred())
 
 		user = responseBodyUser["data"].(map[string]interface{})
@@ -75,6 +93,8 @@ var _ = Describe("Todo", func() {
 		When("The value of the data todos is null", func() {
 			It("Should return success with null data", func() {
 				req := httptest.NewRequest(http.MethodGet, "/api/todos", nil)
+				req.Header.Add("Content-Type", "application/json")
+				req.Header.Add("Authorization", jwtHeader)
 				resp, err := server.Test(req)
 				Expect(err).NotTo(HaveOccurred())
 
@@ -95,10 +115,13 @@ var _ = Describe("Todo", func() {
 				bodyRequest := strings.NewReader(`{"title": "This is first todo","description": "Lorem ipsum","user_id": ` + idUser + `,"categories": ` + idCategory + `}`)
 				req := httptest.NewRequest(http.MethodPost, "/api/todos", bodyRequest)
 				req.Header.Add("Content-Type", "application/json")
+				req.Header.Add("Authorization", jwtHeader)
 				resp, err := server.Test(req)
 				Expect(err).NotTo(HaveOccurred())
 
 				req = httptest.NewRequest(http.MethodGet, "/api/todos", nil)
+				req.Header.Add("Content-Type", "application/json")
+				req.Header.Add("Authorization", jwtHeader)
 				resp, err = server.Test(req)
 				Expect(err).NotTo(HaveOccurred())
 
@@ -119,6 +142,8 @@ var _ = Describe("Todo", func() {
 		When("The value of the data todo is null", func() {
 			It("Should throw an error not found", func() {
 				req := httptest.NewRequest(http.MethodGet, "/api/todos/1", nil)
+				req.Header.Add("Content-Type", "application/json")
+				req.Header.Add("Authorization", jwtHeader)
 				resp, err := server.Test(req)
 				Expect(err).NotTo(HaveOccurred())
 
@@ -139,6 +164,8 @@ var _ = Describe("Todo", func() {
 				bodyRequest := strings.NewReader(`{"title": "This is first todo","description": "Lorem ipsum","user_id": ` + idUser + `,"categories": ` + idCategory + `}`)
 				req := httptest.NewRequest(http.MethodPost, "/api/todos", bodyRequest)
 				req.Header.Add("Content-Type", "application/json")
+				req.Header.Add("Authorization", jwtHeader)
+				req.Header.Add("Content-Type", "application/json")
 				resp, err := server.Test(req)
 				Expect(err).NotTo(HaveOccurred())
 
@@ -149,6 +176,8 @@ var _ = Describe("Todo", func() {
 				id := int(responseBody["data"].(map[string]interface{})["id"].(float64))
 				target := fmt.Sprintf("/api/todos/%d", id)
 				req = httptest.NewRequest(http.MethodGet, target, nil)
+				req.Header.Add("Content-Type", "application/json")
+				req.Header.Add("Authorization", jwtHeader)
 				resp, err = server.Test(req)
 				Expect(err).NotTo(HaveOccurred())
 
@@ -174,6 +203,7 @@ var _ = Describe("Todo", func() {
 					bodyRequest := strings.NewReader(`{"description": "Lorem ipsum","user_id": ` + idUser + `,"categories": ` + idCategory + `}`)
 					req := httptest.NewRequest(http.MethodPost, "/api/todos", bodyRequest)
 					req.Header.Add("Content-Type", "application/json")
+					req.Header.Add("Authorization", jwtHeader)
 					resp, err := server.Test(req)
 					Expect(err).NotTo(HaveOccurred())
 
@@ -194,6 +224,7 @@ var _ = Describe("Todo", func() {
 					bodyRequest := strings.NewReader(`{"title": "This is first todo","user_id": ` + idUser + `,"categories": ` + idCategory + `}`)
 					req := httptest.NewRequest(http.MethodPost, "/api/todos", bodyRequest)
 					req.Header.Add("Content-Type", "application/json")
+					req.Header.Add("Authorization", jwtHeader)
 					resp, err := server.Test(req)
 					Expect(err).NotTo(HaveOccurred())
 
@@ -213,6 +244,7 @@ var _ = Describe("Todo", func() {
 					bodyRequest := strings.NewReader(`{"title": "This is first todo","description": "Lorem ipsum","user_id": ` + idUser + `}`)
 					req := httptest.NewRequest(http.MethodPost, "/api/todos", bodyRequest)
 					req.Header.Add("Content-Type", "application/json")
+					req.Header.Add("Authorization", jwtHeader)
 					resp, err := server.Test(req)
 					Expect(err).NotTo(HaveOccurred())
 
@@ -232,6 +264,7 @@ var _ = Describe("Todo", func() {
 					bodyRequest := strings.NewReader(`{"title": "This is first todo","description": "Lorem ipsum","categories": ` + idCategory + `}`)
 					req := httptest.NewRequest(http.MethodPost, "/api/todos", bodyRequest)
 					req.Header.Add("Content-Type", "application/json")
+					req.Header.Add("Authorization", jwtHeader)
 					resp, err := server.Test(req)
 					Expect(err).NotTo(HaveOccurred())
 
@@ -253,6 +286,7 @@ var _ = Describe("Todo", func() {
 				bodyRequest := strings.NewReader(`{"title": "This is first todo","description": "Lorem ipsum","user_id": ` + idUser + `,"categories": ` + idCategory + `}`)
 				req := httptest.NewRequest(http.MethodPost, "/api/todos", bodyRequest)
 				req.Header.Add("Content-Type", "application/json")
+				req.Header.Add("Authorization", jwtHeader)
 				resp, err := server.Test(req)
 				Expect(err).NotTo(HaveOccurred())
 
@@ -277,6 +311,7 @@ var _ = Describe("Todo", func() {
 				bodyRequest := strings.NewReader(`{"title": "This is first todo","description": "Lorem ipsum","user_id": ` + idUser + `,"categories": ` + idCategory + `}`)
 				req := httptest.NewRequest(http.MethodPatch, "/api/todos/1", bodyRequest)
 				req.Header.Add("Content-Type", "application/json")
+				req.Header.Add("Authorization", jwtHeader)
 				resp, err := server.Test(req)
 				Expect(err).NotTo(HaveOccurred())
 
@@ -298,6 +333,7 @@ var _ = Describe("Todo", func() {
 					bodyRequest := strings.NewReader(`{"title": "This is first todo","description": "Lorem ipsum","user_id": ` + idUser + `,"categories": ` + idCategory + `}`)
 					req := httptest.NewRequest(http.MethodPost, "/api/todos", bodyRequest)
 					req.Header.Add("Content-Type", "application/json")
+					req.Header.Add("Authorization", jwtHeader)
 					resp, err := server.Test(req)
 					Expect(err).NotTo(HaveOccurred())
 
@@ -310,6 +346,7 @@ var _ = Describe("Todo", func() {
 					bodyRequest = strings.NewReader(`{"description": "Lorem ipsum","user_id": ` + idUser + `,"categories": ` + idCategory + `}`)
 					req = httptest.NewRequest(http.MethodPatch, target, bodyRequest)
 					req.Header.Add("Content-Type", "application/json")
+					req.Header.Add("Authorization", jwtHeader)
 					resp, err = server.Test(req)
 					Expect(err).NotTo(HaveOccurred())
 
@@ -330,6 +367,7 @@ var _ = Describe("Todo", func() {
 					bodyRequest := strings.NewReader(`{"title": "This is first todo","description": "Lorem ipsum","user_id": ` + idUser + `,"categories": ` + idCategory + `}`)
 					req := httptest.NewRequest(http.MethodPost, "/api/todos", bodyRequest)
 					req.Header.Add("Content-Type", "application/json")
+					req.Header.Add("Authorization", jwtHeader)
 					resp, err := server.Test(req)
 					Expect(err).NotTo(HaveOccurred())
 
@@ -342,6 +380,7 @@ var _ = Describe("Todo", func() {
 					bodyRequest = strings.NewReader(`{"title": "This is first todo","description": "Lorem ipsum","user_id": ` + idUser + `}`)
 					req = httptest.NewRequest(http.MethodPatch, target, bodyRequest)
 					req.Header.Add("Content-Type", "application/json")
+					req.Header.Add("Authorization", jwtHeader)
 					resp, err = server.Test(req)
 					Expect(err).NotTo(HaveOccurred())
 
@@ -362,6 +401,7 @@ var _ = Describe("Todo", func() {
 					bodyRequest := strings.NewReader(`{"title": "This is first todo","description": "Lorem ipsum","user_id": ` + idUser + `,"categories": ` + idCategory + `}`)
 					req := httptest.NewRequest(http.MethodPost, "/api/todos", bodyRequest)
 					req.Header.Add("Content-Type", "application/json")
+					req.Header.Add("Authorization", jwtHeader)
 					resp, err := server.Test(req)
 					Expect(err).NotTo(HaveOccurred())
 
@@ -374,6 +414,7 @@ var _ = Describe("Todo", func() {
 					bodyRequest = strings.NewReader(`{"title": "This is first todo","user_id": ` + idUser + `,"categories": ` + idCategory + `}`)
 					req = httptest.NewRequest(http.MethodPatch, target, bodyRequest)
 					req.Header.Add("Content-Type", "application/json")
+					req.Header.Add("Authorization", jwtHeader)
 					resp, err = server.Test(req)
 					Expect(err).NotTo(HaveOccurred())
 
@@ -394,6 +435,7 @@ var _ = Describe("Todo", func() {
 					bodyRequest := strings.NewReader(`{"title": "This is first todo","description": "Lorem ipsum","user_id": ` + idUser + `,"categories": ` + idCategory + `}`)
 					req := httptest.NewRequest(http.MethodPost, "/api/todos", bodyRequest)
 					req.Header.Add("Content-Type", "application/json")
+					req.Header.Add("Authorization", jwtHeader)
 					resp, err := server.Test(req)
 					Expect(err).NotTo(HaveOccurred())
 
@@ -406,6 +448,7 @@ var _ = Describe("Todo", func() {
 					bodyRequest = strings.NewReader(`{"title": "This is first todo","description": "Lorem ipsum","categories": ` + idCategory + `}`)
 					req = httptest.NewRequest(http.MethodPatch, target, bodyRequest)
 					req.Header.Add("Content-Type", "application/json")
+					req.Header.Add("Authorization", jwtHeader)
 					resp, err = server.Test(req)
 					Expect(err).NotTo(HaveOccurred())
 
@@ -426,6 +469,7 @@ var _ = Describe("Todo", func() {
 					bodyRequest := strings.NewReader(`{"name": "sitampan","email": "sitampan@gmail.com","password": "widdy123"}`)
 					req := httptest.NewRequest(http.MethodPost, "/api/users", bodyRequest)
 					req.Header.Add("Content-Type", "application/json")
+					req.Header.Add("Authorization", jwtHeader)
 					resp, err := server.Test(req)
 					Expect(err).NotTo(HaveOccurred())
 
@@ -439,6 +483,7 @@ var _ = Describe("Todo", func() {
 					bodyRequest = strings.NewReader(`{"title": "This is first todo","description": "Lorem ipsum","user_id": ` + idUser + `,"categories": ` + idCategory + `}`)
 					req = httptest.NewRequest(http.MethodPost, "/api/todos", bodyRequest)
 					req.Header.Add("Content-Type", "application/json")
+					req.Header.Add("Authorization", jwtHeader)
 					resp, err = server.Test(req)
 					Expect(err).NotTo(HaveOccurred())
 
@@ -449,6 +494,7 @@ var _ = Describe("Todo", func() {
 					bodyRequest = strings.NewReader(`{"name": "Belajar Backend"}`)
 					req = httptest.NewRequest(http.MethodPost, "/api/categories", bodyRequest)
 					req.Header.Add("Content-Type", "application/json")
+					req.Header.Add("Authorization", jwtHeader)
 					resp, err = server.Test(req)
 					Expect(err).NotTo(HaveOccurred())
 
@@ -462,6 +508,7 @@ var _ = Describe("Todo", func() {
 					bodyRequest = strings.NewReader(`{"title": "This is first todo edited","description": "Lorem ipsum edited","user_id": ` + idUserNew + `,"is_done": true,"categories": ` + idCategory + `}`)
 					req = httptest.NewRequest(http.MethodPatch, target, bodyRequest)
 					req.Header.Add("Content-Type", "application/json")
+					req.Header.Add("Authorization", jwtHeader)
 					resp, err = server.Test(req)
 					Expect(err).NotTo(HaveOccurred())
 
@@ -471,6 +518,8 @@ var _ = Describe("Todo", func() {
 
 					target = fmt.Sprintf("/api/todos/%d", id)
 					req = httptest.NewRequest(http.MethodGet, target, nil)
+					req.Header.Add("Content-Type", "application/json")
+					req.Header.Add("Authorization", jwtHeader)
 					resp, err = server.Test(req)
 					Expect(err).NotTo(HaveOccurred())
 
@@ -493,6 +542,8 @@ var _ = Describe("Todo", func() {
 		When("The value of the data todo is null", func() {
 			It("Should throw an error not found", func() {
 				req := httptest.NewRequest(http.MethodDelete, "/api/todos/1", nil)
+				req.Header.Add("Content-Type", "application/json")
+				req.Header.Add("Authorization", jwtHeader)
 				resp, err := server.Test(req)
 				Expect(err).NotTo(HaveOccurred())
 
@@ -513,6 +564,7 @@ var _ = Describe("Todo", func() {
 				bodyRequest := strings.NewReader(`{"title": "This is first todo","description": "Lorem ipsum","user_id": ` + idUser + `,"categories": ` + idCategory + `}`)
 				req := httptest.NewRequest(http.MethodPost, "/api/todos", bodyRequest)
 				req.Header.Add("Content-Type", "application/json")
+				req.Header.Add("Authorization", jwtHeader)
 				resp, err := server.Test(req)
 				Expect(err).NotTo(HaveOccurred())
 
@@ -523,6 +575,8 @@ var _ = Describe("Todo", func() {
 				id := int(responseBody["data"].(map[string]interface{})["id"].(float64))
 				target := fmt.Sprintf("/api/todos/%d", id)
 				req = httptest.NewRequest(http.MethodDelete, target, nil)
+				req.Header.Add("Content-Type", "application/json")
+				req.Header.Add("Authorization", jwtHeader)
 				resp, err = server.Test(req)
 				Expect(err).NotTo(HaveOccurred())
 

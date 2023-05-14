@@ -21,5 +21,7 @@ build:
 	docker build ./category_todo -t arvians/go-todo-category-todo:latest
 	docker build ./category -t arvians/go-todo-category:latest
 
+# If you want to run the test, do not run with docker-compose.yml
+# instead you have to run docker-compose.dev.yml and run all the services manually
 test:
 	ginkgo gateway/tests/integration

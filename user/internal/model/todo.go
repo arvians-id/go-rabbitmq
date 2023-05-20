@@ -3,7 +3,7 @@ package model
 import (
 	"time"
 
-	"github.com/arvians-id/go-rabbitmq/todo/pb"
+	"github.com/arvians-id/go-rabbitmq/user/pb"
 )
 
 type Todo struct {

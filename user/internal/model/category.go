@@ -1,7 +1,7 @@
 package model
 
 import (
-	"github.com/arvians-id/go-rabbitmq/category/pb"
+	"github.com/arvians-id/go-rabbitmq/user/pb"
 	"time"
 )
 
@@ -13,10 +13,16 @@ type Category struct {
 }
 
 func (category *Category) ToPB() *pb.Category {
-	return &pb.Category{
+	categoryData := &pb.Category{
 		Id:        category.Id,
 		Name:      category.Name,
 		CreatedAt: category.CreatedAt.String(),
 		UpdatedAt: category.UpdatedAt.String(),
 	}
+	if category.CreatedAt.IsZero() && category.UpdatedAt.IsZero() {
+		categoryData.CreatedAt = ""
+		categoryData.UpdatedAt = ""
+	}
+
+	return categoryData
 }

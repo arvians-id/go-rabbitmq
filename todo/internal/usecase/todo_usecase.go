@@ -2,13 +2,10 @@ package usecase
 
 import (
 	"context"
-	"github.com/rabbitmq/amqp091-go"
-	"time"
-
-	"github.com/arvians-id/go-rabbitmq/todo/internal/model"
 	"github.com/arvians-id/go-rabbitmq/todo/internal/repository"
 	"github.com/arvians-id/go-rabbitmq/todo/internal/services"
 	"github.com/arvians-id/go-rabbitmq/todo/pb"
+	"github.com/rabbitmq/amqp091-go"
 	"google.golang.org/protobuf/types/known/emptypb"
 )
 
@@ -54,20 +51,14 @@ func (usecase *TodoUsecase) FindByID(ctx context.Context, req *pb.GetTodoByIDReq
 }
 
 func (usecase *TodoUsecase) Create(ctx context.Context, req *pb.CreateTodoRequest) (*pb.GetTodoResponse, error) {
-	userCheck, err := usecase.UserService.FindByID(ctx, &pb.GetUserByIDRequest{
+	_, err := usecase.UserService.FindByID(ctx, &pb.GetUserByIDRequest{
 		Id: req.GetUserId(),
 	})
 	if err != nil {
 		return nil, err
 	}
 
-	todoCreated, err := usecase.TodoRepository.Create(ctx, &model.Todo{
-		Title:       req.GetTitle(),
-		Description: req.GetDescription(),
-		UserId:      userCheck.User.GetId(),
-		CreatedAt:   time.Now(),
-		UpdatedAt:   time.Now(),
-	})
+	todoCreated, err := usecase.TodoRepository.Create(ctx, req)
 	if err != nil {
 		return nil, err
 	}
@@ -78,19 +69,12 @@ func (usecase *TodoUsecase) Create(ctx context.Context, req *pb.CreateTodoReques
 }
 
 func (usecase *TodoUsecase) Update(ctx context.Context, req *pb.UpdateTodoRequest) (*pb.GetTodoResponse, error) {
-	todoCheck, err := usecase.TodoRepository.FindByID(ctx, req.Id)
+	_, err := usecase.TodoRepository.FindByID(ctx, req.Id)
 	if err != nil {
 		return nil, err
 	}
 
-	todoUpdated, err := usecase.TodoRepository.Update(ctx, &model.Todo{
-		Id:          todoCheck.Id,
-		Title:       req.GetTitle(),
-		Description: req.GetDescription(),
-		IsDone:      req.IsDone,
-		UserId:      req.GetUserId(),
-		UpdatedAt:   time.Now(),
-	})
+	todoUpdated, err := usecase.TodoRepository.Update(ctx, req)
 	if err != nil {
 		return nil, err
 	}

@@ -3,12 +3,10 @@ package usecase
 import (
 	"context"
 	"errors"
-	"golang.org/x/crypto/bcrypt"
-	"time"
-
 	"github.com/arvians-id/go-rabbitmq/user/internal/model"
 	"github.com/arvians-id/go-rabbitmq/user/internal/repository"
 	"github.com/arvians-id/go-rabbitmq/user/pb"
+	"golang.org/x/crypto/bcrypt"
 	"google.golang.org/protobuf/types/known/emptypb"
 )
 
@@ -73,11 +71,9 @@ func (usecase *UserUsecase) Create(ctx context.Context, req *pb.CreateUserReques
 	}
 
 	userCreated, err := usecase.UserRepository.Create(ctx, &model.User{
-		Name:      req.GetName(),
-		Email:     req.GetEmail(),
-		Password:  string(hashedPassword),
-		CreatedAt: time.Now(),
-		UpdatedAt: time.Now(),
+		Name:     req.GetName(),
+		Email:    req.GetEmail(),
+		Password: string(hashedPassword),
 	})
 	if err != nil {
 		return nil, err
@@ -103,18 +99,22 @@ func (usecase *UserUsecase) Update(ctx context.Context, req *pb.UpdateUserReques
 		userCheck.Password = string(hashedPassword)
 	}
 
-	userUpdated, err := usecase.UserRepository.Update(ctx, &model.User{
-		Id:        userCheck.Id,
-		Name:      req.GetName(),
-		Password:  userCheck.Password,
-		UpdatedAt: time.Now(),
+	err = usecase.UserRepository.Update(ctx, &model.User{
+		Id:       userCheck.Id,
+		Name:     req.GetName(),
+		Password: userCheck.Password,
 	})
 	if err != nil {
 		return nil, err
 	}
 
+	userCheck, err = usecase.UserRepository.FindByID(ctx, req.Id)
+	if err != nil {
+		return nil, err
+	}
+
 	return &pb.GetUserResponse{
-		User: userUpdated.ToPB(),
+		User: userCheck.ToPB(),
 	}, nil
 }
 

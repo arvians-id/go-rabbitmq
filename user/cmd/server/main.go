@@ -20,7 +20,7 @@ import (
 func main() {
 	// Init Config
 	configuration := config.New()
-	db, err := config.NewPostgresSQL(configuration)
+	db, err := config.NewPostgresSQLGorm(configuration)
 	if err != nil {
 		log.Fatalln("Cannot connect to database", err)
 	}

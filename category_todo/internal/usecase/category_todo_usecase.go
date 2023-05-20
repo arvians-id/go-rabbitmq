@@ -10,9 +10,7 @@ import (
 )
 
 type CategoryTodoContract interface {
-	Create(ctx context.Context, channel *amqp091.Channel) error
 	Delete(ctx context.Context, channel *amqp091.Channel) error
-	Update(ctx context.Context, channel *amqp091.Channel) error
 }
 
 type CategoryTodoUsecase struct {
@@ -25,21 +23,6 @@ func NewCategoryTodoUsecase(todoRepository repository.CategoryTodoRepositoryCont
 	}
 }
 
-func (usecase *CategoryTodoUsecase) Create(ctx context.Context, channel *amqp091.Channel) error {
-	return usecase.consumeFromExchange(channel, "todo_exchange", "todo.created", func(data []byte) error {
-		var todo model.TodoWithCategoriesIDResponse
-		err := json.Unmarshal(data, &todo)
-		if err != nil {
-			return err
-		}
-
-		return usecase.CategoryTodoRepository.Create(ctx, &model.TodoWithCategoriesIDResponse{
-			Id:           todo.Id,
-			CategoriesID: todo.CategoriesID,
-		})
-	})
-}
-
 func (usecase *CategoryTodoUsecase) Delete(ctx context.Context, channel *amqp091.Channel) error {
 	return usecase.consumeFromExchange(channel, "category_todo_exchange", "category_todo.deleted", func(data []byte) error {
 		var categoryTodo model.CategoryTodo
@@ -49,26 +32,6 @@ func (usecase *CategoryTodoUsecase) Delete(ctx context.Context, channel *amqp091
 		}
 
 		return usecase.CategoryTodoRepository.Delete(ctx, categoryTodo.TodoID, categoryTodo.CategoryID)
-	})
-}
-
-func (usecase *CategoryTodoUsecase) Update(ctx context.Context, channel *amqp091.Channel) error {
-	return usecase.consumeFromExchange(channel, "todo_exchange", "todo.updated", func(data []byte) error {
-		var todo model.TodoWithCategoriesIDResponse
-		err := json.Unmarshal(data, &todo)
-		if err != nil {
-			return err
-		}
-
-		err = usecase.CategoryTodoRepository.DeleteAllByTodoID(ctx, todo.Id)
-		if err != nil {
-			return err
-		}
-
-		return usecase.CategoryTodoRepository.Create(ctx, &model.TodoWithCategoriesIDResponse{
-			Id:           todo.Id,
-			CategoriesID: todo.CategoriesID,
-		})
 	})
 }
 

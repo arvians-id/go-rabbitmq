@@ -1098,3 +1098,215 @@
 [14-May-2023 10:22:26] | 200 | 765.6µs | 127.0.0.1 | GET | /api/users | -
 [14-May-2023 10:27:34] | 200 | 69.8605ms | 127.0.0.1 | GET | /api/users | -
 [14-May-2023 11:02:37] | 400 | 505.4µs | 127.0.0.1 | POST | /register | validation error on field:UserCreateRequest.Password
+[19-May-2023 13:40:37] | 401 |   508µs | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 13:40:50] | 401 |      0s | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 13:41:06] | 200 | 231.6424ms | 127.0.0.1 | POST | /login | -
+[19-May-2023 13:41:19] | 200 | 115.8474ms | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 13:41:28] | 200 | 106.3618ms | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 13:41:31] | 200 | 104.6132ms | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 13:47:49] | 200 | 197.6459ms | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 13:47:51] | 200 | 106.4017ms | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 13:47:52] | 200 | 106.8312ms | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 13:48:44] | 200 | 104.9958ms | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 13:48:45] | 200 | 3.1714ms | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 13:49:13] | 200 | 179.6625ms | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 13:49:22] | 200 | 107.3369ms | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 13:49:23] | 200 | 2.5153ms | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 13:49:24] | 200 | 116.4347ms | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 13:49:25] | 200 | 2.386ms | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 13:49:26] | 200 | 2.4727ms | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 13:49:27] | 200 | 3.0139ms | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 13:49:27] | 200 | 3.7392ms | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 13:49:28] | 200 | 109.3978ms | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 13:49:32] | 200 | 107.8165ms | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 13:52:28] | 500 | 2.3611539s | 127.0.0.1 | GET | /api/users/801 | rpc error: code = Unavailable desc = connection error: desc = "transport: Error while dialing: dial tcp [::1]:50050: connectex: No connection could be made because the target machine actively refused it."
+[19-May-2023 13:52:37] | 500 | 2.360566s | 127.0.0.1 | GET | /api/users/801 | rpc error: code = Unavailable desc = connection error: desc = "transport: Error while dialing: dial tcp [::1]:50050: connectex: No connection could be made because the target machine actively refused it."
+[19-May-2023 13:55:30] | 200 | 492.2677ms | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 13:55:31] | 200 | 110.0124ms | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 13:55:32] | 200 | 2.2467ms | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 13:55:33] | 200 | 3.4159ms | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 13:55:34] | 200 | 3.8256ms | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 13:55:34] | 200 | 2.9126ms | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 13:55:36] | 200 | 2.7461ms | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 13:55:36] | 200 | 4.2824ms | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 13:55:37] | 200 | 108.2613ms | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 13:56:09] | 200 | 104.5303ms | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 13:56:10] | 200 | 111.8092ms | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 13:56:12] | 200 | 109.1019ms | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 13:57:09] | 200 | 182.7076ms | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 13:57:12] | 200 | 111.5039ms | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 13:57:12] | 200 | 3.7419ms | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 13:57:14] | 200 | 115.5099ms | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 13:57:15] | 200 | 2.1839ms | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 13:57:16] | 200 | 108.4093ms | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 13:57:24] | 200 | 501.5692ms | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 13:57:25] | 200 | 2.8361ms | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 13:57:26] | 200 | 2.7849ms | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 13:57:29] | 200 | 106.6273ms | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 13:57:30] | 200 | 116.9211ms | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 13:57:32] | 200 | 106.9813ms | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 13:57:34] | 200 | 108.475ms | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 13:57:36] | 200 | 106.7423ms | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 13:57:37] | 200 | 108.5754ms | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 13:57:38] | 200 | 107.6118ms | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 13:59:38] | 200 | 491.1114ms | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 14:01:11] | 200 | 193.7ms | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 14:01:13] | 200 | 106.6376ms | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 14:06:35] | 200 | 415.9834ms | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 14:07:36] | 500 | 498.3881ms | 127.0.0.1 | GET | /api/users/801 | rpc error: code = Unknown desc = ERROR: column todos.categories does not exist (SQLSTATE 42703)
+[19-May-2023 14:08:28] | 500 | 480.349ms | 127.0.0.1 | GET | /api/users/801 | rpc error: code = Unknown desc = ERROR: column todos.categories does not exist (SQLSTATE 42703)
+[19-May-2023 14:08:29] | 500 | 2.9344ms | 127.0.0.1 | GET | /api/users/801 | rpc error: code = Unknown desc = ERROR: column todos.categories does not exist (SQLSTATE 42703)
+[19-May-2023 14:09:04] | 500 | 492.0871ms | 127.0.0.1 | GET | /api/users/801 | rpc error: code = Unknown desc = ERROR: column todos.categories does not exist (SQLSTATE 42703)
+[19-May-2023 14:09:14] | 200 | 485.7014ms | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 14:10:19] | 500 | 500.5104ms | 127.0.0.1 | GET | /api/users/801 | rpc error: code = Unknown desc = failed to assign association &model.Todo{Id:0, Title:"", Description:"", IsDone:(*bool)(nil), UserId:0, Categories:"", CreatedAt:time.Date(2023, time.May, 18, 14, 25, 40, 777907000, time.UTC), UpdatedAt:time.Date(2023, time.May, 18, 14, 25, 40, 777907000, time.UTC)}, make sure foreign fields exists
+[19-May-2023 14:10:28] | 200 | 478.4014ms | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 14:12:18] | 200 | 479.9991ms | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 14:13:00] | 200 | 417.9517ms | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 14:13:09] | 200 | 106.5115ms | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 14:27:41] | 200 | 413.9629ms | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 14:44:46] | 401 | 1.0351ms | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 14:53:12] | 401 |      0s | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 15:25:30] | 401 |      0s | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 15:25:35] | 200 | 242.9285ms | 127.0.0.1 | POST | /login | -
+[19-May-2023 15:25:45] | 200 | 113.3095ms | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 15:26:17] | 200 | 107.2778ms | 127.0.0.1 | GET | /api/users | -
+[19-May-2023 15:26:55] | 401 |      0s | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 15:27:11] | 401 |      0s | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 15:27:20] | 200 | 125.0116ms | 127.0.0.1 | POST | /login | -
+[19-May-2023 15:27:30] | 200 | 112.8811ms | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 15:28:38] | 200 | 71.9859ms | 127.0.0.1 | GET | /api/users | -
+[19-May-2023 15:28:53] | 401 |      0s | 127.0.0.1 | GET | /api/users | -
+[19-May-2023 15:28:57] | 401 |      0s | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 15:29:03] | 401 |      0s | 127.0.0.1 | GET | /api/users | -
+[19-May-2023 15:29:19] | 200 | 548.9548ms | 127.0.0.1 | POST | /login | -
+[19-May-2023 15:29:35] | 200 | 419.0744ms | 127.0.0.1 | GET | /api/users | -
+[19-May-2023 15:29:38] | 401 |      0s | 127.0.0.1 | GET | /api/users | -
+[19-May-2023 15:30:58] | 200 | 119.4395ms | 127.0.0.1 | POST | /login | -
+[19-May-2023 15:31:08] | 200 | 107.7375ms | 127.0.0.1 | GET | /api/users | -
+[19-May-2023 15:31:08] | 200 | 2.7527ms | 127.0.0.1 | GET | /api/users | -
+[19-May-2023 15:31:09] | 200 | 1.4755ms | 127.0.0.1 | GET | /api/users | -
+[19-May-2023 15:31:10] | 200 | 1.9126ms | 127.0.0.1 | GET | /api/users | -
+[19-May-2023 15:35:41] | 200 | 184.4352ms | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 15:36:12] | 200 | 114.4083ms | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 15:36:32] | 200 | 108.6563ms | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 15:36:54] | 200 | 105.5361ms | 127.0.0.1 | GET | /api/users | -
+[19-May-2023 15:36:58] | 200 | 114.1451ms | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 15:37:05] | 401 |      0s | 127.0.0.1 | POST | /api/users | -
+[19-May-2023 15:37:11] | 201 | 195.7201ms | 127.0.0.1 | POST | /api/users | -
+[19-May-2023 15:37:22] | 200 | 109.4076ms | 127.0.0.1 | GET | /api/users | -
+[19-May-2023 15:37:32] | 200 | 106.2005ms | 127.0.0.1 | GET | /api/users/804 | -
+[19-May-2023 15:37:39] | 200 | 108.2864ms | 127.0.0.1 | GET | /api/users/804 | -
+[19-May-2023 15:37:42] | 200 | 185.9233ms | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 15:37:47] | 200 | 108.3469ms | 127.0.0.1 | GET | /api/users/804 | -
+[19-May-2023 15:37:54] | 200 | 119.0719ms | 127.0.0.1 | GET | /api/users | -
+[19-May-2023 15:38:17] | 500 | 106.1505ms | 127.0.0.1 | DELETE | /api/users/1 | rpc error: code = Unknown desc = record not found
+[19-May-2023 15:38:22] | 200 | 120.3258ms | 127.0.0.1 | DELETE | /api/users/797 | -
+[19-May-2023 15:38:25] | 200 | 112.8861ms | 127.0.0.1 | GET | /api/users | -
+[19-May-2023 15:38:43] | 500 | 124.7931ms | 127.0.0.1 | POST | /api/users | rpc error: code = Unknown desc = ERROR: duplicate key value violates unique constraint "users_email_key" (SQLSTATE 23505)
+[19-May-2023 15:38:56] | 200 | 119.1059ms | 127.0.0.1 | GET | /api/users | -
+[19-May-2023 15:39:43] | 200 | 111.6244ms | 127.0.0.1 | GET | /api/users/804 | -
+[19-May-2023 15:39:44] | 200 | 175.1025ms | 127.0.0.1 | GET | /api/users/804 | -
+[19-May-2023 15:40:07] | 200 | 107.9925ms | 127.0.0.1 | GET | /api/users | -
+[19-May-2023 15:40:16] | 200 | 102.9448ms | 127.0.0.1 | GET | /api/users | -
+[19-May-2023 15:40:26] | 200 | 115.4568ms | 127.0.0.1 | GET | /api/users | -
+[19-May-2023 15:40:46] | 200 | 76.4819ms | 127.0.0.1 | GET | /api/users | -
+[19-May-2023 15:40:57] | 401 |      0s | 127.0.0.1 | PATCH | /api/users/804 | -
+[19-May-2023 15:41:03] | 200 | 170.6434ms | 127.0.0.1 | PATCH | /api/users/804 | -
+[19-May-2023 15:41:05] | 200 | 106.2842ms | 127.0.0.1 | GET | /api/users | -
+[19-May-2023 15:41:22] | 400 | 158.3895ms | 127.0.0.1 | POST | /login | rpc error: code = Unknown desc = invalid password
+[19-May-2023 15:41:28] | 200 | 168.6254ms | 127.0.0.1 | POST | /login | -
+[19-May-2023 15:41:32] | 200 | 108.6023ms | 127.0.0.1 | GET | /api/users | -
+[19-May-2023 15:41:58] | 200 | 191.1947ms | 127.0.0.1 | GET | /api/users/804 | -
+[19-May-2023 15:42:06] | 200 | 115.732ms | 127.0.0.1 | GET | /api/users/801 | -
+[19-May-2023 15:42:38] | 401 |      0s | 127.0.0.1 | GET | /api/categories | -
+[19-May-2023 15:42:43] | 200 | 80.5189ms | 127.0.0.1 | GET | /api/categories | -
+[19-May-2023 15:42:54] | 200 | 1.8227ms | 127.0.0.1 | GET | /api/categories | -
+[19-May-2023 15:42:55] | 200 | 1.7124ms | 127.0.0.1 | GET | /api/categories | -
+[19-May-2023 15:42:55] | 200 | 2.5952ms | 127.0.0.1 | GET | /api/categories | -
+[19-May-2023 15:42:57] | 200 | 2.091ms | 127.0.0.1 | GET | /api/categories | -
+[19-May-2023 15:43:00] | 200 | 81.3295ms | 127.0.0.1 | GET | /api/users | -
+[19-May-2023 15:43:02] | 200 | 108.4571ms | 127.0.0.1 | GET | /api/users | -
+[19-May-2023 15:43:03] | 200 | 107.2544ms | 127.0.0.1 | GET | /api/users | -
+[19-May-2023 15:43:04] | 200 | 1.5404ms | 127.0.0.1 | GET | /api/users | -
+[19-May-2023 15:43:05] | 200 | 109.0798ms | 127.0.0.1 | GET | /api/users | -
+[19-May-2023 15:43:07] | 200 | 107.1053ms | 127.0.0.1 | GET | /api/users | -
+[19-May-2023 15:43:13] | 200 | 1.5254ms | 127.0.0.1 | GET | /api/categories | -
+[19-May-2023 15:43:14] | 200 | 1.4405ms | 127.0.0.1 | GET | /api/categories | -
+[19-May-2023 15:43:15] | 200 | 1.8178ms | 127.0.0.1 | GET | /api/categories | -
+[19-May-2023 15:43:17] | 200 | 105.9409ms | 127.0.0.1 | GET | /api/users | -
+[19-May-2023 15:43:18] | 200 | 107.989ms | 127.0.0.1 | GET | /api/users | -
+[19-May-2023 15:43:41] | 401 |      0s | 127.0.0.1 | GET | /users | -
+[19-May-2023 15:44:09] | 404 |      0s | 127.0.0.1 | GET | /users | Cannot GET /users
+[19-May-2023 15:44:15] | 200 | 65.6808ms | 127.0.0.1 | GET | /api/users | -
+[19-May-2023 15:45:17] | 200 | 66.812ms | 127.0.0.1 | GET | /api/users | -
+[19-May-2023 15:45:19] | 200 | 104.1207ms | 127.0.0.1 | GET | /api/users | -
+[19-May-2023 15:45:21] | 200 | 102.4012ms | 127.0.0.1 | GET | /api/users | -
+[19-May-2023 15:45:22] | 200 | 1.4968ms | 127.0.0.1 | GET | /api/users | -
+[19-May-2023 15:45:24] | 200 | 103.6984ms | 127.0.0.1 | GET | /api/users | -
+[19-May-2023 15:45:26] | 200 | 103.8893ms | 127.0.0.1 | GET | /api/users | -
+[19-May-2023 15:45:28] | 200 | 104.1565ms | 127.0.0.1 | GET | /api/users | -
+[19-May-2023 15:45:29] | 200 | 105.3817ms | 127.0.0.1 | GET | /api/users | -
+[19-May-2023 15:45:30] | 200 | 104.3537ms | 127.0.0.1 | GET | /api/users | -
+[19-May-2023 15:45:38] | 200 | 59.1868ms | 127.0.0.1 | GET | /api/categories | -
+[19-May-2023 15:45:40] | 200 | 1.3996ms | 127.0.0.1 | GET | /api/categories | -
+[19-May-2023 15:45:42] | 200 | 1.4231ms | 127.0.0.1 | GET | /api/categories | -
+[19-May-2023 15:45:44] | 200 | 1.4135ms | 127.0.0.1 | GET | /api/categories | -
+[19-May-2023 15:45:45] | 200 | 1.4072ms | 127.0.0.1 | GET | /api/categories | -
+[19-May-2023 15:45:54] | 200 | 1.3899ms | 127.0.0.1 | GET | /api/categories | -
+[19-May-2023 15:45:56] | 200 | 1.3005ms | 127.0.0.1 | GET | /api/categories | -
+[20-May-2023 12:54:32] | 400 | 2.352739s | 127.0.0.1 | POST | /login | rpc error: code = Unavailable desc = connection error: desc = "transport: Error while dialing: dial tcp [::1]:50050: connectex: No connection could be made because the target machine actively refused it."
+[20-May-2023 12:54:44] | 200 | 557.5568ms | 127.0.0.1 | POST | /login | -
+[20-May-2023 12:54:53] | 401 |      0s | 127.0.0.1 | POST | /api/todos | -
+[20-May-2023 12:54:58] | 500 | 607.6106ms | 127.0.0.1 | POST | /api/todos | rpc error: code = Unknown desc = ERROR: null value in column "is_done" of relation "todos" violates not-null constraint (SQLSTATE 23502)
+[20-May-2023 12:57:34] | 500 | 548.9234ms | 127.0.0.1 | POST | /api/todos | rpc error: code = Unknown desc = ERROR: null value in column "title" of relation "todos" violates not-null constraint (SQLSTATE 23502)
+[20-May-2023 12:57:57] | 500 | 490.416ms | 127.0.0.1 | POST | /api/todos | rpc error: code = Unknown desc = ERROR: null value in column "title" of relation "todos" violates not-null constraint (SQLSTATE 23502)
+[20-May-2023 12:58:49] | 500 | 552.1713ms | 127.0.0.1 | POST | /api/todos | rpc error: code = Unknown desc = ERROR: null value in column "title" of relation "todos" violates not-null constraint (SQLSTATE 23502)
+[20-May-2023 12:59:32] | 500 | 492.4452ms | 127.0.0.1 | POST | /api/todos | rpc error: code = Unknown desc = ERROR: null value in column "title" of relation "todos" violates not-null constraint (SQLSTATE 23502)
+[20-May-2023 13:01:18] | 500 | 559.1083ms | 127.0.0.1 | POST | /api/todos | rpc error: code = Unknown desc = ERROR: null value in column "title" of relation "todos" violates not-null constraint (SQLSTATE 23502)
+[20-May-2023 13:01:21] | 500 | 219.046ms | 127.0.0.1 | POST | /api/todos | rpc error: code = Unknown desc = ERROR: null value in column "title" of relation "todos" violates not-null constraint (SQLSTATE 23502)
+[20-May-2023 13:02:18] | 201 | 578.3482ms | 127.0.0.1 | POST | /api/todos | -
+[20-May-2023 13:08:13] | 201 | 259.4196ms | 127.0.0.1 | POST | /api/todos | -
+[20-May-2023 13:11:44] | 201 | 259.3893ms | 127.0.0.1 | POST | /api/todos | -
+[20-May-2023 13:12:44] | 201 | 658.214ms | 127.0.0.1 | POST | /api/todos | -
+[20-May-2023 13:13:52] | 201 | 660.3343ms | 127.0.0.1 | POST | /api/todos | -
+[20-May-2023 13:14:03] | 201 | 227.3084ms | 127.0.0.1 | POST | /api/todos | -
+[20-May-2023 13:14:57] | 201 | 669.0528ms | 127.0.0.1 | POST | /api/todos | -
+[20-May-2023 13:15:33] | 201 | 606.0276ms | 127.0.0.1 | POST | /api/todos | -
+[20-May-2023 13:15:49] | 201 | 611.0311ms | 127.0.0.1 | POST | /api/todos | -
+[20-May-2023 13:16:15] | 201 | 673.2695ms | 127.0.0.1 | POST | /api/todos | -
+[20-May-2023 13:16:17] | 201 | 219.808ms | 127.0.0.1 | POST | /api/todos | -
+[20-May-2023 13:16:28] | 201 | 226.4548ms | 127.0.0.1 | POST | /api/todos | -
+[20-May-2023 13:16:38] | 201 | 231.3426ms | 127.0.0.1 | POST | /api/todos | -
+[20-May-2023 13:17:14] | 201 | 224.0078ms | 127.0.0.1 | POST | /api/todos | -
+[20-May-2023 13:18:32] | 201 | 369.9846ms | 127.0.0.1 | POST | /api/todos | -
+[20-May-2023 13:28:41] | 500 | 20.3933071s | 127.0.0.1 | POST | /api/todos | rpc error: code = Unavailable desc = error reading from server: read tcp 127.0.0.1:53726->127.0.0.1:50051: wsarecv: An existing connection was forcibly closed by the remote host.
+[20-May-2023 13:28:25] | 500 | 36.3702392s | 127.0.0.1 | POST | /api/todos | rpc error: code = Unavailable desc = error reading from server: read tcp 127.0.0.1:53726->127.0.0.1:50051: wsarecv: An existing connection was forcibly closed by the remote host.
+[20-May-2023 13:30:00] | 201 | 797.7305ms | 127.0.0.1 | POST | /api/todos | -
+[20-May-2023 13:30:19] | 500 | 328.1877ms | 127.0.0.1 | POST | /api/todos | rpc error: code = Unknown desc = record not found
+[20-May-2023 13:59:21] | 401 | 909.6µs | 127.0.0.1 | POST | /api/todos | -
+[20-May-2023 13:59:24] | 200 | 136.4925ms | 127.0.0.1 | POST | /login | -
+[20-May-2023 13:59:31] | 500 | 372.3182ms | 127.0.0.1 | POST | /api/todos | rpc error: code = Unknown desc = record not found
+[20-May-2023 13:59:36] | 201 | 363.188ms | 127.0.0.1 | POST | /api/todos | -
+[20-May-2023 14:00:23] | 500 | 681.6628ms | 127.0.0.1 | POST | /api/todos | rpc error: code = Unknown desc = ERROR: null value in column "description" of relation "todos" violates not-null constraint (SQLSTATE 23502)
+[20-May-2023 14:00:57] | 201 | 756.8415ms | 127.0.0.1 | POST | /api/todos | -
+[20-May-2023 14:01:03] | 500 | 322.3919ms | 127.0.0.1 | POST | /api/todos | rpc error: code = Unknown desc = record not found
+[20-May-2023 14:01:41] | 401 |      0s | 127.0.0.1 | DELETE | /api/todos/291 | -
+[20-May-2023 14:01:46] | 200 | 121.5189ms | 127.0.0.1 | DELETE | /api/todos/291 | -
+[20-May-2023 14:02:00] | 200 | 189.9883ms | 127.0.0.1 | DELETE | /api/todos/289 | -
+[20-May-2023 14:02:07] | 500 | 111.5867ms | 127.0.0.1 | DELETE | /api/todos/289 | rpc error: code = Unknown desc = record not found
+[20-May-2023 14:02:52] | 401 |      0s | 127.0.0.1 | PATCH | /api/todos/288 | -
+[20-May-2023 14:02:57] | 200 | 110.2483ms | 127.0.0.1 | PATCH | /api/todos/288 | -
+[20-May-2023 14:08:05] | 500 | 646.2771ms | 127.0.0.1 | PATCH | /api/todos/288 | rpc error: code = Unknown desc = WHERE conditions required
+[20-May-2023 14:08:47] | 200 | 683.8079ms | 127.0.0.1 | PATCH | /api/todos/288 | -
+[20-May-2023 14:10:54] | 200 | 353.8883ms | 127.0.0.1 | PATCH | /api/todos/288 | -
+[20-May-2023 14:12:57] | 200 | 518.7483ms | 127.0.0.1 | PATCH | /api/todos/288 | -
+[20-May-2023 14:13:20] | 200 | 130.107ms | 127.0.0.1 | PATCH | /api/todos/288 | -
+[20-May-2023 14:19:00] | 200 | 487.4234ms | 127.0.0.1 | GET | /api/users | -
+[20-May-2023 14:19:07] | 200 | 119.0925ms | 127.0.0.1 | GET | /api/users/801 | -
+[20-May-2023 14:22:52] | 200 | 238.3752ms | 127.0.0.1 | GET | /api/todos | -
+[20-May-2023 14:23:07] | 401 |      0s | 127.0.0.1 | GET | /api/display-todos | -
+[20-May-2023 14:23:11] | 500 | 2.3590491s | 127.0.0.1 | GET | /api/display-todos | rpc error: code = Unavailable desc = connection error: desc = "transport: Error while dialing: dial tcp [::1]:50052: connectex: No connection could be made because the target machine actively refused it."
+[20-May-2023 14:23:36] | 401 |      0s | 127.0.0.1 | GET | /api/todos/6 | -
+[20-May-2023 14:23:42] | 500 | 109.0289ms | 127.0.0.1 | GET | /api/todos/801 | rpc error: code = Unknown desc = record not found
+[20-May-2023 14:23:57] | 200 | 180.9667ms | 127.0.0.1 | GET | /api/todos/280 | -
+[20-May-2023 14:25:01] | 200 | 479.4724ms | 127.0.0.1 | GET | /api/display-todos | -

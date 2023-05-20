@@ -2,8 +2,6 @@ package usecase
 
 import (
 	"context"
-	"time"
-
 	"github.com/arvians-id/go-rabbitmq/category/internal/model"
 	"github.com/arvians-id/go-rabbitmq/category/internal/repository"
 	"github.com/arvians-id/go-rabbitmq/category/pb"
@@ -50,9 +48,7 @@ func (usecase *CategoryUsecase) FindByID(ctx context.Context, req *pb.GetCategor
 
 func (usecase *CategoryUsecase) Create(ctx context.Context, req *pb.CreateCategoryRequest) (*pb.GetCategoryResponse, error) {
 	todoCreated, err := usecase.CategoryRepository.Create(ctx, &model.Category{
-		Name:      req.GetName(),
-		CreatedAt: time.Now(),
-		UpdatedAt: time.Now(),
+		Name: req.GetName(),
 	})
 	if err != nil {
 		return nil, err

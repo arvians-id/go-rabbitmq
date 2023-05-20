@@ -3,6 +3,8 @@ package config
 import (
 	"database/sql"
 	"fmt"
+	"gorm.io/driver/postgres"
+	"gorm.io/gorm"
 	"strconv"
 	"time"
 
@@ -37,6 +39,43 @@ func NewPostgresSQL(configuration Config) (*sql.DB, error) {
 	}
 
 	db, err = databasePooling(configuration, db)
+	if err != nil {
+		return nil, err
+	}
+
+	return db, nil
+}
+
+func NewPostgresSQLGorm(configuration Config) (*gorm.DB, error) {
+	username := configuration.Get("DB_USERNAME_TEST")
+	password := configuration.Get("DB_PASSWORD_TEST")
+	host := configuration.Get("DB_HOST_TEST")
+	port := configuration.Get("DB_PORT_TEST")
+	database := configuration.Get("DB_DATABASE_TEST")
+	sslMode := configuration.Get("DB_SSL_MODE_TEST")
+	if configuration.Get("STATE") == "production" {
+		username = configuration.Get("DB_USERNAME")
+		password = configuration.Get("DB_PASSWORD")
+		host = configuration.Get("DB_HOST")
+		port = configuration.Get("DB_PORT")
+		database = configuration.Get("DB_DATABASE")
+		sslMode = configuration.Get("DB_SSL_MODE")
+	}
+
+	dsn := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=%s", host, port, username, password, database, sslMode)
+	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{
+		SkipDefaultTransaction: true,
+		PrepareStmt:            true,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	dbPool, err := db.DB()
+	if err != nil {
+		return nil, err
+	}
+	_, err = databasePooling(configuration, dbPool)
 	if err != nil {
 		return nil, err
 	}

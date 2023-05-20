@@ -20,7 +20,7 @@ import (
 func main() {
 	// Init Config
 	configuration := config.New()
-	db, err := config.NewPostgresSQL(configuration)
+	db, err := config.NewPostgresSQLGorm(configuration)
 	if err != nil {
 		log.Fatalln("Cannot connect to database", err)
 	}
@@ -47,7 +47,7 @@ func main() {
 	otel.SetTextMapPropagator(propagation.NewCompositeTextMapPropagator(propagation.TraceContext{}, propagation.Baggage{}))
 
 	// Init Server
-	// Category Todo Server
+	// Category Server
 	categoryRepository := repository.NewCategoryRepository(db)
 	categoryUsecase := usecase.NewCategoryUsecase(categoryRepository)
 

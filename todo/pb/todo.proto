@@ -3,7 +3,7 @@ syntax = "proto3";
 package proto;
 
 import "google/protobuf/empty.proto";
-import "google/protobuf/timestamp.proto";
+import "todo/pb/category.proto";
 
 option go_package = "./pb";
 
@@ -21,9 +21,9 @@ message Todo {
   string description = 3;
   optional bool is_done = 4;
   int64 user_id = 5;
-  string categories = 6;
-  google.protobuf.Timestamp created_at = 7;
-  google.protobuf.Timestamp updated_at = 8;
+  string created_at = 6;
+  string updated_at = 7;
+  repeated Category categories = 8;
 }
 
 message ListTodoResponse {
@@ -42,6 +42,7 @@ message CreateTodoRequest {
   string title = 1;
   string description = 2;
   int64 user_id = 3;
+  repeated int64 category_id = 4;
 }
 
 message UpdateTodoRequest {
@@ -50,4 +51,5 @@ message UpdateTodoRequest {
   string description = 3;
   optional bool is_done = 4;
   int64 user_id = 5;
+  repeated int64 category_id = 6;
 }

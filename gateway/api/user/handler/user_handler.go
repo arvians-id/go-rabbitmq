@@ -32,18 +32,7 @@ func (handler *UserHandler) FindAll(c *fiber.Ctx) error {
 		return fiber.NewError(fiber.StatusInternalServerError, err.Error())
 	}
 
-	var data []pb.User
-	for _, user := range users.GetUsers() {
-		data = append(data, pb.User{
-			Id:        user.GetId(),
-			Name:      user.GetName(),
-			Email:     user.GetEmail(),
-			CreatedAt: user.GetCreatedAt(),
-			UpdatedAt: user.GetUpdatedAt(),
-		})
-	}
-
-	return response.ReturnSuccess(c, fiber.StatusOK, "OK", data)
+	return response.ReturnSuccess(c, fiber.StatusOK, "OK", users)
 }
 
 func (handler *UserHandler) FindByID(c *fiber.Ctx) error {
@@ -62,13 +51,7 @@ func (handler *UserHandler) FindByID(c *fiber.Ctx) error {
 		return fiber.NewError(fiber.StatusInternalServerError, err.Error())
 	}
 
-	return response.ReturnSuccess(c, fiber.StatusOK, "OK", &pb.User{
-		Id:        user.GetUser().GetId(),
-		Name:      user.GetUser().GetName(),
-		Email:     user.GetUser().GetEmail(),
-		CreatedAt: user.GetUser().GetCreatedAt(),
-		UpdatedAt: user.GetUser().GetUpdatedAt(),
-	})
+	return response.ReturnSuccess(c, fiber.StatusOK, "OK", user)
 }
 
 func (handler *UserHandler) Create(c *fiber.Ctx) error {

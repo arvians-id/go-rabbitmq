@@ -2,25 +2,26 @@ package repository
 
 import (
 	"context"
-	"database/sql"
 	"github.com/arvians-id/go-rabbitmq/todo/cmd/config"
 	"github.com/arvians-id/go-rabbitmq/todo/internal/model"
+	"github.com/arvians-id/go-rabbitmq/todo/pb"
 	"go.opentelemetry.io/otel"
+	"gorm.io/gorm"
 )
 
 type TodoRepositoryContract interface {
 	FindAll(ctx context.Context) ([]*model.Todo, error)
 	FindByID(ctx context.Context, id int64) (*model.Todo, error)
-	Create(ctx context.Context, todo *model.Todo) (*model.Todo, error)
-	Update(ctx context.Context, todo *model.Todo) (*model.Todo, error)
+	Create(ctx context.Context, req *pb.CreateTodoRequest) (*model.Todo, error)
+	Update(ctx context.Context, req *pb.UpdateTodoRequest) (*model.Todo, error)
 	Delete(ctx context.Context, id int64) error
 }
 
 type TodoRepository struct {
-	DB *sql.DB
+	DB *gorm.DB
 }
 
-func NewTodoRepository(db *sql.DB) TodoRepositoryContract {
+func NewTodoRepository(db *gorm.DB) TodoRepositoryContract {
 	return &TodoRepository{
 		DB: db,
 	}
@@ -30,29 +31,11 @@ func (repository *TodoRepository) FindAll(ctx context.Context) ([]*model.Todo, e
 	ctxTracer, span := otel.Tracer(config.ServiceTrace).Start(ctx, "repository.TodoService/Repository/FindAll")
 	defer span.End()
 
-	query := `SELECT t.id, t.title, t.description, t.is_done, t.user_id, t.created_at, t.updated_at, COALESCE(STRING_AGG(c.name, ', '), '') as categories
-			  FROM todos t
-			  LEFT JOIN category_todo ct ON t.id = ct.todo_id
-			  LEFT JOIN categories c ON c.id = ct.category_id
-			  GROUP BY t.id
-			  ORDER BY t.created_at DESC`
-	rows, err := repository.DB.QueryContext(ctxTracer, query)
+	var todos []*model.Todo
+	err := repository.DB.WithContext(ctxTracer).Preload("Categories").Order("created_at desc").Find(&todos).Error
 	if err != nil {
 		span.RecordError(err)
 		return nil, err
-	}
-	defer rows.Close()
-
-	var todos []*model.Todo
-	for rows.Next() {
-		var todo model.Todo
-		err := rows.Scan(&todo.Id, &todo.Title, &todo.Description, &todo.IsDone, &todo.UserId, &todo.CreatedAt, &todo.UpdatedAt, &todo.Categories)
-		if err != nil {
-			span.RecordError(err)
-			return nil, err
-		}
-
-		todos = append(todos, &todo)
 	}
 
 	return todos, nil
@@ -62,17 +45,8 @@ func (repository *TodoRepository) FindByID(ctx context.Context, id int64) (*mode
 	ctxTracer, span := otel.Tracer(config.ServiceTrace).Start(ctx, "repository.TodoService/Repository/FindByID")
 	defer span.End()
 
-	query := `SELECT t.id, t.title, t.description, t.is_done, t.user_id, COALESCE(STRING_AGG(c.name, ', '), '') as categories, t.created_at, t.updated_at
-			  FROM todos t
-			  LEFT JOIN category_todo ct ON t.id = ct.todo_id
-			  LEFT JOIN categories c ON c.id = ct.category_id
-			  WHERE t.id = $1
-			  GROUP BY t.id
-			  ORDER BY t.created_at DESC`
-	row := repository.DB.QueryRowContext(ctxTracer, query, id)
-
 	var todo model.Todo
-	err := row.Scan(&todo.Id, &todo.Title, &todo.Description, &todo.IsDone, &todo.UserId, &todo.Categories, &todo.CreatedAt, &todo.UpdatedAt)
+	err := repository.DB.WithContext(ctxTracer).Preload("Categories").Order("created_at desc").First(&todo, id).Error
 	if err != nil {
 		span.RecordError(err)
 		return nil, err
@@ -81,45 +55,92 @@ func (repository *TodoRepository) FindByID(ctx context.Context, id int64) (*mode
 	return &todo, nil
 }
 
-func (repository *TodoRepository) Create(ctx context.Context, todo *model.Todo) (*model.Todo, error) {
+func (repository *TodoRepository) Create(ctx context.Context, req *pb.CreateTodoRequest) (*model.Todo, error) {
 	ctxTracer, span := otel.Tracer(config.ServiceTrace).Start(ctx, "repository.TodoService/Repository/Create")
 	defer span.End()
 
-	query := `INSERT INTO todos(title, description, user_id, created_at, updated_at) VALUES($1,$2,$3,$4,$5) RETURNING id`
-	row := repository.DB.QueryRowContext(ctxTracer, query, todo.Title, todo.Description, todo.UserId, todo.CreatedAt, todo.UpdatedAt)
+	var todo model.Todo
+	err := repository.DB.WithContext(ctxTracer).Transaction(func(tx *gorm.DB) error {
+		var categories []*model.Category
+		for _, categoryID := range req.CategoryId {
+			var category model.Category
+			err := tx.WithContext(ctxTracer).First(&category, categoryID).Error
+			if err != nil {
+				return err
+			}
+			categories = append(categories, &model.Category{
+				Id: categoryID,
+			})
+		}
 
-	var id int64
-	err := row.Scan(&id)
+		todo.Categories = categories
+		todo.Title = req.Title
+		todo.Description = req.Description
+		todo.UserId = req.UserId
+		err := tx.WithContext(ctxTracer).Select("title", "description", "user_id", "Categories").Create(&todo).Error
+		if err != nil {
+			return err
+		}
+
+		return nil
+	})
 	if err != nil {
 		span.RecordError(err)
 		return nil, err
 	}
 
-	todo.Id = id
-
-	return todo, nil
+	return &todo, nil
 }
 
-func (repository *TodoRepository) Update(ctx context.Context, todo *model.Todo) (*model.Todo, error) {
+func (repository *TodoRepository) Update(ctx context.Context, req *pb.UpdateTodoRequest) (*model.Todo, error) {
 	ctxTracer, span := otel.Tracer(config.ServiceTrace).Start(ctx, "repository.TodoService/Repository/Update")
 	defer span.End()
 
-	query := `UPDATE todos SET title = $1, description = $2, is_done = $3, user_id = $4, updated_at = $5 WHERE id = $6`
-	_, err := repository.DB.ExecContext(ctxTracer, query, todo.Title, todo.Description, todo.IsDone, todo.UserId, todo.UpdatedAt, todo.Id)
+	var todo model.Todo
+	err := repository.DB.WithContext(ctxTracer).Transaction(func(tx *gorm.DB) error {
+		var categories []*model.Category
+		for _, categoryID := range req.CategoryId {
+			var category model.Category
+			err := tx.WithContext(ctxTracer).First(&category, categoryID).Error
+			if err != nil {
+				return err
+			}
+			categories = append(categories, &model.Category{
+				Id: categoryID,
+			})
+		}
+
+		todo.Id = req.Id
+		todo.Categories = categories
+		todo.Title = req.Title
+		todo.Description = req.Description
+		todo.UserId = req.UserId
+		todo.IsDone = req.IsDone
+		err := tx.WithContext(ctxTracer).Select("title", "description", "is_done", "user_id").Updates(&todo).Error
+		if err != nil {
+			return err
+		}
+
+		err = tx.Model(&todo).Association("Categories").Replace(categories)
+		if err != nil {
+			return err
+		}
+
+		return nil
+	})
 	if err != nil {
 		span.RecordError(err)
 		return nil, err
 	}
 
-	return todo, nil
+	return &todo, nil
 }
 
 func (repository *TodoRepository) Delete(ctx context.Context, id int64) error {
 	ctxTracer, span := otel.Tracer(config.ServiceTrace).Start(ctx, "repository.TodoService/Repository/Delete")
 	defer span.End()
 
-	query := `DELETE FROM todos WHERE id = $1`
-	_, err := repository.DB.ExecContext(ctxTracer, query, id)
+	err := repository.DB.WithContext(ctxTracer).Delete(&model.Todo{}, id).Error
 	if err != nil {
 		span.RecordError(err)
 		return err

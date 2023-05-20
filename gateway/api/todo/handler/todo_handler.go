@@ -11,7 +11,6 @@ import (
 	"github.com/goccy/go-json"
 	"github.com/gofiber/fiber/v2"
 	"github.com/rabbitmq/amqp091-go"
-	"google.golang.org/protobuf/proto"
 	"google.golang.org/protobuf/types/known/emptypb"
 	"sync"
 )
@@ -115,20 +114,7 @@ func (handler *TodoHandler) Create(c *fiber.Ctx) error {
 		Title:       todoRequest.Title,
 		Description: todoRequest.Description,
 		UserId:      todoRequest.UserId,
-	})
-	if err != nil {
-		return fiber.NewError(fiber.StatusInternalServerError, err.Error())
-	}
-
-	err = handler.publish(c.Context(), "todo.created", &dto.DisplayTodoWithCategoriesIDResponse{
-		CategoriesID: todoRequest.Categories,
-		Id:           todoCreated.GetTodo().GetId(),
-		Title:        todoCreated.GetTodo().GetTitle(),
-		Description:  todoCreated.GetTodo().GetDescription(),
-		IsDone:       proto.Bool(todoCreated.GetTodo().GetIsDone()),
-		UserId:       todoCreated.GetTodo().GetUserId(),
-		CreatedAt:    todoCreated.GetTodo().GetCreatedAt().AsTime(),
-		UpdatedAt:    todoCreated.GetTodo().GetUpdatedAt().AsTime(),
+		CategoryId:  todoRequest.Categories,
 	})
 	if err != nil {
 		return fiber.NewError(fiber.StatusInternalServerError, err.Error())
@@ -160,25 +146,12 @@ func (handler *TodoHandler) Update(c *fiber.Ctx) error {
 		Description: todoRequest.Description,
 		IsDone:      todoRequest.IsDone,
 		UserId:      todoRequest.UserId,
+		CategoryId:  todoRequest.Categories,
 	})
 	if err != nil {
 		if err.Error() == response.GrpcErrorNotFound {
 			return fiber.NewError(fiber.StatusNotFound, err.Error())
 		}
-		return fiber.NewError(fiber.StatusInternalServerError, err.Error())
-	}
-
-	err = handler.publish(c.Context(), "todo.updated", &dto.DisplayTodoWithCategoriesIDResponse{
-		CategoriesID: todoRequest.Categories,
-		Id:           todoUpdated.GetTodo().GetId(),
-		Title:        todoUpdated.GetTodo().GetTitle(),
-		Description:  todoUpdated.GetTodo().GetDescription(),
-		IsDone:       proto.Bool(todoUpdated.GetTodo().GetIsDone()),
-		UserId:       todoUpdated.GetTodo().GetUserId(),
-		CreatedAt:    todoUpdated.GetTodo().GetCreatedAt().AsTime(),
-		UpdatedAt:    todoUpdated.GetTodo().GetUpdatedAt().AsTime(),
-	})
-	if err != nil {
 		return fiber.NewError(fiber.StatusInternalServerError, err.Error())
 	}
 

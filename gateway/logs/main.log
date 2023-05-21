@@ -1337,3 +1337,7 @@
 [21-May-2023 13:45:35] | 404 | 114.5698ms | 127.0.0.1 | GET | /api/users/801 | rpc error: code = Unknown desc = record not found
 [21-May-2023 13:46:50] | 201 | 166.9997ms | 127.0.0.1 | POST | /api/users | -
 [21-May-2023 13:46:57] | 200 | 186.6393ms | 127.0.0.1 | GET | /api/users/953 | -
+[21-May-2023 13:47:50] | 404 | 2.3829ms | 127.0.0.1 | GET | /api/users/953 | rpc error: code = Unknown desc = record not found
+[21-May-2023 13:48:37] | 201 | 166.7193ms | 127.0.0.1 | POST | /api/users | -
+[21-May-2023 13:48:40] | 404 | 107.1249ms | 127.0.0.1 | GET | /api/users/953 | rpc error: code = Unknown desc = record not found
+[21-May-2023 13:48:47] | 200 | 104.1142ms | 127.0.0.1 | GET | /api/users/1052 | -

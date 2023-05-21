@@ -1,16 +1,13 @@
 package handler
 
 import (
-	"context"
 	"github.com/arvians-id/go-rabbitmq/gateway/api/todo/dto"
 	"github.com/arvians-id/go-rabbitmq/gateway/api/todo/request"
 	"github.com/arvians-id/go-rabbitmq/gateway/api/todo/services"
 	"github.com/arvians-id/go-rabbitmq/gateway/helper"
 	"github.com/arvians-id/go-rabbitmq/gateway/pb"
 	"github.com/arvians-id/go-rabbitmq/gateway/response"
-	"github.com/goccy/go-json"
 	"github.com/gofiber/fiber/v2"
-	"github.com/rabbitmq/amqp091-go"
 	"google.golang.org/protobuf/types/known/emptypb"
 	"sync"
 )
@@ -18,14 +15,12 @@ import (
 type TodoHandler struct {
 	TodoService     services.TodoServiceContract
 	CategoryService services.CategoryServiceContract
-	RabbitMQ        *amqp091.Channel
 }
 
-func NewTodoHandler(todoService services.TodoServiceContract, categoryService services.CategoryServiceContract, rabbitMQ *amqp091.Channel) TodoHandler {
+func NewTodoHandler(todoService services.TodoServiceContract, categoryService services.CategoryServiceContract) TodoHandler {
 	return TodoHandler{
 		TodoService:     todoService,
 		CategoryService: categoryService,
-		RabbitMQ:        rabbitMQ,
 	}
 }
 
@@ -33,7 +28,7 @@ func (handler *TodoHandler) DisplayTodoCategoryList(c *fiber.Ctx) error {
 	var wg sync.WaitGroup
 	var mutex sync.Mutex
 	var todos *pb.ListTodoResponse
-	var categorys *pb.ListCategoryResponse
+	var categories *pb.ListCategoryResponse
 	var err error
 	wg.Add(2)
 
@@ -50,7 +45,7 @@ func (handler *TodoHandler) DisplayTodoCategoryList(c *fiber.Ctx) error {
 
 	go func() {
 		var errGo error
-		categorys, errGo = handler.CategoryService.FindAll(c.Context(), new(emptypb.Empty))
+		categories, errGo = handler.CategoryService.FindAll(c.Context(), new(emptypb.Empty))
 		if errGo != nil {
 			mutex.Lock()
 			err = errGo
@@ -66,7 +61,7 @@ func (handler *TodoHandler) DisplayTodoCategoryList(c *fiber.Ctx) error {
 
 	return response.ReturnSuccess(c, fiber.StatusOK, "OK", &dto.DisplayCategoryTodoListResponse{
 		Todos:      todos.GetTodos(),
-		Categories: categorys.GetCategories(),
+		Categories: categories.GetCategories(),
 	})
 }
 
@@ -175,28 +170,4 @@ func (handler *TodoHandler) Delete(c *fiber.Ctx) error {
 	}
 
 	return response.ReturnSuccess(c, fiber.StatusOK, "deleted", nil)
-}
-
-func (handler *TodoHandler) publish(ctx context.Context, key string, data interface{}) error {
-	marshaled, err := json.Marshal(data)
-	if err != nil {
-		return err
-	}
-
-	err = handler.RabbitMQ.PublishWithContext(
-		ctx,
-		"todo_exchange",
-		key,
-		false,
-		false,
-		amqp091.Publishing{
-			ContentType: "application/json",
-			Body:        marshaled,
-		},
-	)
-	if err != nil {
-		return err
-	}
-
-	return nil
 }

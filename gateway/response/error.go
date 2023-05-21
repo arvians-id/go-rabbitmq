@@ -5,7 +5,8 @@ import (
 )
 
 var (
-	GrpcErrorNotFound = "rpc error: code = Unknown desc = sql: no rows in result set"
+	GrpcErrorNotFound = "rpc error: code = Unknown desc = record not found"
+	//GrpcErrorNotFound = "rpc error: code = Unknown desc = sql: no rows in result set"
 )
 
 func ReturnError(c *fiber.Ctx, code int, err error) error {

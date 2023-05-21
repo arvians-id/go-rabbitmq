@@ -21,12 +21,12 @@ func NewCategoryHandler(categoryService services.CategoryServiceContract) Catego
 }
 
 func (handler *CategoryHandler) FindAll(c *fiber.Ctx) error {
-	categorys, err := handler.CategoryService.FindAll(c.Context(), new(emptypb.Empty))
+	categories, err := handler.CategoryService.FindAll(c.Context(), new(emptypb.Empty))
 	if err != nil {
 		return fiber.NewError(fiber.StatusInternalServerError, err.Error())
 	}
 
-	return response.ReturnSuccess(c, fiber.StatusOK, "OK", categorys.GetCategories())
+	return response.ReturnSuccess(c, fiber.StatusOK, "OK", categories.GetCategories())
 }
 
 func (handler *CategoryHandler) FindByID(c *fiber.Ctx) error {

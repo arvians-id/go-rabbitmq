@@ -1,13 +1,10 @@
-migrate-test:
-	migrate -path database/postgres/migrations -database "postgres://root:root@host.docker.internal:5432/go_rabbitmq_test?sslmode=disable" -verbose ${verbose}
+migrate:
+	migrate -path database/postgres/migrations -database "postgres://root:root@host.docker.internal:5432/${table}?sslmode=disable" -verbose ${verbose}
 
-migrate-prod:
-	migrate -path database/postgres/migrations -database "postgres://root:root@host.docker.internal:5432/go_rabbitmq?sslmode=disable" -verbose ${verbose}
-
-create-table:
+table:
 	migrate create -ext sql -dir database/postgres/migrations -seq ${table}
 
-generate-pb:
+pb:
 	protoc --go_out=./ --go_opt=paths=source_relative --go-grpc_out=./ --go-grpc_opt=paths=source_relative ./user/pb/*.proto
 	protoc --go_out=./ --go_opt=paths=source_relative --go-grpc_out=./ --go-grpc_opt=paths=source_relative ./category/pb/*.proto
 	protoc --go_out=./ --go_opt=paths=source_relative --go-grpc_out=./ --go-grpc_opt=paths=source_relative ./todo/pb/*.proto

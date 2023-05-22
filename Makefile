@@ -5,10 +5,13 @@ table:
 	migrate create -ext sql -dir database/postgres/migrations -seq ${table}
 
 pb:
-	protoc --go_out=./ --go_opt=paths=source_relative --go-grpc_out=./ --go-grpc_opt=paths=source_relative ./user/pb/*.proto
-	protoc --go_out=./ --go_opt=paths=source_relative --go-grpc_out=./ --go-grpc_opt=paths=source_relative ./category/pb/*.proto
-	protoc --go_out=./ --go_opt=paths=source_relative --go-grpc_out=./ --go-grpc_opt=paths=source_relative ./todo/pb/*.proto
-	protoc --go_out=./ --go_opt=paths=source_relative --go-grpc_out=./ --go-grpc_opt=paths=source_relative ./gateway/pb/*.proto
+	protoc \
+ 	--go_out=user/pb --go-grpc_out=user/pb \
+ 	--go_out=category/pb --go-grpc_out=category/pb \
+ 	--go_out=todo/pb --go-grpc_out=todo/pb \
+ 	--go_out=gateway/pb --go-grpc_out=gateway/pb \
+	--go_opt=paths=source_relative --go-grpc_opt=paths=source_relative --proto_path=proto \
+	./proto/*.proto
 
 build:
 	docker build ./gateway -t arvians/go-todo-gateway:latest

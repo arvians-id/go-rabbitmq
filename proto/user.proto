@@ -3,7 +3,7 @@ syntax = "proto3";
 package proto;
 
 import "google/protobuf/empty.proto";
-import "user/pb/todo.proto";
+import "todo.proto";
 
 option go_package = "./pb";
 

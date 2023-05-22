@@ -7,7 +7,6 @@ Make sure you have installed all of the following prerequisites on your developm
 * [Git](https://git-scm.com/)
 * [Go](https://golang.org/)
 * [Docker](https://www.docker.com/)
-* [Docker Compose](https://docs.docker.com/compose/)
 * [Golang Migrate](https://github.com/golang-migrate/migrate)
 * [Protocol Buffers](https://developers.google.com/protocol-buffers/docs/gotutorial)
 * [Air](https://github.com/cosmtrek/air)
@@ -75,12 +74,9 @@ $ make build
 
 # Run database on docker
 $ docker-compose up -d
-
-# Execute the call with curl in another terminal
-$ curl -X GET http://localhost:8080/api/users
 ```
 
-### Tech Stack
+### Technologies Used
 * [Go](https://golang.org/)
 * [Docker](https://www.docker.com/)
 * [gRPC](https://grpc.io/)

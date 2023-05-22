@@ -1341,3 +1341,15 @@
 [21-May-2023 13:48:37] | 201 | 166.7193ms | 127.0.0.1 | POST | /api/users | -
 [21-May-2023 13:48:40] | 404 | 107.1249ms | 127.0.0.1 | GET | /api/users/953 | rpc error: code = Unknown desc = record not found
 [21-May-2023 13:48:47] | 200 | 104.1142ms | 127.0.0.1 | GET | /api/users/1052 | -
+[22-May-2023 12:40:52] | 401 |      0s | 127.0.0.1 | GET | /api/users | -
+[22-May-2023 12:46:19] | 400 | 76.2155ms | 127.0.0.1 | POST | /login | rpc error: code = Unknown desc = record not found
+[22-May-2023 12:46:27] | 201 | 170.5577ms | 127.0.0.1 | POST | /register | -
+[22-May-2023 12:46:30] | 400 | 168.5566ms | 127.0.0.1 | POST | /login | rpc error: code = Unknown desc = invalid password
+[22-May-2023 12:46:40] | 200 | 160.3166ms | 127.0.0.1 | POST | /login | -
+[22-May-2023 12:46:44] | 200 | 105.9062ms | 127.0.0.1 | GET | /api/users | -
+[22-May-2023 12:46:46] | 200 | 74.3388ms | 127.0.0.1 | GET | /api/todos | -
+[22-May-2023 12:46:49] | 404 | 106.2908ms | 127.0.0.1 | GET | /api/users/1052 | rpc error: code = Unknown desc = record not found
+[22-May-2023 12:46:54] | 200 | 369.2623ms | 127.0.0.1 | GET | /api/categories | -
+[22-May-2023 12:47:01] | 200 | 410.3345ms | 127.0.0.1 | GET | /api/display-todos | -
+[22-May-2023 12:47:05] | 404 | 115.3561ms | 127.0.0.1 | GET | /api/todos/280 | rpc error: code = Unknown desc = record not found
+[22-May-2023 12:48:15] | 200 | 81.3166ms | 127.0.0.1 | GET | /api/categories | -

@@ -8778,3 +8778,1649 @@
 [22-May-2023 12:44:56] | 200 | 52.1313ms | 0.0.0.0 | POST | /login | -
 [22-May-2023 12:44:56] | 201 | 3.0542ms | 0.0.0.0 | POST | /api/categories | -
 [22-May-2023 12:44:56] | 200 | 4.5363ms | 0.0.0.0 | DELETE | /api/categories/803 | -
+[27-May-2023 18:35:30] | 500 | 571.1191ms | 0.0.0.0 | POST | /register | rpc error: code = Unknown desc = ERROR: duplicate key value violates unique constraint "users_email_key" (SQLSTATE 23505)
+[27-May-2023 18:35:31] | 400 | 70.0857ms | 0.0.0.0 | POST | /login | rpc error: code = Unknown desc = invalid password
+[27-May-2023 18:35:31] | 201 | 60.9591ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:35:31] | 200 | 52.31ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:35:31] | 500 | 2.7766ms | 0.0.0.0 | DELETE | /api/users/1300 | rpc error: code = Unknown desc = Todo: unsupported relations for schema User
+[27-May-2023 18:35:31] | 500 | 53.4925ms | 0.0.0.0 | POST | /api/users | rpc error: code = Unknown desc = ERROR: duplicate key value violates unique constraint "users_email_key" (SQLSTATE 23505)
+[27-May-2023 18:35:31] | 200 | 3.3394ms | 0.0.0.0 | GET | /api/users | -
+[27-May-2023 18:35:31] | 201 | 54.8266ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:35:31] | 200 | 52.0851ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:35:31] | 500 | 1.6019ms | 0.0.0.0 | DELETE | /api/users/1302 | rpc error: code = Unknown desc = Todo: unsupported relations for schema User
+[27-May-2023 18:35:31] | 404 | 1.1338ms | 0.0.0.0 | GET | /api/users/1 | rpc error: code = Unknown desc = record not found
+[27-May-2023 18:35:31] | 201 | 55.0192ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:35:31] | 200 | 52.2689ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:35:31] | 500 | 1.5527ms | 0.0.0.0 | DELETE | /api/users/1303 | rpc error: code = Unknown desc = Todo: unsupported relations for schema User
+[27-May-2023 18:35:31] | 500 | 52.953ms | 0.0.0.0 | POST | /api/users | rpc error: code = Unknown desc = ERROR: duplicate key value violates unique constraint "users_email_key" (SQLSTATE 23505)
+[27-May-2023 18:35:31] | 201 | 54.9513ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:35:32] | 200 | 51.7663ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:35:32] | 500 | 1.582ms | 0.0.0.0 | DELETE | /api/users/1305 | rpc error: code = Unknown desc = Todo: unsupported relations for schema User
+[27-May-2023 18:35:32] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Name
+[27-May-2023 18:35:32] | 201 | 54.4891ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:35:32] | 200 | 52.2966ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:35:32] | 500 | 1.7431ms | 0.0.0.0 | DELETE | /api/users/1306 | rpc error: code = Unknown desc = Todo: unsupported relations for schema User
+[27-May-2023 18:35:32] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Email
+[27-May-2023 18:35:32] | 201 | 54.7243ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:35:32] | 200 | 52.6634ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:35:32] | 500 | 1.5152ms | 0.0.0.0 | DELETE | /api/users/1307 | rpc error: code = Unknown desc = Todo: unsupported relations for schema User
+[27-May-2023 18:35:32] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Password
+[27-May-2023 18:35:32] | 201 | 54.9402ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:35:32] | 200 | 52.1539ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:35:32] | 500 | 1.6191ms | 0.0.0.0 | DELETE | /api/users/1308 | rpc error: code = Unknown desc = Todo: unsupported relations for schema User
+[27-May-2023 18:35:32] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Email
+[27-May-2023 18:35:32] | 201 | 55.2662ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:35:32] | 200 | 53.7121ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:35:32] | 500 | 1.6772ms | 0.0.0.0 | DELETE | /api/users/1309 | rpc error: code = Unknown desc = Todo: unsupported relations for schema User
+[27-May-2023 18:35:32] | 500 | 52.61ms | 0.0.0.0 | POST | /api/users | rpc error: code = Unknown desc = ERROR: duplicate key value violates unique constraint "users_email_key" (SQLSTATE 23505)
+[27-May-2023 18:35:32] | 201 | 55.9488ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:35:33] | 200 | 52.9469ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:35:33] | 500 | 2.5768ms | 0.0.0.0 | DELETE | /api/users/1311 | rpc error: code = Unknown desc = Todo: unsupported relations for schema User
+[27-May-2023 18:35:33] | 404 | 1.1732ms | 0.0.0.0 | PATCH | /api/users/1 | rpc error: code = Unknown desc = record not found
+[27-May-2023 18:35:33] | 201 | 54.8003ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:35:33] | 200 | 51.8965ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:35:33] | 500 | 1.6366ms | 0.0.0.0 | DELETE | /api/users/1312 | rpc error: code = Unknown desc = Todo: unsupported relations for schema User
+[27-May-2023 18:35:33] | 500 | 53.2342ms | 0.0.0.0 | POST | /api/users | rpc error: code = Unknown desc = ERROR: duplicate key value violates unique constraint "users_email_key" (SQLSTATE 23505)
+[27-May-2023 18:35:33] | 201 | 55.803ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:35:33] | 200 | 52.7983ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:35:33] | 500 | 1.5322ms | 0.0.0.0 | DELETE | /api/users/1314 | rpc error: code = Unknown desc = Todo: unsupported relations for schema User
+[27-May-2023 18:35:33] | 500 | 52.0695ms | 0.0.0.0 | POST | /api/users | rpc error: code = Unknown desc = ERROR: duplicate key value violates unique constraint "users_email_key" (SQLSTATE 23505)
+[27-May-2023 18:35:33] | 201 | 55.1083ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:35:33] | 200 | 51.7377ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:35:33] | 500 | 1.7731ms | 0.0.0.0 | DELETE | /api/users/1316 | rpc error: code = Unknown desc = Todo: unsupported relations for schema User
+[27-May-2023 18:35:33] | 404 | 1.5662ms | 0.0.0.0 | DELETE | /api/users/1 | rpc error: code = Unknown desc = record not found
+[27-May-2023 18:35:33] | 201 | 55.3882ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:35:33] | 200 | 52.6118ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:35:34] | 500 | 1.3723ms | 0.0.0.0 | DELETE | /api/users/1317 | rpc error: code = Unknown desc = Todo: unsupported relations for schema User
+[27-May-2023 18:35:34] | 500 | 52.0549ms | 0.0.0.0 | POST | /api/users | rpc error: code = Unknown desc = ERROR: duplicate key value violates unique constraint "users_email_key" (SQLSTATE 23505)
+[27-May-2023 18:35:34] | 201 | 55.4706ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:35:34] | 200 | 51.4867ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:35:34] | 201 | 175.0719ms | 0.0.0.0 | POST | /api/categories | -
+[27-May-2023 18:35:34] | 200 | 181.1285ms | 0.0.0.0 | GET | /api/todos | -
+[27-May-2023 18:35:34] | 201 | 55.4659ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:35:34] | 200 | 52.2494ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:35:34] | 201 | 2.9914ms | 0.0.0.0 | POST | /api/categories | -
+[27-May-2023 18:35:34] | 500 | 305.4103ms | 0.0.0.0 | POST | /api/todos | rpc error: code = Unknown desc = Todo: unsupported relations for schema User
+[27-May-2023 18:35:35] | 200 | 545.8µs | 0.0.0.0 | GET | /api/todos | -
+[27-May-2023 18:35:35] | 201 | 54.9357ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:35:35] | 200 | 51.8958ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:35:35] | 201 | 3.1007ms | 0.0.0.0 | POST | /api/categories | -
+[27-May-2023 18:35:35] | 404 | 3.0167ms | 0.0.0.0 | GET | /api/todos/1 | rpc error: code = Unknown desc = record not found
+[27-May-2023 18:35:35] | 201 | 54.6673ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:35:35] | 200 | 51.6779ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:35:35] | 201 | 2.7556ms | 0.0.0.0 | POST | /api/categories | -
+[27-May-2023 18:35:35] | 500 | 1.4994ms | 0.0.0.0 | POST | /api/todos | rpc error: code = Unknown desc = Todo: unsupported relations for schema User
+[27-May-2023 18:35:35] | 201 | 54.1028ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:35:35] | 200 | 52.4064ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:35:35] | 201 | 2.9242ms | 0.0.0.0 | POST | /api/categories | -
+[27-May-2023 18:35:35] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.Title
+[27-May-2023 18:35:35] | 201 | 54.5679ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:35:35] | 200 | 52.2958ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:35:35] | 201 | 3.1446ms | 0.0.0.0 | POST | /api/categories | -
+[27-May-2023 18:35:35] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.Description
+[27-May-2023 18:35:35] | 201 | 54.5097ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:35:36] | 200 | 58.2573ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:35:36] | 201 | 3.8077ms | 0.0.0.0 | POST | /api/categories | -
+[27-May-2023 18:35:36] | 400 |  73.7µs | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.Categories
+[27-May-2023 18:35:36] | 201 | 54.7045ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:35:36] | 200 | 52.344ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:35:36] | 201 | 2.8868ms | 0.0.0.0 | POST | /api/categories | -
+[27-May-2023 18:35:36] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.UserId
+[27-May-2023 18:35:36] | 201 | 54.2609ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:35:36] | 200 | 52.0575ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:35:36] | 201 | 3.124ms | 0.0.0.0 | POST | /api/categories | -
+[27-May-2023 18:35:36] | 500 | 1.7675ms | 0.0.0.0 | POST | /api/todos | rpc error: code = Unknown desc = Todo: unsupported relations for schema User
+[27-May-2023 18:35:36] | 201 | 55.0672ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:35:36] | 200 | 52.0409ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:35:36] | 201 | 2.8567ms | 0.0.0.0 | POST | /api/categories | -
+[27-May-2023 18:35:36] | 404 | 110.8969ms | 0.0.0.0 | PATCH | /api/todos/1 | rpc error: code = Unknown desc = record not found
+[27-May-2023 18:35:36] | 201 | 55.0246ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:35:36] | 200 | 52.0857ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:35:36] | 201 | 2.8251ms | 0.0.0.0 | POST | /api/categories | -
+[27-May-2023 18:35:36] | 500 | 1.5855ms | 0.0.0.0 | POST | /api/todos | rpc error: code = Unknown desc = Todo: unsupported relations for schema User
+[27-May-2023 18:35:37] | 201 | 55.522ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:35:37] | 200 | 52.7659ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:35:37] | 201 | 3.021ms | 0.0.0.0 | POST | /api/categories | -
+[27-May-2023 18:35:37] | 500 | 1.5571ms | 0.0.0.0 | POST | /api/todos | rpc error: code = Unknown desc = Todo: unsupported relations for schema User
+[27-May-2023 18:35:37] | 201 | 55.7467ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:35:37] | 200 | 53.1778ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:35:37] | 201 | 2.6138ms | 0.0.0.0 | POST | /api/categories | -
+[27-May-2023 18:35:37] | 500 | 1.518ms | 0.0.0.0 | POST | /api/todos | rpc error: code = Unknown desc = Todo: unsupported relations for schema User
+[27-May-2023 18:35:37] | 201 | 56.8787ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:35:37] | 200 | 53.0236ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:35:37] | 201 | 2.8037ms | 0.0.0.0 | POST | /api/categories | -
+[27-May-2023 18:35:37] | 500 | 1.4329ms | 0.0.0.0 | POST | /api/todos | rpc error: code = Unknown desc = Todo: unsupported relations for schema User
+[27-May-2023 18:35:37] | 201 | 55.688ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:35:37] | 200 | 52.6786ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:35:37] | 201 | 2.8646ms | 0.0.0.0 | POST | /api/categories | -
+[27-May-2023 18:35:37] | 201 | 54.6944ms | 0.0.0.0 | POST | /api/users | -
+[27-May-2023 18:35:37] | 500 | 1.4755ms | 0.0.0.0 | POST | /api/todos | rpc error: code = Unknown desc = Todo: unsupported relations for schema User
+[27-May-2023 18:35:37] | 201 | 3.1523ms | 0.0.0.0 | POST | /api/categories | -
+[27-May-2023 18:35:38] | 201 | 57.4853ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:35:38] | 200 | 52.6802ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:35:38] | 201 | 2.7099ms | 0.0.0.0 | POST | /api/categories | -
+[27-May-2023 18:35:38] | 404 | 111.8959ms | 0.0.0.0 | DELETE | /api/todos/1 | rpc error: code = Unknown desc = record not found
+[27-May-2023 18:35:38] | 201 | 54.2317ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:35:38] | 200 | 51.779ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:35:38] | 201 | 2.7653ms | 0.0.0.0 | POST | /api/categories | -
+[27-May-2023 18:35:38] | 500 | 1.4394ms | 0.0.0.0 | POST | /api/todos | rpc error: code = Unknown desc = Todo: unsupported relations for schema User
+[27-May-2023 18:35:38] | 201 | 55.9063ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:35:38] | 200 | 52.1752ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:35:38] | 200 | 2.615ms | 0.0.0.0 | GET | /api/categories | -
+[27-May-2023 18:35:38] | 201 | 54.8542ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:35:38] | 200 | 53.8324ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:35:38] | 201 | 3.0761ms | 0.0.0.0 | POST | /api/categories | -
+[27-May-2023 18:35:38] | 200 | 1.1619ms | 0.0.0.0 | GET | /api/categories | -
+[27-May-2023 18:35:38] | 201 | 54.9338ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:35:39] | 200 | 52.5696ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:35:39] | 404 | 3.0519ms | 0.0.0.0 | GET | /api/categories/1 | rpc error: code = Unknown desc = record not found
+[27-May-2023 18:35:39] | 201 | 54.4108ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:35:39] | 200 | 52.3134ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:35:39] | 201 | 2.8873ms | 0.0.0.0 | POST | /api/categories | -
+[27-May-2023 18:35:39] | 200 | 1.2433ms | 0.0.0.0 | GET | /api/categories/823 | -
+[27-May-2023 18:35:39] | 201 | 54.2285ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:35:39] | 200 | 52.4491ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:35:39] | 400 |      0s | 0.0.0.0 | POST | /api/categories | validation error on field:CategoryCreateRequest.Name
+[27-May-2023 18:35:39] | 201 | 54.3794ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:35:39] | 200 | 52.0176ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:35:39] | 201 | 3.1527ms | 0.0.0.0 | POST | /api/categories | -
+[27-May-2023 18:35:39] | 201 | 55.3058ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:35:39] | 200 | 51.5507ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:35:39] | 404 | 1.483ms | 0.0.0.0 | DELETE | /api/categories/1 | rpc error: code = Unknown desc = record not found
+[27-May-2023 18:35:39] | 201 | 55.2297ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:35:39] | 200 | 52.4089ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:35:40] | 201 | 2.9023ms | 0.0.0.0 | POST | /api/categories | -
+[27-May-2023 18:35:40] | 200 | 4.9628ms | 0.0.0.0 | DELETE | /api/categories/825 | -
+[27-May-2023 18:35:40] | 201 | 53.8004ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:35:40] | 200 | 52.2466ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:35:40] | 201 | 2.7822ms | 0.0.0.0 | POST | /api/categories | -
+[27-May-2023 18:35:40] | 500 | 1.5241ms | 0.0.0.0 | POST | /api/todos | rpc error: code = Unknown desc = Todo: unsupported relations for schema User
+[27-May-2023 18:35:40] | 400 |      0s | 0.0.0.0 | POST | /register | validation error on field:UserCreateRequest.Name
+[27-May-2023 18:35:40] | 400 |      0s | 0.0.0.0 | POST | /register | validation error on field:UserCreateRequest.Email
+[27-May-2023 18:35:40] | 400 |      0s | 0.0.0.0 | POST | /register | validation error on field:UserCreateRequest.Password
+[27-May-2023 18:35:40] | 400 |      0s | 0.0.0.0 | POST | /register | validation error on field:UserCreateRequest.Email
+[27-May-2023 18:35:40] | 400 |      0s | 0.0.0.0 | POST | /register | validation error on field:UserCreateRequest.Password
+[27-May-2023 18:35:40] | 201 | 54.7443ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:35:40] | 400 |      0s | 0.0.0.0 | POST | /register | invalid character 'e' looking for beginning of value
+[27-May-2023 18:35:40] | 400 |      0s | 0.0.0.0 | POST | /login | validation error on field:LoginRequest.Email
+[27-May-2023 18:35:40] | 400 |      0s | 0.0.0.0 | POST | /register | invalid character 'e' looking for beginning of value
+[27-May-2023 18:35:40] | 400 |      0s | 0.0.0.0 | POST | /login | validation error on field:LoginRequest.Password
+[27-May-2023 18:35:40] | 400 |      0s | 0.0.0.0 | POST | /register | invalid character 'e' looking for beginning of value
+[27-May-2023 18:35:40] | 400 |      0s | 0.0.0.0 | POST | /login | validation error on field:LoginRequest.Email
+[27-May-2023 18:35:41] | 201 | 55.1605ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:35:41] | 200 | 51.5486ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:36:17] | 201 | 458.1534ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:36:17] | 200 | 53.3169ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:36:18] | 500 | 1.6293ms | 0.0.0.0 | DELETE | /api/users/1348 | rpc error: code = Unknown desc = Todo: unsupported relations for schema User
+[27-May-2023 18:36:18] | 200 | 1.5962ms | 0.0.0.0 | GET | /api/users | -
+[27-May-2023 18:36:18] | 201 | 71.3691ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:36:18] | 200 | 60.3053ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:36:18] | 500 | 1.868ms | 0.0.0.0 | DELETE | /api/users/1349 | rpc error: code = Unknown desc = Todo: unsupported relations for schema User
+[27-May-2023 18:36:18] | 500 | 57.8876ms | 0.0.0.0 | POST | /api/users | rpc error: code = Unknown desc = ERROR: duplicate key value violates unique constraint "users_email_key" (SQLSTATE 23505)
+[27-May-2023 18:36:18] | 200 | 2.0876ms | 0.0.0.0 | GET | /api/users | -
+[27-May-2023 18:36:18] | 201 | 81.2917ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:36:18] | 200 | 61.1724ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:36:18] | 500 | 2.675ms | 0.0.0.0 | DELETE | /api/users/1351 | rpc error: code = Unknown desc = Todo: unsupported relations for schema User
+[27-May-2023 18:36:18] | 404 | 2.2126ms | 0.0.0.0 | GET | /api/users/1 | rpc error: code = Unknown desc = record not found
+[27-May-2023 18:36:18] | 201 | 58.3755ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:36:18] | 200 | 56.0439ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:36:18] | 500 | 1.984ms | 0.0.0.0 | DELETE | /api/users/1352 | rpc error: code = Unknown desc = Todo: unsupported relations for schema User
+[27-May-2023 18:36:18] | 500 | 56.3278ms | 0.0.0.0 | POST | /api/users | rpc error: code = Unknown desc = ERROR: duplicate key value violates unique constraint "users_email_key" (SQLSTATE 23505)
+[27-May-2023 18:36:19] | 201 | 59.7023ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:36:19] | 200 | 53.9215ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:36:19] | 500 | 2.0151ms | 0.0.0.0 | DELETE | /api/users/1354 | rpc error: code = Unknown desc = Todo: unsupported relations for schema User
+[27-May-2023 18:36:19] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Name
+[27-May-2023 18:36:19] | 201 | 56.4331ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:36:19] | 200 | 54.48ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:36:19] | 500 | 1.5835ms | 0.0.0.0 | DELETE | /api/users/1355 | rpc error: code = Unknown desc = Todo: unsupported relations for schema User
+[27-May-2023 18:36:19] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Email
+[27-May-2023 18:36:19] | 201 | 58.3302ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:36:19] | 200 | 55.8272ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:36:19] | 500 | 1.8075ms | 0.0.0.0 | DELETE | /api/users/1356 | rpc error: code = Unknown desc = Todo: unsupported relations for schema User
+[27-May-2023 18:36:19] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Password
+[27-May-2023 18:36:19] | 201 | 57.1832ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:36:19] | 200 | 52.6935ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:36:19] | 500 | 1.6666ms | 0.0.0.0 | DELETE | /api/users/1357 | rpc error: code = Unknown desc = Todo: unsupported relations for schema User
+[27-May-2023 18:36:19] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Email
+[27-May-2023 18:36:19] | 201 | 56.0125ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:36:19] | 200 | 52.381ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:36:19] | 500 | 1.6736ms | 0.0.0.0 | DELETE | /api/users/1358 | rpc error: code = Unknown desc = Todo: unsupported relations for schema User
+[27-May-2023 18:36:19] | 500 | 53.0674ms | 0.0.0.0 | POST | /api/users | rpc error: code = Unknown desc = ERROR: duplicate key value violates unique constraint "users_email_key" (SQLSTATE 23505)
+[27-May-2023 18:36:20] | 201 | 55.7056ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:36:20] | 200 | 53.0002ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:36:20] | 500 | 1.6233ms | 0.0.0.0 | DELETE | /api/users/1360 | rpc error: code = Unknown desc = Todo: unsupported relations for schema User
+[27-May-2023 18:36:20] | 404 | 1.0417ms | 0.0.0.0 | PATCH | /api/users/1 | rpc error: code = Unknown desc = record not found
+[27-May-2023 18:36:20] | 201 | 55.1533ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:36:20] | 200 | 52.4892ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:36:20] | 500 | 1.7372ms | 0.0.0.0 | DELETE | /api/users/1361 | rpc error: code = Unknown desc = Todo: unsupported relations for schema User
+[27-May-2023 18:36:20] | 500 | 56.7225ms | 0.0.0.0 | POST | /api/users | rpc error: code = Unknown desc = ERROR: duplicate key value violates unique constraint "users_email_key" (SQLSTATE 23505)
+[27-May-2023 18:36:20] | 201 | 56.826ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:36:20] | 200 | 53.0048ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:36:20] | 500 | 1.7589ms | 0.0.0.0 | DELETE | /api/users/1363 | rpc error: code = Unknown desc = Todo: unsupported relations for schema User
+[27-May-2023 18:36:20] | 500 | 52.197ms | 0.0.0.0 | POST | /api/users | rpc error: code = Unknown desc = ERROR: duplicate key value violates unique constraint "users_email_key" (SQLSTATE 23505)
+[27-May-2023 18:36:20] | 201 | 55.221ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:36:20] | 200 | 51.9498ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:36:20] | 500 | 1.503ms | 0.0.0.0 | DELETE | /api/users/1365 | rpc error: code = Unknown desc = Todo: unsupported relations for schema User
+[27-May-2023 18:36:20] | 404 | 1.0327ms | 0.0.0.0 | DELETE | /api/users/1 | rpc error: code = Unknown desc = record not found
+[27-May-2023 18:36:20] | 201 | 55.7301ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:36:21] | 200 | 52.9683ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:36:21] | 500 | 1.4485ms | 0.0.0.0 | DELETE | /api/users/1366 | rpc error: code = Unknown desc = Todo: unsupported relations for schema User
+[27-May-2023 18:36:21] | 500 | 52.7681ms | 0.0.0.0 | POST | /api/users | rpc error: code = Unknown desc = ERROR: duplicate key value violates unique constraint "users_email_key" (SQLSTATE 23505)
+[27-May-2023 18:36:21] | 201 | 58.6817ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:36:21] | 200 | 52.3286ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:36:21] | 201 | 115.3409ms | 0.0.0.0 | POST | /api/categories | -
+[27-May-2023 18:36:21] | 200 | 105.4616ms | 0.0.0.0 | GET | /api/todos | -
+[27-May-2023 18:36:21] | 201 | 54.3472ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:36:21] | 200 | 51.7094ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:36:21] | 201 | 2.8573ms | 0.0.0.0 | POST | /api/categories | -
+[27-May-2023 18:36:21] | 500 | 1.0249ms | 0.0.0.0 | POST | /api/todos | rpc error: code = Unknown desc = Todo: unsupported relations for schema User
+[27-May-2023 18:36:21] | 200 | 1.3951ms | 0.0.0.0 | GET | /api/todos | -
+[27-May-2023 18:36:21] | 201 | 55.0691ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:36:21] | 200 | 52.4132ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:36:21] | 201 | 2.8003ms | 0.0.0.0 | POST | /api/categories | -
+[27-May-2023 18:36:21] | 404 | 2.1179ms | 0.0.0.0 | GET | /api/todos/1 | rpc error: code = Unknown desc = record not found
+[27-May-2023 18:36:22] | 201 | 55.2821ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:36:22] | 200 | 51.9923ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:36:22] | 201 | 2.9026ms | 0.0.0.0 | POST | /api/categories | -
+[27-May-2023 18:36:22] | 500 | 1.5453ms | 0.0.0.0 | POST | /api/todos | rpc error: code = Unknown desc = Todo: unsupported relations for schema User
+[27-May-2023 18:36:22] | 201 | 55.5657ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:36:22] | 200 | 52.2343ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:36:22] | 201 | 2.9366ms | 0.0.0.0 | POST | /api/categories | -
+[27-May-2023 18:36:22] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.Title
+[27-May-2023 18:36:22] | 201 | 56.4404ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:36:22] | 200 | 53.982ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:36:22] | 201 | 3.083ms | 0.0.0.0 | POST | /api/categories | -
+[27-May-2023 18:36:22] | 400 |   507µs | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.Description
+[27-May-2023 18:36:22] | 201 | 56.3672ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:36:22] | 200 | 53.6551ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:36:22] | 201 | 5.2242ms | 0.0.0.0 | POST | /api/categories | -
+[27-May-2023 18:36:22] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.Categories
+[27-May-2023 18:36:22] | 201 | 55.9007ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:36:22] | 200 | 52.3708ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:36:22] | 201 | 2.9757ms | 0.0.0.0 | POST | /api/categories | -
+[27-May-2023 18:36:22] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.UserId
+[27-May-2023 18:36:23] | 201 | 54.8588ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:36:23] | 200 | 52.6536ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:36:23] | 201 | 2.8362ms | 0.0.0.0 | POST | /api/categories | -
+[27-May-2023 18:36:23] | 500 | 1.5609ms | 0.0.0.0 | POST | /api/todos | rpc error: code = Unknown desc = Todo: unsupported relations for schema User
+[27-May-2023 18:36:23] | 201 | 55.5166ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:36:23] | 200 | 51.8562ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:36:23] | 201 | 2.7707ms | 0.0.0.0 | POST | /api/categories | -
+[27-May-2023 18:36:23] | 404 | 102.705ms | 0.0.0.0 | PATCH | /api/todos/1 | rpc error: code = Unknown desc = record not found
+[27-May-2023 18:36:23] | 201 | 54.9777ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:36:23] | 200 | 52.0183ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:36:23] | 201 | 2.8639ms | 0.0.0.0 | POST | /api/categories | -
+[27-May-2023 18:36:23] | 500 | 1.0269ms | 0.0.0.0 | POST | /api/todos | rpc error: code = Unknown desc = Todo: unsupported relations for schema User
+[27-May-2023 18:36:23] | 201 | 54.9497ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:36:23] | 200 | 52.2541ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:36:23] | 201 | 3.0599ms | 0.0.0.0 | POST | /api/categories | -
+[27-May-2023 18:36:23] | 500 | 1.679ms | 0.0.0.0 | POST | /api/todos | rpc error: code = Unknown desc = Todo: unsupported relations for schema User
+[27-May-2023 18:36:24] | 201 | 57.6158ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:36:24] | 200 | 53.4265ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:36:24] | 201 | 3.4006ms | 0.0.0.0 | POST | /api/categories | -
+[27-May-2023 18:36:24] | 500 | 1.6871ms | 0.0.0.0 | POST | /api/todos | rpc error: code = Unknown desc = Todo: unsupported relations for schema User
+[27-May-2023 18:36:24] | 201 | 54.6657ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:36:24] | 200 | 51.851ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:36:24] | 201 |  2.89ms | 0.0.0.0 | POST | /api/categories | -
+[27-May-2023 18:36:24] | 500 | 1.0509ms | 0.0.0.0 | POST | /api/todos | rpc error: code = Unknown desc = Todo: unsupported relations for schema User
+[27-May-2023 18:36:24] | 201 | 59.5375ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:36:24] | 200 | 54.0407ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:36:24] | 201 | 3.0069ms | 0.0.0.0 | POST | /api/categories | -
+[27-May-2023 18:36:24] | 201 | 54.8771ms | 0.0.0.0 | POST | /api/users | -
+[27-May-2023 18:36:24] | 500 | 1.7241ms | 0.0.0.0 | POST | /api/todos | rpc error: code = Unknown desc = Todo: unsupported relations for schema User
+[27-May-2023 18:36:24] | 201 | 2.0431ms | 0.0.0.0 | POST | /api/categories | -
+[27-May-2023 18:36:24] | 201 | 54.8291ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:36:24] | 200 | 52.0158ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:36:24] | 201 | 3.2995ms | 0.0.0.0 | POST | /api/categories | -
+[27-May-2023 18:36:24] | 404 | 115.8772ms | 0.0.0.0 | DELETE | /api/todos/1 | rpc error: code = Unknown desc = record not found
+[27-May-2023 18:36:25] | 201 | 54.0138ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:36:25] | 200 | 52.503ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:36:25] | 201 | 3.3247ms | 0.0.0.0 | POST | /api/categories | -
+[27-May-2023 18:36:25] | 500 | 1.8223ms | 0.0.0.0 | POST | /api/todos | rpc error: code = Unknown desc = Todo: unsupported relations for schema User
+[27-May-2023 18:36:25] | 400 |      0s | 0.0.0.0 | POST | /register | validation error on field:UserCreateRequest.Name
+[27-May-2023 18:36:25] | 400 |      0s | 0.0.0.0 | POST | /register | validation error on field:UserCreateRequest.Email
+[27-May-2023 18:36:25] | 400 |      0s | 0.0.0.0 | POST | /register | validation error on field:UserCreateRequest.Password
+[27-May-2023 18:36:25] | 400 |      0s | 0.0.0.0 | POST | /register | validation error on field:UserCreateRequest.Email
+[27-May-2023 18:36:25] | 400 |      0s | 0.0.0.0 | POST | /register | validation error on field:UserCreateRequest.Password
+[27-May-2023 18:36:25] | 201 | 54.74ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:36:25] | 400 |      0s | 0.0.0.0 | POST | /register | invalid character 'e' looking for beginning of value
+[27-May-2023 18:36:25] | 400 |      0s | 0.0.0.0 | POST | /login | validation error on field:LoginRequest.Email
+[27-May-2023 18:36:25] | 400 |      0s | 0.0.0.0 | POST | /register | invalid character 'e' looking for beginning of value
+[27-May-2023 18:36:25] | 400 |      0s | 0.0.0.0 | POST | /login | validation error on field:LoginRequest.Password
+[27-May-2023 18:36:25] | 400 |      0s | 0.0.0.0 | POST | /register | invalid character 'e' looking for beginning of value
+[27-May-2023 18:36:25] | 400 | 514.2µs | 0.0.0.0 | POST | /login | validation error on field:LoginRequest.Email
+[27-May-2023 18:36:25] | 201 | 56.0441ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:36:26] | 200 | 52.821ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:36:26] | 201 | 55.2767ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:36:26] | 200 | 51.919ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:36:26] | 201 | 118.5404ms | 0.0.0.0 | POST | /api/categories | -
+[27-May-2023 18:36:26] | 500 | 1.7575ms | 0.0.0.0 | POST | /api/todos | rpc error: code = Unknown desc = Todo: unsupported relations for schema User
+[27-May-2023 18:36:26] | 201 | 55.6558ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:36:26] | 200 | 54.1358ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:36:26] | 200 | 1.0249ms | 0.0.0.0 | GET | /api/categories | -
+[27-May-2023 18:36:26] | 201 | 60.1357ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:36:26] | 200 | 53.1252ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:36:26] | 201 | 3.2584ms | 0.0.0.0 | POST | /api/categories | -
+[27-May-2023 18:36:26] | 200 | 1.5257ms | 0.0.0.0 | GET | /api/categories | -
+[27-May-2023 18:36:26] | 201 | 56.2278ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:36:27] | 200 | 53.0006ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:36:27] | 404 | 1.0866ms | 0.0.0.0 | GET | /api/categories/1 | rpc error: code = Unknown desc = record not found
+[27-May-2023 18:36:27] | 201 | 54.9838ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:36:27] | 200 | 51.9683ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:36:27] | 201 | 2.9717ms | 0.0.0.0 | POST | /api/categories | -
+[27-May-2023 18:36:27] | 200 | 1.0999ms | 0.0.0.0 | GET | /api/categories/847 | -
+[27-May-2023 18:36:27] | 201 | 54.6565ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:36:27] | 200 | 52.4904ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:36:27] | 400 |      0s | 0.0.0.0 | POST | /api/categories | validation error on field:CategoryCreateRequest.Name
+[27-May-2023 18:36:27] | 201 | 54.6018ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:36:27] | 200 | 51.8335ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:36:27] | 201 | 2.8939ms | 0.0.0.0 | POST | /api/categories | -
+[27-May-2023 18:36:27] | 201 | 55.8474ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:36:27] | 200 | 52.61ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:36:27] | 404 | 1.6263ms | 0.0.0.0 | DELETE | /api/categories/1 | rpc error: code = Unknown desc = record not found
+[27-May-2023 18:36:27] | 201 | 54.7002ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:36:27] | 200 | 51.7713ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:36:27] | 201 | 3.0308ms | 0.0.0.0 | POST | /api/categories | -
+[27-May-2023 18:36:27] | 200 | 3.909ms | 0.0.0.0 | DELETE | /api/categories/849 | -
+[27-May-2023 18:40:37] | 400 |      0s | 0.0.0.0 | POST | /register | validation error on field:UserCreateRequest.Name
+[27-May-2023 18:40:37] | 400 |      0s | 0.0.0.0 | POST | /register | validation error on field:UserCreateRequest.Email
+[27-May-2023 18:40:37] | 400 |      0s | 0.0.0.0 | POST | /register | validation error on field:UserCreateRequest.Password
+[27-May-2023 18:40:37] | 400 | 506.9µs | 0.0.0.0 | POST | /register | validation error on field:UserCreateRequest.Email
+[27-May-2023 18:40:37] | 400 |      0s | 0.0.0.0 | POST | /register | validation error on field:UserCreateRequest.Password
+[27-May-2023 18:40:38] | 201 | 171.1949ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:40:38] | 400 |      0s | 0.0.0.0 | POST | /register | invalid character 'e' looking for beginning of value
+[27-May-2023 18:40:38] | 400 | 505.7µs | 0.0.0.0 | POST | /login | validation error on field:LoginRequest.Email
+[27-May-2023 18:40:38] | 400 | 505.5µs | 0.0.0.0 | POST | /register | invalid character 'e' looking for beginning of value
+[27-May-2023 18:40:38] | 400 |      0s | 0.0.0.0 | POST | /login | validation error on field:LoginRequest.Password
+[27-May-2023 18:40:38] | 400 |      0s | 0.0.0.0 | POST | /register | invalid character 'e' looking for beginning of value
+[27-May-2023 18:40:38] | 400 |      0s | 0.0.0.0 | POST | /login | validation error on field:LoginRequest.Email
+[27-May-2023 18:40:38] | 201 | 54.378ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:40:38] | 200 | 53.352ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:40:38] | 201 | 58.5669ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:40:38] | 200 | 52.6586ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:40:38] | 200 | 5.4936ms | 0.0.0.0 | DELETE | /api/users/1400 | -
+[27-May-2023 18:40:38] | 200 | 2.0076ms | 0.0.0.0 | GET | /api/users | -
+[27-May-2023 18:40:38] | 201 | 54.9163ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:40:38] | 200 | 52.9914ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:40:38] | 200 | 4.7865ms | 0.0.0.0 | DELETE | /api/users/1401 | -
+[27-May-2023 18:40:38] | 201 | 56.9547ms | 0.0.0.0 | POST | /api/users | -
+[27-May-2023 18:40:38] | 200 | 1.4328ms | 0.0.0.0 | GET | /api/users | -
+[27-May-2023 18:40:39] | 201 | 54.5239ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:40:39] | 200 | 51.7993ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:40:39] | 200 | 4.4117ms | 0.0.0.0 | DELETE | /api/users/1403 | -
+[27-May-2023 18:40:39] | 404 | 507.5µs | 0.0.0.0 | GET | /api/users/1 | rpc error: code = Unknown desc = record not found
+[27-May-2023 18:40:39] | 201 | 54.6632ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:40:39] | 200 | 51.9999ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:40:39] | 200 | 4.3145ms | 0.0.0.0 | DELETE | /api/users/1404 | -
+[27-May-2023 18:40:39] | 201 | 55.0186ms | 0.0.0.0 | POST | /api/users | -
+[27-May-2023 18:40:39] | 200 | 1.9956ms | 0.0.0.0 | GET | /api/users/1405 | -
+[27-May-2023 18:40:39] | 201 | 55.3612ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:40:39] | 200 | 52.0861ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:40:39] | 200 | 3.5124ms | 0.0.0.0 | DELETE | /api/users/1406 | -
+[27-May-2023 18:40:39] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Name
+[27-May-2023 18:40:39] | 201 | 56.9684ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:40:39] | 200 | 51.9122ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:40:39] | 200 | 4.519ms | 0.0.0.0 | DELETE | /api/users/1407 | -
+[27-May-2023 18:40:39] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Email
+[27-May-2023 18:40:39] | 201 | 55.1249ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:40:39] | 200 | 52.3443ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:40:39] | 200 | 4.1046ms | 0.0.0.0 | DELETE | /api/users/1408 | -
+[27-May-2023 18:40:39] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Password
+[27-May-2023 18:40:39] | 201 | 54.4972ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:40:40] | 200 | 52.1098ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:40:40] | 200 | 4.5188ms | 0.0.0.0 | DELETE | /api/users/1409 | -
+[27-May-2023 18:40:40] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Email
+[27-May-2023 18:40:40] | 201 | 55.0884ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:40:40] | 200 | 52.2451ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:40:40] | 200 | 4.0845ms | 0.0.0.0 | DELETE | /api/users/1410 | -
+[27-May-2023 18:40:40] | 201 | 55.0984ms | 0.0.0.0 | POST | /api/users | -
+[27-May-2023 18:40:40] | 201 | 55.3385ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:40:40] | 200 | 53.0051ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:40:40] | 200 | 4.1968ms | 0.0.0.0 | DELETE | /api/users/1412 | -
+[27-May-2023 18:40:40] | 404 | 1.6558ms | 0.0.0.0 | PATCH | /api/users/1 | rpc error: code = Unknown desc = record not found
+[27-May-2023 18:40:40] | 201 | 54.745ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:40:40] | 200 | 52.1881ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:40:40] | 200 | 4.8986ms | 0.0.0.0 | DELETE | /api/users/1413 | -
+[27-May-2023 18:40:40] | 201 | 57.2248ms | 0.0.0.0 | POST | /api/users | -
+[27-May-2023 18:40:40] | 400 |      0s | 0.0.0.0 | PATCH | /api/users/1414 | validation error on field:UserUpdateRequest.Name
+[27-May-2023 18:40:40] | 201 | 55.25ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:40:40] | 200 | 52.4945ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:40:40] | 200 | 4.2832ms | 0.0.0.0 | DELETE | /api/users/1415 | -
+[27-May-2023 18:40:40] | 201 | 54.5805ms | 0.0.0.0 | POST | /api/users | -
+[27-May-2023 18:40:40] | 200 | 57.8487ms | 0.0.0.0 | PATCH | /api/users/1416 | -
+[27-May-2023 18:40:41] | 201 | 54.5066ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:40:41] | 200 | 52.6821ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:40:41] | 200 | 3.0532ms | 0.0.0.0 | DELETE | /api/users/1417 | -
+[27-May-2023 18:40:41] | 404 | 894.1µs | 0.0.0.0 | DELETE | /api/users/1 | rpc error: code = Unknown desc = record not found
+[27-May-2023 18:40:41] | 201 | 55.3744ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:40:41] | 200 | 52.2566ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:40:41] | 200 | 4.054ms | 0.0.0.0 | DELETE | /api/users/1418 | -
+[27-May-2023 18:40:41] | 201 | 55.6523ms | 0.0.0.0 | POST | /api/users | -
+[27-May-2023 18:40:41] | 200 | 4.1592ms | 0.0.0.0 | DELETE | /api/users/1419 | -
+[27-May-2023 18:40:41] | 201 | 55.1339ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:40:41] | 200 | 52.4238ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:40:41] | 200 | 65.4157ms | 0.0.0.0 | GET | /api/categories | -
+[27-May-2023 18:40:41] | 201 | 55.2027ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:40:41] | 200 | 54.0819ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:40:41] | 201 | 115.3255ms | 0.0.0.0 | POST | /api/categories | -
+[27-May-2023 18:40:42] | 200 | 1.3925ms | 0.0.0.0 | GET | /api/categories | -
+[27-May-2023 18:40:42] | 201 | 54.1008ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:40:42] | 200 | 52.3301ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:40:42] | 404 | 2.7935ms | 0.0.0.0 | GET | /api/categories/1 | rpc error: code = Unknown desc = record not found
+[27-May-2023 18:40:42] | 201 | 54.3959ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:40:42] | 200 | 52.3931ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:40:42] | 201 | 3.3074ms | 0.0.0.0 | POST | /api/categories | -
+[27-May-2023 18:40:42] | 200 | 1.048ms | 0.0.0.0 | GET | /api/categories/851 | -
+[27-May-2023 18:40:42] | 201 | 54.7868ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:40:42] | 200 | 52.0313ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:40:42] | 400 |      0s | 0.0.0.0 | POST | /api/categories | validation error on field:CategoryCreateRequest.Name
+[27-May-2023 18:40:42] | 201 | 55.4395ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:40:42] | 200 | 52.2694ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:40:42] | 201 | 3.1395ms | 0.0.0.0 | POST | /api/categories | -
+[27-May-2023 18:40:42] | 201 | 58.8892ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:40:42] | 200 | 52.1647ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:40:42] | 404 | 1.7276ms | 0.0.0.0 | DELETE | /api/categories/1 | rpc error: code = Unknown desc = record not found
+[27-May-2023 18:40:43] | 201 | 54.5216ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:40:43] | 200 | 52.6511ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:40:43] | 201 | 2.8471ms | 0.0.0.0 | POST | /api/categories | -
+[27-May-2023 18:40:43] | 200 | 5.6034ms | 0.0.0.0 | DELETE | /api/categories/853 | -
+[27-May-2023 18:40:43] | 201 | 54.9327ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:40:43] | 200 | 52.1894ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:40:43] | 201 | 3.4271ms | 0.0.0.0 | POST | /api/categories | -
+[27-May-2023 18:40:43] | 200 | 70.3581ms | 0.0.0.0 | GET | /api/todos | -
+[27-May-2023 18:40:43] | 201 | 58.7032ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:40:43] | 200 | 55.8704ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:40:43] | 201 | 4.2108ms | 0.0.0.0 | POST | /api/categories | -
+[27-May-2023 18:40:43] | 201 | 447.4066ms | 0.0.0.0 | POST | /api/todos | -
+[27-May-2023 18:40:44] | 200 | 5.2819ms | 0.0.0.0 | GET | /api/todos | -
+[27-May-2023 18:40:44] | 201 | 55.2464ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:40:44] | 200 | 52.262ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:40:44] | 201 | 3.4608ms | 0.0.0.0 | POST | /api/categories | -
+[27-May-2023 18:40:44] | 404 | 2.8924ms | 0.0.0.0 | GET | /api/todos/1 | rpc error: code = Unknown desc = record not found
+[27-May-2023 18:40:44] | 201 | 55.1782ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:40:44] | 200 | 51.9637ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:40:44] | 201 | 2.843ms | 0.0.0.0 | POST | /api/categories | -
+[27-May-2023 18:40:44] | 201 | 13.4041ms | 0.0.0.0 | POST | /api/todos | -
+[27-May-2023 18:40:44] | 200 | 3.6121ms | 0.0.0.0 | GET | /api/todos/393 | -
+[27-May-2023 18:40:44] | 201 | 54.5283ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:40:44] | 200 | 51.8192ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:40:44] | 201 | 3.0103ms | 0.0.0.0 | POST | /api/categories | -
+[27-May-2023 18:40:44] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.Title
+[27-May-2023 18:40:44] | 201 | 54.3379ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:40:44] | 200 | 51.746ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:40:44] | 201 | 2.6927ms | 0.0.0.0 | POST | /api/categories | -
+[27-May-2023 18:40:44] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.Description
+[27-May-2023 18:40:44] | 201 | 55.0529ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:40:44] | 200 | 52.4558ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:40:44] | 201 | 2.6526ms | 0.0.0.0 | POST | /api/categories | -
+[27-May-2023 18:40:44] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.Categories
+[27-May-2023 18:40:45] | 201 | 53.946ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:40:45] | 200 | 51.728ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:40:45] | 201 | 3.7276ms | 0.0.0.0 | POST | /api/categories | -
+[27-May-2023 18:40:45] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.UserId
+[27-May-2023 18:40:45] | 201 | 54.4178ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:40:45] | 200 | 51.6322ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:40:45] | 201 | 2.7364ms | 0.0.0.0 | POST | /api/categories | -
+[27-May-2023 18:40:45] | 201 | 13.192ms | 0.0.0.0 | POST | /api/todos | -
+[27-May-2023 18:40:45] | 201 | 53.9378ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:40:45] | 200 | 51.7096ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:40:45] | 201 | 2.7966ms | 0.0.0.0 | POST | /api/categories | -
+[27-May-2023 18:40:45] | 404 | 1.5908ms | 0.0.0.0 | PATCH | /api/todos/1 | rpc error: code = Unknown desc = record not found
+[27-May-2023 18:40:45] | 201 | 54.317ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:40:45] | 200 | 52.0968ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:40:45] | 201 | 2.7586ms | 0.0.0.0 | POST | /api/categories | -
+[27-May-2023 18:40:45] | 201 | 13.3288ms | 0.0.0.0 | POST | /api/todos | -
+[27-May-2023 18:40:45] | 400 |      0s | 0.0.0.0 | PATCH | /api/todos/395 | validation error on field:TodoUpdateRequest.Title
+[27-May-2023 18:40:45] | 201 | 55.27ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:40:45] | 200 | 51.959ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:40:45] | 201 | 2.7131ms | 0.0.0.0 | POST | /api/categories | -
+[27-May-2023 18:40:45] | 201 | 13.4104ms | 0.0.0.0 | POST | /api/todos | -
+[27-May-2023 18:40:45] | 400 |      0s | 0.0.0.0 | PATCH | /api/todos/396 | validation error on field:TodoUpdateRequest.Categories
+[27-May-2023 18:40:45] | 201 | 54.5144ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:40:46] | 200 | 51.5646ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:40:46] | 201 | 2.8962ms | 0.0.0.0 | POST | /api/categories | -
+[27-May-2023 18:40:46] | 201 | 13.196ms | 0.0.0.0 | POST | /api/todos | -
+[27-May-2023 18:40:46] | 400 |      0s | 0.0.0.0 | PATCH | /api/todos/397 | validation error on field:TodoUpdateRequest.Description
+[27-May-2023 18:40:46] | 201 | 54.4245ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:40:46] | 200 | 52.4354ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:40:46] | 201 | 3.1001ms | 0.0.0.0 | POST | /api/categories | -
+[27-May-2023 18:40:46] | 201 | 13.6062ms | 0.0.0.0 | POST | /api/todos | -
+[27-May-2023 18:40:46] | 400 |      0s | 0.0.0.0 | PATCH | /api/todos/398 | validation error on field:TodoUpdateRequest.UserId
+[27-May-2023 18:40:46] | 201 | 54.3531ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:40:46] | 200 | 51.7013ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:40:46] | 201 | 2.8956ms | 0.0.0.0 | POST | /api/categories | -
+[27-May-2023 18:40:46] | 201 | 54.6482ms | 0.0.0.0 | POST | /api/users | -
+[27-May-2023 18:40:46] | 201 | 13.4398ms | 0.0.0.0 | POST | /api/todos | -
+[27-May-2023 18:40:46] | 201 | 3.0315ms | 0.0.0.0 | POST | /api/categories | -
+[27-May-2023 18:40:46] | 200 | 24.7275ms | 0.0.0.0 | PATCH | /api/todos/399 | -
+[27-May-2023 18:40:46] | 200 | 4.1726ms | 0.0.0.0 | GET | /api/todos/399 | -
+[27-May-2023 18:40:46] | 201 | 54.7861ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:40:46] | 200 | 52.1284ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:40:46] | 201 | 2.7486ms | 0.0.0.0 | POST | /api/categories | -
+[27-May-2023 18:40:46] | 404 | 1.5239ms | 0.0.0.0 | DELETE | /api/todos/1 | rpc error: code = Unknown desc = record not found
+[27-May-2023 18:40:46] | 201 | 55.5207ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:40:46] | 200 | 55.4537ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:40:46] | 201 | 2.8077ms | 0.0.0.0 | POST | /api/categories | -
+[27-May-2023 18:40:46] | 201 | 14.8941ms | 0.0.0.0 | POST | /api/todos | -
+[27-May-2023 18:40:46] | 200 | 5.9261ms | 0.0.0.0 | DELETE | /api/todos/400 | -
+[27-May-2023 18:40:47] | 201 | 54.7837ms | 0.0.0.0 | POST | /register | -
+[27-May-2023 18:40:47] | 200 | 51.796ms | 0.0.0.0 | POST | /login | -
+[27-May-2023 18:40:47] | 201 | 2.7767ms | 0.0.0.0 | POST | /api/categories | -
+[27-May-2023 18:40:47] | 201 | 13.2643ms | 0.0.0.0 | POST | /api/todos | -
+[27-May-2023 18:40:47] | 200 |      0s | 0.0.0.0 | DELETE | /api/category-todo | -
+[28-May-2023 13:40:00] | 201 | 731.4228ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:01] | 200 | 120.4749ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:01] | 201 | 215.4869ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 13:40:01] | 201 | 161.8096ms | 0.0.0.0 | POST | /api/todos | -
+[28-May-2023 13:40:01] | 200 |      0s | 0.0.0.0 | DELETE | /api/category-todo | -
+[28-May-2023 13:40:01] | 201 | 58.678ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:01] | 200 | 52.1871ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:01] | 200 | 3.4493ms | 0.0.0.0 | GET | /api/categories | -
+[28-May-2023 13:40:02] | 201 | 56.8678ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:02] | 200 | 53.4753ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:02] | 201 | 3.0025ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 13:40:02] | 200 | 1.3531ms | 0.0.0.0 | GET | /api/categories | -
+[28-May-2023 13:40:02] | 201 | 55.7245ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:02] | 200 | 53.7823ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:02] | 404 | 2.2863ms | 0.0.0.0 | GET | /api/categories/1 | rpc error: code = Unknown desc = record not found
+[28-May-2023 13:40:02] | 201 | 56.8839ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:02] | 200 | 53.0135ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:02] | 201 | 3.0584ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 13:40:02] | 200 | 1.1681ms | 0.0.0.0 | GET | /api/categories/875 | -
+[28-May-2023 13:40:02] | 201 | 56.5376ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:02] | 200 | 53.4849ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:02] | 400 |      0s | 0.0.0.0 | POST | /api/categories | validation error on field:CategoryCreateRequest.Name
+[28-May-2023 13:40:02] | 201 | 56.7649ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:02] | 200 | 54.9089ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:02] | 201 | 3.6022ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 13:40:03] | 201 | 57.0547ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:03] | 200 | 53.6255ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:03] | 404 | 1.6053ms | 0.0.0.0 | DELETE | /api/categories/1 | rpc error: code = Unknown desc = record not found
+[28-May-2023 13:40:03] | 201 | 56.4122ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:03] | 200 | 64.9532ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:03] | 201 | 3.1931ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 13:40:03] | 200 | 8.0023ms | 0.0.0.0 | DELETE | /api/categories/877 | -
+[28-May-2023 13:40:03] | 201 | 56.8548ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:03] | 200 | 53.0786ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:03] | 200 | 6.2694ms | 0.0.0.0 | DELETE | /api/users/1456 | -
+[28-May-2023 13:40:03] | 200 | 2.3329ms | 0.0.0.0 | GET | /api/users | -
+[28-May-2023 13:40:03] | 201 | 55.7305ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:03] | 200 | 52.9304ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:03] | 200 | 4.8656ms | 0.0.0.0 | DELETE | /api/users/1457 | -
+[28-May-2023 13:40:03] | 201 | 55.5374ms | 0.0.0.0 | POST | /api/users | -
+[28-May-2023 13:40:03] | 200 | 1.0987ms | 0.0.0.0 | GET | /api/users | -
+[28-May-2023 13:40:03] | 201 | 56.6544ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:03] | 200 | 51.7798ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:03] | 200 | 4.5707ms | 0.0.0.0 | DELETE | /api/users/1459 | -
+[28-May-2023 13:40:03] | 404 | 1.3772ms | 0.0.0.0 | GET | /api/users/1 | rpc error: code = Unknown desc = record not found
+[28-May-2023 13:40:04] | 201 | 57.4346ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:04] | 200 | 53.2039ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:04] | 200 | 4.5459ms | 0.0.0.0 | DELETE | /api/users/1460 | -
+[28-May-2023 13:40:04] | 201 | 55.4524ms | 0.0.0.0 | POST | /api/users | -
+[28-May-2023 13:40:04] | 200 | 2.8042ms | 0.0.0.0 | GET | /api/users/1461 | -
+[28-May-2023 13:40:04] | 201 | 57.3106ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:04] | 200 | 53.1102ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:04] | 200 | 4.562ms | 0.0.0.0 | DELETE | /api/users/1462 | -
+[28-May-2023 13:40:04] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Name
+[28-May-2023 13:40:04] | 201 | 57.9792ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:04] | 200 | 51.876ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:04] | 200 | 5.2781ms | 0.0.0.0 | DELETE | /api/users/1463 | -
+[28-May-2023 13:40:04] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Email
+[28-May-2023 13:40:04] | 201 | 56.4782ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:04] | 200 | 53.3277ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:04] | 200 | 5.0472ms | 0.0.0.0 | DELETE | /api/users/1464 | -
+[28-May-2023 13:40:04] | 400 |   508µs | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Password
+[28-May-2023 13:40:04] | 201 | 56.7316ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:04] | 200 | 53.7506ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:04] | 200 | 4.1809ms | 0.0.0.0 | DELETE | /api/users/1465 | -
+[28-May-2023 13:40:04] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Email
+[28-May-2023 13:40:05] | 201 | 57.4177ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:05] | 200 | 53.87ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:05] | 200 | 5.8704ms | 0.0.0.0 | DELETE | /api/users/1466 | -
+[28-May-2023 13:40:05] | 201 | 57.1681ms | 0.0.0.0 | POST | /api/users | -
+[28-May-2023 13:40:05] | 201 | 57.8763ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:05] | 200 | 53.3472ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:05] | 200 | 4.3571ms | 0.0.0.0 | DELETE | /api/users/1468 | -
+[28-May-2023 13:40:05] | 404 | 1.8155ms | 0.0.0.0 | PATCH | /api/users/1 | rpc error: code = Unknown desc = record not found
+[28-May-2023 13:40:05] | 201 | 59.3875ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:05] | 200 | 55.1239ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:05] | 200 | 4.7677ms | 0.0.0.0 | DELETE | /api/users/1469 | -
+[28-May-2023 13:40:05] | 201 | 56.0335ms | 0.0.0.0 | POST | /api/users | -
+[28-May-2023 13:40:05] | 400 |      0s | 0.0.0.0 | PATCH | /api/users/1470 | validation error on field:UserUpdateRequest.Name
+[28-May-2023 13:40:05] | 201 | 56.6912ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:05] | 200 | 52.8891ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:05] | 200 | 4.7148ms | 0.0.0.0 | DELETE | /api/users/1471 | -
+[28-May-2023 13:40:05] | 201 | 55.7612ms | 0.0.0.0 | POST | /api/users | -
+[28-May-2023 13:40:05] | 200 | 59.2942ms | 0.0.0.0 | PATCH | /api/users/1472 | -
+[28-May-2023 13:40:06] | 201 | 56.9743ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:06] | 200 | 53.5709ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:06] | 200 | 4.3074ms | 0.0.0.0 | DELETE | /api/users/1473 | -
+[28-May-2023 13:40:06] | 404 | 1.1093ms | 0.0.0.0 | DELETE | /api/users/1 | rpc error: code = Unknown desc = record not found
+[28-May-2023 13:40:06] | 201 | 57.2505ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:06] | 200 | 53.3258ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:06] | 200 | 4.3054ms | 0.0.0.0 | DELETE | /api/users/1474 | -
+[28-May-2023 13:40:06] | 201 | 55.4303ms | 0.0.0.0 | POST | /api/users | -
+[28-May-2023 13:40:06] | 200 | 4.3762ms | 0.0.0.0 | DELETE | /api/users/1475 | -
+[28-May-2023 13:40:06] | 201 | 56.8201ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:06] | 200 | 52.8309ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:06] | 201 | 114.4581ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 13:40:06] | 200 | 108.3352ms | 0.0.0.0 | GET | /api/todos | -
+[28-May-2023 13:40:06] | 201 | 57.4098ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:06] | 200 | 53.6649ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:06] | 201 | 3.0825ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 13:40:06] | 201 | 14.1258ms | 0.0.0.0 | POST | /api/todos | -
+[28-May-2023 13:40:06] | 200 | 6.1003ms | 0.0.0.0 | GET | /api/todos | -
+[28-May-2023 13:40:07] | 201 | 58.6344ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:07] | 200 | 53.5594ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:07] | 201 | 2.7735ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 13:40:07] | 404 | 3.8142ms | 0.0.0.0 | GET | /api/todos/1 | rpc error: code = Unknown desc = record not found
+[28-May-2023 13:40:07] | 201 | 57.9231ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:07] | 200 | 53.0436ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:07] | 201 | 2.7298ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 13:40:07] | 201 | 14.4948ms | 0.0.0.0 | POST | /api/todos | -
+[28-May-2023 13:40:07] | 200 | 4.072ms | 0.0.0.0 | GET | /api/todos/404 | -
+[28-May-2023 13:40:07] | 201 | 57.5941ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:07] | 200 | 52.9441ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:07] | 201 | 2.0438ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 13:40:07] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.Title
+[28-May-2023 13:40:07] | 201 | 55.6978ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:07] | 200 | 53.2988ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:07] | 201 | 2.0833ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 13:40:07] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.Description
+[28-May-2023 13:40:07] | 201 | 58.5909ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:07] | 200 | 53.3987ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:07] | 201 | 2.0865ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 13:40:07] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.Categories
+[28-May-2023 13:40:08] | 201 | 57.075ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:08] | 200 | 52.563ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:08] | 201 | 3.1323ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 13:40:08] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.UserId
+[28-May-2023 13:40:08] | 201 | 57.0042ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:08] | 200 | 52.3806ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:08] | 201 | 2.5843ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 13:40:08] | 201 | 15.3649ms | 0.0.0.0 | POST | /api/todos | -
+[28-May-2023 13:40:08] | 201 | 57.0042ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:08] | 200 | 53.0819ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:08] | 201 | 3.7978ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 13:40:08] | 404 | 1.6113ms | 0.0.0.0 | PATCH | /api/todos/1 | rpc error: code = Unknown desc = record not found
+[28-May-2023 13:40:08] | 201 | 56.7617ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:08] | 200 | 54.2562ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:08] | 201 | 2.5631ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 13:40:08] | 201 | 14.1255ms | 0.0.0.0 | POST | /api/todos | -
+[28-May-2023 13:40:08] | 400 |      0s | 0.0.0.0 | PATCH | /api/todos/406 | validation error on field:TodoUpdateRequest.Title
+[28-May-2023 13:40:08] | 201 | 55.8641ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:08] | 200 | 52.8231ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:08] | 201 | 2.8463ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 13:40:08] | 201 | 14.656ms | 0.0.0.0 | POST | /api/todos | -
+[28-May-2023 13:40:09] | 400 |      0s | 0.0.0.0 | PATCH | /api/todos/407 | validation error on field:TodoUpdateRequest.Categories
+[28-May-2023 13:40:09] | 201 | 56.4713ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:09] | 200 | 52.2941ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:09] | 201 | 2.7049ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 13:40:09] | 201 | 14.4091ms | 0.0.0.0 | POST | /api/todos | -
+[28-May-2023 13:40:09] | 400 |      0s | 0.0.0.0 | PATCH | /api/todos/408 | validation error on field:TodoUpdateRequest.Description
+[28-May-2023 13:40:09] | 201 | 56.1358ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:09] | 200 | 53.0702ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:09] | 201 | 3.078ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 13:40:09] | 201 | 13.9309ms | 0.0.0.0 | POST | /api/todos | -
+[28-May-2023 13:40:09] | 400 |      0s | 0.0.0.0 | PATCH | /api/todos/409 | validation error on field:TodoUpdateRequest.UserId
+[28-May-2023 13:40:09] | 201 | 59.4111ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:09] | 200 | 53.6269ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:09] | 201 | 6.271ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 13:40:09] | 201 | 58.0627ms | 0.0.0.0 | POST | /api/users | -
+[28-May-2023 13:40:09] | 201 | 14.4215ms | 0.0.0.0 | POST | /api/todos | -
+[28-May-2023 13:40:09] | 201 | 2.5476ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 13:40:09] | 200 | 23.9074ms | 0.0.0.0 | PATCH | /api/todos/410 | -
+[28-May-2023 13:40:09] | 200 | 2.9801ms | 0.0.0.0 | GET | /api/todos/410 | -
+[28-May-2023 13:40:09] | 201 | 56.8725ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:09] | 200 | 53.3348ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:09] | 201 | 2.9887ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 13:40:09] | 404 | 1.7205ms | 0.0.0.0 | DELETE | /api/todos/1 | rpc error: code = Unknown desc = record not found
+[28-May-2023 13:40:10] | 201 | 56.1476ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:10] | 200 | 52.7264ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:10] | 201 | 2.7308ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 13:40:10] | 201 | 14.6626ms | 0.0.0.0 | POST | /api/todos | -
+[28-May-2023 13:40:10] | 200 | 5.9542ms | 0.0.0.0 | DELETE | /api/todos/411 | -
+[28-May-2023 13:40:10] | 400 |      0s | 0.0.0.0 | POST | /register | validation error on field:UserCreateRequest.Name
+[28-May-2023 13:40:10] | 400 | 547.3µs | 0.0.0.0 | POST | /register | validation error on field:UserCreateRequest.Email
+[28-May-2023 13:40:10] | 400 |      0s | 0.0.0.0 | POST | /register | validation error on field:UserCreateRequest.Password
+[28-May-2023 13:40:10] | 400 |      0s | 0.0.0.0 | POST | /register | validation error on field:UserCreateRequest.Email
+[28-May-2023 13:40:10] | 400 |   508µs | 0.0.0.0 | POST | /register | validation error on field:UserCreateRequest.Password
+[28-May-2023 13:40:10] | 201 | 56.0094ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:10] | 400 |      0s | 0.0.0.0 | POST | /register | invalid character 'e' looking for beginning of value
+[28-May-2023 13:40:10] | 400 | 508.9µs | 0.0.0.0 | POST | /login | validation error on field:LoginRequest.Email
+[28-May-2023 13:40:10] | 400 |      0s | 0.0.0.0 | POST | /register | invalid character 'e' looking for beginning of value
+[28-May-2023 13:40:10] | 400 | 508.6µs | 0.0.0.0 | POST | /login | validation error on field:LoginRequest.Password
+[28-May-2023 13:40:11] | 400 |      0s | 0.0.0.0 | POST | /register | invalid character 'e' looking for beginning of value
+[28-May-2023 13:40:11] | 400 |      0s | 0.0.0.0 | POST | /login | validation error on field:LoginRequest.Email
+[28-May-2023 13:40:11] | 201 | 56.1266ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:11] | 200 | 52.4369ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:23] | 201 | 434.2597ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:23] | 200 | 52.7825ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:24] | 201 | 116.225ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 13:40:24] | 200 | 106.854ms | 0.0.0.0 | GET | /api/todos | -
+[28-May-2023 13:40:24] | 201 | 55.8679ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:24] | 200 | 53.7677ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:24] | 201 | 2.0315ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 13:40:24] | 201 | 14.9218ms | 0.0.0.0 | POST | /api/todos | -
+[28-May-2023 13:40:24] | 200 | 3.6624ms | 0.0.0.0 | GET | /api/todos | -
+[28-May-2023 13:40:24] | 201 | 55.698ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:24] | 200 | 52.6027ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:24] | 201 | 3.3503ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 13:40:24] | 404 | 1.9675ms | 0.0.0.0 | GET | /api/todos/1 | rpc error: code = Unknown desc = record not found
+[28-May-2023 13:40:24] | 201 | 57.3514ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:24] | 200 | 55.3122ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:24] | 201 | 2.7559ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 13:40:24] | 201 | 14.274ms | 0.0.0.0 | POST | /api/todos | -
+[28-May-2023 13:40:24] | 200 | 3.4497ms | 0.0.0.0 | GET | /api/todos/413 | -
+[28-May-2023 13:40:24] | 201 | 57.0094ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:25] | 200 | 52.6707ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:25] | 201 | 2.9097ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 13:40:25] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.Title
+[28-May-2023 13:40:25] | 201 | 56.5759ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:25] | 200 | 52.9138ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:25] | 201 | 2.5679ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 13:40:25] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.Description
+[28-May-2023 13:40:25] | 201 | 57.452ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:25] | 200 | 52.6454ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:25] | 201 | 3.9746ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 13:40:25] | 400 |   530µs | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.Categories
+[28-May-2023 13:40:25] | 201 | 56.386ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:25] | 200 | 53.9044ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:25] | 201 | 3.7306ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 13:40:25] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.UserId
+[28-May-2023 13:40:25] | 201 | 56.2394ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:25] | 200 | 53.7217ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:25] | 201 | 2.8217ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 13:40:25] | 201 | 13.3927ms | 0.0.0.0 | POST | /api/todos | -
+[28-May-2023 13:40:25] | 201 | 57.7582ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:25] | 200 | 53.3736ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:26] | 201 | 3.6266ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 13:40:26] | 404 | 1.6689ms | 0.0.0.0 | PATCH | /api/todos/1 | rpc error: code = Unknown desc = record not found
+[28-May-2023 13:40:26] | 201 | 56.6654ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:26] | 200 | 53.2966ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:26] | 201 | 3.2562ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 13:40:26] | 201 | 15.2919ms | 0.0.0.0 | POST | /api/todos | -
+[28-May-2023 13:40:26] | 400 |      0s | 0.0.0.0 | PATCH | /api/todos/415 | validation error on field:TodoUpdateRequest.Title
+[28-May-2023 13:40:26] | 201 | 56.3996ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:26] | 200 | 53.1386ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:26] | 201 | 2.7556ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 13:40:26] | 201 | 14.5906ms | 0.0.0.0 | POST | /api/todos | -
+[28-May-2023 13:40:26] | 400 |      0s | 0.0.0.0 | PATCH | /api/todos/416 | validation error on field:TodoUpdateRequest.Categories
+[28-May-2023 13:40:26] | 201 | 55.9152ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:26] | 200 | 53.6297ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:26] | 201 | 3.4827ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 13:40:26] | 201 | 14.5134ms | 0.0.0.0 | POST | /api/todos | -
+[28-May-2023 13:40:26] | 400 |      0s | 0.0.0.0 | PATCH | /api/todos/417 | validation error on field:TodoUpdateRequest.Description
+[28-May-2023 13:40:26] | 201 | 57.8633ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:26] | 200 | 53.344ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:26] | 201 | 2.8037ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 13:40:26] | 201 | 14.8342ms | 0.0.0.0 | POST | /api/todos | -
+[28-May-2023 13:40:26] | 400 |      0s | 0.0.0.0 | PATCH | /api/todos/418 | validation error on field:TodoUpdateRequest.UserId
+[28-May-2023 13:40:26] | 201 | 56.2803ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:26] | 200 | 52.5796ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:27] | 201 | 3.5343ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 13:40:27] | 201 | 55.4801ms | 0.0.0.0 | POST | /api/users | -
+[28-May-2023 13:40:27] | 201 | 13.8483ms | 0.0.0.0 | POST | /api/todos | -
+[28-May-2023 13:40:27] | 201 | 2.6698ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 13:40:27] | 200 | 17.5704ms | 0.0.0.0 | PATCH | /api/todos/419 | -
+[28-May-2023 13:40:27] | 200 | 3.4387ms | 0.0.0.0 | GET | /api/todos/419 | -
+[28-May-2023 13:40:27] | 201 | 56.9518ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:27] | 200 | 53.9048ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:27] | 201 | 2.8779ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 13:40:27] | 404 | 1.2914ms | 0.0.0.0 | DELETE | /api/todos/1 | rpc error: code = Unknown desc = record not found
+[28-May-2023 13:40:27] | 201 | 64.6002ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:27] | 200 | 52.9002ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:27] | 201 | 2.7248ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 13:40:27] | 201 | 14.1339ms | 0.0.0.0 | POST | /api/todos | -
+[28-May-2023 13:40:27] | 200 | 4.8428ms | 0.0.0.0 | DELETE | /api/todos/420 | -
+[28-May-2023 13:40:27] | 201 | 57.2873ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:27] | 200 | 53.3629ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:27] | 201 | 3.0198ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 13:40:27] | 201 | 13.5964ms | 0.0.0.0 | POST | /api/todos | -
+[28-May-2023 13:40:27] | 200 |      0s | 0.0.0.0 | DELETE | /api/category-todo | -
+[28-May-2023 13:40:27] | 201 | 55.9598ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:27] | 200 | 52.803ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:27] | 200 | 1.0888ms | 0.0.0.0 | GET | /api/categories | -
+[28-May-2023 13:40:28] | 201 | 56.4983ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:28] | 200 | 52.8985ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:28] | 201 | 3.3834ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 13:40:28] | 200 | 1.184ms | 0.0.0.0 | GET | /api/categories | -
+[28-May-2023 13:40:28] | 201 | 58.1498ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:28] | 200 | 53.8003ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:28] | 404 | 1.6158ms | 0.0.0.0 | GET | /api/categories/1 | rpc error: code = Unknown desc = record not found
+[28-May-2023 13:40:28] | 201 | 59.1966ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:28] | 200 | 53.6908ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:28] | 201 | 2.8145ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 13:40:28] | 200 | 504.4µs | 0.0.0.0 | GET | /api/categories/916 | -
+[28-May-2023 13:40:28] | 201 | 56.9052ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:28] | 200 | 53.0816ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:28] | 400 |   506µs | 0.0.0.0 | POST | /api/categories | validation error on field:CategoryCreateRequest.Name
+[28-May-2023 13:40:28] | 201 | 57.0002ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:28] | 200 | 52.7676ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:28] | 201 | 3.8955ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 13:40:28] | 201 | 58.2654ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:29] | 200 | 53.9077ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:29] | 404 | 1.6867ms | 0.0.0.0 | DELETE | /api/categories/1 | rpc error: code = Unknown desc = record not found
+[28-May-2023 13:40:29] | 201 | 58.9585ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:29] | 200 | 53.5476ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:29] | 201 | 2.0305ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 13:40:29] | 200 | 4.0232ms | 0.0.0.0 | DELETE | /api/categories/918 | -
+[28-May-2023 13:40:29] | 400 |      0s | 0.0.0.0 | POST | /register | validation error on field:UserCreateRequest.Name
+[28-May-2023 13:40:29] | 400 |      0s | 0.0.0.0 | POST | /register | validation error on field:UserCreateRequest.Email
+[28-May-2023 13:40:29] | 400 |      0s | 0.0.0.0 | POST | /register | validation error on field:UserCreateRequest.Password
+[28-May-2023 13:40:29] | 400 |      0s | 0.0.0.0 | POST | /register | validation error on field:UserCreateRequest.Email
+[28-May-2023 13:40:29] | 400 |      0s | 0.0.0.0 | POST | /register | validation error on field:UserCreateRequest.Password
+[28-May-2023 13:40:29] | 201 | 57.6518ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:29] | 400 |      0s | 0.0.0.0 | POST | /register | invalid character 'e' looking for beginning of value
+[28-May-2023 13:40:29] | 400 |      0s | 0.0.0.0 | POST | /login | validation error on field:LoginRequest.Email
+[28-May-2023 13:40:29] | 400 |      0s | 0.0.0.0 | POST | /register | invalid character 'e' looking for beginning of value
+[28-May-2023 13:40:29] | 400 |      0s | 0.0.0.0 | POST | /login | validation error on field:LoginRequest.Password
+[28-May-2023 13:40:29] | 400 |      0s | 0.0.0.0 | POST | /register | invalid character 'e' looking for beginning of value
+[28-May-2023 13:40:29] | 400 |   505µs | 0.0.0.0 | POST | /login | validation error on field:LoginRequest.Email
+[28-May-2023 13:40:30] | 201 | 56.5361ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:30] | 200 | 52.9558ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:30] | 201 | 57.3682ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:30] | 200 | 52.7466ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:30] | 200 | 4.8247ms | 0.0.0.0 | DELETE | /api/users/1525 | -
+[28-May-2023 13:40:30] | 200 | 1.364ms | 0.0.0.0 | GET | /api/users | -
+[28-May-2023 13:40:30] | 201 | 58.9981ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:30] | 200 | 54.0881ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:30] | 200 | 4.232ms | 0.0.0.0 | DELETE | /api/users/1526 | -
+[28-May-2023 13:40:30] | 201 | 55.1254ms | 0.0.0.0 | POST | /api/users | -
+[28-May-2023 13:40:30] | 200 | 1.1574ms | 0.0.0.0 | GET | /api/users | -
+[28-May-2023 13:40:30] | 201 | 55.7694ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:30] | 200 | 52.4795ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:30] | 200 | 5.1937ms | 0.0.0.0 | DELETE | /api/users/1528 | -
+[28-May-2023 13:40:30] | 404 | 1.8908ms | 0.0.0.0 | GET | /api/users/1 | rpc error: code = Unknown desc = record not found
+[28-May-2023 13:40:30] | 201 | 56.6763ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:30] | 200 | 56.3957ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:30] | 200 | 4.4907ms | 0.0.0.0 | DELETE | /api/users/1529 | -
+[28-May-2023 13:40:30] | 201 | 56.1464ms | 0.0.0.0 | POST | /api/users | -
+[28-May-2023 13:40:31] | 200 | 2.8081ms | 0.0.0.0 | GET | /api/users/1530 | -
+[28-May-2023 13:40:31] | 201 | 56.0787ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:31] | 200 | 52.3776ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:31] | 200 | 4.5444ms | 0.0.0.0 | DELETE | /api/users/1531 | -
+[28-May-2023 13:40:31] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Name
+[28-May-2023 13:40:31] | 201 | 57.2642ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:31] | 200 | 54.01ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:31] | 200 | 4.5913ms | 0.0.0.0 | DELETE | /api/users/1532 | -
+[28-May-2023 13:40:31] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Email
+[28-May-2023 13:40:31] | 201 | 56.4333ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:31] | 200 | 53.0934ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:31] | 200 | 4.4257ms | 0.0.0.0 | DELETE | /api/users/1533 | -
+[28-May-2023 13:40:31] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Password
+[28-May-2023 13:40:31] | 201 | 57.3351ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:31] | 200 | 52.5925ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:31] | 200 | 4.2126ms | 0.0.0.0 | DELETE | /api/users/1534 | -
+[28-May-2023 13:40:31] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Email
+[28-May-2023 13:40:31] | 201 | 58.1792ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:31] | 200 | 53.2917ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:31] | 200 | 4.4666ms | 0.0.0.0 | DELETE | /api/users/1535 | -
+[28-May-2023 13:40:31] | 201 | 55.3434ms | 0.0.0.0 | POST | /api/users | -
+[28-May-2023 13:40:32] | 201 | 57.1956ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:32] | 200 | 53.3136ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:32] | 200 | 4.4242ms | 0.0.0.0 | DELETE | /api/users/1537 | -
+[28-May-2023 13:40:32] | 404 | 1.0275ms | 0.0.0.0 | PATCH | /api/users/1 | rpc error: code = Unknown desc = record not found
+[28-May-2023 13:40:32] | 201 | 56.7323ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:32] | 200 | 52.5593ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:32] | 200 | 4.563ms | 0.0.0.0 | DELETE | /api/users/1538 | -
+[28-May-2023 13:40:32] | 201 | 55.7908ms | 0.0.0.0 | POST | /api/users | -
+[28-May-2023 13:40:32] | 400 |      0s | 0.0.0.0 | PATCH | /api/users/1539 | validation error on field:UserUpdateRequest.Name
+[28-May-2023 13:40:32] | 201 | 56.7635ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:32] | 200 | 52.6211ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:32] | 200 | 4.1701ms | 0.0.0.0 | DELETE | /api/users/1540 | -
+[28-May-2023 13:40:32] | 201 | 55.1492ms | 0.0.0.0 | POST | /api/users | -
+[28-May-2023 13:40:32] | 200 | 57.9053ms | 0.0.0.0 | PATCH | /api/users/1541 | -
+[28-May-2023 13:40:32] | 201 | 56.1912ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:32] | 200 | 53.7263ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:32] | 200 | 4.0491ms | 0.0.0.0 | DELETE | /api/users/1542 | -
+[28-May-2023 13:40:32] | 404 | 1.003ms | 0.0.0.0 | DELETE | /api/users/1 | rpc error: code = Unknown desc = record not found
+[28-May-2023 13:40:32] | 201 | 58.0125ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 13:40:33] | 200 | 55.2171ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 13:40:33] | 200 | 4.6785ms | 0.0.0.0 | DELETE | /api/users/1543 | -
+[28-May-2023 13:40:33] | 201 | 58.2397ms | 0.0.0.0 | POST | /api/users | -
+[28-May-2023 13:40:33] | 200 | 3.9138ms | 0.0.0.0 | DELETE | /api/users/1544 | -
+[28-May-2023 14:52:51] | 201 | 429.8248ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 14:52:51] | 200 | 173.854ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 14:52:51] | 201 | 74.4176ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 14:52:51] | 200 | 77.5485ms | 0.0.0.0 | GET | /api/todos | -
+[28-May-2023 14:52:51] | 201 | 57.4372ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 14:52:51] | 200 | 52.3985ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 14:52:51] | 201 | 105.0931ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 14:52:52] | 200 | 147.2815ms | 0.0.0.0 | POST | /api/todos | -
+[28-May-2023 14:52:52] | 200 | 5.7549ms | 0.0.0.0 | GET | /api/todos | -
+[28-May-2023 14:52:52] | 201 | 56.4784ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 14:52:52] | 200 | 53.4649ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 14:52:52] | 201 | 2.7594ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 14:52:52] | 404 | 2.8215ms | 0.0.0.0 | GET | /api/todos/1 | rpc error: code = Unknown desc = record not found
+[28-May-2023 14:52:52] | 201 | 56.8721ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 14:52:52] | 200 | 52.5889ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 14:52:52] | 201 | 2.0576ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 14:52:52] | 200 | 14.4415ms | 0.0.0.0 | POST | /api/todos | -
+[28-May-2023 14:52:52] | 200 | 3.7895ms | 0.0.0.0 | GET | /api/todos/423 | -
+[28-May-2023 14:52:52] | 201 | 56.2983ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 14:52:52] | 200 | 52.3531ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 14:52:52] | 201 | 4.4168ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 14:52:52] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.Title
+[28-May-2023 14:52:52] | 201 | 56.3183ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 14:52:52] | 200 | 52.5218ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 14:52:53] | 201 | 2.9354ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 14:52:53] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.Description
+[28-May-2023 14:52:53] | 201 | 56.081ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 14:52:53] | 200 | 52.8958ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 14:52:53] | 201 | 2.677ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 14:52:53] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.Categories
+[28-May-2023 14:52:53] | 201 | 55.6252ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 14:52:53] | 200 | 52.8275ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 14:52:53] | 201 | 4.6576ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 14:52:53] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.UserId
+[28-May-2023 14:52:53] | 201 | 55.8539ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 14:52:54] | 200 | 52.3029ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 14:52:54] | 201 | 2.9172ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 14:52:54] | 200 | 13.6693ms | 0.0.0.0 | POST | /api/todos | -
+[28-May-2023 14:52:54] | 201 | 56.1302ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 14:52:54] | 200 | 52.6558ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 14:52:54] | 201 | 2.7786ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 14:52:54] | 404 | 1.5332ms | 0.0.0.0 | PATCH | /api/todos/1 | rpc error: code = Unknown desc = record not found
+[28-May-2023 14:52:54] | 201 | 56.7399ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 14:52:54] | 200 | 52.8187ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 14:52:54] | 201 | 3.0687ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 14:52:54] | 200 | 14.1957ms | 0.0.0.0 | POST | /api/todos | -
+[28-May-2023 14:52:54] | 400 |      0s | 0.0.0.0 | PATCH | /api/todos/425 | validation error on field:TodoUpdateRequest.Title
+[28-May-2023 14:52:54] | 201 | 55.2651ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 14:52:54] | 200 | 52.9526ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 14:52:54] | 201 | 3.1027ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 14:52:54] | 200 | 13.1212ms | 0.0.0.0 | POST | /api/todos | -
+[28-May-2023 14:52:54] | 400 |      0s | 0.0.0.0 | PATCH | /api/todos/426 | validation error on field:TodoUpdateRequest.Categories
+[28-May-2023 14:52:54] | 201 | 55.6036ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 14:52:54] | 200 | 52.1269ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 14:52:54] | 201 | 2.039ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 14:52:54] | 200 | 14.8976ms | 0.0.0.0 | POST | /api/todos | -
+[28-May-2023 14:52:54] | 400 |      0s | 0.0.0.0 | PATCH | /api/todos/427 | validation error on field:TodoUpdateRequest.Description
+[28-May-2023 14:52:54] | 201 | 55.745ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 14:52:55] | 200 | 52.4375ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 14:52:55] | 201 | 2.3576ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 14:52:55] | 200 | 14.2132ms | 0.0.0.0 | POST | /api/todos | -
+[28-May-2023 14:52:55] | 400 |      0s | 0.0.0.0 | PATCH | /api/todos/428 | validation error on field:TodoUpdateRequest.UserId
+[28-May-2023 14:52:55] | 201 | 55.6601ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 14:52:55] | 200 | 52.3384ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 14:52:55] | 201 | 2.688ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 14:52:55] | 201 | 55.8072ms | 0.0.0.0 | POST | /api/users | -
+[28-May-2023 14:52:55] | 200 | 14.3201ms | 0.0.0.0 | POST | /api/todos | -
+[28-May-2023 14:52:55] | 201 | 2.2537ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 14:52:55] | 200 | 18.3508ms | 0.0.0.0 | PATCH | /api/todos/429 | -
+[28-May-2023 14:52:55] | 200 | 3.4351ms | 0.0.0.0 | GET | /api/todos/429 | -
+[28-May-2023 14:52:55] | 201 | 56.383ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 14:52:55] | 200 | 52.2079ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 14:52:55] | 201 | 2.0451ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 14:52:55] | 404 | 1.9565ms | 0.0.0.0 | DELETE | /api/todos/1 | rpc error: code = Unknown desc = record not found
+[28-May-2023 14:52:55] | 201 | 55.3768ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 14:52:55] | 200 | 51.6332ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 14:52:55] | 201 | 2.4396ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 14:52:55] | 200 | 12.9538ms | 0.0.0.0 | POST | /api/todos | -
+[28-May-2023 14:52:55] | 200 | 5.7528ms | 0.0.0.0 | DELETE | /api/todos/430 | -
+[28-May-2023 14:52:55] | 400 |      0s | 0.0.0.0 | POST | /register | validation error on field:UserCreateRequest.Name
+[28-May-2023 14:52:55] | 400 |      0s | 0.0.0.0 | POST | /register | validation error on field:UserCreateRequest.Email
+[28-May-2023 14:52:55] | 400 |      0s | 0.0.0.0 | POST | /register | validation error on field:UserCreateRequest.Password
+[28-May-2023 14:52:55] | 400 |      0s | 0.0.0.0 | POST | /register | validation error on field:UserCreateRequest.Email
+[28-May-2023 14:52:55] | 400 |      0s | 0.0.0.0 | POST | /register | validation error on field:UserCreateRequest.Password
+[28-May-2023 14:52:55] | 201 | 56.0198ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 14:52:55] | 400 |      0s | 0.0.0.0 | POST | /register | invalid character 'e' looking for beginning of value
+[28-May-2023 14:52:55] | 400 | 997.3µs | 0.0.0.0 | POST | /login | validation error on field:LoginRequest.Email
+[28-May-2023 14:52:55] | 400 |      0s | 0.0.0.0 | POST | /register | invalid character 'e' looking for beginning of value
+[28-May-2023 14:52:55] | 400 |      0s | 0.0.0.0 | POST | /login | validation error on field:LoginRequest.Password
+[28-May-2023 14:52:55] | 400 | 506.4µs | 0.0.0.0 | POST | /register | invalid character 'e' looking for beginning of value
+[28-May-2023 14:52:55] | 400 |      0s | 0.0.0.0 | POST | /login | validation error on field:LoginRequest.Email
+[28-May-2023 14:52:56] | 201 | 56.1821ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 14:52:56] | 200 | 52.0972ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 14:52:56] | 201 | 56.9038ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 14:52:56] | 200 | 52.9912ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 14:52:56] | 201 | 106.3802ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 14:52:56] | 200 | 118.8403ms | 0.0.0.0 | POST | /api/todos | -
+[28-May-2023 14:52:57] | 200 |      0s | 0.0.0.0 | DELETE | /api/category-todo | -
+[28-May-2023 14:52:57] | 201 | 55.5067ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 14:52:57] | 200 | 52.7436ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 14:52:57] | 200 | 2.1809ms | 0.0.0.0 | GET | /api/categories | -
+[28-May-2023 14:52:57] | 201 | 55.8083ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 14:52:57] | 200 | 52.3306ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 14:52:57] | 201 | 2.4164ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 14:52:57] | 200 | 1.8119ms | 0.0.0.0 | GET | /api/categories | -
+[28-May-2023 14:52:57] | 201 | 55.2136ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 14:52:57] | 200 | 52.3094ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 14:52:57] | 404 | 2.4168ms | 0.0.0.0 | GET | /api/categories/1 | rpc error: code = Unknown desc = record not found
+[28-May-2023 14:52:57] | 201 | 56.5243ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 14:52:57] | 200 | 52.6247ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 14:52:57] | 201 | 2.9947ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 14:52:57] | 200 | 1.2482ms | 0.0.0.0 | GET | /api/categories/939 | -
+[28-May-2023 14:52:57] | 201 | 55.7642ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 14:52:57] | 200 | 52.18ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 14:52:57] | 400 |      0s | 0.0.0.0 | POST | /api/categories | validation error on field:CategoryCreateRequest.Name
+[28-May-2023 14:52:58] | 201 | 55.4176ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 14:52:58] | 200 | 53.1396ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 14:52:58] | 201 | 4.1392ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 14:52:58] | 201 | 56.041ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 14:52:58] | 200 | 53.2885ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 14:52:58] | 404 | 1.0645ms | 0.0.0.0 | DELETE | /api/categories/1 | rpc error: code = Unknown desc = record not found
+[28-May-2023 14:52:58] | 201 | 55.959ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 14:52:58] | 200 | 52.3219ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 14:52:58] | 201 | 2.6296ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 14:52:58] | 200 | 5.0711ms | 0.0.0.0 | DELETE | /api/categories/941 | -
+[28-May-2023 14:52:58] | 201 | 56.24ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 14:52:58] | 200 | 52.9312ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 14:52:58] | 200 | 5.3113ms | 0.0.0.0 | DELETE | /api/users/1574 | -
+[28-May-2023 14:52:58] | 200 | 2.1269ms | 0.0.0.0 | GET | /api/users | -
+[28-May-2023 14:52:58] | 201 | 55.8742ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 14:52:58] | 200 | 53.2026ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 14:52:58] | 200 | 4.5503ms | 0.0.0.0 | DELETE | /api/users/1575 | -
+[28-May-2023 14:52:58] | 201 | 55.5104ms | 0.0.0.0 | POST | /api/users | -
+[28-May-2023 14:52:58] | 200 | 1.4103ms | 0.0.0.0 | GET | /api/users | -
+[28-May-2023 14:52:58] | 201 | 56.0449ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 14:52:59] | 200 | 52.3559ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 14:52:59] | 200 | 4.3873ms | 0.0.0.0 | DELETE | /api/users/1577 | -
+[28-May-2023 14:52:59] | 404 | 1.1364ms | 0.0.0.0 | GET | /api/users/1 | rpc error: code = Unknown desc = record not found
+[28-May-2023 14:52:59] | 201 | 55.8278ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 14:52:59] | 200 | 52.2889ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 14:52:59] | 200 | 3.6669ms | 0.0.0.0 | DELETE | /api/users/1578 | -
+[28-May-2023 14:52:59] | 201 | 55.2237ms | 0.0.0.0 | POST | /api/users | -
+[28-May-2023 14:52:59] | 200 | 2.0915ms | 0.0.0.0 | GET | /api/users/1579 | -
+[28-May-2023 14:52:59] | 201 | 55.8654ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 14:52:59] | 200 | 52.8959ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 14:52:59] | 200 | 3.9963ms | 0.0.0.0 | DELETE | /api/users/1580 | -
+[28-May-2023 14:52:59] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Name
+[28-May-2023 14:52:59] | 201 | 55.8368ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 14:52:59] | 200 | 52.5921ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 14:52:59] | 200 | 3.9899ms | 0.0.0.0 | DELETE | /api/users/1581 | -
+[28-May-2023 14:52:59] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Email
+[28-May-2023 14:52:59] | 201 | 55.4223ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 14:52:59] | 200 | 51.9129ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 14:52:59] | 200 | 4.1103ms | 0.0.0.0 | DELETE | /api/users/1582 | -
+[28-May-2023 14:52:59] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Password
+[28-May-2023 14:52:59] | 201 | 55.733ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 14:53:00] | 200 | 52.4269ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 14:53:00] | 200 | 3.9629ms | 0.0.0.0 | DELETE | /api/users/1583 | -
+[28-May-2023 14:53:00] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Email
+[28-May-2023 14:53:00] | 201 | 55.9529ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 14:53:00] | 200 | 52.586ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 14:53:00] | 200 | 3.933ms | 0.0.0.0 | DELETE | /api/users/1584 | -
+[28-May-2023 14:53:00] | 201 | 55.4257ms | 0.0.0.0 | POST | /api/users | -
+[28-May-2023 14:53:00] | 201 | 55.1083ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 14:53:00] | 200 | 52.4064ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 14:53:00] | 200 | 4.0335ms | 0.0.0.0 | DELETE | /api/users/1586 | -
+[28-May-2023 14:53:00] | 404 | 1.5513ms | 0.0.0.0 | PATCH | /api/users/1 | rpc error: code = Unknown desc = record not found
+[28-May-2023 14:53:00] | 201 | 55.4625ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 14:53:00] | 200 | 52.1461ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 14:53:00] | 200 | 2.5155ms | 0.0.0.0 | DELETE | /api/users/1587 | -
+[28-May-2023 14:53:00] | 201 | 54.3181ms | 0.0.0.0 | POST | /api/users | -
+[28-May-2023 14:53:00] | 400 |      0s | 0.0.0.0 | PATCH | /api/users/1588 | validation error on field:UserUpdateRequest.Name
+[28-May-2023 14:53:00] | 201 | 58.3205ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 14:53:00] | 200 | 53.9804ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 14:53:00] | 200 | 4.7062ms | 0.0.0.0 | DELETE | /api/users/1589 | -
+[28-May-2023 14:53:00] | 201 | 55.5184ms | 0.0.0.0 | POST | /api/users | -
+[28-May-2023 14:53:00] | 200 | 57.009ms | 0.0.0.0 | PATCH | /api/users/1590 | -
+[28-May-2023 14:53:01] | 201 | 55.9914ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 14:53:01] | 200 | 50.894ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 14:53:01] | 200 | 5.4224ms | 0.0.0.0 | DELETE | /api/users/1591 | -
+[28-May-2023 14:53:01] | 404 | 1.2126ms | 0.0.0.0 | DELETE | /api/users/1 | rpc error: code = Unknown desc = record not found
+[28-May-2023 14:53:01] | 201 | 55.7698ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 14:53:01] | 200 | 53.1671ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 14:53:01] | 200 | 3.536ms | 0.0.0.0 | DELETE | /api/users/1592 | -
+[28-May-2023 14:53:01] | 201 | 55.3885ms | 0.0.0.0 | POST | /api/users | -
+[28-May-2023 14:53:01] | 200 | 2.5163ms | 0.0.0.0 | DELETE | /api/users/1593 | -
+[28-May-2023 15:01:42] | 201 | 428.8594ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:01:42] | 200 | 168.3432ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:01:43] | 200 | 10.0936ms | 0.0.0.0 | DELETE | /api/users/1594 | -
+[28-May-2023 15:01:43] | 200 | 2.2384ms | 0.0.0.0 | GET | /api/users | -
+[28-May-2023 15:01:43] | 201 | 55.8547ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:01:43] | 200 | 52.6145ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:01:43] | 200 | 4.0127ms | 0.0.0.0 | DELETE | /api/users/1595 | -
+[28-May-2023 15:01:43] | 201 | 54.9151ms | 0.0.0.0 | POST | /api/users | -
+[28-May-2023 15:01:43] | 200 | 1.3877ms | 0.0.0.0 | GET | /api/users | -
+[28-May-2023 15:01:43] | 201 | 55.702ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:01:43] | 200 | 52.836ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:01:43] | 200 | 4.5474ms | 0.0.0.0 | DELETE | /api/users/1597 | -
+[28-May-2023 15:01:43] | 404 | 1.4269ms | 0.0.0.0 | GET | /api/users/1 | rpc error: code = Unknown desc = record not found
+[28-May-2023 15:01:43] | 201 | 55.6516ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:01:43] | 200 | 52.1228ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:01:43] | 200 | 4.4634ms | 0.0.0.0 | DELETE | /api/users/1598 | -
+[28-May-2023 15:01:43] | 201 | 55.441ms | 0.0.0.0 | POST | /api/users | -
+[28-May-2023 15:01:43] | 200 | 1.8967ms | 0.0.0.0 | GET | /api/users/1599 | -
+[28-May-2023 15:01:43] | 201 | 56.4874ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:01:43] | 200 | 52.9796ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:01:43] | 200 | 4.2112ms | 0.0.0.0 | DELETE | /api/users/1600 | -
+[28-May-2023 15:01:43] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Name
+[28-May-2023 15:01:44] | 201 | 55.4665ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:01:44] | 200 | 52.1752ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:01:44] | 200 | 4.6736ms | 0.0.0.0 | DELETE | /api/users/1601 | -
+[28-May-2023 15:01:44] | 400 | 505.4µs | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Email
+[28-May-2023 15:01:44] | 201 | 55.5071ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:01:44] | 200 | 51.9231ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:01:44] | 200 | 3.993ms | 0.0.0.0 | DELETE | /api/users/1602 | -
+[28-May-2023 15:01:44] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Password
+[28-May-2023 15:01:44] | 201 | 57.1201ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:01:44] | 200 | 52.2128ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:01:44] | 200 | 4.4038ms | 0.0.0.0 | DELETE | /api/users/1603 | -
+[28-May-2023 15:01:44] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Email
+[28-May-2023 15:01:44] | 201 | 56.4741ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:01:44] | 200 | 52.369ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:01:44] | 200 | 3.8263ms | 0.0.0.0 | DELETE | /api/users/1604 | -
+[28-May-2023 15:01:44] | 201 | 54.6013ms | 0.0.0.0 | POST | /api/users | -
+[28-May-2023 15:01:44] | 201 | 57.3107ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:01:44] | 200 | 51.9784ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:01:44] | 200 | 3.3548ms | 0.0.0.0 | DELETE | /api/users/1606 | -
+[28-May-2023 15:01:44] | 404 |   915µs | 0.0.0.0 | PATCH | /api/users/1 | rpc error: code = Unknown desc = record not found
+[28-May-2023 15:01:45] | 201 | 56.004ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:01:45] | 200 | 52.8181ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:01:45] | 200 | 3.9705ms | 0.0.0.0 | DELETE | /api/users/1607 | -
+[28-May-2023 15:01:45] | 201 | 54.837ms | 0.0.0.0 | POST | /api/users | -
+[28-May-2023 15:01:45] | 400 |      0s | 0.0.0.0 | PATCH | /api/users/1608 | validation error on field:UserUpdateRequest.Name
+[28-May-2023 15:01:45] | 201 | 55.9977ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:01:45] | 200 | 52.4679ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:01:45] | 200 | 4.0561ms | 0.0.0.0 | DELETE | /api/users/1609 | -
+[28-May-2023 15:01:45] | 201 | 55.2761ms | 0.0.0.0 | POST | /api/users | -
+[28-May-2023 15:01:45] | 200 | 57.0866ms | 0.0.0.0 | PATCH | /api/users/1610 | -
+[28-May-2023 15:01:45] | 201 | 56.5458ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:01:45] | 200 | 52.76ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:01:45] | 200 | 4.217ms | 0.0.0.0 | DELETE | /api/users/1611 | -
+[28-May-2023 15:01:45] | 404 | 1.0471ms | 0.0.0.0 | DELETE | /api/users/1 | rpc error: code = Unknown desc = record not found
+[28-May-2023 15:01:45] | 201 | 56.6366ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:01:45] | 200 | 53.2572ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:01:45] | 200 | 4.6848ms | 0.0.0.0 | DELETE | /api/users/1612 | -
+[28-May-2023 15:01:45] | 201 | 54.6732ms | 0.0.0.0 | POST | /api/users | -
+[28-May-2023 15:01:45] | 200 | 2.3285ms | 0.0.0.0 | DELETE | /api/users/1613 | -
+[28-May-2023 15:01:45] | 201 | 56.3409ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:01:46] | 200 | 52.8152ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:01:46] | 200 | 63.3266ms | 0.0.0.0 | GET | /api/categories | -
+[28-May-2023 15:01:46] | 201 | 55.4772ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:01:46] | 200 | 52.0096ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:01:46] | 201 | 120.6725ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 15:01:46] | 200 | 1.2549ms | 0.0.0.0 | GET | /api/categories | -
+[28-May-2023 15:01:46] | 201 | 57.0641ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:01:46] | 200 | 52.2775ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:01:46] | 404 | 2.4206ms | 0.0.0.0 | GET | /api/categories/1 | rpc error: code = Unknown desc = record not found
+[28-May-2023 15:01:46] | 201 | 56.1104ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:01:46] | 200 | 53.2128ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:01:46] | 201 | 3.0014ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 15:01:46] | 200 | 1.5645ms | 0.0.0.0 | GET | /api/categories/943 | -
+[28-May-2023 15:01:46] | 201 | 56.1702ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:01:46] | 200 | 53.3181ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:01:47] | 400 |      0s | 0.0.0.0 | POST | /api/categories | validation error on field:CategoryCreateRequest.Name
+[28-May-2023 15:01:47] | 201 | 55.8868ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:01:47] | 200 | 51.689ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:01:47] | 201 | 3.0555ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 15:01:47] | 201 | 54.6959ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:01:47] | 200 | 52.8153ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:01:47] | 404 | 1.4975ms | 0.0.0.0 | DELETE | /api/categories/1 | rpc error: code = Unknown desc = record not found
+[28-May-2023 15:01:47] | 201 | 56.2476ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:01:47] | 200 | 52.715ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:01:47] | 201 | 2.2428ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 15:01:47] | 200 | 5.4791ms | 0.0.0.0 | DELETE | /api/categories/945 | -
+[28-May-2023 15:01:47] | 201 | 56.2961ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:01:47] | 200 | 52.3483ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:01:47] | 201 | 3.058ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 15:01:47] | 200 | 88.427ms | 0.0.0.0 | POST | /api/todos | -
+[28-May-2023 15:01:47] | 200 |      0s | 0.0.0.0 | DELETE | /api/category-todo | -
+[28-May-2023 15:01:47] | 201 | 55.5148ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:01:47] | 200 | 52.8377ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:01:48] | 201 | 2.645ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 15:01:48] | 200 | 118.4544ms | 0.0.0.0 | GET | /api/todos | -
+[28-May-2023 15:01:48] | 201 | 56.2654ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:01:48] | 200 | 52.4764ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:01:48] | 201 | 2.7496ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 15:01:48] | 200 | 13.9438ms | 0.0.0.0 | POST | /api/todos | -
+[28-May-2023 15:01:48] | 200 | 6.0991ms | 0.0.0.0 | GET | /api/todos | -
+[28-May-2023 15:01:48] | 201 | 55.7529ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:01:48] | 200 | 53.3151ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:01:48] | 201 | 2.7317ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 15:01:48] | 404 | 2.6564ms | 0.0.0.0 | GET | /api/todos/1 | rpc error: code = Unknown desc = record not found
+[28-May-2023 15:01:48] | 201 | 55.9857ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:01:48] | 200 | 51.309ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:01:48] | 201 | 2.6797ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 15:01:48] | 200 | 13.0989ms | 0.0.0.0 | POST | /api/todos | -
+[28-May-2023 15:01:48] | 200 | 3.6129ms | 0.0.0.0 | GET | /api/todos/434 | -
+[28-May-2023 15:01:48] | 201 | 55.322ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:01:48] | 200 | 52.5335ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:01:48] | 201 | 2.7239ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 15:01:48] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.Title
+[28-May-2023 15:01:48] | 201 | 55.725ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:01:49] | 200 | 52.3726ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:01:49] | 201 | 2.7648ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 15:01:49] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.Description
+[28-May-2023 15:01:49] | 201 | 56.6989ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:01:49] | 200 | 52.3408ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:01:49] | 201 | 2.7236ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 15:01:49] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.Categories
+[28-May-2023 15:01:49] | 201 | 55.6322ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:01:49] | 200 | 53.0094ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:01:49] | 201 | 2.6769ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 15:01:49] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.UserId
+[28-May-2023 15:01:49] | 201 | 55.8533ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:01:49] | 200 | 52.1131ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:01:49] | 201 | 3.0417ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 15:01:49] | 200 | 13.04ms | 0.0.0.0 | POST | /api/todos | -
+[28-May-2023 15:01:49] | 201 | 55.7478ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:01:49] | 200 | 52.0089ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:01:49] | 201 | 2.8429ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 15:01:49] | 404 | 1.0245ms | 0.0.0.0 | PATCH | /api/todos/1 | rpc error: code = Unknown desc = record not found
+[28-May-2023 15:01:49] | 201 | 55.4489ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:01:49] | 200 | 51.9513ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:01:50] | 201 | 2.7117ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 15:01:50] | 200 | 13.5932ms | 0.0.0.0 | POST | /api/todos | -
+[28-May-2023 15:01:50] | 400 |      0s | 0.0.0.0 | PATCH | /api/todos/436 | validation error on field:TodoUpdateRequest.Title
+[28-May-2023 15:01:50] | 201 | 55.4879ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:01:50] | 200 | 50.526ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:01:50] | 201 | 2.7085ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 15:01:50] | 200 | 14.8032ms | 0.0.0.0 | POST | /api/todos | -
+[28-May-2023 15:01:50] | 400 |      0s | 0.0.0.0 | PATCH | /api/todos/437 | validation error on field:TodoUpdateRequest.Categories
+[28-May-2023 15:01:50] | 201 | 56.4317ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:01:50] | 200 | 51.5526ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:01:50] | 201 | 2.8811ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 15:01:50] | 200 | 13.667ms | 0.0.0.0 | POST | /api/todos | -
+[28-May-2023 15:01:50] | 400 |      0s | 0.0.0.0 | PATCH | /api/todos/438 | validation error on field:TodoUpdateRequest.Description
+[28-May-2023 15:01:50] | 201 | 56.0324ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:01:50] | 200 | 53.2517ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:01:50] | 201 | 2.517ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 15:01:50] | 200 | 15.1802ms | 0.0.0.0 | POST | /api/todos | -
+[28-May-2023 15:01:50] | 400 |      0s | 0.0.0.0 | PATCH | /api/todos/439 | validation error on field:TodoUpdateRequest.UserId
+[28-May-2023 15:01:50] | 201 | 55.9483ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:01:50] | 200 | 53.6486ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:01:50] | 201 | 2.7186ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 15:01:50] | 201 | 54.5867ms | 0.0.0.0 | POST | /api/users | -
+[28-May-2023 15:01:50] | 200 | 12.5243ms | 0.0.0.0 | POST | /api/todos | -
+[28-May-2023 15:01:50] | 201 | 2.347ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 15:01:50] | 200 | 16.9368ms | 0.0.0.0 | PATCH | /api/todos/440 | -
+[28-May-2023 15:01:50] | 200 | 3.7976ms | 0.0.0.0 | GET | /api/todos/440 | -
+[28-May-2023 15:01:51] | 201 | 55.1795ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:01:51] | 200 | 52.1079ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:01:51] | 201 | 3.2296ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 15:01:51] | 404 | 1.5068ms | 0.0.0.0 | DELETE | /api/todos/1 | rpc error: code = Unknown desc = record not found
+[28-May-2023 15:01:51] | 201 | 56.3198ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:01:51] | 200 | 53.4385ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:01:51] | 201 | 2.6351ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 15:01:51] | 200 | 12.4523ms | 0.0.0.0 | POST | /api/todos | -
+[28-May-2023 15:01:51] | 200 | 6.3311ms | 0.0.0.0 | DELETE | /api/todos/441 | -
+[28-May-2023 15:01:51] | 400 |      0s | 0.0.0.0 | POST | /register | validation error on field:UserCreateRequest.Name
+[28-May-2023 15:01:51] | 400 |      0s | 0.0.0.0 | POST | /register | validation error on field:UserCreateRequest.Email
+[28-May-2023 15:01:51] | 400 |      0s | 0.0.0.0 | POST | /register | validation error on field:UserCreateRequest.Password
+[28-May-2023 15:01:51] | 400 |      0s | 0.0.0.0 | POST | /register | validation error on field:UserCreateRequest.Email
+[28-May-2023 15:01:51] | 400 |      0s | 0.0.0.0 | POST | /register | validation error on field:UserCreateRequest.Password
+[28-May-2023 15:01:51] | 201 | 57.8981ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:01:51] | 400 |      0s | 0.0.0.0 | POST | /register | invalid character 'e' looking for beginning of value
+[28-May-2023 15:01:51] | 400 |      0s | 0.0.0.0 | POST | /login | validation error on field:LoginRequest.Email
+[28-May-2023 15:01:51] | 400 |      0s | 0.0.0.0 | POST | /register | invalid character 'e' looking for beginning of value
+[28-May-2023 15:01:51] | 400 |      0s | 0.0.0.0 | POST | /login | validation error on field:LoginRequest.Password
+[28-May-2023 15:01:51] | 400 |      0s | 0.0.0.0 | POST | /register | invalid character 'e' looking for beginning of value
+[28-May-2023 15:01:51] | 400 |      0s | 0.0.0.0 | POST | /login | validation error on field:LoginRequest.Email
+[28-May-2023 15:01:52] | 201 | 55.8501ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:01:52] | 200 | 52.6843ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:03:07] | 400 | 590.4µs | 0.0.0.0 | POST | /register | validation error on field:UserCreateRequest.Name
+[28-May-2023 15:03:07] | 400 |      0s | 0.0.0.0 | POST | /register | validation error on field:UserCreateRequest.Email
+[28-May-2023 15:03:07] | 400 |      0s | 0.0.0.0 | POST | /register | validation error on field:UserCreateRequest.Password
+[28-May-2023 15:03:07] | 400 |      0s | 0.0.0.0 | POST | /register | validation error on field:UserCreateRequest.Email
+[28-May-2023 15:03:07] | 400 |      0s | 0.0.0.0 | POST | /register | validation error on field:UserCreateRequest.Password
+[28-May-2023 15:03:07] | 201 | 121.9559ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:03:07] | 400 | 516.3µs | 0.0.0.0 | POST | /register | invalid character 'e' looking for beginning of value
+[28-May-2023 15:03:07] | 400 |   553µs | 0.0.0.0 | POST | /login | validation error on field:LoginRequest.Email
+[28-May-2023 15:03:07] | 400 |      0s | 0.0.0.0 | POST | /register | invalid character 'e' looking for beginning of value
+[28-May-2023 15:03:07] | 400 |      0s | 0.0.0.0 | POST | /login | validation error on field:LoginRequest.Password
+[28-May-2023 15:03:07] | 400 |      0s | 0.0.0.0 | POST | /register | invalid character 'e' looking for beginning of value
+[28-May-2023 15:03:07] | 400 |      0s | 0.0.0.0 | POST | /login | validation error on field:LoginRequest.Email
+[28-May-2023 15:03:07] | 201 | 167.9144ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:03:07] | 200 | 54.0552ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:03:08] | 201 | 56.0846ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:03:08] | 200 | 52.6364ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:03:08] | 200 | 63.9863ms | 0.0.0.0 | GET | /api/categories | -
+[28-May-2023 15:03:08] | 201 | 56.7176ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:03:08] | 200 | 52.9543ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:03:08] | 201 | 114.3976ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 15:03:08] | 200 | 1.1548ms | 0.0.0.0 | GET | /api/categories | -
+[28-May-2023 15:03:08] | 201 | 56.4309ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:03:08] | 200 | 52.5813ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:03:08] | 404 | 2.411ms | 0.0.0.0 | GET | /api/categories/1 | rpc error: code = Unknown desc = record not found
+[28-May-2023 15:03:08] | 201 | 55.6906ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:03:08] | 200 | 51.6943ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:03:08] | 201 | 2.547ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 15:03:08] | 200 | 1.156ms | 0.0.0.0 | GET | /api/categories/966 | -
+[28-May-2023 15:03:09] | 201 | 55.19ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:03:09] | 200 | 53.1235ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:03:09] | 400 |      0s | 0.0.0.0 | POST | /api/categories | validation error on field:CategoryCreateRequest.Name
+[28-May-2023 15:03:09] | 201 | 55.1085ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:03:09] | 200 | 52.228ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:03:09] | 201 | 2.2213ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 15:03:09] | 201 | 55.9896ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:03:09] | 200 | 52.9364ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:03:09] | 404 | 1.0247ms | 0.0.0.0 | DELETE | /api/categories/1 | rpc error: code = Unknown desc = record not found
+[28-May-2023 15:03:09] | 201 | 55.8089ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:03:09] | 200 | 54.6747ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:03:09] | 201 | 3.0498ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 15:03:09] | 200 | 4.5687ms | 0.0.0.0 | DELETE | /api/categories/968 | -
+[28-May-2023 15:03:09] | 201 | 55.7337ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:03:09] | 200 | 52.8346ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:03:09] | 200 | 7.8073ms | 0.0.0.0 | DELETE | /api/users/1653 | -
+[28-May-2023 15:03:09] | 200 | 2.0527ms | 0.0.0.0 | GET | /api/users | -
+[28-May-2023 15:03:09] | 201 | 56.0529ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:03:09] | 200 | 51.8428ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:03:09] | 200 | 4.5749ms | 0.0.0.0 | DELETE | /api/users/1654 | -
+[28-May-2023 15:03:09] | 201 | 55.1458ms | 0.0.0.0 | POST | /api/users | -
+[28-May-2023 15:03:10] | 200 | 1.3506ms | 0.0.0.0 | GET | /api/users | -
+[28-May-2023 15:03:10] | 201 | 55.041ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:03:10] | 200 | 52.0846ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:03:10] | 200 | 4.1164ms | 0.0.0.0 | DELETE | /api/users/1656 | -
+[28-May-2023 15:03:10] | 404 | 1.2163ms | 0.0.0.0 | GET | /api/users/1 | rpc error: code = Unknown desc = record not found
+[28-May-2023 15:03:10] | 201 | 56.1824ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:03:10] | 200 | 52.0197ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:03:10] | 200 | 3.285ms | 0.0.0.0 | DELETE | /api/users/1657 | -
+[28-May-2023 15:03:10] | 201 | 55.7551ms | 0.0.0.0 | POST | /api/users | -
+[28-May-2023 15:03:10] | 200 | 2.337ms | 0.0.0.0 | GET | /api/users/1658 | -
+[28-May-2023 15:03:10] | 201 | 55.6443ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:03:10] | 200 | 52.7134ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:03:10] | 200 | 4.0232ms | 0.0.0.0 | DELETE | /api/users/1659 | -
+[28-May-2023 15:03:10] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Name
+[28-May-2023 15:03:10] | 201 | 55.5667ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:03:10] | 200 | 53.5279ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:03:10] | 200 | 4.5784ms | 0.0.0.0 | DELETE | /api/users/1660 | -
+[28-May-2023 15:03:10] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Email
+[28-May-2023 15:03:10] | 201 | 56.2739ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:03:10] | 200 | 52.2228ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:03:10] | 200 | 4.1767ms | 0.0.0.0 | DELETE | /api/users/1661 | -
+[28-May-2023 15:03:10] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Password
+[28-May-2023 15:03:11] | 201 | 55.6381ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:03:11] | 200 | 53.1641ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:03:11] | 200 | 4.268ms | 0.0.0.0 | DELETE | /api/users/1662 | -
+[28-May-2023 15:03:11] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Email
+[28-May-2023 15:03:11] | 201 | 59.7404ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:03:11] | 200 | 52.7348ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:03:11] | 200 | 4.2987ms | 0.0.0.0 | DELETE | /api/users/1663 | -
+[28-May-2023 15:03:11] | 201 | 55.8425ms | 0.0.0.0 | POST | /api/users | -
+[28-May-2023 15:03:11] | 201 | 58.466ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:03:11] | 200 | 52.8502ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:03:11] | 200 | 4.6898ms | 0.0.0.0 | DELETE | /api/users/1665 | -
+[28-May-2023 15:03:11] | 404 | 1.4407ms | 0.0.0.0 | PATCH | /api/users/1 | rpc error: code = Unknown desc = record not found
+[28-May-2023 15:03:11] | 201 | 55.7935ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:03:11] | 200 | 53.4366ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:03:11] | 200 | 4.8664ms | 0.0.0.0 | DELETE | /api/users/1666 | -
+[28-May-2023 15:03:11] | 201 | 55.9391ms | 0.0.0.0 | POST | /api/users | -
+[28-May-2023 15:03:11] | 400 |      0s | 0.0.0.0 | PATCH | /api/users/1667 | validation error on field:UserUpdateRequest.Name
+[28-May-2023 15:03:11] | 201 | 59.3093ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:03:11] | 200 | 53.8409ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:03:12] | 200 | 4.4375ms | 0.0.0.0 | DELETE | /api/users/1668 | -
+[28-May-2023 15:03:12] | 201 | 55.3586ms | 0.0.0.0 | POST | /api/users | -
+[28-May-2023 15:03:12] | 200 | 57.0929ms | 0.0.0.0 | PATCH | /api/users/1669 | -
+[28-May-2023 15:03:12] | 201 | 57.1877ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:03:12] | 200 | 53.4514ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:03:12] | 200 | 4.8046ms | 0.0.0.0 | DELETE | /api/users/1670 | -
+[28-May-2023 15:03:12] | 404 | 1.3491ms | 0.0.0.0 | DELETE | /api/users/1 | rpc error: code = Unknown desc = record not found
+[28-May-2023 15:03:12] | 201 | 58.7663ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:03:12] | 200 | 52.8504ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:03:12] | 200 | 5.7208ms | 0.0.0.0 | DELETE | /api/users/1671 | -
+[28-May-2023 15:03:12] | 201 | 61.2826ms | 0.0.0.0 | POST | /api/users | -
+[28-May-2023 15:03:12] | 200 | 4.7498ms | 0.0.0.0 | DELETE | /api/users/1672 | -
+[28-May-2023 15:03:12] | 201 | 59.4885ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:03:12] | 200 | 53.2152ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:03:12] | 201 | 112.8586ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 15:03:12] | 200 | 66.7577ms | 0.0.0.0 | GET | /api/todos | -
+[28-May-2023 15:03:13] | 201 | 55.3207ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:03:13] | 200 | 52.1669ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:03:13] | 201 | 2.6436ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 15:03:13] | 201 | 130.9078ms | 0.0.0.0 | POST | /api/todos | -
+[28-May-2023 15:03:13] | 200 | 5.1292ms | 0.0.0.0 | GET | /api/todos | -
+[28-May-2023 15:03:13] | 201 | 54.8516ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:03:13] | 200 | 51.8526ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:03:13] | 201 | 2.9348ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 15:03:13] | 404 | 3.346ms | 0.0.0.0 | GET | /api/todos/1 | rpc error: code = Unknown desc = record not found
+[28-May-2023 15:03:13] | 201 | 55.4539ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:03:13] | 200 | 52.6149ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:03:13] | 201 | 2.7513ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 15:03:13] | 201 | 13.3688ms | 0.0.0.0 | POST | /api/todos | -
+[28-May-2023 15:03:13] | 200 | 3.6755ms | 0.0.0.0 | GET | /api/todos/443 | -
+[28-May-2023 15:03:13] | 201 | 56.4326ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:03:13] | 200 | 51.9146ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:03:13] | 201 | 2.8029ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 15:03:13] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.Title
+[28-May-2023 15:03:13] | 201 | 55.4394ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:03:14] | 200 | 52.3441ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:03:14] | 201 | 2.7071ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 15:03:14] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.Description
+[28-May-2023 15:03:14] | 201 | 55.9313ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:03:14] | 200 | 52.2865ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:03:14] | 201 | 2.6663ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 15:03:14] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.Categories
+[28-May-2023 15:03:14] | 201 | 56.2834ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:03:14] | 200 | 52.5405ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:03:14] | 201 | 2.7457ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 15:03:14] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.UserId
+[28-May-2023 15:03:14] | 201 | 55.613ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:03:14] | 200 | 53.1229ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:03:14] | 201 | 3.0153ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 15:03:14] | 201 | 12.9298ms | 0.0.0.0 | POST | /api/todos | -
+[28-May-2023 15:03:14] | 201 | 55.2329ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:03:14] | 200 | 52.3317ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:03:14] | 201 | 2.5609ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 15:03:14] | 404 | 1.0278ms | 0.0.0.0 | PATCH | /api/todos/1 | rpc error: code = Unknown desc = record not found
+[28-May-2023 15:03:14] | 201 | 55.1205ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:03:14] | 200 | 51.7756ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:03:15] | 201 | 2.7404ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 15:03:15] | 201 | 13.2753ms | 0.0.0.0 | POST | /api/todos | -
+[28-May-2023 15:03:15] | 400 |      0s | 0.0.0.0 | PATCH | /api/todos/445 | validation error on field:TodoUpdateRequest.Title
+[28-May-2023 15:03:15] | 201 | 56.8637ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:03:15] | 200 | 52.3439ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:03:15] | 201 | 2.712ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 15:03:15] | 201 | 12.8615ms | 0.0.0.0 | POST | /api/todos | -
+[28-May-2023 15:03:15] | 400 |      0s | 0.0.0.0 | PATCH | /api/todos/446 | validation error on field:TodoUpdateRequest.Categories
+[28-May-2023 15:03:15] | 201 | 55.6432ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:03:15] | 200 | 51.9544ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:03:15] | 201 | 2.6583ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 15:03:15] | 201 | 13.2319ms | 0.0.0.0 | POST | /api/todos | -
+[28-May-2023 15:03:15] | 400 |      0s | 0.0.0.0 | PATCH | /api/todos/447 | validation error on field:TodoUpdateRequest.Description
+[28-May-2023 15:03:15] | 201 | 55.2805ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:03:15] | 200 | 52.1186ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:03:15] | 201 | 2.8871ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 15:03:15] | 201 | 13.0145ms | 0.0.0.0 | POST | /api/todos | -
+[28-May-2023 15:03:15] | 400 |      0s | 0.0.0.0 | PATCH | /api/todos/448 | validation error on field:TodoUpdateRequest.UserId
+[28-May-2023 15:03:15] | 201 | 56.2355ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:03:15] | 200 | 52.6488ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:03:15] | 201 | 2.6699ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 15:03:15] | 201 | 54.5281ms | 0.0.0.0 | POST | /api/users | -
+[28-May-2023 15:03:15] | 201 | 13.3168ms | 0.0.0.0 | POST | /api/todos | -
+[28-May-2023 15:03:15] | 201 | 2.3911ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 15:03:15] | 200 | 17.5623ms | 0.0.0.0 | PATCH | /api/todos/449 | -
+[28-May-2023 15:03:15] | 200 | 3.5388ms | 0.0.0.0 | GET | /api/todos/449 | -
+[28-May-2023 15:03:15] | 201 | 56.0098ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:03:16] | 200 | 52.2641ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:03:16] | 201 | 2.0445ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 15:03:16] | 404 | 2.1684ms | 0.0.0.0 | DELETE | /api/todos/1 | rpc error: code = Unknown desc = record not found
+[28-May-2023 15:03:16] | 201 | 56.0583ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:03:16] | 200 | 52.9452ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:03:16] | 201 | 3.1523ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 15:03:16] | 201 | 13.2929ms | 0.0.0.0 | POST | /api/todos | -
+[28-May-2023 15:03:16] | 200 | 6.2389ms | 0.0.0.0 | DELETE | /api/todos/450 | -
+[28-May-2023 15:03:16] | 201 | 56.0771ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:03:16] | 200 | 52.0283ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:03:16] | 201 | 2.2433ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 15:03:16] | 201 | 13.0681ms | 0.0.0.0 | POST | /api/todos | -
+[28-May-2023 15:03:16] | 200 |      0s | 0.0.0.0 | DELETE | /api/category-todo | -
+[28-May-2023 15:36:50] | 201 | 410.1548ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:36:50] | 200 | 166.368ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:36:51] | 201 | 69.5114ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 15:36:51] | 201 | 88.7141ms | 0.0.0.0 | POST | /api/todos | -
+[28-May-2023 15:36:51] | 200 |      0s | 0.0.0.0 | DELETE | /api/category-todo | -
+[28-May-2023 15:36:51] | 201 | 56.2691ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:36:51] | 200 | 52.4034ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:36:51] | 200 | 108.285ms | 0.0.0.0 | GET | /api/categories | -
+[28-May-2023 15:36:51] | 201 | 56.2164ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:36:51] | 200 | 52.1538ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:36:51] | 201 | 3.0173ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 15:36:51] | 200 | 1.1255ms | 0.0.0.0 | GET | /api/categories | -
+[28-May-2023 15:36:51] | 201 | 57.1116ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:36:51] | 200 | 52.2789ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:36:51] | 404 | 3.6453ms | 0.0.0.0 | GET | /api/categories/1 | rpc error: code = Unknown desc = record not found
+[28-May-2023 15:36:51] | 201 | 58.6354ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:36:52] | 200 | 52.0114ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:36:52] | 201 | 3.0938ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 15:36:52] | 200 | 1.3646ms | 0.0.0.0 | GET | /api/categories/990 | -
+[28-May-2023 15:36:52] | 201 | 55.7832ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:36:52] | 200 | 51.7628ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:36:52] | 400 |      0s | 0.0.0.0 | POST | /api/categories | validation error on field:CategoryCreateRequest.Name
+[28-May-2023 15:36:52] | 201 | 56.1433ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:36:52] | 200 | 52.3167ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:36:52] | 201 | 2.8638ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 15:36:52] | 201 | 56.2534ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:36:52] | 200 | 52.6645ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:36:52] | 404 | 1.4914ms | 0.0.0.0 | DELETE | /api/categories/1 | rpc error: code = Unknown desc = record not found
+[28-May-2023 15:36:52] | 201 | 55.842ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:36:52] | 200 | 52.4969ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:36:52] | 201 | 3.0191ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 15:36:52] | 200 | 5.1989ms | 0.0.0.0 | DELETE | /api/categories/992 | -
+[28-May-2023 15:36:52] | 400 |      0s | 0.0.0.0 | POST | /register | validation error on field:UserCreateRequest.Name
+[28-May-2023 15:36:53] | 400 |      0s | 0.0.0.0 | POST | /register | validation error on field:UserCreateRequest.Email
+[28-May-2023 15:36:53] | 400 |      0s | 0.0.0.0 | POST | /register | validation error on field:UserCreateRequest.Password
+[28-May-2023 15:36:53] | 400 |      0s | 0.0.0.0 | POST | /register | validation error on field:UserCreateRequest.Email
+[28-May-2023 15:36:53] | 400 |      0s | 0.0.0.0 | POST | /register | validation error on field:UserCreateRequest.Password
+[28-May-2023 15:36:53] | 201 | 56.3582ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:36:53] | 400 |      0s | 0.0.0.0 | POST | /register | invalid character 'e' looking for beginning of value
+[28-May-2023 15:36:53] | 400 | 556.8µs | 0.0.0.0 | POST | /login | validation error on field:LoginRequest.Email
+[28-May-2023 15:36:53] | 400 |      0s | 0.0.0.0 | POST | /register | invalid character 'e' looking for beginning of value
+[28-May-2023 15:36:53] | 400 |      0s | 0.0.0.0 | POST | /login | validation error on field:LoginRequest.Password
+[28-May-2023 15:36:53] | 400 |      0s | 0.0.0.0 | POST | /register | invalid character 'e' looking for beginning of value
+[28-May-2023 15:36:53] | 400 |      0s | 0.0.0.0 | POST | /login | validation error on field:LoginRequest.Email
+[28-May-2023 15:36:53] | 201 | 55.9574ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:36:53] | 200 | 52.3572ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:36:53] | 201 | 56.1399ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:36:53] | 200 | 52.4944ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:36:53] | 201 | 117.7631ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 15:36:53] | 200 | 109.3434ms | 0.0.0.0 | GET | /api/todos | -
+[28-May-2023 15:36:54] | 201 | 56.103ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:36:54] | 200 | 51.5538ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:36:54] | 201 | 2.0415ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 15:36:54] | 201 | 13.3693ms | 0.0.0.0 | POST | /api/todos | -
+[28-May-2023 15:36:54] | 200 | 5.1931ms | 0.0.0.0 | GET | /api/todos | -
+[28-May-2023 15:36:54] | 201 | 55.2466ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:36:54] | 200 | 52.1969ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:36:54] | 201 | 1.9619ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 15:36:54] | 404 | 4.2044ms | 0.0.0.0 | GET | /api/todos/1 | rpc error: code = Unknown desc = record not found
+[28-May-2023 15:36:54] | 201 | 55.5559ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:36:54] | 200 | 52.535ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:36:54] | 201 | 3.5149ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 15:36:54] | 201 | 13.7433ms | 0.0.0.0 | POST | /api/todos | -
+[28-May-2023 15:36:54] | 200 | 3.8038ms | 0.0.0.0 | GET | /api/todos/454 | -
+[28-May-2023 15:36:54] | 201 | 55.5268ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:36:54] | 200 | 52.7471ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:36:54] | 201 | 2.668ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 15:36:54] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.Title
+[28-May-2023 15:36:54] | 201 | 55.2399ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:36:54] | 200 | 52.9639ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:36:55] | 201 | 2.056ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 15:36:55] | 400 | 999.8µs | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.Description
+[28-May-2023 15:36:55] | 201 | 57.4034ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:36:55] | 200 | 55.5481ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:36:55] | 201 | 3.3741ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 15:36:55] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.Categories
+[28-May-2023 15:36:55] | 201 | 55.985ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:36:55] | 200 | 51.6482ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:36:55] | 201 | 2.6491ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 15:36:55] | 400 |      0s | 0.0.0.0 | POST | /api/todos | validation error on field:TodoCreateRequest.UserId
+[28-May-2023 15:36:55] | 201 | 56.1062ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:36:55] | 200 | 51.9649ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:36:55] | 201 | 2.7078ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 15:36:55] | 201 | 13.9443ms | 0.0.0.0 | POST | /api/todos | -
+[28-May-2023 15:36:55] | 201 | 56.7794ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:36:55] | 200 | 52.2707ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:36:55] | 201 | 2.6148ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 15:36:55] | 404 | 1.3839ms | 0.0.0.0 | PATCH | /api/todos/1 | rpc error: code = Unknown desc = record not found
+[28-May-2023 15:36:55] | 201 | 55.4563ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:36:55] | 200 | 52.1177ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:36:55] | 201 | 2.6585ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 15:36:55] | 201 | 12.8727ms | 0.0.0.0 | POST | /api/todos | -
+[28-May-2023 15:36:55] | 400 |      0s | 0.0.0.0 | PATCH | /api/todos/456 | validation error on field:TodoUpdateRequest.Title
+[28-May-2023 15:36:56] | 201 | 56.0864ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:36:56] | 200 | 51.8982ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:36:56] | 201 | 2.7467ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 15:36:56] | 201 | 12.7838ms | 0.0.0.0 | POST | /api/todos | -
+[28-May-2023 15:36:56] | 400 |      0s | 0.0.0.0 | PATCH | /api/todos/457 | validation error on field:TodoUpdateRequest.Categories
+[28-May-2023 15:36:56] | 201 | 55.7732ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:36:56] | 200 | 52.6644ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:36:56] | 201 | 2.6695ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 15:36:56] | 201 | 13.3144ms | 0.0.0.0 | POST | /api/todos | -
+[28-May-2023 15:36:56] | 400 |      0s | 0.0.0.0 | PATCH | /api/todos/458 | validation error on field:TodoUpdateRequest.Description
+[28-May-2023 15:36:56] | 201 | 55.7162ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:36:56] | 200 | 52.815ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:36:56] | 201 | 2.7398ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 15:36:56] | 201 | 13.4978ms | 0.0.0.0 | POST | /api/todos | -
+[28-May-2023 15:36:56] | 400 |      0s | 0.0.0.0 | PATCH | /api/todos/459 | validation error on field:TodoUpdateRequest.UserId
+[28-May-2023 15:36:56] | 201 | 55.7967ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:36:56] | 200 | 53.078ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:36:56] | 201 | 2.8972ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 15:36:56] | 201 | 55.0589ms | 0.0.0.0 | POST | /api/users | -
+[28-May-2023 15:36:56] | 201 | 13.8593ms | 0.0.0.0 | POST | /api/todos | -
+[28-May-2023 15:36:56] | 201 | 2.743ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 15:36:56] | 200 | 19.2284ms | 0.0.0.0 | PATCH | /api/todos/460 | -
+[28-May-2023 15:36:56] | 200 | 3.7694ms | 0.0.0.0 | GET | /api/todos/460 | -
+[28-May-2023 15:36:56] | 201 | 55.7422ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:36:56] | 200 | 51.9934ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:36:57] | 201 | 2.8876ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 15:36:57] | 404 | 1.0297ms | 0.0.0.0 | DELETE | /api/todos/1 | rpc error: code = Unknown desc = record not found
+[28-May-2023 15:36:57] | 201 | 55.7158ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:36:57] | 200 | 51.7083ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:36:57] | 201 | 2.7762ms | 0.0.0.0 | POST | /api/categories | -
+[28-May-2023 15:36:57] | 201 | 13.1283ms | 0.0.0.0 | POST | /api/todos | -
+[28-May-2023 15:36:57] | 200 | 5.5214ms | 0.0.0.0 | DELETE | /api/todos/461 | -
+[28-May-2023 15:36:57] | 201 | 55.2606ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:36:57] | 200 | 52.4141ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:36:57] | 200 | 5.139ms | 0.0.0.0 | DELETE | /api/users/1721 | -
+[28-May-2023 15:36:57] | 200 | 2.0229ms | 0.0.0.0 | GET | /api/users | -
+[28-May-2023 15:36:57] | 201 | 55.7438ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:36:57] | 200 | 52.114ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:36:57] | 200 | 4.3859ms | 0.0.0.0 | DELETE | /api/users/1722 | -
+[28-May-2023 15:36:57] | 201 | 55.0038ms | 0.0.0.0 | POST | /api/users | -
+[28-May-2023 15:36:57] | 200 | 1.1647ms | 0.0.0.0 | GET | /api/users | -
+[28-May-2023 15:36:57] | 201 | 55.8139ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:36:57] | 200 | 52.3485ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:36:57] | 200 | 2.852ms | 0.0.0.0 | DELETE | /api/users/1724 | -
+[28-May-2023 15:36:57] | 404 | 2.2775ms | 0.0.0.0 | GET | /api/users/1 | rpc error: code = Unknown desc = record not found
+[28-May-2023 15:36:57] | 201 | 56.2465ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:36:57] | 200 | 52.0481ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:36:57] | 200 | 3.8479ms | 0.0.0.0 | DELETE | /api/users/1725 | -
+[28-May-2023 15:36:57] | 201 | 54.4048ms | 0.0.0.0 | POST | /api/users | -
+[28-May-2023 15:36:58] | 200 | 2.0361ms | 0.0.0.0 | GET | /api/users/1726 | -
+[28-May-2023 15:36:58] | 201 | 55.4686ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:36:58] | 200 | 53.2174ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:36:58] | 200 | 4.3392ms | 0.0.0.0 | DELETE | /api/users/1727 | -
+[28-May-2023 15:36:58] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Name
+[28-May-2023 15:36:58] | 201 | 56.0143ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:36:58] | 200 | 52.5293ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:36:58] | 200 | 4.3474ms | 0.0.0.0 | DELETE | /api/users/1728 | -
+[28-May-2023 15:36:58] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Email
+[28-May-2023 15:36:58] | 201 | 56.3935ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:36:58] | 200 | 51.4999ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:36:58] | 200 | 3.8618ms | 0.0.0.0 | DELETE | /api/users/1729 | -
+[28-May-2023 15:36:58] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Password
+[28-May-2023 15:36:58] | 201 | 55.2825ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:36:58] | 200 | 51.7349ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:36:58] | 200 | 3.3895ms | 0.0.0.0 | DELETE | /api/users/1730 | -
+[28-May-2023 15:36:58] | 400 |      0s | 0.0.0.0 | POST | /api/users | validation error on field:UserCreateRequest.Email
+[28-May-2023 15:36:58] | 201 | 55.7601ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:36:58] | 200 | 52.0071ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:36:58] | 200 | 3.9259ms | 0.0.0.0 | DELETE | /api/users/1731 | -
+[28-May-2023 15:36:58] | 201 | 54.4858ms | 0.0.0.0 | POST | /api/users | -
+[28-May-2023 15:36:59] | 201 | 55.1883ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:36:59] | 200 | 52.0832ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:36:59] | 200 | 3.6286ms | 0.0.0.0 | DELETE | /api/users/1733 | -
+[28-May-2023 15:36:59] | 404 | 1.7012ms | 0.0.0.0 | PATCH | /api/users/1 | rpc error: code = Unknown desc = record not found
+[28-May-2023 15:36:59] | 201 | 55.3765ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:36:59] | 200 | 52.4063ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:36:59] | 200 | 4.0179ms | 0.0.0.0 | DELETE | /api/users/1734 | -
+[28-May-2023 15:36:59] | 201 | 54.5793ms | 0.0.0.0 | POST | /api/users | -
+[28-May-2023 15:36:59] | 400 |      0s | 0.0.0.0 | PATCH | /api/users/1735 | validation error on field:UserUpdateRequest.Name
+[28-May-2023 15:36:59] | 201 | 55.9674ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:36:59] | 200 | 52.2095ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:36:59] | 200 | 4.9576ms | 0.0.0.0 | DELETE | /api/users/1736 | -
+[28-May-2023 15:36:59] | 201 | 55.242ms | 0.0.0.0 | POST | /api/users | -
+[28-May-2023 15:36:59] | 200 | 57.0855ms | 0.0.0.0 | PATCH | /api/users/1737 | -
+[28-May-2023 15:36:59] | 201 | 56.4588ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:36:59] | 200 | 52.1497ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:36:59] | 200 | 4.1579ms | 0.0.0.0 | DELETE | /api/users/1738 | -
+[28-May-2023 15:36:59] | 404 | 1.2491ms | 0.0.0.0 | DELETE | /api/users/1 | rpc error: code = Unknown desc = record not found
+[28-May-2023 15:36:59] | 201 | 66.9563ms | 0.0.0.0 | POST | /register | -
+[28-May-2023 15:36:59] | 200 | 53.1062ms | 0.0.0.0 | POST | /login | -
+[28-May-2023 15:37:00] | 200 | 3.7944ms | 0.0.0.0 | DELETE | /api/users/1739 | -
+[28-May-2023 15:37:00] | 201 | 54.7649ms | 0.0.0.0 | POST | /api/users | -
+[28-May-2023 15:37:00] | 200 | 3.5116ms | 0.0.0.0 | DELETE | /api/users/1740 | -

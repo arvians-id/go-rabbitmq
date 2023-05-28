@@ -1,0 +1,15 @@
+scalar Int64
+
+directive @goField(
+    forceResolver: Boolean
+    name: String
+) on INPUT_FIELD_DEFINITION | FIELD_DEFINITION
+
+directive @validate(
+    constraint: String!
+) on INPUT_FIELD_DEFINITION | ARGUMENT_DEFINITION
+
+directive @isLoggedIn(
+    isLogged: Boolean = true
+) on FIELD_DEFINITION
+

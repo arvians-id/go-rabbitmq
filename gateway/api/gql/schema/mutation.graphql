@@ -1,0 +1,19 @@
+type Mutation {
+    # Category
+    CategoryCreate(input: CategoryCreateRequest!): Todo!
+    CategoryDelete(id: ID!): Todo!
+
+    # Todo
+    TodoCreate(input: TodoCreateRequest!): Todo!
+    TodoUpdate(id: ID!, input: TodoUpdateRequest!): Todo!
+    TodoDelete(id: ID!): Todo!
+
+    # User
+    UserCreate(input: UserCreateRequest!): User!
+    UserUpdate(id: ID!, input: UserUpdateRequest!): User!
+    UserDelete(id: ID!): User!
+
+    # Auth
+    AuthLogin(input: AuthLoginRequest!): AuthLoginResponse! @isLoggedIn(isLogged: false)
+    AuthRegister(input: AuthRegisterRequest!): AuthRegisterResponse! @isLoggedIn(isLogged: false)
+}

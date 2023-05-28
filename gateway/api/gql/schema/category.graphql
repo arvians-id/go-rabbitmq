@@ -1,0 +1,14 @@
+type Category {
+    id: ID! @goField(name: "Id")
+    name: String!
+    created_at: String!
+    updated_at: String!
+}
+
+input CategoryCreateRequest {
+    name: String! @validate(constraint: "required,min=3")
+}
+
+input CategoryFindByIdRequest {
+    id: ID! @goField(name: "Id")
+}

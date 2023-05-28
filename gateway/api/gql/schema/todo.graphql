@@ -1,0 +1,31 @@
+type Todo {
+    id: ID! @goField(name: "Id")
+    title: String!
+    description: String!
+    is_done: Boolean!
+    user_id: ID! @goField(name: "UserId")
+    categories: [Category]
+    created_at: String!
+    updated_at: String!
+}
+
+type DisplayCategoryTodoListResponse {
+    todos: [Todo!]!
+    categories: [Category!]!
+}
+
+input TodoCreateRequest {
+    title: String! @validate(constraint: "required,min=5")
+    description: String! @validate(constraint: "required")
+    user_id: ID! @goField(name: "UserId") @validate(constraint: "required,number")
+    categories: [ID!]! @validate(constraint: "required")
+}
+
+input TodoUpdateRequest {
+    title: String! @validate(constraint: "required,min=5")
+    description: String! @validate(constraint: "required")
+    is_done: Boolean!
+    user_id: ID! @goField(name: "UserId") @validate(constraint: "required,number")
+    categories: [ID!]! @validate(constraint: "required")
+}
+

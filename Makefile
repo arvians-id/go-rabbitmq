@@ -13,6 +13,9 @@ pb:
 	--go_opt=paths=source_relative --go-grpc_opt=paths=source_relative --proto_path=proto \
 	./proto/*.proto
 
+gql:
+	cd gateway/api/gql/ && go run github.com/99designs/gqlgen@v0.17.31 generate
+
 build:
 	docker build ./gateway -t arvians/go-todo-gateway:latest
 	docker build ./worker -t arvians/go-todo-worker:latest

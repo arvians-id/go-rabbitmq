@@ -11,14 +11,14 @@ type User struct {
 	Name      string
 	Email     string
 	Password  string
-	Todo      []*Todo
+	Todos     []*Todo
 	CreatedAt time.Time
 	UpdatedAt time.Time
 }
 
 func (user *User) ToPB() *pb.User {
 	var todos []*pb.Todo
-	for _, todo := range user.Todo {
+	for _, todo := range user.Todos {
 		todos = append(todos, todo.ToPB())
 	}
 

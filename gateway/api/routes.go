@@ -3,12 +3,15 @@ package api
 import (
 	"errors"
 	"fmt"
-	"github.com/arvians-id/go-rabbitmq/gateway/api/auth"
-	"github.com/arvians-id/go-rabbitmq/gateway/api/category"
-	"github.com/arvians-id/go-rabbitmq/gateway/api/category_todo"
-	"github.com/arvians-id/go-rabbitmq/gateway/api/middleware"
-	"github.com/arvians-id/go-rabbitmq/gateway/api/todo"
-	"github.com/arvians-id/go-rabbitmq/gateway/api/user"
+	"github.com/99designs/gqlgen/graphql/handler"
+	"github.com/99designs/gqlgen/graphql/playground"
+	"github.com/arvians-id/go-rabbitmq/gateway/api/gql"
+	"github.com/arvians-id/go-rabbitmq/gateway/api/gql/resolver"
+	"github.com/arvians-id/go-rabbitmq/gateway/api/rest/auth"
+	"github.com/arvians-id/go-rabbitmq/gateway/api/rest/category"
+	"github.com/arvians-id/go-rabbitmq/gateway/api/rest/category_todo"
+	"github.com/arvians-id/go-rabbitmq/gateway/api/rest/todo"
+	"github.com/arvians-id/go-rabbitmq/gateway/api/rest/user"
 	"github.com/arvians-id/go-rabbitmq/gateway/cmd/config"
 	"github.com/arvians-id/go-rabbitmq/gateway/response"
 	"github.com/goccy/go-json"
@@ -19,6 +22,8 @@ import (
 	"github.com/gofiber/fiber/v2/middleware/logger"
 	"github.com/gofiber/fiber/v2/utils"
 	"github.com/rabbitmq/amqp091-go"
+	"github.com/valyala/fasthttp/fasthttpadaptor"
+	"net/http"
 	"os"
 	"time"
 )
@@ -85,17 +90,39 @@ func NewRoutes(configuration config.Config, logFile *os.File, ch *amqp091.Channe
 	// Set Routes
 	auth.NewAuthRoute(app, configuration, ch)
 
-	// JWT Middleware
-	app.Use(middleware.NewJWTMiddleware())
-
 	apiGroup := app.Group("/api")
-	user.NewUserRoute(apiGroup, configuration, ch)
-	category.NewCategoryRoute(apiGroup, configuration)
-	todo.NewTodoRoute(apiGroup, configuration, redisClient)
-	err = category_todo.NewCategoryTodoRoute(apiGroup, ch)
-	if err != nil {
-		return nil, err
-	}
+	userService := user.NewUserRoute(apiGroup, configuration, ch)
+	categoryService := category.NewCategoryRoute(apiGroup, configuration)
+	todoService := todo.NewTodoRoute(apiGroup, configuration, redisClient)
+	category_todo.NewCategoryTodoRoute(apiGroup, ch)
+
+	// Set GraphQL Playground
+	app.Get("/playground", func(c *fiber.Ctx) error {
+		h := playground.Handler("GraphQL", "/query")
+		fasthttpadaptor.NewFastHTTPHandlerFunc(func(writer http.ResponseWriter, request *http.Request) {
+			h.ServeHTTP(writer, request)
+		})(c.Context())
+
+		return nil
+	})
+	app.Post("/query", func(c *fiber.Ctx) error {
+		resolvers := &resolver.Resolver{
+			UserService:      userService,
+			CategoryServices: categoryService,
+			TodoService:      todoService,
+		}
+
+		generatedConfig := gql.Config{
+			Resolvers: resolvers,
+		}
+
+		h := handler.NewDefaultServer(gql.NewExecutableSchema(generatedConfig))
+		fasthttpadaptor.NewFastHTTPHandlerFunc(func(writer http.ResponseWriter, request *http.Request) {
+			h.ServeHTTP(writer, request)
+		})(c.Context())
+
+		return nil
+	})
 
 	return app, nil
 }

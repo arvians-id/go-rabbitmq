@@ -46,9 +46,9 @@ func (repository *UserRepository) FindByID(ctx context.Context, id int64) (*mode
 	defer span.End()
 
 	var user model.User
-	err := repository.DB.WithContext(ctxTracer).Omit("password").Preload("Todo", func(db *gorm.DB) *gorm.DB {
+	err := repository.DB.WithContext(ctxTracer).Omit("password").Preload("Todos", func(db *gorm.DB) *gorm.DB {
 		return db.Omit("created_at, updated_at")
-	}).Preload("Todo.Categories", func(db *gorm.DB) *gorm.DB {
+	}).Preload("Todos.Categories", func(db *gorm.DB) *gorm.DB {
 		return db.Select("name, id")
 	}).First(&user, id).Error
 	if err != nil {

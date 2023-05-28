@@ -1,0 +1,22 @@
+input AuthLoginRequest {
+    email: String! @validate(constraint: "required,email")
+    password: String! @validate(constraint: "required")
+}
+
+input AuthRegisterRequest {
+    name: String! @validate(constraint: "required,min=3")
+    email: String! @validate(constraint: "required,email")
+    password: String! @validate(constraint: "required,min=6")
+}
+
+type AuthLoginResponse {
+    token: String!
+}
+
+type AuthRegisterResponse {
+    id: ID! @goField(name: "Id")
+    name: String!
+    email: String!
+    created_at: String!
+    updated_at: String!
+}

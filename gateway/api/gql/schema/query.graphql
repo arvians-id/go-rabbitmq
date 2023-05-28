@@ -1,0 +1,14 @@
+type Query {
+    # Category
+    CategoryFindAll: [Category!]!
+    CategoryFindById(id: ID!): Category!
+
+    # Todo
+    TodoDisplayTodoCategoryList: [DisplayCategoryTodoListResponse!]!
+    TodoFindAll: [Todo!]!
+    TodoFindById(id: ID!): Todo!
+
+    # User
+    UserFindAll: [User!]!
+    UserFindById(id: ID!): User!
+}

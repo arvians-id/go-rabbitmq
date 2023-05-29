@@ -13,11 +13,11 @@ import (
 
 type TodoServiceContract interface {
 	DisplayTodoCategoryList(ctx context.Context) (*dto.DisplayCategoryTodoListResponse, int, error)
-	FindAll(ctx context.Context, in *emptypb.Empty) (*pb.ListTodoResponse, int, error)
+	FindAll(ctx context.Context) (*pb.ListTodoResponse, int, error)
 	FindByID(ctx context.Context, in *pb.GetTodoByIDRequest) (*pb.GetTodoResponse, int, error)
 	Create(ctx context.Context, in *pb.CreateTodoRequest) (*pb.GetTodoResponse, int, error)
 	Update(ctx context.Context, in *pb.UpdateTodoRequest) (*pb.GetTodoResponse, int, error)
-	Delete(ctx context.Context, in *pb.GetTodoByIDRequest) (*emptypb.Empty, int, error)
+	Delete(ctx context.Context, in *pb.GetTodoByIDRequest) (int, error)
 }
 
 type todoService struct {
@@ -73,8 +73,8 @@ func (service *todoService) DisplayTodoCategoryList(ctx context.Context) (*dto.D
 	}, fiber.StatusOK, nil
 }
 
-func (service *todoService) FindAll(ctx context.Context, in *emptypb.Empty) (*pb.ListTodoResponse, int, error) {
-	todos, err := service.TodoClient.Client.FindAll(ctx, in)
+func (service *todoService) FindAll(ctx context.Context) (*pb.ListTodoResponse, int, error) {
+	todos, err := service.TodoClient.Client.FindAll(ctx, new(emptypb.Empty))
 	if err != nil {
 		return nil, fiber.StatusInternalServerError, err
 	}
@@ -115,14 +115,14 @@ func (service *todoService) Update(ctx context.Context, in *pb.UpdateTodoRequest
 	return todo, fiber.StatusOK, nil
 }
 
-func (service *todoService) Delete(ctx context.Context, in *pb.GetTodoByIDRequest) (*emptypb.Empty, int, error) {
+func (service *todoService) Delete(ctx context.Context, in *pb.GetTodoByIDRequest) (int, error) {
 	_, err := service.TodoClient.Client.Delete(ctx, in)
 	if err != nil {
 		if err.Error() == response.GrpcErrorNotFound {
-			return nil, fiber.StatusNotFound, err
+			return fiber.StatusNotFound, err
 		}
-		return nil, fiber.StatusInternalServerError, err
+		return fiber.StatusInternalServerError, err
 	}
 
-	return new(emptypb.Empty), fiber.StatusOK, nil
+	return fiber.StatusOK, nil
 }

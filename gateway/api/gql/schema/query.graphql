@@ -4,7 +4,6 @@ type Query {
     CategoryFindById(id: ID!): Category!
 
     # Todo
-    TodoDisplayTodoCategoryList: [DisplayCategoryTodoListResponse!]!
     TodoFindAll: [Todo!]!
     TodoFindById(id: ID!): Todo!
 

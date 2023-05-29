@@ -5,8 +5,8 @@ type Category {
     updated_at: String!
 }
 
-input CategoryCreateRequest {
-    name: String! @validate(constraint: "required,min=3")
+input CategoryCreateRequest  {
+    name: String! @goTag(key: "validate" ,value: "required,min=3")
 }
 
 input CategoryFindByIdRequest {

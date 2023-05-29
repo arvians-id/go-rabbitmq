@@ -3,18 +3,18 @@ type User {
     name: String!
     email: String!
     password: String
-    todos: [Todo]
+    todos: [Todo] @goField(forceResolver: true)
     created_at: String!
     updated_at: String!
 }
 
 input UserCreateRequest {
-    name: String! @validate(constraint: "required,min=3")
-    email: String! @validate(constraint: "required,email")
-    password: String! @validate(constraint: "required,min=6")
+    name: String! @goTag(key: "validate" ,value: "required,min=3")
+    email: String! @goTag(key: "validate" ,value: "required,email")
+    password: String! @goTag(key: "validate" ,value: "required,min=6")
 }
 
 input UserUpdateRequest {
-    name: String! @validate(constraint: "required,min=3")
-    password: String @validate(constraint: "omitempty,min=6")
+    name: String! @goTag(key: "validate" ,value: "required,min=3")
+    password: String @goTag(key: "validate" ,value: "required,min=6")
 }

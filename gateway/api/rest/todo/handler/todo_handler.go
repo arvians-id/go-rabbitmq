@@ -7,7 +7,6 @@ import (
 	"github.com/arvians-id/go-rabbitmq/gateway/pb"
 	"github.com/arvians-id/go-rabbitmq/gateway/response"
 	"github.com/gofiber/fiber/v2"
-	"google.golang.org/protobuf/types/known/emptypb"
 )
 
 type TodoHandler struct {
@@ -32,7 +31,7 @@ func (handler *TodoHandler) DisplayTodoCategoryList(c *fiber.Ctx) error {
 }
 
 func (handler *TodoHandler) FindAll(c *fiber.Ctx) error {
-	todos, code, err := handler.TodoService.FindAll(c.Context(), new(emptypb.Empty))
+	todos, code, err := handler.TodoService.FindAll(c.Context())
 	if err != nil {
 		return fiber.NewError(code, err.Error())
 	}
@@ -119,7 +118,7 @@ func (handler *TodoHandler) Delete(c *fiber.Ctx) error {
 		return fiber.NewError(fiber.StatusBadRequest, err.Error())
 	}
 
-	_, code, err := handler.TodoService.Delete(c.Context(), &pb.GetTodoByIDRequest{
+	code, err := handler.TodoService.Delete(c.Context(), &pb.GetTodoByIDRequest{
 		Id: int64(id),
 	})
 	if err != nil {

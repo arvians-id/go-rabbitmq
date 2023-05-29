@@ -1,12 +1,12 @@
 input AuthLoginRequest {
-    email: String! @validate(constraint: "required,email")
-    password: String! @validate(constraint: "required")
+    email: String! @goTag(key: "validate" ,value: "required,email")
+    password: String! @goTag(key: "validate" ,value: "required")
 }
 
 input AuthRegisterRequest {
-    name: String! @validate(constraint: "required,min=3")
-    email: String! @validate(constraint: "required,email")
-    password: String! @validate(constraint: "required,min=6")
+    name: String! @goTag(key: "validate" ,value: "required,min=3")
+    email: String! @goTag(key: "validate" ,value: "required,email")
+    password: String! @goTag(key: "validate" ,value: "required,min=6")
 }
 
 type AuthLoginResponse {

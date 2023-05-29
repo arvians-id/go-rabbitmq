@@ -7,7 +7,6 @@ import (
 	"github.com/arvians-id/go-rabbitmq/gateway/pb"
 	"github.com/arvians-id/go-rabbitmq/gateway/response"
 	"github.com/gofiber/fiber/v2"
-	"google.golang.org/protobuf/types/known/emptypb"
 )
 
 type UserHandler struct {
@@ -21,7 +20,7 @@ func NewUserHandler(userService services.UserServiceContract) UserHandler {
 }
 
 func (handler *UserHandler) FindAll(c *fiber.Ctx) error {
-	users, code, err := handler.UserService.FindAll(c.Context(), new(emptypb.Empty))
+	users, code, err := handler.UserService.FindAll(c.Context())
 	if err != nil {
 		return fiber.NewError(code, err.Error())
 	}
@@ -116,7 +115,7 @@ func (handler *UserHandler) Delete(c *fiber.Ctx) error {
 		return fiber.NewError(fiber.StatusBadRequest, err.Error())
 	}
 
-	_, code, err := handler.UserService.Delete(c.Context(), &pb.GetUserByIDRequest{
+	code, err := handler.UserService.Delete(c.Context(), &pb.GetUserByIDRequest{
 		Id: int64(id),
 	})
 	if err != nil {

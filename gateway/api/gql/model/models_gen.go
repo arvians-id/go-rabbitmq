@@ -3,8 +3,8 @@
 package model
 
 type AuthLoginRequest struct {
-	Email    string `json:"email"`
-	Password string `json:"password"`
+	Email    string `json:"email" validate:"required,email"`
+	Password string `json:"password" validate:"required"`
 }
 
 type AuthLoginResponse struct {
@@ -12,9 +12,9 @@ type AuthLoginResponse struct {
 }
 
 type AuthRegisterRequest struct {
-	Name     string `json:"name"`
-	Email    string `json:"email"`
-	Password string `json:"password"`
+	Name     string `json:"name" validate:"required,min=3"`
+	Email    string `json:"email" validate:"required,email"`
+	Password string `json:"password" validate:"required,min=6"`
 }
 
 type AuthRegisterResponse struct {
@@ -33,16 +33,11 @@ type Category struct {
 }
 
 type CategoryCreateRequest struct {
-	Name string `json:"name"`
+	Name string `json:"name" validate:"required,min=3"`
 }
 
 type CategoryFindByIDRequest struct {
 	Id int64 `json:"id"`
-}
-
-type DisplayCategoryTodoListResponse struct {
-	Todos      []*Todo     `json:"todos"`
-	Categories []*Category `json:"categories"`
 }
 
 type Todo struct {
@@ -57,18 +52,18 @@ type Todo struct {
 }
 
 type TodoCreateRequest struct {
-	Title       string  `json:"title"`
-	Description string  `json:"description"`
-	UserId      int64   `json:"user_id"`
-	Categories  []int64 `json:"categories"`
+	Title       string  `json:"title" validate:"required,min=5"`
+	Description string  `json:"description" validate:"required"`
+	UserId      int64   `json:"user_id" validate:"required,number"`
+	Categories  []int64 `json:"categories" validate:"required"`
 }
 
 type TodoUpdateRequest struct {
-	Title       string  `json:"title"`
-	Description string  `json:"description"`
+	Title       string  `json:"title" validate:"required,min=5"`
+	Description string  `json:"description" validate:"required"`
 	IsDone      bool    `json:"is_done"`
-	UserId      int64   `json:"user_id"`
-	Categories  []int64 `json:"categories"`
+	UserId      int64   `json:"user_id" validate:"required,number"`
+	Categories  []int64 `json:"categories" validate:"required"`
 }
 
 type User struct {
@@ -82,12 +77,12 @@ type User struct {
 }
 
 type UserCreateRequest struct {
-	Name     string `json:"name"`
-	Email    string `json:"email"`
-	Password string `json:"password"`
+	Name     string `json:"name" validate:"required,min=3"`
+	Email    string `json:"email" validate:"required,email"`
+	Password string `json:"password" validate:"required,min=6"`
 }
 
 type UserUpdateRequest struct {
-	Name     string  `json:"name"`
-	Password *string `json:"password,omitempty"`
+	Name     string  `json:"name" validate:"required,min=3"`
+	Password *string `json:"password,omitempty" validate:"required,min=6"`
 }

@@ -17,11 +17,11 @@ import (
 type UserServiceContract interface {
 	ValidateLogin(ctx context.Context, in *pb.GetValidateLoginRequest) (string, int, error)
 	Register(ctx context.Context, in *pb.CreateUserRequest) (*pb.GetUserResponse, int, error)
-	FindAll(ctx context.Context, in *emptypb.Empty) (*pb.ListUserResponse, int, error)
+	FindAll(ctx context.Context) (*pb.ListUserResponse, int, error)
 	FindByID(ctx context.Context, in *pb.GetUserByIDRequest) (*pb.GetUserResponse, int, error)
 	Create(ctx context.Context, in *pb.CreateUserRequest) (*pb.GetUserResponse, int, error)
 	Update(ctx context.Context, in *pb.UpdateUserRequest) (*pb.GetUserResponse, int, error)
-	Delete(ctx context.Context, in *pb.GetUserByIDRequest) (*emptypb.Empty, int, error)
+	Delete(ctx context.Context, in *pb.GetUserByIDRequest) (int, error)
 }
 
 type userService struct {
@@ -35,8 +35,8 @@ func NewUserService(userClient client.UserClient, rabbitMQ *amqp091.Channel) Use
 		RabbitMQ:   rabbitMQ,
 	}
 }
-func (service *userService) FindAll(ctx context.Context, in *emptypb.Empty) (*pb.ListUserResponse, int, error) {
-	users, err := service.UserClient.Client.FindAll(ctx, in)
+func (service *userService) FindAll(ctx context.Context) (*pb.ListUserResponse, int, error) {
+	users, err := service.UserClient.Client.FindAll(ctx, new(emptypb.Empty))
 	if err != nil {
 		return nil, fiber.StatusInternalServerError, err
 	}
@@ -120,16 +120,16 @@ func (service *userService) Update(ctx context.Context, in *pb.UpdateUserRequest
 	return userUpdated, fiber.StatusOK, nil
 }
 
-func (service *userService) Delete(ctx context.Context, in *pb.GetUserByIDRequest) (*emptypb.Empty, int, error) {
+func (service *userService) Delete(ctx context.Context, in *pb.GetUserByIDRequest) (int, error) {
 	_, err := service.UserClient.Client.Delete(ctx, in)
 	if err != nil {
 		if err.Error() == response.GrpcErrorNotFound {
-			return nil, fiber.StatusNotFound, err
+			return fiber.StatusNotFound, err
 		}
-		return nil, fiber.StatusInternalServerError, err
+		return fiber.StatusInternalServerError, err
 	}
 
-	return &emptypb.Empty{}, fiber.StatusOK, nil
+	return fiber.StatusOK, nil
 }
 
 func (service *userService) Register(ctx context.Context, in *pb.CreateUserRequest) (*pb.GetUserResponse, int, error) {

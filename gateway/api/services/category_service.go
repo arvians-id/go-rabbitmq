@@ -10,10 +10,10 @@ import (
 )
 
 type CategoryServiceContract interface {
-	FindAll(ctx context.Context, in *emptypb.Empty) (*pb.ListCategoryResponse, int, error)
+	FindAll(ctx context.Context) (*pb.ListCategoryResponse, int, error)
 	FindByID(ctx context.Context, in *pb.GetCategoryByIDRequest) (*pb.GetCategoryResponse, int, error)
 	Create(ctx context.Context, in *pb.CreateCategoryRequest) (*pb.GetCategoryResponse, int, error)
-	Delete(ctx context.Context, in *pb.GetCategoryByIDRequest) (*emptypb.Empty, int, error)
+	Delete(ctx context.Context, in *pb.GetCategoryByIDRequest) (int, error)
 }
 
 type categoryService struct {
@@ -26,8 +26,8 @@ func NewCategoryService(categoryClient client.CategoryClient) CategoryServiceCon
 	}
 }
 
-func (service *categoryService) FindAll(ctx context.Context, in *emptypb.Empty) (*pb.ListCategoryResponse, int, error) {
-	categories, err := service.CategoryClient.Client.FindAll(ctx, in)
+func (service *categoryService) FindAll(ctx context.Context) (*pb.ListCategoryResponse, int, error) {
+	categories, err := service.CategoryClient.Client.FindAll(ctx, new(emptypb.Empty))
 	if err != nil {
 		return nil, fiber.StatusInternalServerError, err
 	}
@@ -56,14 +56,14 @@ func (service *categoryService) Create(ctx context.Context, in *pb.CreateCategor
 	return category, fiber.StatusCreated, nil
 }
 
-func (service *categoryService) Delete(ctx context.Context, in *pb.GetCategoryByIDRequest) (*emptypb.Empty, int, error) {
-	category, err := service.CategoryClient.Client.Delete(ctx, in)
+func (service *categoryService) Delete(ctx context.Context, in *pb.GetCategoryByIDRequest) (int, error) {
+	_, err := service.CategoryClient.Client.Delete(ctx, in)
 	if err != nil {
 		if err.Error() == response.GrpcErrorNotFound {
-			return nil, fiber.StatusNotFound, err
+			return fiber.StatusNotFound, err
 		}
-		return nil, fiber.StatusInternalServerError, err
+		return fiber.StatusInternalServerError, err
 	}
 
-	return category, fiber.StatusOK, nil
+	return fiber.StatusOK, nil
 }

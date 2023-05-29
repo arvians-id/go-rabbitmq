@@ -50,7 +50,7 @@ func (service *todoServiceCache) DisplayTodoCategoryList(ctx context.Context) (*
 
 	go func() {
 		var errGo error
-		categories, _, errGo = service.CategoryClient.FindAll(ctx, new(emptypb.Empty))
+		categories, _, errGo = service.CategoryClient.FindAll(ctx)
 		if errGo != nil {
 			mutex.Lock()
 			err = errGo
@@ -70,10 +70,10 @@ func (service *todoServiceCache) DisplayTodoCategoryList(ctx context.Context) (*
 	}, fiber.StatusOK, nil
 }
 
-func (service *todoServiceCache) FindAll(ctx context.Context, in *emptypb.Empty) (*pb.ListTodoResponse, int, error) {
+func (service *todoServiceCache) FindAll(ctx context.Context) (*pb.ListTodoResponse, int, error) {
 	todosCached, err := service.RedisClient.Get(ctx, "todos").Bytes()
 	if err == redis.Nil {
-		todos, err := service.TodoClient.Client.FindAll(ctx, in)
+		todos, err := service.TodoClient.Client.FindAll(ctx, new(emptypb.Empty))
 		if err != nil {
 			return nil, fiber.StatusInternalServerError, err
 		}
@@ -166,20 +166,20 @@ func (service *todoServiceCache) Update(ctx context.Context, in *pb.UpdateTodoRe
 	return todo, fiber.StatusOK, nil
 }
 
-func (service *todoServiceCache) Delete(ctx context.Context, in *pb.GetTodoByIDRequest) (*emptypb.Empty, int, error) {
+func (service *todoServiceCache) Delete(ctx context.Context, in *pb.GetTodoByIDRequest) (int, error) {
 	_, err := service.TodoClient.Client.Delete(ctx, in)
 	if err != nil {
 		if err.Error() == response.GrpcErrorNotFound {
-			return nil, fiber.StatusNotFound, err
+			return fiber.StatusNotFound, err
 		}
-		return nil, fiber.StatusInternalServerError, err
+		return fiber.StatusInternalServerError, err
 	}
 
 	keys := fmt.Sprintf("todo:%d", in.GetId())
 	err = service.RedisClient.Del(ctx, keys, "todos").Err()
 	if err != nil {
-		return nil, fiber.StatusInternalServerError, err
+		return fiber.StatusInternalServerError, err
 	}
 
-	return new(emptypb.Empty), fiber.StatusOK, err
+	return fiber.StatusOK, err
 }

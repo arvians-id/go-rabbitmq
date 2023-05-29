@@ -7,7 +7,6 @@ import (
 	"github.com/arvians-id/go-rabbitmq/gateway/pb"
 	"github.com/arvians-id/go-rabbitmq/gateway/response"
 	"github.com/gofiber/fiber/v2"
-	"google.golang.org/protobuf/types/known/emptypb"
 )
 
 type CategoryHandler struct {
@@ -21,7 +20,7 @@ func NewCategoryHandler(categoryService services.CategoryServiceContract) Catego
 }
 
 func (handler *CategoryHandler) FindAll(c *fiber.Ctx) error {
-	categories, code, err := handler.CategoryService.FindAll(c.Context(), new(emptypb.Empty))
+	categories, code, err := handler.CategoryService.FindAll(c.Context())
 	if err != nil {
 		return fiber.NewError(code, err.Error())
 	}
@@ -73,7 +72,7 @@ func (handler *CategoryHandler) Delete(c *fiber.Ctx) error {
 		return fiber.NewError(fiber.StatusBadRequest, err.Error())
 	}
 
-	_, code, err := handler.CategoryService.Delete(c.Context(), &pb.GetCategoryByIDRequest{
+	code, err := handler.CategoryService.Delete(c.Context(), &pb.GetCategoryByIDRequest{
 		Id: int64(id),
 	})
 

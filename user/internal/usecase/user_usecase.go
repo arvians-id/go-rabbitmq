@@ -90,19 +90,24 @@ func (usecase *UserUsecase) Update(ctx context.Context, req *pb.UpdateUserReques
 		return nil, err
 	}
 
+	checkPassword, err := usecase.UserRepository.FindByEmail(ctx, userCheck.Email)
+	if err != nil {
+		return nil, err
+	}
+
 	if req.Password != "" {
 		hashedPassword, err := bcrypt.GenerateFromPassword([]byte(req.GetPassword()), bcrypt.DefaultCost)
 		if err != nil {
 			return nil, err
 		}
 
-		userCheck.Password = string(hashedPassword)
+		checkPassword.Password = string(hashedPassword)
 	}
 
 	err = usecase.UserRepository.Update(ctx, &model.User{
 		Id:       userCheck.Id,
 		Name:     req.GetName(),
-		Password: userCheck.Password,
+		Password: checkPassword.Password,
 	})
 	if err != nil {
 		return nil, err

@@ -32,7 +32,8 @@ func (repository *UserRepository) FindAll(ctx context.Context) ([]*model.User, e
 	defer span.End()
 
 	var users []*model.User
-	err := repository.DB.WithContext(ctxTracer).Omit("password").Order("created_at DESC").Find(&users).Error
+	query := `SELECT * FROM users ORDER BY created_at DESC`
+	err := repository.DB.WithContext(ctxTracer).Raw(query).Scan(&users).Error
 	if err != nil {
 		span.RecordError(err)
 		return nil, err
@@ -46,11 +47,9 @@ func (repository *UserRepository) FindByID(ctx context.Context, id int64) (*mode
 	defer span.End()
 
 	var user model.User
-	err := repository.DB.WithContext(ctxTracer).Omit("password").Preload("Todos", func(db *gorm.DB) *gorm.DB {
-		return db.Omit("created_at, updated_at")
-	}).Preload("Todos.Categories", func(db *gorm.DB) *gorm.DB {
-		return db.Select("name, id")
-	}).First(&user, id).Error
+	query := `SELECT id,name,email,created_at,updated_at FROM users WHERE id = ?`
+	row := repository.DB.WithContext(ctxTracer).Raw(query, id).Row()
+	err := row.Scan(&user.Id, &user.Name, &user.Email, &user.CreatedAt, &user.UpdatedAt)
 	if err != nil {
 		span.RecordError(err)
 		return nil, err
@@ -64,7 +63,8 @@ func (repository *UserRepository) FindByEmail(ctx context.Context, email string)
 	defer span.End()
 
 	var user model.User
-	err := repository.DB.WithContext(ctxTracer).Where("email = $1", email).First(&user).Error
+	query := `SELECT * FROM users WHERE email = ?`
+	err := repository.DB.WithContext(ctxTracer).Raw(query, email).Scan(&user).Error
 	if err != nil {
 		span.RecordError(err)
 		return nil, err

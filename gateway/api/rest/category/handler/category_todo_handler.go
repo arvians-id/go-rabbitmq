@@ -28,6 +28,22 @@ func (handler *CategoryHandler) FindAll(c *fiber.Ctx) error {
 	return response.ReturnSuccess(c, code, "OK", categories.GetCategories())
 }
 
+func (handler *CategoryHandler) FindAllByTodoID(c *fiber.Ctx) error {
+	id, err := c.ParamsInt("todoId")
+	if err != nil {
+		return fiber.NewError(fiber.StatusBadRequest, err.Error())
+	}
+
+	categories, code, err := handler.CategoryService.FindAllByTodoID(c.Context(), &pb.GetCategoryByTodoIDRequest{
+		Id: int64(id),
+	})
+	if err != nil {
+		return fiber.NewError(code, err.Error())
+	}
+
+	return response.ReturnSuccess(c, code, "OK", categories.GetCategories())
+}
+
 func (handler *CategoryHandler) FindByID(c *fiber.Ctx) error {
 	id, err := c.ParamsInt("id")
 	if err != nil {

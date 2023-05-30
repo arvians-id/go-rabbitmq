@@ -3,7 +3,6 @@ syntax = "proto3";
 package proto;
 
 import "google/protobuf/empty.proto";
-import "todo.proto";
 
 option go_package = "./pb";
 
@@ -23,7 +22,6 @@ message User {
   string password = 4;
   string created_at = 5;
   string updated_at = 6;
-  repeated Todo todos = 7;
 }
 
 message ListUserResponse {

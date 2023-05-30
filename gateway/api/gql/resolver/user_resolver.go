@@ -67,22 +67,12 @@ func (u *userResolver) Todos(ctx context.Context, obj *model.User) ([]*model.Tod
 	var result []*model.Todo
 	for _, todo := range todos.Todos {
 		if todo.GetUserId() == obj.Id {
-			var categories []*model.Category
-			for _, category := range todo.GetCategories() {
-				categories = append(categories, &model.Category{
-					Id:        category.GetId(),
-					Name:      category.GetName(),
-					CreatedAt: category.GetCreatedAt(),
-					UpdatedAt: category.GetUpdatedAt(),
-				})
-			}
 			result = append(result, &model.Todo{
 				Id:          todo.GetId(),
 				Title:       todo.GetTitle(),
 				Description: todo.GetDescription(),
 				IsDone:      todo.GetIsDone(),
 				UserId:      todo.GetUserId(),
-				Categories:  categories,
 				CreatedAt:   todo.GetCreatedAt(),
 				UpdatedAt:   todo.GetUpdatedAt(),
 			})

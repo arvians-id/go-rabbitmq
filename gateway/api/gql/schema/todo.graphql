@@ -4,7 +4,7 @@ type Todo {
     description: String!
     is_done: Boolean!
     user_id: ID! @goField(name: "UserId")
-    categories: [Category]
+    categories: [Category] @goField(forceResolver: true)
     created_at: String!
     updated_at: String!
 }

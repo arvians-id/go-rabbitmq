@@ -3,7 +3,6 @@ syntax = "proto3";
 package proto;
 
 import "google/protobuf/empty.proto";
-import "category.proto";
 
 option go_package = "./pb";
 
@@ -23,7 +22,6 @@ message Todo {
   int64 user_id = 5;
   string created_at = 6;
   string updated_at = 7;
-  repeated Category categories = 8;
 }
 
 message ListTodoResponse {

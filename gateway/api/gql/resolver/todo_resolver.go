@@ -3,6 +3,7 @@ package resolver
 import (
 	"context"
 	"github.com/arvians-id/go-rabbitmq/gateway/api/gql/model"
+	"github.com/arvians-id/go-rabbitmq/gateway/pb"
 )
 
 func (r *queryResolver) TodoFindAll(ctx context.Context) ([]*model.Todo, error) {
@@ -13,22 +14,12 @@ func (r *queryResolver) TodoFindAll(ctx context.Context) ([]*model.Todo, error) 
 
 	var result []*model.Todo
 	for _, todo := range todos.Todos {
-		var categories []*model.Category
-		for _, category := range todo.GetCategories() {
-			categories = append(categories, &model.Category{
-				Id:        category.GetId(),
-				Name:      category.GetName(),
-				CreatedAt: category.GetCreatedAt(),
-				UpdatedAt: category.GetUpdatedAt(),
-			})
-		}
 		result = append(result, &model.Todo{
 			Id:          todo.GetId(),
 			Title:       todo.GetTitle(),
 			Description: todo.GetDescription(),
 			IsDone:      todo.GetIsDone(),
 			UserId:      todo.GetUserId(),
-			Categories:  categories,
 			CreatedAt:   todo.GetCreatedAt(),
 			UpdatedAt:   todo.GetUpdatedAt(),
 		})
@@ -55,4 +46,25 @@ func (r *mutationResolver) TodoUpdate(ctx context.Context, id int64, input model
 func (r *mutationResolver) TodoDelete(ctx context.Context, id int64) (bool, error) {
 	//TODO implement me
 	panic("implement me")
+}
+
+func (t *todoResolver) Categories(ctx context.Context, obj *model.Todo) ([]*model.Category, error) {
+	categories, _, err := t.CategoryServices.FindAllByTodoID(ctx, &pb.GetCategoryByTodoIDRequest{
+		Id: obj.Id,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	var result []*model.Category
+	for _, category := range categories.Categories {
+		result = append(result, &model.Category{
+			Id:        category.GetId(),
+			Name:      category.GetName(),
+			CreatedAt: category.GetCreatedAt(),
+			UpdatedAt: category.GetUpdatedAt(),
+		})
+	}
+
+	return result, nil
 }

@@ -27,6 +27,10 @@ func (r *Resolver) User() gql.UserResolver {
 	return &userResolver{r}
 }
 
+func (r *Resolver) Todo() gql.TodoResolver {
+	return &todoResolver{r}
+}
+
 type mutationResolver struct{ *Resolver }
 
 type queryResolver struct{ *Resolver }

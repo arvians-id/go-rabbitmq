@@ -32,7 +32,8 @@ func (repository *TodoRepository) FindAll(ctx context.Context) ([]*model.Todo, e
 	defer span.End()
 
 	var todos []*model.Todo
-	err := repository.DB.WithContext(ctxTracer).Preload("Categories").Order("created_at desc").Find(&todos).Error
+	query := `SELECT * FROM todos ORDER BY created_at DESC`
+	err := repository.DB.WithContext(ctxTracer).Raw(query).Scan(&todos).Error
 	if err != nil {
 		span.RecordError(err)
 		return nil, err
@@ -46,7 +47,9 @@ func (repository *TodoRepository) FindByID(ctx context.Context, id int64) (*mode
 	defer span.End()
 
 	var todo model.Todo
-	err := repository.DB.WithContext(ctxTracer).Preload("Categories").Order("created_at desc").First(&todo, id).Error
+	query := `SELECT * FROM todos WHERE id = ?`
+	row := repository.DB.WithContext(ctxTracer).Raw(query, id).Row()
+	err := row.Scan(&todo.Id, &todo.Title, &todo.Description, &todo.IsDone, &todo.UserId, &todo.CreatedAt, &todo.UpdatedAt)
 	if err != nil {
 		span.RecordError(err)
 		return nil, err

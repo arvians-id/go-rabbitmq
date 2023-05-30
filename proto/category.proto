@@ -8,6 +8,7 @@ option go_package = "./pb";
 
 service CategoryService {
   rpc FindAll (google.protobuf.Empty) returns (ListCategoryResponse) {}
+  rpc FindAllByTodoID (GetCategoryByTodoIDRequest) returns (ListCategoryResponse) {}
   rpc FindByID (GetCategoryByIDRequest) returns (GetCategoryResponse) {}
   rpc Create (CreateCategoryRequest) returns (GetCategoryResponse) {}
   rpc Delete (GetCategoryByIDRequest) returns (google.protobuf.Empty) {}
@@ -26,6 +27,10 @@ message ListCategoryResponse {
 
 message GetCategoryResponse {
   Category category = 1;
+}
+
+message GetCategoryByTodoIDRequest {
+  int64 id = 1;
 }
 
 message GetCategoryByIDRequest {

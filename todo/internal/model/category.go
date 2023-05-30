@@ -19,10 +19,6 @@ func (category *Category) ToPB() *pb.Category {
 		CreatedAt: category.CreatedAt.String(),
 		UpdatedAt: category.UpdatedAt.String(),
 	}
-	if category.CreatedAt.IsZero() && category.UpdatedAt.IsZero() {
-		categoryData.CreatedAt = ""
-		categoryData.UpdatedAt = ""
-	}
 
 	return categoryData
 }

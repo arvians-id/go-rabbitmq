@@ -35,6 +35,22 @@ func (usecase *CategoryUsecase) FindAll(ctx context.Context, empty *emptypb.Empt
 	}, nil
 }
 
+func (usecase *CategoryUsecase) FindAllByTodoID(ctx context.Context, req *pb.GetCategoryByTodoIDRequest) (*pb.ListCategoryResponse, error) {
+	todos, err := usecase.CategoryRepository.FindAllByTodoID(ctx, req.Id)
+	if err != nil {
+		return nil, err
+	}
+
+	var todosPB []*pb.Category
+	for _, todo := range todos {
+		todosPB = append(todosPB, todo.ToPB())
+	}
+
+	return &pb.ListCategoryResponse{
+		Categories: todosPB,
+	}, nil
+}
+
 func (usecase *CategoryUsecase) FindByID(ctx context.Context, req *pb.GetCategoryByIDRequest) (*pb.GetCategoryResponse, error) {
 	todo, err := usecase.CategoryRepository.FindByID(ctx, req.Id)
 	if err != nil {

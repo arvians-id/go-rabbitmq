@@ -24,8 +24,7 @@ const _ = grpc.SupportPackageIsVersion7
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type CategoryServiceClient interface {
 	FindAll(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*ListCategoryResponse, error)
-	FindAllByTodoID(ctx context.Context, in *GetCategoryByTodoIDRequest, opts ...grpc.CallOption) (*ListCategoryResponse, error)
-	FindByIDs(ctx context.Context, in *GetCategoryByIDsRequest, opts ...grpc.CallOption) (*ListCategoryResponse, error)
+	FindByTodoIDs(ctx context.Context, in *GetCategoryByTodoIDsRequest, opts ...grpc.CallOption) (*ListCategoryWithTodoIDResponse, error)
 	FindByID(ctx context.Context, in *GetCategoryByIDRequest, opts ...grpc.CallOption) (*GetCategoryResponse, error)
 	Create(ctx context.Context, in *CreateCategoryRequest, opts ...grpc.CallOption) (*GetCategoryResponse, error)
 	Delete(ctx context.Context, in *GetCategoryByIDRequest, opts ...grpc.CallOption) (*emptypb.Empty, error)
@@ -48,18 +47,9 @@ func (c *categoryServiceClient) FindAll(ctx context.Context, in *emptypb.Empty, 
 	return out, nil
 }
 
-func (c *categoryServiceClient) FindAllByTodoID(ctx context.Context, in *GetCategoryByTodoIDRequest, opts ...grpc.CallOption) (*ListCategoryResponse, error) {
-	out := new(ListCategoryResponse)
-	err := c.cc.Invoke(ctx, "/proto.CategoryService/FindAllByTodoID", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *categoryServiceClient) FindByIDs(ctx context.Context, in *GetCategoryByIDsRequest, opts ...grpc.CallOption) (*ListCategoryResponse, error) {
-	out := new(ListCategoryResponse)
-	err := c.cc.Invoke(ctx, "/proto.CategoryService/FindByIDs", in, out, opts...)
+func (c *categoryServiceClient) FindByTodoIDs(ctx context.Context, in *GetCategoryByTodoIDsRequest, opts ...grpc.CallOption) (*ListCategoryWithTodoIDResponse, error) {
+	out := new(ListCategoryWithTodoIDResponse)
+	err := c.cc.Invoke(ctx, "/proto.CategoryService/FindByTodoIDs", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -98,8 +88,7 @@ func (c *categoryServiceClient) Delete(ctx context.Context, in *GetCategoryByIDR
 // for forward compatibility
 type CategoryServiceServer interface {
 	FindAll(context.Context, *emptypb.Empty) (*ListCategoryResponse, error)
-	FindAllByTodoID(context.Context, *GetCategoryByTodoIDRequest) (*ListCategoryResponse, error)
-	FindByIDs(context.Context, *GetCategoryByIDsRequest) (*ListCategoryResponse, error)
+	FindByTodoIDs(context.Context, *GetCategoryByTodoIDsRequest) (*ListCategoryWithTodoIDResponse, error)
 	FindByID(context.Context, *GetCategoryByIDRequest) (*GetCategoryResponse, error)
 	Create(context.Context, *CreateCategoryRequest) (*GetCategoryResponse, error)
 	Delete(context.Context, *GetCategoryByIDRequest) (*emptypb.Empty, error)
@@ -113,11 +102,8 @@ type UnimplementedCategoryServiceServer struct {
 func (UnimplementedCategoryServiceServer) FindAll(context.Context, *emptypb.Empty) (*ListCategoryResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method FindAll not implemented")
 }
-func (UnimplementedCategoryServiceServer) FindAllByTodoID(context.Context, *GetCategoryByTodoIDRequest) (*ListCategoryResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method FindAllByTodoID not implemented")
-}
-func (UnimplementedCategoryServiceServer) FindByIDs(context.Context, *GetCategoryByIDsRequest) (*ListCategoryResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method FindByIDs not implemented")
+func (UnimplementedCategoryServiceServer) FindByTodoIDs(context.Context, *GetCategoryByTodoIDsRequest) (*ListCategoryWithTodoIDResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method FindByTodoIDs not implemented")
 }
 func (UnimplementedCategoryServiceServer) FindByID(context.Context, *GetCategoryByIDRequest) (*GetCategoryResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method FindByID not implemented")
@@ -159,38 +145,20 @@ func _CategoryService_FindAll_Handler(srv interface{}, ctx context.Context, dec 
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CategoryService_FindAllByTodoID_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCategoryByTodoIDRequest)
+func _CategoryService_FindByTodoIDs_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetCategoryByTodoIDsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CategoryServiceServer).FindAllByTodoID(ctx, in)
+		return srv.(CategoryServiceServer).FindByTodoIDs(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/proto.CategoryService/FindAllByTodoID",
+		FullMethod: "/proto.CategoryService/FindByTodoIDs",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CategoryServiceServer).FindAllByTodoID(ctx, req.(*GetCategoryByTodoIDRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CategoryService_FindByIDs_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetCategoryByIDsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CategoryServiceServer).FindByIDs(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/proto.CategoryService/FindByIDs",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CategoryServiceServer).FindByIDs(ctx, req.(*GetCategoryByIDsRequest))
+		return srv.(CategoryServiceServer).FindByTodoIDs(ctx, req.(*GetCategoryByTodoIDsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -261,12 +229,8 @@ var CategoryService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _CategoryService_FindAll_Handler,
 		},
 		{
-			MethodName: "FindAllByTodoID",
-			Handler:    _CategoryService_FindAllByTodoID_Handler,
-		},
-		{
-			MethodName: "FindByIDs",
-			Handler:    _CategoryService_FindByIDs_Handler,
+			MethodName: "FindByTodoIDs",
+			Handler:    _CategoryService_FindByTodoIDs_Handler,
 		},
 		{
 			MethodName: "FindByID",

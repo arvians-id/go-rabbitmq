@@ -31,21 +31,6 @@ func (handler *TodoHandler) DisplayTodoCategoryList(c *fiber.Ctx) error {
 }
 
 func (handler *TodoHandler) FindAll(c *fiber.Ctx) error {
-	todoIds := c.Query("ids")
-	if todoIds != "" {
-		ids, err := helper.ConvertStringToBulkInt64(todoIds)
-		if err != nil {
-			return fiber.NewError(fiber.StatusBadRequest, err.Error())
-		}
-		todos, code, err := handler.TodoService.FindByIDs(c.Context(), &pb.GetTodoByIDsRequest{
-			Ids: ids,
-		})
-		if err != nil {
-			return fiber.NewError(code, err.Error())
-		}
-
-		return response.ReturnSuccess(c, code, "OK", todos.GetTodos())
-	}
 	todos, code, err := handler.TodoService.FindAll(c.Context())
 	if err != nil {
 		return fiber.NewError(code, err.Error())

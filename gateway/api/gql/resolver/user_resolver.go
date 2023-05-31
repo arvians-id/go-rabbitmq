@@ -3,6 +3,7 @@ package resolver
 import (
 	"context"
 	"github.com/arvians-id/go-rabbitmq/gateway/api/gql/model"
+	"github.com/arvians-id/go-rabbitmq/gateway/api/middleware"
 	"github.com/arvians-id/go-rabbitmq/gateway/pb"
 )
 
@@ -59,25 +60,10 @@ func (r *mutationResolver) UserDelete(ctx context.Context, id int64) (bool, erro
 }
 
 func (u *userResolver) Todos(ctx context.Context, obj *model.User) ([]*model.Todo, error) {
-	todos, _, err := u.TodoService.FindAll(ctx)
+	todos, err := middleware.GetLoaders(ctx).TodoServiceFindByUserIDs.Load(obj.Id)
 	if err != nil {
 		return nil, err
 	}
 
-	var result []*model.Todo
-	for _, todo := range todos.Todos {
-		if todo.GetUserId() == obj.Id {
-			result = append(result, &model.Todo{
-				Id:          todo.GetId(),
-				Title:       todo.GetTitle(),
-				Description: todo.GetDescription(),
-				IsDone:      todo.GetIsDone(),
-				UserId:      todo.GetUserId(),
-				CreatedAt:   todo.GetCreatedAt(),
-				UpdatedAt:   todo.GetUpdatedAt(),
-			})
-		}
-	}
-
-	return result, nil
+	return todos, nil
 }

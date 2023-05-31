@@ -20,38 +20,7 @@ func NewCategoryHandler(categoryService services.CategoryServiceContract) Catego
 }
 
 func (handler *CategoryHandler) FindAll(c *fiber.Ctx) error {
-	categoryIds := c.Query("ids")
-	if categoryIds != "" {
-		ids, err := helper.ConvertStringToBulkInt64(categoryIds)
-		if err != nil {
-			return fiber.NewError(fiber.StatusBadRequest, err.Error())
-		}
-		categories, code, err := handler.CategoryService.FindByIDs(c.Context(), &pb.GetCategoryByIDsRequest{
-			Ids: ids,
-		})
-		if err != nil {
-			return fiber.NewError(code, err.Error())
-		}
-
-		return response.ReturnSuccess(c, code, "OK", categories.GetCategories())
-	}
 	categories, code, err := handler.CategoryService.FindAll(c.Context())
-	if err != nil {
-		return fiber.NewError(code, err.Error())
-	}
-
-	return response.ReturnSuccess(c, code, "OK", categories.GetCategories())
-}
-
-func (handler *CategoryHandler) FindAllByTodoID(c *fiber.Ctx) error {
-	id, err := c.ParamsInt("todoId")
-	if err != nil {
-		return fiber.NewError(fiber.StatusBadRequest, err.Error())
-	}
-
-	categories, code, err := handler.CategoryService.FindAllByTodoID(c.Context(), &pb.GetCategoryByTodoIDRequest{
-		Id: int64(id),
-	})
 	if err != nil {
 		return fiber.NewError(code, err.Error())
 	}

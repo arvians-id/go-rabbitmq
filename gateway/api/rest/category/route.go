@@ -19,7 +19,6 @@ func NewCategoryRoute(c fiber.Router, configuration config.Config) services.Cate
 	routeCategory.Get("/:id", categoryHandler.FindByID)
 	routeCategory.Post("/", categoryHandler.Create)
 	routeCategory.Delete("/:id", categoryHandler.Delete)
-	routeCategory.Get("/:todoId/todo", categoryHandler.FindAllByTodoID)
 
 	return categoryService
 }

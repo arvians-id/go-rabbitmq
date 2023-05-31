@@ -35,34 +35,18 @@ func (usecase *CategoryUsecase) FindAll(ctx context.Context, empty *emptypb.Empt
 	}, nil
 }
 
-func (usecase *CategoryUsecase) FindAllByTodoID(ctx context.Context, req *pb.GetCategoryByTodoIDRequest) (*pb.ListCategoryResponse, error) {
-	todos, err := usecase.CategoryRepository.FindAllByTodoID(ctx, req.Id)
+func (usecase *CategoryUsecase) FindByTodoIDs(ctx context.Context, req *pb.GetCategoryByTodoIDsRequest) (*pb.ListCategoryWithTodoIDResponse, error) {
+	todos, err := usecase.CategoryRepository.FindByTodoIDs(ctx, req.Id)
 	if err != nil {
 		return nil, err
 	}
 
-	var todosPB []*pb.Category
+	var todosPB []*pb.CategoryWithTodoID
 	for _, todo := range todos {
 		todosPB = append(todosPB, todo.ToPB())
 	}
 
-	return &pb.ListCategoryResponse{
-		Categories: todosPB,
-	}, nil
-}
-
-func (usecase *CategoryUsecase) FindByIDs(ctx context.Context, req *pb.GetCategoryByIDsRequest) (*pb.ListCategoryResponse, error) {
-	todos, err := usecase.CategoryRepository.FindByIDs(ctx, req.Ids)
-	if err != nil {
-		return nil, err
-	}
-
-	var todosPB []*pb.Category
-	for _, todo := range todos {
-		todosPB = append(todosPB, todo.ToPB())
-	}
-
-	return &pb.ListCategoryResponse{
+	return &pb.ListCategoryWithTodoIDResponse{
 		Categories: todosPB,
 	}, nil
 }

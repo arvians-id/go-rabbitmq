@@ -39,8 +39,8 @@ func (usecase *TodoUsecase) FindAll(ctx context.Context, empty *emptypb.Empty) (
 	}, nil
 }
 
-func (usecase *TodoUsecase) FindByIDs(ctx context.Context, req *pb.GetTodoByIDsRequest) (*pb.ListTodoResponse, error) {
-	todos, err := usecase.TodoRepository.FindByIDs(ctx, req.Ids)
+func (usecase *TodoUsecase) FindByUserIDs(ctx context.Context, req *pb.GetTodoByUserIDsRequest) (*pb.ListTodoResponse, error) {
+	todos, err := usecase.TodoRepository.FindByUserIDs(ctx, req.Ids)
 	if err != nil {
 		return nil, err
 	}

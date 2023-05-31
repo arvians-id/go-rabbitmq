@@ -11,7 +11,7 @@ import (
 
 type TodoRepositoryContract interface {
 	FindAll(ctx context.Context) ([]*model.Todo, error)
-	FindByIDs(ctx context.Context, ids []int64) ([]*model.Todo, error)
+	FindByUserIDs(ctx context.Context, ids []int64) ([]*model.Todo, error)
 	FindByID(ctx context.Context, id int64) (*model.Todo, error)
 	Create(ctx context.Context, req *pb.CreateTodoRequest) (*model.Todo, error)
 	Update(ctx context.Context, req *pb.UpdateTodoRequest) (*model.Todo, error)
@@ -43,12 +43,12 @@ func (repository *TodoRepository) FindAll(ctx context.Context) ([]*model.Todo, e
 	return todos, nil
 }
 
-func (repository *TodoRepository) FindByIDs(ctx context.Context, ids []int64) ([]*model.Todo, error) {
-	ctxTracer, span := otel.Tracer(config.ServiceTrace).Start(ctx, "repository.TodoService/Repository/FindByIDs")
+func (repository *TodoRepository) FindByUserIDs(ctx context.Context, ids []int64) ([]*model.Todo, error) {
+	ctxTracer, span := otel.Tracer(config.ServiceTrace).Start(ctx, "repository.TodoService/Repository/FindByUserIDs")
 	defer span.End()
 
 	var todos []*model.Todo
-	query := `SELECT * FROM todos WHERE id IN (?) ORDER BY created_at DESC`
+	query := `SELECT * FROM todos WHERE user_id IN (?) ORDER BY created_at DESC`
 	err := repository.DB.WithContext(ctxTracer).Raw(query, ids).Scan(&todos).Error
 	if err != nil {
 		span.RecordError(err)

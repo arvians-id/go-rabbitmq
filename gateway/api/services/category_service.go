@@ -11,8 +11,7 @@ import (
 
 type CategoryServiceContract interface {
 	FindAll(ctx context.Context) (*pb.ListCategoryResponse, int, error)
-	FindAllByTodoID(ctx context.Context, in *pb.GetCategoryByTodoIDRequest) (*pb.ListCategoryResponse, int, error)
-	FindByIDs(ctx context.Context, in *pb.GetCategoryByIDsRequest) (*pb.ListCategoryResponse, int, error)
+	FindByTodoIDs(ctx context.Context, in *pb.GetCategoryByTodoIDsRequest) (*pb.ListCategoryWithTodoIDResponse, int, error)
 	FindByID(ctx context.Context, in *pb.GetCategoryByIDRequest) (*pb.GetCategoryResponse, int, error)
 	Create(ctx context.Context, in *pb.CreateCategoryRequest) (*pb.GetCategoryResponse, int, error)
 	Delete(ctx context.Context, in *pb.GetCategoryByIDRequest) (int, error)
@@ -37,17 +36,8 @@ func (service *categoryService) FindAll(ctx context.Context) (*pb.ListCategoryRe
 	return categories, fiber.StatusOK, nil
 }
 
-func (service *categoryService) FindAllByTodoID(ctx context.Context, in *pb.GetCategoryByTodoIDRequest) (*pb.ListCategoryResponse, int, error) {
-	categories, err := service.CategoryClient.Client.FindAllByTodoID(ctx, in)
-	if err != nil {
-		return nil, fiber.StatusInternalServerError, err
-	}
-
-	return categories, fiber.StatusOK, nil
-}
-
-func (service *categoryService) FindByIDs(ctx context.Context, in *pb.GetCategoryByIDsRequest) (*pb.ListCategoryResponse, int, error) {
-	categories, err := service.CategoryClient.Client.FindByIDs(ctx, in)
+func (service *categoryService) FindByTodoIDs(ctx context.Context, in *pb.GetCategoryByTodoIDsRequest) (*pb.ListCategoryWithTodoIDResponse, int, error) {
+	categories, err := service.CategoryClient.Client.FindByTodoIDs(ctx, in)
 	if err != nil {
 		return nil, fiber.StatusInternalServerError, err
 	}

@@ -100,11 +100,11 @@ func (service *todoServiceCache) FindAll(ctx context.Context) (*pb.ListTodoRespo
 	return todos, fiber.StatusOK, nil
 }
 
-func (service *todoServiceCache) FindByIDs(ctx context.Context, in *pb.GetTodoByIDsRequest) (*pb.ListTodoResponse, int, error) {
-	keys := fmt.Sprintf("todos:%d", in.GetIds())
+func (service *todoServiceCache) FindByUserIDs(ctx context.Context, in *pb.GetTodoByUserIDsRequest) (*pb.ListTodoResponse, int, error) {
+	keys := fmt.Sprintf("todos_user_ids:%d", in.GetIds())
 	todosCached, err := service.RedisClient.Get(ctx, keys).Bytes()
 	if err == redis.Nil {
-		todos, err := service.TodoClient.Client.FindByIDs(ctx, in)
+		todos, err := service.TodoClient.Client.FindByUserIDs(ctx, in)
 		if err != nil {
 			return nil, fiber.StatusInternalServerError, err
 		}

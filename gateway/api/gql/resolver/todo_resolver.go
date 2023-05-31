@@ -3,7 +3,7 @@ package resolver
 import (
 	"context"
 	"github.com/arvians-id/go-rabbitmq/gateway/api/gql/model"
-	"github.com/arvians-id/go-rabbitmq/gateway/pb"
+	"github.com/arvians-id/go-rabbitmq/gateway/api/middleware"
 )
 
 func (r *queryResolver) TodoFindAll(ctx context.Context) ([]*model.Todo, error) {
@@ -49,31 +49,19 @@ func (r *mutationResolver) TodoDelete(ctx context.Context, id int64) (bool, erro
 }
 
 func (t *todoResolver) Categories(ctx context.Context, obj *model.Todo) ([]*model.Category, error) {
-	categories, _, err := t.CategoryServices.FindAllByTodoID(ctx, &pb.GetCategoryByTodoIDRequest{
-		Id: obj.Id,
-	})
+	categories, err := middleware.GetLoaders(ctx).CategoryServiceFindByTodoIDs.Load(obj.Id)
 	if err != nil {
 		return nil, err
 	}
 
-	var result []*model.Category
-	for _, category := range categories.Categories {
-		result = append(result, &model.Category{
-			Id:        category.GetId(),
-			Name:      category.GetName(),
-			CreatedAt: category.GetCreatedAt(),
-			UpdatedAt: category.GetUpdatedAt(),
-		})
-	}
-
-	return result, nil
+	return categories, nil
 }
 
 func (t *todoResolver) User(ctx context.Context, obj *model.Todo) (*model.User, error) {
-	load, err := model.GetUserLoader(ctx).Load(obj.UserId)
+	users, err := middleware.GetLoaders(ctx).UserServiceFindByIDs.Load(obj.UserId)
 	if err != nil {
 		return nil, err
 	}
 
-	return load, nil
+	return users, nil
 }

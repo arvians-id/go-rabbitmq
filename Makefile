@@ -18,7 +18,9 @@ gql:
 
 dataloaden:
 	cd gateway/api/gql/model && \
-	go run github.com/vektah/dataloaden UserLoader int64 *github.com/arvians-id/go-rabbitmq/gateway/api/gql/model.User
+	go run github.com/vektah/dataloaden UserLoader int64 *github.com/arvians-id/go-rabbitmq/gateway/api/gql/model.User && \
+	go run github.com/vektah/dataloaden TodoLoader int64 []*github.com/arvians-id/go-rabbitmq/gateway/api/gql/model.Todo && \
+	go run github.com/vektah/dataloaden CategoryLoader int64 []*github.com/arvians-id/go-rabbitmq/gateway/api/gql/model.Category
 
 build:
 	docker build ./gateway -t arvians/go-todo-gateway:latest

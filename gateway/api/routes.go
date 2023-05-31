@@ -1,14 +1,13 @@
 package api
 
 import (
-	"context"
 	"errors"
 	"fmt"
 	"github.com/99designs/gqlgen/graphql/handler"
 	"github.com/99designs/gqlgen/graphql/playground"
 	"github.com/arvians-id/go-rabbitmq/gateway/api/gql"
-	"github.com/arvians-id/go-rabbitmq/gateway/api/gql/model"
 	"github.com/arvians-id/go-rabbitmq/gateway/api/gql/resolver"
+	"github.com/arvians-id/go-rabbitmq/gateway/api/middleware"
 	"github.com/arvians-id/go-rabbitmq/gateway/api/rest/auth"
 	"github.com/arvians-id/go-rabbitmq/gateway/api/rest/category"
 	"github.com/arvians-id/go-rabbitmq/gateway/api/rest/category_todo"
@@ -118,16 +117,10 @@ func NewRoutes(configuration config.Config, logFile *os.File, ch *amqp091.Channe
 		Resolvers: resolvers,
 	}
 
+	app.Use(middleware.DataLoaders(userService, todoService, categoryService))
+
 	h := handler.NewDefaultServer(gql.NewExecutableSchema(generatedConfig))
 	app.Post("/query", func(c *fiber.Ctx) error {
-		fasthttpadaptor.NewFastHTTPHandlerFunc(func(writer http.ResponseWriter, request *http.Request) {
-			userLoader := model.Loader(c.Context(), resolvers.UserService)
-			ctx := context.WithValue(c.Context(), "userLoader", &userLoader)
-			h.ServeHTTP(writer, request.WithContext(ctx))
-		})(c.Context())
-
-		return nil
-	}, func(c *fiber.Ctx) error {
 		fasthttpadaptor.NewFastHTTPHandlerFunc(func(writer http.ResponseWriter, request *http.Request) {
 			h.ServeHTTP(writer, request)
 		})(c.Context())

@@ -10,8 +10,7 @@ import (
 
 type CategoryRepositoryContract interface {
 	FindAll(ctx context.Context) ([]*model.Category, error)
-	FindAllByTodoID(ctx context.Context, todoID int64) ([]*model.Category, error)
-	FindByIDs(ctx context.Context, ids []int64) ([]*model.Category, error)
+	FindByTodoIDs(ctx context.Context, ids []int64) ([]*model.Category, error)
 	FindByID(ctx context.Context, id int64) (*model.Category, error)
 	Create(ctx context.Context, category *model.Category) (*model.Category, error)
 	Delete(ctx context.Context, id int64) error
@@ -42,27 +41,12 @@ func (repository *CategoryRepository) FindAll(ctx context.Context) ([]*model.Cat
 	return categories, nil
 }
 
-func (repository *CategoryRepository) FindAllByTodoID(ctx context.Context, id int64) ([]*model.Category, error) {
+func (repository *CategoryRepository) FindByTodoIDs(ctx context.Context, ids []int64) ([]*model.CategoryWithTodoID, error) {
 	ctxTracer, span := otel.Tracer(config.ServiceTrace).Start(ctx, "repository.CategoryService/Repository/FindByID")
 	defer span.End()
 
-	var category []*model.Category
-	query := `SELECT c.* FROM categories c LEFT JOIN category_todo ct ON c.id = ct.category_id WHERE ct.todo_id = ?`
-	err := repository.DB.WithContext(ctxTracer).Raw(query, id).Scan(&category).Error
-	if err != nil {
-		span.RecordError(err)
-		return nil, err
-	}
-
-	return category, nil
-}
-
-func (repository *CategoryRepository) FindByIDs(ctx context.Context, ids []int64) ([]*model.Category, error) {
-	ctxTracer, span := otel.Tracer(config.ServiceTrace).Start(ctx, "repository.CategoryService/Repository/FindByIDs")
-	defer span.End()
-
-	var category []*model.Category
-	query := `SELECT * FROM categories WHERE id IN (?) ORDER BY created_at DESC`
+	var category []*model.CategoryWithTodoID
+	query := `SELECT c.*,ct.todo_id FROM categories c LEFT JOIN category_todo ct ON c.id = ct.category_id WHERE ct.todo_id IN (?) ORDER BY c.created_at DESC`
 	err := repository.DB.WithContext(ctxTracer).Raw(query, ids).Scan(&category).Error
 	if err != nil {
 		span.RecordError(err)

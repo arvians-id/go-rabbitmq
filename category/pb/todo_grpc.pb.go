@@ -24,6 +24,7 @@ const _ = grpc.SupportPackageIsVersion7
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type TodoServiceClient interface {
 	FindAll(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*ListTodoResponse, error)
+	FindByIDs(ctx context.Context, in *GetTodoByIDsRequest, opts ...grpc.CallOption) (*ListTodoResponse, error)
 	FindByID(ctx context.Context, in *GetTodoByIDRequest, opts ...grpc.CallOption) (*GetTodoResponse, error)
 	Create(ctx context.Context, in *CreateTodoRequest, opts ...grpc.CallOption) (*GetTodoResponse, error)
 	Update(ctx context.Context, in *UpdateTodoRequest, opts ...grpc.CallOption) (*GetTodoResponse, error)
@@ -41,6 +42,15 @@ func NewTodoServiceClient(cc grpc.ClientConnInterface) TodoServiceClient {
 func (c *todoServiceClient) FindAll(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*ListTodoResponse, error) {
 	out := new(ListTodoResponse)
 	err := c.cc.Invoke(ctx, "/proto.TodoService/FindAll", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *todoServiceClient) FindByIDs(ctx context.Context, in *GetTodoByIDsRequest, opts ...grpc.CallOption) (*ListTodoResponse, error) {
+	out := new(ListTodoResponse)
+	err := c.cc.Invoke(ctx, "/proto.TodoService/FindByIDs", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -88,6 +98,7 @@ func (c *todoServiceClient) Delete(ctx context.Context, in *GetTodoByIDRequest, 
 // for forward compatibility
 type TodoServiceServer interface {
 	FindAll(context.Context, *emptypb.Empty) (*ListTodoResponse, error)
+	FindByIDs(context.Context, *GetTodoByIDsRequest) (*ListTodoResponse, error)
 	FindByID(context.Context, *GetTodoByIDRequest) (*GetTodoResponse, error)
 	Create(context.Context, *CreateTodoRequest) (*GetTodoResponse, error)
 	Update(context.Context, *UpdateTodoRequest) (*GetTodoResponse, error)
@@ -101,6 +112,9 @@ type UnimplementedTodoServiceServer struct {
 
 func (UnimplementedTodoServiceServer) FindAll(context.Context, *emptypb.Empty) (*ListTodoResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method FindAll not implemented")
+}
+func (UnimplementedTodoServiceServer) FindByIDs(context.Context, *GetTodoByIDsRequest) (*ListTodoResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method FindByIDs not implemented")
 }
 func (UnimplementedTodoServiceServer) FindByID(context.Context, *GetTodoByIDRequest) (*GetTodoResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method FindByID not implemented")
@@ -141,6 +155,24 @@ func _TodoService_FindAll_Handler(srv interface{}, ctx context.Context, dec func
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(TodoServiceServer).FindAll(ctx, req.(*emptypb.Empty))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _TodoService_FindByIDs_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTodoByIDsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(TodoServiceServer).FindByIDs(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/proto.TodoService/FindByIDs",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(TodoServiceServer).FindByIDs(ctx, req.(*GetTodoByIDsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -227,6 +259,10 @@ var TodoService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "FindAll",
 			Handler:    _TodoService_FindAll_Handler,
+		},
+		{
+			MethodName: "FindByIDs",
+			Handler:    _TodoService_FindByIDs_Handler,
 		},
 		{
 			MethodName: "FindByID",

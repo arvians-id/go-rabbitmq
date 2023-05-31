@@ -62,6 +62,12 @@ $ go run cmd/gateway/main.go
 # or you can run all services in different terminal with air
 $ air
 
+# graphql playground, open in browser
+http://localhost:3000/playground
+
+# rest api, open in postman or curl
+$ curl -X GET http://localhost:3000/api/users
+
 # Run test
 # Warning: Make sure you have run on development mode
 $ make test
@@ -80,6 +86,7 @@ $ docker-compose up -d
 * [Go](https://golang.org/)
 * [Docker](https://www.docker.com/)
 * [gRPC](https://grpc.io/)
+* [GraphQL](https://graphql.org/)
 * [RabbitMQ](https://www.rabbitmq.com/)
 * [PostgreSQL](https://www.postgresql.org/)
 * [Redis](https://redis.io/)

@@ -14,6 +14,7 @@ import (
 type TodoServiceContract interface {
 	DisplayTodoCategoryList(ctx context.Context) (*dto.DisplayCategoryTodoListResponse, int, error)
 	FindAll(ctx context.Context) (*pb.ListTodoResponse, int, error)
+	FindByIDs(ctx context.Context, in *pb.GetTodoByIDsRequest) (*pb.ListTodoResponse, int, error)
 	FindByID(ctx context.Context, in *pb.GetTodoByIDRequest) (*pb.GetTodoResponse, int, error)
 	Create(ctx context.Context, in *pb.CreateTodoRequest) (*pb.GetTodoResponse, int, error)
 	Update(ctx context.Context, in *pb.UpdateTodoRequest) (*pb.GetTodoResponse, int, error)
@@ -75,6 +76,15 @@ func (service *todoService) DisplayTodoCategoryList(ctx context.Context) (*dto.D
 
 func (service *todoService) FindAll(ctx context.Context) (*pb.ListTodoResponse, int, error) {
 	todos, err := service.TodoClient.Client.FindAll(ctx, new(emptypb.Empty))
+	if err != nil {
+		return nil, fiber.StatusInternalServerError, err
+	}
+
+	return todos, fiber.StatusOK, nil
+}
+
+func (service *todoService) FindByIDs(ctx context.Context, in *pb.GetTodoByIDsRequest) (*pb.ListTodoResponse, int, error) {
+	todos, err := service.TodoClient.Client.FindByIDs(ctx, in)
 	if err != nil {
 		return nil, fiber.StatusInternalServerError, err
 	}

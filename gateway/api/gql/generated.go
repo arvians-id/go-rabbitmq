@@ -97,6 +97,7 @@ type ComplexityRoot struct {
 		IsDone      func(childComplexity int) int
 		Title       func(childComplexity int) int
 		UpdatedAt   func(childComplexity int) int
+		User        func(childComplexity int) int
 		UserId      func(childComplexity int) int
 	}
 
@@ -133,6 +134,7 @@ type QueryResolver interface {
 }
 type TodoResolver interface {
 	Categories(ctx context.Context, obj *model.Todo) ([]*model.Category, error)
+	User(ctx context.Context, obj *model.Todo) (*model.User, error)
 }
 type UserResolver interface {
 	Todos(ctx context.Context, obj *model.User) ([]*model.Todo, error)
@@ -448,6 +450,13 @@ func (e *executableSchema) Complexity(typeName, field string, childComplexity in
 		}
 
 		return e.complexity.Todo.UpdatedAt(childComplexity), true
+
+	case "Todo.user":
+		if e.complexity.Todo.User == nil {
+			break
+		}
+
+		return e.complexity.Todo.User(childComplexity), true
 
 	case "Todo.user_id":
 		if e.complexity.Todo.UserId == nil {
@@ -1498,6 +1507,8 @@ func (ec *executionContext) fieldContext_Mutation_TodoCreate(ctx context.Context
 				return ec.fieldContext_Todo_user_id(ctx, field)
 			case "categories":
 				return ec.fieldContext_Todo_categories(ctx, field)
+			case "user":
+				return ec.fieldContext_Todo_user(ctx, field)
 			case "created_at":
 				return ec.fieldContext_Todo_created_at(ctx, field)
 			case "updated_at":
@@ -1571,6 +1582,8 @@ func (ec *executionContext) fieldContext_Mutation_TodoUpdate(ctx context.Context
 				return ec.fieldContext_Todo_user_id(ctx, field)
 			case "categories":
 				return ec.fieldContext_Todo_categories(ctx, field)
+			case "user":
+				return ec.fieldContext_Todo_user(ctx, field)
 			case "created_at":
 				return ec.fieldContext_Todo_created_at(ctx, field)
 			case "updated_at":
@@ -2189,6 +2202,8 @@ func (ec *executionContext) fieldContext_Query_TodoFindAll(ctx context.Context, 
 				return ec.fieldContext_Todo_user_id(ctx, field)
 			case "categories":
 				return ec.fieldContext_Todo_categories(ctx, field)
+			case "user":
+				return ec.fieldContext_Todo_user(ctx, field)
 			case "created_at":
 				return ec.fieldContext_Todo_created_at(ctx, field)
 			case "updated_at":
@@ -2251,6 +2266,8 @@ func (ec *executionContext) fieldContext_Query_TodoFindById(ctx context.Context,
 				return ec.fieldContext_Todo_user_id(ctx, field)
 			case "categories":
 				return ec.fieldContext_Todo_categories(ctx, field)
+			case "user":
+				return ec.fieldContext_Todo_user(ctx, field)
 			case "created_at":
 				return ec.fieldContext_Todo_created_at(ctx, field)
 			case "updated_at":
@@ -2804,6 +2821,66 @@ func (ec *executionContext) fieldContext_Todo_categories(ctx context.Context, fi
 	return fc, nil
 }
 
+func (ec *executionContext) _Todo_user(ctx context.Context, field graphql.CollectedField, obj *model.Todo) (ret graphql.Marshaler) {
+	fc, err := ec.fieldContext_Todo_user(ctx, field)
+	if err != nil {
+		return graphql.Null
+	}
+	ctx = graphql.WithFieldContext(ctx, fc)
+	defer func() {
+		if r := recover(); r != nil {
+			ec.Error(ctx, ec.Recover(ctx, r))
+			ret = graphql.Null
+		}
+	}()
+	resTmp, err := ec.ResolverMiddleware(ctx, func(rctx context.Context) (interface{}, error) {
+		ctx = rctx // use context from middleware stack in children
+		return ec.resolvers.Todo().User(rctx, obj)
+	})
+	if err != nil {
+		ec.Error(ctx, err)
+		return graphql.Null
+	}
+	if resTmp == nil {
+		if !graphql.HasFieldError(ctx, fc) {
+			ec.Errorf(ctx, "must not be null")
+		}
+		return graphql.Null
+	}
+	res := resTmp.(*model.User)
+	fc.Result = res
+	return ec.marshalNUser2ᚖgithubᚗcomᚋarviansᚑidᚋgoᚑrabbitmqᚋgatewayᚋapiᚋgqlᚋmodelᚐUser(ctx, field.Selections, res)
+}
+
+func (ec *executionContext) fieldContext_Todo_user(ctx context.Context, field graphql.CollectedField) (fc *graphql.FieldContext, err error) {
+	fc = &graphql.FieldContext{
+		Object:     "Todo",
+		Field:      field,
+		IsMethod:   true,
+		IsResolver: true,
+		Child: func(ctx context.Context, field graphql.CollectedField) (*graphql.FieldContext, error) {
+			switch field.Name {
+			case "id":
+				return ec.fieldContext_User_id(ctx, field)
+			case "name":
+				return ec.fieldContext_User_name(ctx, field)
+			case "email":
+				return ec.fieldContext_User_email(ctx, field)
+			case "password":
+				return ec.fieldContext_User_password(ctx, field)
+			case "todos":
+				return ec.fieldContext_User_todos(ctx, field)
+			case "created_at":
+				return ec.fieldContext_User_created_at(ctx, field)
+			case "updated_at":
+				return ec.fieldContext_User_updated_at(ctx, field)
+			}
+			return nil, fmt.Errorf("no field named %q was found under type User", field.Name)
+		},
+	}
+	return fc, nil
+}
+
 func (ec *executionContext) _Todo_created_at(ctx context.Context, field graphql.CollectedField, obj *model.Todo) (ret graphql.Marshaler) {
 	fc, err := ec.fieldContext_Todo_created_at(ctx, field)
 	if err != nil {
@@ -3113,6 +3190,8 @@ func (ec *executionContext) fieldContext_User_todos(ctx context.Context, field g
 				return ec.fieldContext_Todo_user_id(ctx, field)
 			case "categories":
 				return ec.fieldContext_Todo_categories(ctx, field)
+			case "user":
+				return ec.fieldContext_Todo_user(ctx, field)
 			case "created_at":
 				return ec.fieldContext_Todo_created_at(ctx, field)
 			case "updated_at":
@@ -5830,6 +5909,26 @@ func (ec *executionContext) _Todo(ctx context.Context, sel ast.SelectionSet, obj
 					}
 				}()
 				res = ec._Todo_categories(ctx, field, obj)
+				return res
+			}
+
+			out.Concurrently(i, func() graphql.Marshaler {
+				return innerFunc(ctx)
+
+			})
+		case "user":
+			field := field
+
+			innerFunc := func(ctx context.Context) (res graphql.Marshaler) {
+				defer func() {
+					if r := recover(); r != nil {
+						ec.Error(ctx, ec.Recover(ctx, r))
+					}
+				}()
+				res = ec._Todo_user(ctx, field, obj)
+				if res == graphql.Null {
+					atomic.AddUint32(&invalids, 1)
+				}
 				return res
 			}
 

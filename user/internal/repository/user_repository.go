@@ -10,6 +10,7 @@ import (
 
 type UserRepositoryContract interface {
 	FindAll(ctx context.Context) ([]*model.User, error)
+	FindByIDs(ctx context.Context, ids []int64) ([]*model.User, error)
 	FindByID(ctx context.Context, id int64) (*model.User, error)
 	FindByEmail(ctx context.Context, email string) (*model.User, error)
 	Create(ctx context.Context, user *model.User) (*model.User, error)
@@ -42,6 +43,21 @@ func (repository *UserRepository) FindAll(ctx context.Context) ([]*model.User, e
 	return users, nil
 }
 
+func (repository *UserRepository) FindByIDs(ctx context.Context, ids []int64) ([]*model.User, error) {
+	ctxTracer, span := otel.Tracer(config.ServiceTrace).Start(ctx, "repository.UserService/Repository/FindByIDs")
+	defer span.End()
+
+	var users []*model.User
+	query := `SELECT * FROM users WHERE id IN (?) ORDER BY created_at DESC`
+	err := repository.DB.WithContext(ctxTracer).Raw(query, ids).Scan(&users).Error
+	if err != nil {
+		span.RecordError(err)
+		return nil, err
+	}
+
+	return users, nil
+}
+
 func (repository *UserRepository) FindByID(ctx context.Context, id int64) (*model.User, error) {
 	ctxTracer, span := otel.Tracer(config.ServiceTrace).Start(ctx, "repository.UserService/Repository/FindByID")
 	defer span.End()
@@ -64,7 +80,8 @@ func (repository *UserRepository) FindByEmail(ctx context.Context, email string)
 
 	var user model.User
 	query := `SELECT * FROM users WHERE email = ?`
-	err := repository.DB.WithContext(ctxTracer).Raw(query, email).Scan(&user).Error
+	row := repository.DB.WithContext(ctxTracer).Raw(query, email).Row()
+	err := row.Scan(&user.Id, &user.Name, &user.Email, &user.Password, &user.CreatedAt, &user.UpdatedAt)
 	if err != nil {
 		span.RecordError(err)
 		return nil, err

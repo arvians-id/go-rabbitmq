@@ -24,6 +24,7 @@ const _ = grpc.SupportPackageIsVersion7
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type UserServiceClient interface {
 	FindAll(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*ListUserResponse, error)
+	FindByIDs(ctx context.Context, in *GetUserByIDsRequest, opts ...grpc.CallOption) (*ListUserResponse, error)
 	FindByID(ctx context.Context, in *GetUserByIDRequest, opts ...grpc.CallOption) (*GetUserResponse, error)
 	ValidateLogin(ctx context.Context, in *GetValidateLoginRequest, opts ...grpc.CallOption) (*GetUserResponse, error)
 	Create(ctx context.Context, in *CreateUserRequest, opts ...grpc.CallOption) (*GetUserResponse, error)
@@ -42,6 +43,15 @@ func NewUserServiceClient(cc grpc.ClientConnInterface) UserServiceClient {
 func (c *userServiceClient) FindAll(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*ListUserResponse, error) {
 	out := new(ListUserResponse)
 	err := c.cc.Invoke(ctx, "/proto.UserService/FindAll", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *userServiceClient) FindByIDs(ctx context.Context, in *GetUserByIDsRequest, opts ...grpc.CallOption) (*ListUserResponse, error) {
+	out := new(ListUserResponse)
+	err := c.cc.Invoke(ctx, "/proto.UserService/FindByIDs", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -98,6 +108,7 @@ func (c *userServiceClient) Delete(ctx context.Context, in *GetUserByIDRequest, 
 // for forward compatibility
 type UserServiceServer interface {
 	FindAll(context.Context, *emptypb.Empty) (*ListUserResponse, error)
+	FindByIDs(context.Context, *GetUserByIDsRequest) (*ListUserResponse, error)
 	FindByID(context.Context, *GetUserByIDRequest) (*GetUserResponse, error)
 	ValidateLogin(context.Context, *GetValidateLoginRequest) (*GetUserResponse, error)
 	Create(context.Context, *CreateUserRequest) (*GetUserResponse, error)
@@ -112,6 +123,9 @@ type UnimplementedUserServiceServer struct {
 
 func (UnimplementedUserServiceServer) FindAll(context.Context, *emptypb.Empty) (*ListUserResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method FindAll not implemented")
+}
+func (UnimplementedUserServiceServer) FindByIDs(context.Context, *GetUserByIDsRequest) (*ListUserResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method FindByIDs not implemented")
 }
 func (UnimplementedUserServiceServer) FindByID(context.Context, *GetUserByIDRequest) (*GetUserResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method FindByID not implemented")
@@ -155,6 +169,24 @@ func _UserService_FindAll_Handler(srv interface{}, ctx context.Context, dec func
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(UserServiceServer).FindAll(ctx, req.(*emptypb.Empty))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UserService_FindByIDs_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUserByIDsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UserServiceServer).FindByIDs(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/proto.UserService/FindByIDs",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UserServiceServer).FindByIDs(ctx, req.(*GetUserByIDsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -259,6 +291,10 @@ var UserService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "FindAll",
 			Handler:    _UserService_FindAll_Handler,
+		},
+		{
+			MethodName: "FindByIDs",
+			Handler:    _UserService_FindByIDs_Handler,
 		},
 		{
 			MethodName: "FindByID",

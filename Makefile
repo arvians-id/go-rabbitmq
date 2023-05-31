@@ -16,6 +16,10 @@ pb:
 gql:
 	cd gateway/api/gql/ && go run github.com/99designs/gqlgen@v0.17.31 generate
 
+dataloaden:
+	cd gateway/api/gql/model && \
+	go run github.com/vektah/dataloaden UserLoader int64 *github.com/arvians-id/go-rabbitmq/gateway/api/gql/model.User
+
 build:
 	docker build ./gateway -t arvians/go-todo-gateway:latest
 	docker build ./worker -t arvians/go-todo-worker:latest

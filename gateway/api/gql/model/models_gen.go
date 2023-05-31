@@ -47,6 +47,7 @@ type Todo struct {
 	IsDone      bool        `json:"is_done"`
 	UserId      int64       `json:"user_id"`
 	Categories  []*Category `json:"categories,omitempty"`
+	User        *User       `json:"user"`
 	CreatedAt   string      `json:"created_at"`
 	UpdatedAt   string      `json:"updated_at"`
 }

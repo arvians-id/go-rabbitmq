@@ -8,6 +8,7 @@ option go_package = "./pb";
 
 service TodoService {
   rpc FindAll (google.protobuf.Empty) returns (ListTodoResponse) {}
+  rpc FindByIDs (GetTodoByIDsRequest) returns (ListTodoResponse) {}
   rpc FindByID (GetTodoByIDRequest) returns (GetTodoResponse) {}
   rpc Create (CreateTodoRequest) returns (GetTodoResponse) {}
   rpc Update (UpdateTodoRequest) returns (GetTodoResponse) {}
@@ -30,6 +31,10 @@ message ListTodoResponse {
 
 message GetTodoResponse {
   Todo todo = 1;
+}
+
+message GetTodoByIDsRequest {
+  repeated int64 ids = 1;
 }
 
 message GetTodoByIDRequest {

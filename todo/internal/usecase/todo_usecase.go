@@ -39,6 +39,22 @@ func (usecase *TodoUsecase) FindAll(ctx context.Context, empty *emptypb.Empty) (
 	}, nil
 }
 
+func (usecase *TodoUsecase) FindByIDs(ctx context.Context, req *pb.GetTodoByIDsRequest) (*pb.ListTodoResponse, error) {
+	todos, err := usecase.TodoRepository.FindByIDs(ctx, req.Ids)
+	if err != nil {
+		return nil, err
+	}
+
+	var todosPB []*pb.Todo
+	for _, todo := range todos {
+		todosPB = append(todosPB, todo.ToPB())
+	}
+
+	return &pb.ListTodoResponse{
+		Todos: todosPB,
+	}, nil
+}
+
 func (usecase *TodoUsecase) FindByID(ctx context.Context, req *pb.GetTodoByIDRequest) (*pb.GetTodoResponse, error) {
 	todo, err := usecase.TodoRepository.FindByID(ctx, req.Id)
 	if err != nil {

@@ -37,6 +37,22 @@ func (usecase *UserUsecase) FindAll(ctx context.Context, empty *emptypb.Empty) (
 	}, nil
 }
 
+func (usecase *UserUsecase) FindByIDs(ctx context.Context, req *pb.GetUserByIDsRequest) (*pb.ListUserResponse, error) {
+	users, err := usecase.UserRepository.FindByIDs(ctx, req.Ids)
+	if err != nil {
+		return nil, err
+	}
+
+	var usersPB []*pb.User
+	for _, user := range users {
+		usersPB = append(usersPB, user.ToPB())
+	}
+
+	return &pb.ListUserResponse{
+		Users: usersPB,
+	}, nil
+}
+
 func (usecase *UserUsecase) FindByID(ctx context.Context, req *pb.GetUserByIDRequest) (*pb.GetUserResponse, error) {
 	user, err := usecase.UserRepository.FindByID(ctx, req.Id)
 	if err != nil {

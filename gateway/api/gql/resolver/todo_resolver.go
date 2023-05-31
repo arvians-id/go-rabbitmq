@@ -68,3 +68,12 @@ func (t *todoResolver) Categories(ctx context.Context, obj *model.Todo) ([]*mode
 
 	return result, nil
 }
+
+func (t *todoResolver) User(ctx context.Context, obj *model.Todo) (*model.User, error) {
+	load, err := model.GetUserLoader(ctx).Load(obj.UserId)
+	if err != nil {
+		return nil, err
+	}
+
+	return load, nil
+}

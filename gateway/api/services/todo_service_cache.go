@@ -100,6 +100,37 @@ func (service *todoServiceCache) FindAll(ctx context.Context) (*pb.ListTodoRespo
 	return todos, fiber.StatusOK, nil
 }
 
+func (service *todoServiceCache) FindByIDs(ctx context.Context, in *pb.GetTodoByIDsRequest) (*pb.ListTodoResponse, int, error) {
+	keys := fmt.Sprintf("todos:%d", in.GetIds())
+	todosCached, err := service.RedisClient.Get(ctx, keys).Bytes()
+	if err == redis.Nil {
+		todos, err := service.TodoClient.Client.FindByIDs(ctx, in)
+		if err != nil {
+			return nil, fiber.StatusInternalServerError, err
+		}
+
+		todosJSON, err := json.Marshal(todos)
+		if err != nil {
+			return nil, fiber.StatusBadRequest, err
+		}
+
+		err = service.RedisClient.Set(ctx, keys, todosJSON, time.Second*20).Err()
+		if err != nil {
+			return nil, fiber.StatusBadRequest, err
+		}
+
+		return todos, fiber.StatusOK, nil
+	}
+
+	var todos *pb.ListTodoResponse
+	err = json.Unmarshal(todosCached, &todos)
+	if err != nil {
+		return nil, fiber.StatusBadRequest, err
+	}
+
+	return todos, fiber.StatusOK, nil
+}
+
 func (service *todoServiceCache) FindByID(ctx context.Context, in *pb.GetTodoByIDRequest) (*pb.GetTodoResponse, int, error) {
 	keys := fmt.Sprintf("todo:%d", in.GetId())
 	todoCached, err := service.RedisClient.Get(ctx, keys).Bytes()

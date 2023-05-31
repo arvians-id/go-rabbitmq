@@ -8,6 +8,7 @@ option go_package = "./pb";
 
 service UserService {
   rpc FindAll (google.protobuf.Empty) returns (ListUserResponse) {}
+  rpc FindByIDs (GetUserByIDsRequest) returns (ListUserResponse) {}
   rpc FindByID (GetUserByIDRequest) returns (GetUserResponse) {}
   rpc ValidateLogin (GetValidateLoginRequest) returns (GetUserResponse) {}
   rpc Create (CreateUserRequest) returns (GetUserResponse) {}
@@ -30,6 +31,10 @@ message ListUserResponse {
 
 message GetUserResponse {
   User user = 1;
+}
+
+message GetUserByIDsRequest {
+  repeated int64 ids = 1;
 }
 
 message GetUserByIDRequest {

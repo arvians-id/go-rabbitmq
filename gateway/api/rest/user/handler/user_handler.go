@@ -20,6 +20,21 @@ func NewUserHandler(userService services.UserServiceContract) UserHandler {
 }
 
 func (handler *UserHandler) FindAll(c *fiber.Ctx) error {
+	userIds := c.Query("ids")
+	if userIds != "" {
+		ids, err := helper.ConvertStringToBulkInt64(userIds)
+		if err != nil {
+			return fiber.NewError(fiber.StatusBadRequest, err.Error())
+		}
+		users, code, err := handler.UserService.FindByIDs(c.Context(), &pb.GetUserByIDsRequest{
+			Ids: ids,
+		})
+		if err != nil {
+			return fiber.NewError(code, err.Error())
+		}
+
+		return response.ReturnSuccess(c, code, "OK", users.GetUsers())
+	}
 	users, code, err := handler.UserService.FindAll(c.Context())
 	if err != nil {
 		return fiber.NewError(code, err.Error())

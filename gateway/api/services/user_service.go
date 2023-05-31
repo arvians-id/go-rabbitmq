@@ -18,6 +18,7 @@ type UserServiceContract interface {
 	ValidateLogin(ctx context.Context, in *pb.GetValidateLoginRequest) (string, int, error)
 	Register(ctx context.Context, in *pb.CreateUserRequest) (*pb.GetUserResponse, int, error)
 	FindAll(ctx context.Context) (*pb.ListUserResponse, int, error)
+	FindByIDs(ctx context.Context, in *pb.GetUserByIDsRequest) (*pb.ListUserResponse, int, error)
 	FindByID(ctx context.Context, in *pb.GetUserByIDRequest) (*pb.GetUserResponse, int, error)
 	Create(ctx context.Context, in *pb.CreateUserRequest) (*pb.GetUserResponse, int, error)
 	Update(ctx context.Context, in *pb.UpdateUserRequest) (*pb.GetUserResponse, int, error)
@@ -37,6 +38,15 @@ func NewUserService(userClient client.UserClient, rabbitMQ *amqp091.Channel) Use
 }
 func (service *userService) FindAll(ctx context.Context) (*pb.ListUserResponse, int, error) {
 	users, err := service.UserClient.Client.FindAll(ctx, new(emptypb.Empty))
+	if err != nil {
+		return nil, fiber.StatusInternalServerError, err
+	}
+
+	return users, fiber.StatusOK, nil
+}
+
+func (service *userService) FindByIDs(ctx context.Context, in *pb.GetUserByIDsRequest) (*pb.ListUserResponse, int, error) {
+	users, err := service.UserClient.Client.FindByIDs(ctx, in)
 	if err != nil {
 		return nil, fiber.StatusInternalServerError, err
 	}

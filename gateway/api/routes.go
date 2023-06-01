@@ -84,6 +84,10 @@ func NewRoutes(configuration config.Config, logFile *os.File, ch *amqp091.Channe
 		AllowMethods:     "POST, DELETE, PUT, PATCH, GET",
 		AllowCredentials: true,
 	}))
+
+	// Set Fiber Context
+	app.Use(middleware.ExposeFiberContext())
+
 	app.Get("/", func(c *fiber.Ctx) error {
 		return c.SendString("Welcome to my API Todo List")
 	})
@@ -107,21 +111,19 @@ func NewRoutes(configuration config.Config, logFile *os.File, ch *amqp091.Channe
 		return nil
 	})
 
-	resolvers := &resolver.Resolver{
-		UserService:      userService,
-		CategoryServices: categoryService,
-		TodoService:      todoService,
-	}
-
-	generatedConfig := gql.Config{
-		Resolvers: resolvers,
-	}
-
 	app.Use(middleware.DataLoaders(userService, todoService, categoryService))
-
-	h := handler.NewDefaultServer(gql.NewExecutableSchema(generatedConfig))
 	app.Post("/query", func(c *fiber.Ctx) error {
 		fasthttpadaptor.NewFastHTTPHandlerFunc(func(writer http.ResponseWriter, request *http.Request) {
+			generatedConfig := gql.Config{
+				Resolvers: &resolver.Resolver{
+					UserService:      userService,
+					CategoryServices: categoryService,
+					TodoService:      todoService,
+				},
+			}
+			generatedConfig.Directives.IsLoggedIn = middleware.NewJWTMiddlewareGraphQL
+
+			h := handler.NewDefaultServer(gql.NewExecutableSchema(generatedConfig))
 			h.ServeHTTP(writer, request)
 		})(c.Context())
 

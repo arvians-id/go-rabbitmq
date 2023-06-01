@@ -2,7 +2,6 @@ package helper
 
 import (
 	"errors"
-	"log"
 	"reflect"
 
 	"github.com/go-playground/validator/v10"
@@ -17,7 +16,7 @@ func ValidateStruct(entity interface{}) error {
 	}
 
 	if val.Kind() != reflect.Struct {
-		log.Fatalln("the parameter isn't a struct")
+		return errors.New("not a struct")
 	}
 
 	errorValidation := "validation error on field:"

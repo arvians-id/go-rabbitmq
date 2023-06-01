@@ -1,13 +1,13 @@
 type Query {
     # Category
-    CategoryFindAll: [Category!]!
-    CategoryFindById(id: ID!): Category!
+    CategoryFindAll: [Category!]! @isLoggedIn(isLogged: true)
+    CategoryFindById(id: ID!): Category! @isLoggedIn(isLogged: true)
 
     # Todo
-    TodoFindAll: [Todo!]!
-    TodoFindById(id: ID!): Todo!
+    TodoFindAll: [Todo!]! @isLoggedIn(isLogged: true)
+    TodoFindById(id: ID!): Todo! @isLoggedIn(isLogged: true)
 
     # User
-    UserFindAll: [User!]!
-    UserFindById(id: ID!): User!
+    UserFindAll: [User!]! @isLoggedIn(isLogged: true)
+    UserFindById(id: ID!): User! @isLoggedIn(isLogged: true)
 }

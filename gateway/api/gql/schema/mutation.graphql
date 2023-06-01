@@ -1,17 +1,17 @@
 type Mutation {
     # Category
-    CategoryCreate(input: CategoryCreateRequest!): Category!
-    CategoryDelete(id: ID!): Boolean!
+    CategoryCreate(input: CategoryCreateRequest!): Category! @isLoggedIn(isLogged: true)
+    CategoryDelete(id: ID!): Boolean! @isLoggedIn(isLogged: true)
 
     # Todo
-    TodoCreate(input: TodoCreateRequest!): Todo!
-    TodoUpdate(id: ID!, input: TodoUpdateRequest!): Todo!
-    TodoDelete(id: ID!): Boolean!
+    TodoCreate(input: TodoCreateRequest!): Todo! @isLoggedIn(isLogged: true)
+    TodoUpdate(id: ID!, input: TodoUpdateRequest!): Todo! @isLoggedIn(isLogged: true)
+    TodoDelete(id: ID!): Boolean! @isLoggedIn(isLogged: true)
 
     # User
-    UserCreate(input: UserCreateRequest!): User!
-    UserUpdate(id: ID!, input: UserUpdateRequest!): User!
-    UserDelete(id: ID!): Boolean!
+    UserCreate(input: UserCreateRequest!): User! @isLoggedIn(isLogged: true)
+    UserUpdate(id: ID!, input: UserUpdateRequest!): User! @isLoggedIn(isLogged: true)
+    UserDelete(id: ID!): Boolean! @isLoggedIn(isLogged: true)
 
     # Auth
     AuthLogin(input: AuthLoginRequest!): AuthLoginResponse! @isLoggedIn(isLogged: false)

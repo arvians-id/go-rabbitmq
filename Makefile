@@ -6,9 +6,9 @@ table:
 
 pb:
 	protoc \
- 	--go_out=user/pb --go-grpc_out=user/pb \
- 	--go_out=category/pb --go-grpc_out=category/pb \
- 	--go_out=todo/pb --go-grpc_out=todo/pb \
+ 	--go_out=services/user/pb --go-grpc_out=services/user/pb \
+ 	--go_out=services/category/pb --go-grpc_out=services/category/pb \
+ 	--go_out=services/todo/pb --go-grpc_out=services/todo/pb \
  	--go_out=gateway/pb --go-grpc_out=gateway/pb \
 	--go_opt=paths=source_relative --go-grpc_opt=paths=source_relative --proto_path=proto \
 	./proto/*.proto

@@ -22,11 +22,11 @@ $ git clone https://github.com/arvians-id/go-rabbitmq.git
 $ cd go-rabbitmq
 
 # Copy .env.example to .env
-$ cp category/.env.example category/.env \
-    && cp todo/.env.example todo/.env \
-    && cp user/.env.example user/.env \
-    && cp worker/.env.example worker/.env \
-    && cp category_todo/.env.example category_todo/.env \
+$ cp services/category/.env.example services/category/.env \
+    && cp services/todo/.env.example services/todo/.env \
+    && cp services/user/.env.example services/user/.env \
+    && cp services/worker/.env.example services/worker/.env \
+    && cp services/category_todo/.env.example services/category_todo/.env \
     && cp gateway/.env.example gateway/.env
 
 # Move to each directory and install the dependencies

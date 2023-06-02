@@ -3,6 +3,7 @@ package resolver
 import (
 	"context"
 	"github.com/arvians-id/go-rabbitmq/gateway/api/gql/model"
+	"github.com/arvians-id/go-rabbitmq/gateway/helper"
 	"github.com/arvians-id/go-rabbitmq/gateway/pb"
 )
 
@@ -45,6 +46,11 @@ func (r *queryResolver) CategoryFindByID(ctx context.Context, id int64) (*model.
 
 // CategoryCreate is the resolver for the CategoryCreate field.
 func (r *mutationResolver) CategoryCreate(ctx context.Context, input model.CategoryCreateRequest) (*model.Category, error) {
+	err := helper.ValidateStruct(input)
+	if err != nil {
+		return nil, err
+	}
+
 	category, _, err := r.CategoryServices.Create(ctx, &pb.CreateCategoryRequest{
 		Name: input.Name,
 	})

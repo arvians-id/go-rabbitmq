@@ -4,3 +4,4 @@
 database/postgres/data
 database/rabbitmq
 */.env
+services/*/.env

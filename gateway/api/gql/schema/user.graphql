@@ -16,5 +16,5 @@ input UserCreateRequest {
 
 input UserUpdateRequest {
     name: String! @goTag(key: "validate" ,value: "required,min=3")
-    password: String @goTag(key: "validate" ,value: "required,min=6")
+    password: String @goTag(key: "validate" ,value: "omitempty,min=6")
 }

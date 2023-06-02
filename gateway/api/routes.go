@@ -92,9 +92,8 @@ func NewRoutes(configuration config.Config, logFile *os.File, ch *amqp091.Channe
 		return c.SendString("Welcome to my API Todo List")
 	})
 
-	// Set Routes
+	// Set Restful API
 	auth.NewAuthRoute(app, configuration, ch)
-
 	apiGroup := app.Group("/api")
 	userService := user.NewUserRoute(apiGroup, configuration, ch)
 	categoryService := category.NewCategoryRoute(apiGroup, configuration)

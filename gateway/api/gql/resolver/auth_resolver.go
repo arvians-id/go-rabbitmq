@@ -27,6 +27,25 @@ func (r *mutationResolver) AuthLogin(ctx context.Context, input model.AuthLoginR
 }
 
 func (r *mutationResolver) AuthRegister(ctx context.Context, input model.AuthRegisterRequest) (*model.AuthRegisterResponse, error) {
-	//TODO implement me
-	panic("implement me")
+	err := helper.ValidateStruct(input)
+	if err != nil {
+		return nil, err
+	}
+
+	user, _, err := r.UserService.Create(ctx, &pb.CreateUserRequest{
+		Name:     input.Name,
+		Email:    input.Email,
+		Password: input.Password,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	return &model.AuthRegisterResponse{
+		Id:        user.GetUser().GetId(),
+		Name:      user.GetUser().GetName(),
+		Email:     user.GetUser().GetEmail(),
+		CreatedAt: user.GetUser().GetCreatedAt(),
+		UpdatedAt: user.GetUser().GetUpdatedAt(),
+	}, nil
 }

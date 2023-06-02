@@ -85,5 +85,5 @@ type UserCreateRequest struct {
 
 type UserUpdateRequest struct {
 	Name     string  `json:"name" validate:"required,min=3"`
-	Password *string `json:"password,omitempty" validate:"required,min=6"`
+	Password *string `json:"password,omitempty" validate:"omitempty,min=6"`
 }
